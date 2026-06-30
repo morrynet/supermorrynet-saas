@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT | Affiliate Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e141a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444933;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #abd600;
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.15);
+        }
+        .podium-gradient {
+            background: linear-gradient(180deg, rgba(27, 32, 39, 0) 0%, rgba(171, 214, 0, 0.05) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#efc11c",
+                        "on-tertiary": "#3d2f00",
+                        "surface-dim": "#0e141a",
+                        "primary-container": "#c3f400",
+                        "primary": "#ffffff",
+                        "on-primary": "#283500",
+                        "error-container": "#93000a",
+                        "surface": "#0e141a",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "surface-container-highest": "#30353d",
+                        "background": "#0e141a",
+                        "tertiary": "#ffffff",
+                        "on-surface": "#dee3ec",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "primary-fixed": "#c3f400",
+                        "on-tertiary-container": "#7b6100",
+                        "on-primary-fixed": "#161e00",
+                        "inverse-on-surface": "#2c3138",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#343a41",
+                        "on-secondary": "#2e3132",
+                        "inverse-primary": "#506600",
+                        "primary-fixed-dim": "#abd600",
+                        "on-background": "#dee3ec",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "tertiary-fixed": "#ffe089",
+                        "surface-container": "#1b2027",
+                        "secondary-container": "#444748",
+                        "surface-container-lowest": "#090f15",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary-fixed": "#191c1d",
+                        "inverse-surface": "#dee3ec",
+                        "on-error": "#690005",
+                        "surface-tint": "#abd600",
+                        "outline": "#8e9379",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#171c23",
+                        "secondary": "#c5c7c8",
+                        "on-secondary-fixed-variant": "#444748",
+                        "tertiary-container": "#ffe089",
+                        "on-secondary-container": "#b3b5b6",
+                        "surface-container-high": "#252a32",
+                        "secondary-fixed": "#e1e3e4",
+                        "surface-variant": "#30353d",
+                        "on-primary-container": "#556d00",
+                        "outline-variant": "#444933"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-standard": "12px",
+                        "unit": "4px",
+                        "stack-dense": "4px",
+                        "margin-mobile": "12px",
+                        "margin-desktop": "16px",
+                        "gutter-terminal": "2px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-surface-tint selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 z-50 border-b border-outline-variant bg-background/80 backdrop-blur-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint cursor-pointer">menu</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-surface-tint">PRECISION SNIPER ICT</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6">
+<a class="font-label-caps text-label-caps text-surface-tint uppercase" href="#">Leaderboard</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-surface-tint transition-colors uppercase" href="#">Network</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-surface-tint transition-colors uppercase" href="#">Payouts</a>
+</nav>
+<span class="material-symbols-outlined text-surface-tint cursor-pointer">monitoring</span>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto space-y-6">
+<!-- Global Stats Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter-terminal bg-outline-variant p-[1px]">
+<div class="bg-surface-container p-6 flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Global Advocates</span>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-primary">12,482</span>
+<span class="text-surface-tint font-data-mono mb-2">+12%</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Monthly Referrals</span>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-primary">8,941</span>
+<span class="text-surface-tint font-data-mono mb-2">TARGET: 10K</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Institutional Payouts</span>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-primary">$1.2M</span>
+<span class="text-on-surface-variant font-data-mono mb-2">USD</span>
+</div>
+</div>
+</section>
+<!-- Top 3 Podium Visualization -->
+<section class="relative bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden pt-12 pb-8 px-4 md:px-12">
+
+<div class="relative z-10 grid grid-cols-3 items-end gap-4 max-w-4xl mx-auto">
+<!-- Rank 2 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="relative">
+<div class="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional high-contrast portrait of a male trader wearing a sleek black headset, lit with cinematic teal and lime green lighting against a dark institutional background. Sharp focus, tech-noir aesthetic, 8k resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCexLDmSP-VRCvg5SzbkpYLsrmMS_HIHXL_3eHDJ6DwAloKnFU2I-EjT8dHBw_1FWJtbH2a3879_GEjr2S0Vzd1bX-BpW5Ma3JbqBOgrM0M9L9QaeBNyivoFurgWO1yXAL5l-x1IfmUJMs8DJq73dcZzEuOnBEv6-JCjwZ_FtP85GyuhQ7W2owe787m4OiXhhxOk4Kc7K1rECc_YWFzlraVnQAzd0oKIl6NjFGtd_hcIvP92zTLACT3-unXaGwABzPxBIILB3JoDdr6"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary font-bold rounded px-2 py-0.5 text-[10px]">#2</div>
+</div>
+<div class="text-center">
+<p class="font-headline-sm text-headline-sm text-primary">NODE_092</p>
+<p class="font-data-mono text-secondary-fixed-dim">$142,500.00</p>
+<span class="inline-block mt-2 px-3 py-1 bg-secondary/10 border border-secondary/30 text-secondary text-[10px] font-bold rounded">GRADE A</span>
+</div>
+<div class="w-full h-24 md:h-32 bg-surface-container-highest border-t-2 border-secondary opacity-60 rounded-t-lg"></div>
+</div>
+<!-- Rank 1 (Podium Center) -->
+<div class="flex flex-col items-center gap-4 group -mb-4">
+<div class="relative">
+<div class="w-20 h-20 md:w-32 md:h-32 rounded-full border-4 border-surface-tint overflow-hidden neon-glow">
+<img class="w-full h-full object-cover" data-alt="A futuristic professional portrait of a successful female financial executive with short platinum hair, wearing dark corporate tech-wear. The scene is illuminated by neon lime accents and a soft blue volumetric light. Deep obsidian shadows, brutalist design elements, highly detailed digital gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUiD-S8wlhp0ViG4bDS3QsO4TLMAX0QkBQ59kxW2_oOsGlyYnTqT0FQ8VcfpWR-1Xbr-0pKs_Q9MPkILXTC-NxOokQAJ9PKJiM48UB85wQTaYFu_fVYG9jzyqo8rsdm4FKAbLSK0NRg8u0sEoMp7siLqsKFsguVP966h0TMNLxXKUU3zRFhyXQYIKiwlBffFVA0GD6Co_1f4io-9jEP4MXPoOGJKiNFqiOpU97tkhpYJUB6a6mq3QyBDrWsT09B6bh-NZVTJqW47Z"/>
+</div>
+<div class="absolute -bottom-3 -right-3 bg-surface-tint text-on-primary font-extrabold rounded px-3 py-1 text-xs">#1</div>
+</div>
+<div class="text-center">
+<p class="font-headline-md text-headline-md text-surface-tint tracking-tight">SNIPER_ALPHA</p>
+<p class="font-data-mono text-primary">$284,910.45</p>
+<span class="inline-block mt-2 px-3 py-1 bg-surface-tint/20 border border-surface-tint/50 text-surface-tint text-[10px] font-bold rounded">GRADE A+</span>
+</div>
+<div class="w-full h-32 md:h-48 podium-gradient border-t-4 border-surface-tint rounded-t-lg shadow-[0_0_30px_rgba(171,214,0,0.1)]"></div>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="relative">
+<div class="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-tertiary-fixed-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young professional institutional trader in a dark suit, illuminated by the glow of multiple trading monitors with green and red charts reflecting in his eyes. Obsidian environment, futuristic terminal aesthetic, cinematic lighting, ultra-detailed skin textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQpNOz_HVzENfOHN56w8uMUZC8lqW8W2F-3PJQrjXTU9LILAnE-3ZAFJ1Qnfhrs-bG95ABLpyHfRsCRiHuh01W2PLqkA4lMxTqV0oGCAJii2DfGEPcnANDsJOBRrnPmyXcm9TUay4hUEjw_w3HTG1nSh9vka31Qe48MHKyEpLpP_wODu360sBuYk6w82ERO6VAU_MxBPI7a_CNHrfbEAwrNJreFUHBOUzSL6AQzxufUTQ90oUuXqQSQxtfq5oAzxXCUAlex6IDslD1"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary-fixed-dim text-on-tertiary font-bold rounded px-2 py-0.5 text-[10px]">#3</div>
+</div>
+<div class="text-center">
+<p class="font-headline-sm text-headline-sm text-primary">QUANT_V3</p>
+<p class="font-data-mono text-tertiary-fixed-dim">$98,200.12</p>
+<span class="inline-block mt-2 px-3 py-1 bg-tertiary-fixed-dim/10 border border-tertiary-fixed-dim/30 text-tertiary-fixed-dim text-[10px] font-bold rounded">GRADE B+</span>
+</div>
+<div class="w-full h-20 md:h-28 bg-surface-container-highest border-t-2 border-tertiary-fixed-dim opacity-60 rounded-t-lg"></div>
+</div>
+</div>
+</section>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between bg-surface-container p-4 rounded-lg border border-outline-variant">
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 bg-surface-container-highest text-surface-tint font-label-caps text-label-caps rounded border border-surface-tint/30 transition-all hover:bg-surface-tint/10 uppercase">Weekly</button>
+<button class="flex-1 md:flex-none px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-label-caps rounded border border-outline-variant transition-all hover:border-surface-tint/30 uppercase">Monthly</button>
+<button class="flex-1 md:flex-none px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-label-caps rounded border border-outline-variant transition-all hover:border-surface-tint/30 uppercase">All-Time</button>
+</div>
+<div class="relative w-full md:w-72">
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface py-2 pl-10 pr-4 font-data-mono text-xs focus:ring-1 focus:ring-surface-tint focus:border-surface-tint rounded transition-all" placeholder="SEARCH AFFILIATE ID..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+</div>
+</div>
+<!-- Leaderboard Table -->
+<div class="bg-surface-container rounded-lg border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant">
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Rank</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Affiliate ID</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Tier</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Conv. Rate</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-right">Revenue</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Table Rows -->
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="p-4 font-data-mono text-primary">#4</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-outline-variant"></div>
+<span class="font-body-md text-on-surface font-semibold">MACRO_EYE</span>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-primary-container/10 text-on-primary-container border border-primary-container/20 text-[10px] font-bold rounded">PLATINUM</span>
+</td>
+<td class="p-4 font-data-mono text-surface-tint">14.2%</td>
+<td class="p-4 font-data-mono text-primary text-right">$88,412.00</td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="p-4 font-data-mono text-primary">#5</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-outline-variant"></div>
+<span class="font-body-md text-on-surface font-semibold">LIQUIDITY_RUN</span>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-primary-container/10 text-on-primary-container border border-primary-container/20 text-[10px] font-bold rounded">PLATINUM</span>
+</td>
+<td class="p-4 font-data-mono text-surface-tint">11.8%</td>
+<td class="p-4 font-data-mono text-primary text-right">$72,190.50</td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="p-4 font-data-mono text-primary">#6</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-outline-variant"></div>
+<span class="font-body-md text-on-surface font-semibold">TAPE_READ_X</span>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container border border-outline-variant text-[10px] font-bold rounded">GOLD</span>
+</td>
+<td class="p-4 font-data-mono text-surface-tint">9.4%</td>
+<td class="p-4 font-data-mono text-primary text-right">$64,000.00</td>
+</tr>
+<!-- Additional static rows for scroll demonstration -->
+<tr class="hover:bg-surface-variant transition-colors group opacity-80">
+<td class="p-4 font-data-mono text-primary">#7</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-outline-variant"></div>
+<span class="font-body-md text-on-surface font-semibold">ORDER_BLOCKER</span>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container border border-outline-variant text-[10px] font-bold rounded">GOLD</span>
+</td>
+<td class="p-4 font-data-mono text-surface-tint">8.9%</td>
+<td class="p-4 font-data-mono text-primary text-right">$59,200.00</td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group opacity-60">
+<td class="p-4 font-data-mono text-primary">#8</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-outline-variant"></div>
+<span class="font-body-md text-on-surface font-semibold">FIB_MASTER</span>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container border border-outline-variant text-[10px] font-bold rounded">GOLD</span>
+</td>
+<td class="p-4 font-data-mono text-surface-tint">7.1%</td>
+<td class="p-4 font-data-mono text-primary text-right">$48,500.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Sticky Rank Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-between h-16 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/90 backdrop-blur-lg border-t border-surface-tint/30 shadow-[0_-4px_24px_rgba(171,214,0,0.15)]">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-surface-tint uppercase">Your Rank</span>
+<span class="font-headline-sm text-headline-sm text-primary">#142 <span class="text-xs text-on-surface-variant opacity-70 font-body-sm">/ 12,482</span></span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-8">
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Current Month Payout</span>
+<p class="font-data-mono text-primary text-lg">$3,412.00</p>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Next Tier</span>
+<p class="font-data-mono text-surface-tint text-lg">PRO SNIPER <span class="text-xs text-on-surface-variant">($1,588 left)</span></p>
+</div>
+</div>
+<button class="bg-surface-tint text-on-primary font-label-caps text-label-caps py-2 px-6 rounded-lg font-bold hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-surface-tint/20 uppercase">
+            Claim Earnings
+        </button>
+</div>
+<!-- Mobile Bottom Navigation (Visible on md:hidden) -->
+<footer class="md:hidden fixed bottom-16 left-0 w-full h-16 bg-surface-container-lowest/90 border-t border-outline-variant backdrop-blur-lg flex justify-around items-center z-40">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-[8px] uppercase">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-surface-tint drop-shadow-[0_0_8px_rgba(171,214,0,0.5)] cursor-pointer">
+<span class="material-symbols-outlined">speed</span>
+<span class="font-label-caps text-[8px] uppercase">Leaderboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 cursor-pointer">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-label-caps text-[8px] uppercase">Tracking</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-caps text-[8px] uppercase">Finance</span>
+</div>
+</footer>
+<script>
+        // Micro-interaction for claiming earnings
+        document.querySelector('button[class*="Claim Earnings"]').addEventListener('click', function() {
+            this.textContent = 'PROCESSING...';
+            this.classList.add('opacity-50', 'pointer-events-none');
+            setTimeout(() => {
+                this.textContent = 'CLAIMED';
+                this.classList.remove('bg-surface-tint');
+                this.classList.add('bg-outline-variant', 'text-on-surface-variant');
+            }, 1500);
+        });
+
+        // Search highlight effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-1', 'ring-surface-tint');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-1', 'ring-surface-tint');
+        });
+    </script>
+</body></html>

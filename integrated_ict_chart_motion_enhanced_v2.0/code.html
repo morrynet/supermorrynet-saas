@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Live Chart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#111415",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#191c1d",
+                    "error-container": "#93000a",
+                    "secondary": "#ffb4aa",
+                    "on-tertiary-container": "#776300",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-dim": "#111415",
+                    "on-surface": "#e1e3e4",
+                    "on-error-container": "#ffdad6",
+                    "background": "#111415",
+                    "primary-container": "#c3f400",
+                    "outline-variant": "#444933",
+                    "surface-bright": "#373a3b",
+                    "on-primary-fixed": "#161e00",
+                    "surface-tint": "#abd600",
+                    "inverse-primary": "#506600",
+                    "surface-variant": "#323536",
+                    "on-secondary-fixed-variant": "#930005",
+                    "inverse-surface": "#e1e3e4",
+                    "surface-container-highest": "#323536",
+                    "surface-container": "#1d2021",
+                    "on-tertiary": "#3a3000",
+                    "on-primary": "#283500",
+                    "primary-fixed": "#c3f400",
+                    "tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "tertiary-fixed": "#ffe16d",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "surface-container-lowest": "#0c0f10",
+                    "primary-fixed-dim": "#abd600",
+                    "surface-container-high": "#282a2b",
+                    "secondary-fixed": "#ffdad5",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-background": "#e1e3e4",
+                    "inverse-on-surface": "#2e3132",
+                    "secondary-container": "#c5020b",
+                    "tertiary-container": "#ffe16d",
+                    "outline": "#8e9379",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-secondary-fixed": "#410001",
+                    "on-tertiary-fixed": "#221b00",
+                    "on-secondary": "#690003",
+                    "primary": "#ffffff",
+                    "on-secondary-container": "#ffd2cc",
+                    "on-error": "#690005",
+                    "on-primary-container": "#556d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "container-max-width": "1440px",
+                    "margin-desktop": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "data-lg": ["JetBrains Mono"],
+                    "data-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0B0E14; color: #e1e3e4; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(26, 29, 38, 0.7); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .neon-glow-primary { box-shadow: 0 0 20px rgba(195, 244, 0, 0.4); }
+        .blinking-dot { animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .chart-grid { background-image: linear-gradient(#2D3139 0.5px, transparent 0.5px), linear-gradient(90deg, #2D3139 0.5px, transparent 0.5px); background-size: 40px 40px; }
+        .fvg-zone { background: rgba(195, 244, 0, 0.15); border-left: 2px solid #c3f400; border-right: 2px solid #c3f400; }
+        .ob-zone { background: rgba(255, 180, 170, 0.2); border-top: 1.5px dashed #ffb4aa; border-bottom: 1.5px dashed #ffb4aa; }
+        .text-neon-lime { color: #c3f400; text-shadow: 0 0 8px rgba(195, 244, 0, 0.6); }
+        .execution-drawer-depth { box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05); }
+
+        /* Motion Transitions */
+        @keyframes signal-entry {
+            0% { opacity: 0; transform: translateY(-12px); background-color: rgba(0, 208, 132, 0.15); }
+            50% { background-color: rgba(0, 208, 132, 0.15); }
+            100% { opacity: 1; transform: translateY(0); background-color: transparent; }
+        }
+        .animate-signal-entry {
+            animation: signal-entry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes signal-exit {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.95); }
+        }
+        .animate-signal-exit {
+            animation: signal-exit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .transition-empty-state {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-container-low border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile h-16 z-50">
+<div class="flex items-center gap-3">
+<img alt="Morrynet Logo" class="w-8 h-8 rounded-full border border-outline-variant shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQgO0qgh0MG68-2XRvHdRNJozKCj64u6nJrIziu01UZCH6wPhdv82AlkaEQ8Tko34K1REg2FD4l6xSysZfsijSpUBek3o4YsBxA_UVWmabrCo5tkCL7Ds0Bb5sMyWAj8eMtYN5TCR4dR7dHUbDs90fqDEuzfNiajB59dFbaH1-RxfIwwxSDeGPfLdpZXE5SPluOHN4Tfe6xLEqZx7IIaKL0NtMJC-seqhAMrMNMgDbnhOGDAnBefny3bNy2sEXvg5fZ_o7mPMpW39"/>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tighter">EURUSD</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-2">
+<button class="text-label-caps font-label-caps px-2 py-1 bg-surface-variant rounded">M5</button>
+<button class="text-label-caps font-label-caps px-2 py-1 hover:bg-surface-variant transition-colors">M15</button>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/10 border border-primary-container/30">
+<span class="material-symbols-outlined text-primary-container text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[10px] font-bold text-primary-container tracking-wider">DATA INTEGRITY: VERIFIED</span>
+</div>
+</div>
+</header>
+<!-- Main Chart Canvas -->
+<main class="relative flex-grow w-full chart-grid overflow-hidden" id="main-chart">
+<!-- Time Selector Mobile Sticky -->
+<div class="md:hidden absolute top-4 left-4 right-4 z-20 flex justify-center">
+<div class="glass-panel rounded-full px-4 py-1.5 flex gap-5 shadow-lg border border-white/5">
+<span class="text-label-caps font-label-caps text-primary-container font-bold">M5</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">M15</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">H1</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">H4</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">D1</span>
+</div>
+</div>
+<!-- Live Status -->
+<div class="absolute top-4 right-4 z-20 flex items-center gap-2 glass-panel rounded-lg px-3 py-1.5 border border-white/5 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-primary-container blinking-dot shadow-[0_0_8px_#c3f400]"></div>
+<span class="text-label-caps font-label-caps text-on-surface font-bold tracking-widest">LIVE</span>
+</div>
+<!-- Chart Elements Simulation -->
+<div class="absolute inset-0 pt-24 px-4 pointer-events-none">
+<!-- Price Scales -->
+<div class="absolute right-0 top-0 bottom-0 w-14 border-l border-outline-variant flex flex-col justify-between py-10 items-center bg-surface/70 backdrop-blur-md">
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0920</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0910</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0900</span>
+<span class="text-data-sm font-data-sm text-primary bg-primary-container/30 px-1.5 py-0.5 rounded font-bold">1.0892</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0880</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0870</span>
+</div>
+<!-- Candlestick Mock -->
+<div class="flex items-end gap-1.5 h-full opacity-90">
+<div class="w-4 bg-secondary h-32 relative shadow-[0_0_10px_rgba(255,180,170,0.2)]"><div class="absolute -top-4 left-1/2 w-px h-40 bg-secondary/50 -translate-x-1/2"></div></div>
+<div class="w-4 bg-primary-container h-48 relative shadow-[0_0_10px_rgba(195,244,0,0.2)]"><div class="absolute -top-8 left-1/2 w-px h-64 bg-primary-container/50 -translate-x-1/2"></div></div>
+<div class="w-4 bg-secondary h-24 relative"></div>
+<div class="w-4 bg-primary-container h-56 relative"></div>
+<div class="w-4 bg-primary-container h-40 relative"></div>
+<!-- Current Price Line -->
+<div class="absolute left-0 right-14 top-[60%] border-t border-dashed border-primary-container/50">
+<div class="absolute right-0 -top-3.5 px-2.5 py-1 bg-primary-container text-on-primary-container text-data-sm font-bold rounded-l-md neon-glow-primary z-30">1.08924</div>
+</div>
+</div>
+<!-- ICT Annotations - High Contrast -->
+<!-- BOS -->
+<div class="absolute top-[45%] left-[30%] flex flex-col items-center animate-signal-entry">
+<span class="text-label-caps font-bold text-neon-lime mb-1 drop-shadow-md">BOS</span>
+<span class="material-symbols-outlined text-neon-lime" style="font-variation-settings: 'FILL' 1; font-size: 24px;">arrow_upward</span>
+</div>
+<!-- FVG Zone -->
+<div class="absolute top-[52%] left-[10%] w-[35%] h-12 fvg-zone flex items-center justify-center backdrop-blur-[2px] animate-signal-entry" style="animation-delay: 0.2s;">
+<span class="text-label-caps font-bold text-neon-lime tracking-widest drop-shadow-sm">FVG (M5)</span>
+</div>
+<!-- OB Zone -->
+<div class="absolute top-[70%] left-[45%] w-[45%] h-16 ob-zone flex items-start justify-start p-2 backdrop-blur-[2px]">
+<span class="text-label-caps font-bold text-secondary/90 tracking-widest">BULLISH ORDER BLOCK</span>
+</div>
+<!-- Liq Sweep -->
+<div class="absolute top-[38%] left-0 right-14 border-t-2 border-dotted border-on-tertiary-fixed-variant/80">
+<div class="absolute left-10 -top-6 flex flex-col items-center animate-signal-entry" style="animation-delay: 0.4s;">
+<span class="text-headline-md font-bold text-on-tertiary-fixed-variant drop-shadow-md">×</span>
+<span class="text-label-caps font-bold text-on-tertiary-fixed-variant -mt-2 tracking-widest">LIQ SWEEP</span>
+</div>
+</div>
+</div>
+<!-- Volume Bars -->
+<div class="absolute bottom-36 left-0 right-14 flex items-end gap-1.5 h-14 px-4 opacity-40">
+<div class="w-4 bg-primary-container h-[40%] rounded-t-sm"></div>
+<div class="w-4 bg-primary-container h-[80%] rounded-t-sm"></div>
+<div class="w-4 bg-secondary h-[30%] rounded-t-sm"></div>
+<div class="w-4 bg-primary-container h-[60%] rounded-t-sm"></div>
+<div class="w-4 bg-secondary h-[90%] rounded-t-sm"></div>
+<div class="w-4 bg-primary-container h-[45%] rounded-t-sm"></div>
+<div class="w-4 bg-primary-container h-[70%] rounded-t-sm"></div>
+</div>
+<!-- Execution Terminal Drawer -->
+<div class="absolute bottom-20 left-margin-mobile right-margin-mobile" id="execution-drawer">
+<div class="glass-panel rounded-2xl p-5 flex flex-col gap-3 execution-drawer-depth border-t border-white/10 animate-signal-entry">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-label-caps font-bold text-on-surface-variant tracking-wider">SECURE ORDER ROUTING</span>
+</div>
+<span class="px-2.5 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-black rounded-full shadow-sm">GRADE A+</span>
+</div>
+<div class="flex justify-between items-center bg-black/30 rounded-xl p-4 border border-white/5 transition-empty-state" id="terminal-content">
+<div class="flex flex-col">
+<span class="text-label-caps font-bold text-on-surface-variant/70 text-[9px] mb-1">ICT CONSENSUS</span>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md font-black text-primary">BUY (84%)</span>
+<span class="text-[11px] font-bold text-primary-container uppercase tracking-tighter">Strong Confidence</span>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-black text-label-caps active:scale-95 transition-all shadow-lg hover:shadow-primary-container/20 flex items-center justify-center" id="execute-btn">
+                    EXECUTE
+                </button>
+</div>
+<!-- Order Ledger Empty State (Hidden) -->
+<div class="hidden flex-col items-center justify-center py-6 transition-empty-state opacity-0" id="ledger-empty">
+<span class="material-symbols-outlined text-on-surface-variant/20 text-[48px]">history_edu</span>
+<span class="text-label-caps text-on-surface-variant/40 mt-2">NO RECENT EXECUTIONS</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl rounded-t-2xl shadow-2xl h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-90 transition-transform" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform shadow-md" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined" data-icon="rss_feed" style="font-variation-settings: 'FILL' 1;">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-90 transition-transform" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-90 transition-transform" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+    // Micro-interaction for current price movement
+    setInterval(() => {
+        const priceTag = document.querySelector('.neon-glow-primary');
+        const priceLine = priceTag.parentElement;
+        const currentPrice = 1.08920 + (Math.random() * 0.00010);
+        priceTag.innerText = currentPrice.toFixed(5);
+        
+        // Subtle vertical jitter for the price line to simulate live market
+        const currentTop = parseFloat(priceLine.style.top || 60);
+        const newTop = currentTop + (Math.random() - 0.5) * 0.1;
+        priceLine.style.top = `${newTop}%`;
+    }, 1000);
+
+    // Interactive Terminal Simulation
+    const executeBtn = document.getElementById('execute-btn');
+    const terminalContent = document.getElementById('terminal-content');
+    const ledgerEmpty = document.getElementById('ledger-empty');
+
+    executeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // 1. Signal Exit Animation
+        terminalContent.classList.add('animate-signal-exit');
+        
+        setTimeout(() => {
+            // 2. Hide Content / Show Empty State with Transition
+            terminalContent.classList.add('hidden');
+            ledgerEmpty.classList.remove('hidden');
+            
+            // Trigger Fade In for Empty State
+            requestAnimationFrame(() => {
+                ledgerEmpty.classList.remove('opacity-0');
+                ledgerEmpty.classList.add('opacity-100');
+            });
+
+            // 3. Optional: Create a temporary chart alert
+            createChartAlert();
+        }, 400);
+    });
+
+    function createChartAlert() {
+        const alert = document.createElement('div');
+        alert.className = 'absolute top-[20%] left-1/2 -translate-x-1/2 z-50 glass-panel px-6 py-3 rounded-xl border-primary-container/40 flex items-center gap-3 animate-signal-entry';
+        alert.innerHTML = `
+            <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <div class="flex flex-col">
+                <span class="text-label-caps font-bold text-primary tracking-widest">ORDER FILLED</span>
+                <span class="text-[10px] text-on-surface-variant font-mono">ID: 0x932...FF2</span>
+            </div>
+        `;
+        document.getElementById('main-chart').appendChild(alert);
+
+        // Auto-dismiss alert
+        setTimeout(() => {
+            alert.classList.add('animate-signal-exit');
+            setTimeout(() => alert.remove(), 400);
+        }, 3000);
+    }
+</script>
+</body></html>

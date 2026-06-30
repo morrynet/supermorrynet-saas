@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Risk Dashboard - INST-TRADER</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Glassmorphism utility */
+        .glass-panel {
+            background-color: rgba(17, 20, 21, 0.6); /* surface-dim */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(68, 73, 51, 0.5); /* outline-variant */
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        
+        /* Neon Glow utility */
+        .glow-primary {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+        }
+        .glow-error {
+            box-shadow: 0 0 20px rgba(255, 180, 171, 0.3);
+        }
+
+        /* Gauge animation */
+        @keyframes fillGauge {
+            from { width: 0; }
+            to { width: 68%; }
+        }
+        .animate-gauge {
+            animation: fillGauge 1s ease-out forwards;
+        }
+    </style>
+<!-- Tailwind Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8e9379",
+                    "tertiary-fixed": "#ffe16d",
+                    "surface-bright": "#373a3b",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#930005",
+                    "surface-container-highest": "#323536",
+                    "on-tertiary-fixed": "#221b00",
+                    "on-background": "#e1e3e4",
+                    "on-primary-fixed": "#161e00",
+                    "primary": "#ffffff",
+                    "on-surface": "#e1e3e4",
+                    "on-primary": "#283500",
+                    "primary-fixed": "#c3f400",
+                    "surface-container-lowest": "#0c0f10",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "secondary": "#ffb4aa",
+                    "outline-variant": "#444933",
+                    "surface-tint": "#abd600",
+                    "inverse-surface": "#e1e3e4",
+                    "primary-container": "#c3f400",
+                    "primary-fixed-dim": "#abd600",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "on-tertiary": "#3a3000",
+                    "surface": "#111415",
+                    "tertiary-container": "#ffe16d",
+                    "surface-dim": "#111415",
+                    "surface-variant": "#323536",
+                    "surface-container-low": "#191c1d",
+                    "on-secondary": "#690003",
+                    "inverse-primary": "#506600",
+                    "secondary-container": "#c5020b",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-primary-container": "#556d00",
+                    "surface-container-high": "#282a2b",
+                    "on-secondary-fixed": "#410001",
+                    "inverse-on-surface": "#2e3132",
+                    "tertiary": "#ffffff",
+                    "surface-container": "#1d2021",
+                    "secondary-fixed": "#ffdad5",
+                    "on-tertiary-container": "#776300",
+                    "background": "#111415",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-secondary-container": "#ffd2cc",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max-width": "1440px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "unit": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "data-sm": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "data-lg": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="bg-surface-dim/60 backdrop-blur-md fixed top-0 right-0 md:w-[calc(100%-240px)] w-full z-50 flex justify-between items-center px-margin-desktop h-16 border-b border-outline-variant">
+<div class="flex items-center gap-6">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg tracking-tighter text-primary">ORION TERMINAL</span>
+<!-- Web Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 h-full pt-4">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all pb-2" href="#">Markets</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all pb-2" href="#">Liquidity</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all pb-2" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<!-- Trailing Icons -->
+<div class="hidden md:flex items-center gap-3 text-on-surface-variant">
+<button class="hover:text-primary transition-all scale-95 active:scale-100"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="hover:text-primary transition-all scale-95 active:scale-100"><span class="material-symbols-outlined" data-icon="wifi_tethering">wifi_tethering</span></button>
+<button class="hover:text-primary transition-all scale-95 active:scale-100"><span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span></button>
+</div>
+<!-- Actions -->
+<button class="hidden md:block px-4 py-1.5 font-label-caps text-label-caps border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-colors rounded">Withdraw</button>
+<button class="px-4 py-1.5 font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed font-bold uppercase rounded hover:opacity-90 transition-opacity glow-primary scale-95 active:scale-100">Execute</button>
+</div>
+</header>
+<!-- SideNavBar (Web Only) -->
+<aside class="hidden md:flex flex-col h-full py-gutter bg-surface dark:bg-surface text-primary-fixed dark:text-primary-fixed font-body-md text-body-md fixed w-[240px] left-0 top-0 border-r border-outline-variant bg-surface-container-low z-50">
+<!-- Brand/Header -->
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary-fixed">INST-TRADER</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant">ID: 99284-A</div>
+</div>
+</div>
+<!-- Main Nav -->
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="show_chart">show_chart</span>
+<span>Terminal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span>Analytics</span>
+</a>
+<!-- Active Tab: Risk -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container border-r-4 border-primary-fixed opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-bold">Risk</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Security</span>
+</a>
+</nav>
+<!-- Footer Nav & CTA -->
+<div class="px-4 mt-auto flex flex-col gap-4">
+<button class="w-full py-3 bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps font-bold text-center rounded hover:opacity-90 transition-opacity glow-primary">TRADE NOW</button>
+<div class="flex flex-col gap-1 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-data-sm text-data-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contact_support">contact_support</span>
+<span class="font-data-sm text-data-sm">Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Mobile Bottom Nav (Constructed for mobile context based on SideNav JSON) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-highest border-t border-outline-variant flex justify-around items-center h-16 z-50 pb-safe">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="show_chart">show_chart</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-fixed p-2" href="#">
+<span class="material-symbols-outlined" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<div class="w-1 h-1 bg-primary-fixed rounded-full mt-0.5"></div>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 md:pb-8 md:pl-[240px] min-h-screen flex flex-col">
+<div class="max-w-container-max-width w-full mx-auto p-margin-mobile md:p-margin-desktop flex-1 flex flex-col gap-6">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-2">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary flex items-center gap-3">
+                        Global Risk Dashboard
+                        <div class="flex items-center gap-2 px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant">
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+<span class="font-data-sm text-data-sm text-primary-fixed">LIVE SYNC</span>
+</div>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Monitoring platform health and cross-node exposure limits.</p>
+</div>
+<div class="hidden md:flex font-data-sm text-data-sm text-on-surface-variant items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                    UTC 14:22:45
+                </div>
+</div>
+<!-- Emergency Kill Switch (Level 2 Elevation with Error accent) -->
+<section class="glass-panel p-6 rounded-lg border-error/30 relative overflow-hidden group">
+<div class="absolute inset-0 bg-error-container/10"></div>
+<div class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 border border-error/50 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl" data-icon="warning">warning</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-error">EMERGENCY PROTOCOL</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Close all open trades across all nodes and lock API execution immediately.</p>
+</div>
+</div>
+<button class="w-full md:w-auto px-8 py-3 bg-error-container text-on-error font-label-caps text-label-caps font-bold tracking-widest border border-error rounded hover:bg-error hover:text-on-error-container transition-all glow-error active:scale-95">
+                        INITIATE KILL SWITCH
+                    </button>
+</div>
+</section>
+<!-- Key Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Aggregate P&L -->
+<div class="glass-panel p-5 rounded-lg flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase">Aggregate P&amp;L</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="account_balance">account_balance</span>
+</div>
+<div class="font-data-lg text-data-lg text-primary-fixed mt-2">
+                        + $14,290.50
+                    </div>
+<div class="font-data-sm text-data-sm text-on-surface-variant flex items-center gap-1 mt-auto pt-4 border-t border-outline-variant/30">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed" data-icon="trending_up">trending_up</span>
+                        +2.4% Daily
+                    </div>
+</div>
+<!-- Total Open Exposure -->
+<div class="glass-panel p-5 rounded-lg flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase">Open Exposure</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="monitoring">monitoring</span>
+</div>
+<div class="font-data-lg text-data-lg text-primary mt-2">
+                        $1.24M
+                    </div>
+<div class="font-data-sm text-data-sm text-on-surface-variant mt-auto pt-4 border-t border-outline-variant/30 flex justify-between">
+<span>Max Allowed:</span>
+<span class="text-on-surface">$2.00M</span>
+</div>
+</div>
+<!-- Margin Usage -->
+<div class="glass-panel p-5 rounded-lg flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase">Margin Level</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="pie_chart">pie_chart</span>
+</div>
+<div class="font-data-lg text-data-lg text-primary mt-2">
+                        34.2%
+                    </div>
+<div class="mt-auto pt-4 flex items-center gap-2">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[34.2%] rounded-full"></div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Safe</span>
+</div>
+</div>
+<!-- Daily Drawdown Gauge -->
+<div class="glass-panel p-5 rounded-lg flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase">Drawdown Limit</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="speed">speed</span>
+</div>
+<div class="font-data-lg text-data-lg text-tertiary-fixed mt-2">
+                        - $4,500 <span class="text-on-surface-variant text-sm">/ $10k</span>
+</div>
+<div class="mt-auto pt-4 relative">
+<!-- Horizontal segmented bar simulating a gauge -->
+<div class="flex h-2 gap-1 w-full">
+<div class="flex-1 bg-tertiary-fixed rounded-l-sm opacity-100 glow-primary"></div>
+<div class="flex-1 bg-tertiary-fixed opacity-100"></div>
+<div class="flex-1 bg-tertiary-fixed opacity-100"></div>
+<div class="flex-1 bg-outline-variant opacity-30"></div>
+<div class="flex-1 bg-outline-variant opacity-30 rounded-r-sm"></div>
+</div>
+<div class="absolute right-0 -bottom-5 font-data-sm text-data-sm text-on-surface-variant text-[10px]">68% USED</div>
+</div>
+</div>
+</section>
+<!-- Platform Nodes Breakdown -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+<!-- Desktop Node -->
+<div class="glass-panel p-0 rounded-lg overflow-hidden border-l-4 border-l-primary-fixed">
+<div class="p-4 border-b border-outline-variant/30 bg-surface-container-low flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="desktop_windows">desktop_windows</span>
+<h3 class="font-headline-md text-headline-md text-primary">Desktop Node 01</h3>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed"></div>
+<span class="font-data-sm text-data-sm text-primary-fixed">CONNECTED</span>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Latency</span>
+<span class="font-data-sm text-data-sm text-primary">12ms <span class="text-on-surface-variant opacity-50">| LHR-GB</span></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Node Exposure</span>
+<span class="font-data-sm text-data-sm text-primary">$840K (67%)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Active Trades</span>
+<span class="font-data-sm text-data-sm text-primary">14 <span class="inline-block px-1 border border-outline-variant text-[10px] rounded ml-1 text-on-surface-variant">SCALP</span></span>
+</div>
+</div>
+</div>
+<!-- Mobile Node -->
+<div class="glass-panel p-0 rounded-lg overflow-hidden border-l-4 border-l-surface-tint">
+<div class="p-4 border-b border-outline-variant/30 bg-surface-container-low flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="smartphone">smartphone</span>
+<h3 class="font-headline-md text-headline-md text-primary">Mobile Node 01</h3>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed"></div>
+<span class="font-data-sm text-data-sm text-primary-fixed">CONNECTED</span>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Latency</span>
+<span class="font-data-sm text-data-sm text-primary">48ms <span class="text-on-surface-variant opacity-50">| LTE</span></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Node Exposure</span>
+<span class="font-data-sm text-data-sm text-primary">$400K (33%)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Active Trades</span>
+<span class="font-data-sm text-data-sm text-primary">3 <span class="inline-block px-1 border border-outline-variant text-[10px] rounded ml-1 text-on-surface-variant">DAY</span></span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

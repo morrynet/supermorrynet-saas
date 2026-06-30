@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voter Consensus Detail - Precision Sniper ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e1e3e4",
+                        "on-secondary-fixed": "#410001",
+                        "error": "#ffb4ab",
+                        "on-background": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-error": "#690005",
+                        "primary-container": "#c3f400",
+                        "inverse-on-surface": "#2e3132",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#ffffff",
+                        "outline-variant": "#444933",
+                        "tertiary-container": "#ffe16d",
+                        "surface-container-lowest": "#0c0f10",
+                        "surface-container-low": "#191c1d",
+                        "on-primary": "#283500",
+                        "tertiary": "#ffffff",
+                        "surface-container": "#1d2021",
+                        "tertiary-fixed": "#ffe16d",
+                        "primary-fixed-dim": "#abd600",
+                        "on-surface": "#e1e3e4",
+                        "surface": "#111415",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed": "#161e00",
+                        "inverse-primary": "#506600",
+                        "secondary-container": "#c5020b",
+                        "surface-tint": "#abd600",
+                        "secondary-fixed": "#ffdad5",
+                        "surface-variant": "#323536",
+                        "on-secondary": "#690003",
+                        "on-primary-container": "#556d00",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-bright": "#373a3b",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-container": "#776300",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed": "#c3f400",
+                        "background": "#111415",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#930005",
+                        "surface-dim": "#111415",
+                        "outline": "#8e9379",
+                        "secondary": "#ffb4aa",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-secondary-container": "#ffd2cc",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 0.8);
+            box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-pulse {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px #c3f400); }
+            50% { opacity: .7; filter: drop-shadow(0 0 8px #c3f400); }
+        }
+        .live-indicator {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Advanced Motion Feedback */
+        @keyframes signal-entry {
+            0% { opacity: 0; transform: translateY(10px); background-color: rgba(195, 244, 0, 0.2); }
+            50% { background-color: rgba(195, 244, 0, 0.4); }
+            100% { opacity: 1; transform: translateY(0); background-color: transparent; }
+        }
+        .signal-entry {
+            animation: signal-entry 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes signal-exit {
+            0% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(20px); height: 0; margin-top: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
+        }
+        .signal-exit {
+            animation: signal-exit 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes stagger-fade-in {
+            0% { opacity: 0; transform: translateY(4px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .stagger-item {
+            opacity: 0;
+            animation: stagger-fade-in 0.4s ease-out forwards;
+        }
+
+        /* Empty State transition */
+        .consensus-content {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .consensus-content.loading {
+            opacity: 0.1;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-[100] bg-surface-container-low border-b border-outline-variant h-16 flex items-center justify-between px-margin-mobile">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant active:scale-95 duration-100 transition-all text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md tracking-tighter text-primary">CONSENSUS MATRIX</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+</header>
+<main class="pt-16 pb-32">
+<!-- Summary Bar (Sticky below Header) -->
+<div class="sticky top-16 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant py-3 px-margin-mobile flex justify-around items-center">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">change_history</span>
+<span class="text-data-sm font-data-sm text-primary-container">BUY: 22</span>
+</div>
+<div class="w-px h-4 bg-outline-variant"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px] rotate-180">change_history</span>
+<span class="text-data-sm font-data-sm text-secondary">SELL: 4</span>
+</div>
+<div class="w-px h-4 bg-outline-variant"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">horizontal_rule</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">NEUTRAL: 5</span>
+</div>
+</div>
+<div class="px-margin-mobile mt-6 space-y-8 consensus-content" id="consensus-container">
+<!-- Category: Structure -->
+<section class="stagger-item" style="animation-delay: 0.1s;">
+<div class="flex items-center justify-between mb-3 border-l-2 border-primary-container pl-3">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant">STRUCTURE CATEGORY</h2>
+<span class="text-[10px] bg-primary-container/10 text-primary-container px-2 py-0.5 rounded-full font-bold">HIGH BIAS</span>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50">
+<th class="px-4 py-3 text-label-caps font-label-caps text-on-surface-variant border-b border-outline-variant">Voter</th>
+<th class="px-4 py-3 text-label-caps font-label-caps text-on-surface-variant border-b border-outline-variant">Logic</th>
+<th class="px-4 py-3 text-label-caps font-label-caps text-on-surface-variant border-b border-outline-variant text-right">Conf %</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="signal-entry" style="animation-delay: 0.2s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">HTF Structure</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Institutional</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm">arrow_upward</span>
+<span class="text-data-sm font-data-sm text-primary-container">BULL</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">94.2%</span>
+</td>
+</tr>
+<tr class="signal-entry" style="animation-delay: 0.3s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">D1 Bias</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Daily Projection</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm">shopping_cart</span>
+<span class="text-data-sm font-data-sm text-primary-container">BUY</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">88.5%</span>
+</td>
+</tr>
+<tr class="signal-entry" style="animation-delay: 0.4s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">BOS</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Break of Structure</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm">trending_up</span>
+<span class="text-data-sm font-data-sm text-primary-container">BULL</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">76.0%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Category: Liquidity -->
+<section class="stagger-item" style="animation-delay: 0.2s;">
+<div class="flex items-center justify-between mb-3 border-l-2 border-outline pl-3">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant">LIQUIDITY CATEGORY</h2>
+<span class="text-[10px] bg-outline-variant/20 text-on-surface-variant px-2 py-0.5 rounded-full font-bold">EXECUTION</span>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="bg-surface-container-high/20 signal-entry" style="animation-delay: 0.5s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">Order Block</span>
+<span class="text-[10px] text-on-surface-variant uppercase">M15 POI</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container neon-pulse"></div>
+<span class="text-data-sm font-data-sm text-primary">ACTIVE</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">WT: 2.5x</span>
+</td>
+</tr>
+<tr class="signal-entry" style="animation-delay: 0.6s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">FVG Fill</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Imbalance</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">check_circle</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">FILLED</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-on-surface-variant">WT: 1.0x</span>
+</td>
+</tr>
+<tr class="signal-entry" style="animation-delay: 0.7s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">Liq Sweep</span>
+<span class="text-[10px] text-on-surface-variant uppercase">SSL Taken</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">check_circle</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">FILLED</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-on-surface-variant">WT: 3.2x</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Category: Session -->
+<section class="stagger-item" style="animation-delay: 0.3s;">
+<div class="flex items-center justify-between mb-3 border-l-2 border-secondary pl-3">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant">SESSION CATEGORY</h2>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-bold">TIMING</span>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="signal-entry" style="animation-delay: 0.8s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">Asian Range</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Consolidation</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">radio_button_unchecked</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">NEUTRAL</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">0.0%</span>
+</td>
+</tr>
+<tr class="bg-surface-container-high/20 signal-entry" style="animation-delay: 0.9s;">
+<td class="px-4 py-3">
+<div class="flex flex-col">
+<span class="text-data-sm font-data-sm text-primary">London Sweep</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Expansion</span>
+</div>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-2 text-primary-container">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span class="text-data-sm font-data-sm">ACTIVE</span>
+</div>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">82.1%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- Live Signal Cast Overlay -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-sm z-[60]">
+<div class="bg-surface-container-highest border border-primary-container/30 rounded-full py-2 px-4 shadow-2xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary-container live-indicator"></div>
+<span class="text-label-caps font-label-caps text-secondary-container">LIVE</span>
+</div>
+<div class="w-px h-3 bg-outline-variant"></div>
+<p class="text-[11px] font-medium text-on-surface">Casting Live to TikTok/YouTube</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-5 h-5 rounded-full border border-surface bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px]">podcasts</span>
+</div>
+<div class="w-5 h-5 rounded-full border border-surface bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px]">videocam</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl rounded-t-xl shadow-lg h-[72px]">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</button>
+</nav>
+<script>
+    // Micro-interactions and Motion Simulation
+    document.querySelectorAll('tbody tr').forEach(row => {
+        row.addEventListener('click', () => {
+            // Trigger a 'status update' motion feedback simulation
+            row.classList.remove('signal-entry');
+            void row.offsetWidth; // Force reflow
+            row.classList.add('signal-entry');
+            
+            // Haptic feedback
+            if ('vibrate' in navigator) navigator.vibrate(5);
+        });
+    });
+
+    // Handle removing a category or item (exit animation simulation)
+    const simulateItemRemoval = (target) => {
+        target.classList.add('signal-exit');
+        target.addEventListener('animationend', () => {
+            target.style.display = 'none';
+        }, { once: true });
+    };
+
+    // Simulate polished transition between empty and active
+    const simulateRefresh = () => {
+        const container = document.getElementById('consensus-container');
+        container.classList.add('loading');
+        
+        setTimeout(() => {
+            container.classList.remove('loading');
+            const items = container.querySelectorAll('.stagger-item');
+            items.forEach((item, idx) => {
+                item.style.animation = 'none';
+                void item.offsetWidth;
+                item.style.animation = '';
+                item.style.animationDelay = `${idx * 0.1}s`;
+            });
+        }, 800);
+    };
+
+    // Haptic simulation on navigation buttons
+    document.querySelectorAll('nav button').forEach(btn => {
+        btn.addEventListener('touchstart', () => {
+            if ('vibrate' in navigator) navigator.vibrate(10);
+        });
+    });
+</script>
+</body></html>

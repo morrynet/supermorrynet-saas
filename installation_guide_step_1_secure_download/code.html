@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Installation Guide - Step 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.2);
+        }
+        .step-gradient {
+            background: linear-gradient(90deg, #c3f400 0%, #111415 100%);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .pulse-dot {
+            animation: pulse-slow 2s infinite;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#506600",
+                    "secondary-container": "#c5020b",
+                    "surface-tint": "#abd600",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-primary-fixed": "#161e00",
+                    "tertiary-fixed": "#ffe16d",
+                    "primary-fixed-dim": "#abd600",
+                    "surface": "#111415",
+                    "on-surface": "#e1e3e4",
+                    "surface-container-low": "#191c1d",
+                    "on-primary": "#283500",
+                    "tertiary": "#ffffff",
+                    "surface-container": "#1d2021",
+                    "tertiary-container": "#ffe16d",
+                    "surface-container-lowest": "#0c0f10",
+                    "primary": "#ffffff",
+                    "outline-variant": "#444933",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "on-error": "#690005",
+                    "primary-container": "#c3f400",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#2e3132",
+                    "on-secondary-fixed": "#410001",
+                    "inverse-surface": "#e1e3e4",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#323536",
+                    "on-background": "#e1e3e4",
+                    "secondary": "#ffb4aa",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-secondary-container": "#ffd2cc",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#282a2b",
+                    "surface-dim": "#111415",
+                    "outline": "#8e9379",
+                    "on-tertiary": "#3a3000",
+                    "on-secondary-fixed-variant": "#930005",
+                    "on-surface-variant": "#c4c9ac",
+                    "primary-fixed": "#c3f400",
+                    "background": "#111415",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-tertiary-container": "#776300",
+                    "surface-bright": "#373a3b",
+                    "on-tertiary-fixed": "#221b00",
+                    "on-secondary": "#690003",
+                    "on-primary-container": "#556d00",
+                    "secondary-fixed": "#ffdad5",
+                    "surface-variant": "#323536"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max-width": "1440px",
+                    "margin-desktop": "32px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "data-sm": ["JetBrains Mono"],
+                    "data-lg": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Top AppBar (from JSON) -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface/60 backdrop-blur-xl flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed">security</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">DISTRIBUTION HUB</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile">
+<!-- Step Indicator -->
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-data-lg text-data-lg text-primary-fixed">Step 01 <span class="text-on-surface-variant opacity-40">/ 03</span></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Protocol: Initialization</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-primary-fixed shadow-[0_0_8px_#c3f400]"></div>
+</div>
+</div>
+<!-- Title Section -->
+<section class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Encrypted Package Acquisition</h2>
+<p class="text-on-surface-variant opacity-80 leading-relaxed">
+                To initiate the deployment of <span class="text-primary font-bold">Precision Sniper ICT</span>, you must first secure the verified terminal package from our institutional node.
+            </p>
+</section>
+<!-- Technical Guide Card -->
+<div class="glass-panel rounded-xl p-6 mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h3 class="font-headline-md text-headline-md text-primary">Node Verification</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed mt-1">01.</span>
+<p class="text-sm">Navigate to the <span class="font-bold text-on-surface">Terminal Access</span> section within the central Distribution Hub interface.</p>
+</li>
+<li class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed mt-1">02.</span>
+<p class="text-sm">Locate the <span class="font-bold text-on-surface">Precision Sniper ICT APK</span> encrypted container under active assets.</p>
+</li>
+<li class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed mt-1">03.</span>
+<p class="text-sm">Execute the trigger action displayed below to begin the handshake and download process.</p>
+</li>
+</ul>
+</div>
+<!-- Reference Visual (Visual Representation of Download Button) -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary-fixed/20 to-transparent blur opacity-30"></div>
+<div class="glass-panel border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center gap-6">
+<span class="font-label-caps text-label-caps text-on-surface-variant opacity-60 uppercase">Reference: Institutional Trigger {{DATA:SCREEN:SCREEN_32}}</span>
+<!-- The "Download APK" Button Mockup -->
+<button class="bg-primary-fixed text-on-primary-fixed font-headline-md px-10 py-4 rounded-lg flex items-center gap-3 shadow-[0_0_20px_rgba(195,244,0,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">download</span>
+<span class="uppercase font-extrabold tracking-tight">DOWNLOAD APK</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed pulse-dot"></div>
+<span class="font-data-sm text-data-sm text-on-surface-variant italic">Node Status: Secure &amp; Synchronized</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation / Action Bar -->
+<div class="fixed bottom-0 w-full z-50 border-t border-outline-variant bg-surface/80 backdrop-blur-lg flex flex-col items-center justify-center h-28 px-margin-mobile">
+<button class="w-full max-w-md bg-transparent border border-primary-fixed text-primary-fixed font-headline-md py-4 rounded-lg flex items-center justify-center gap-2 group hover:bg-primary-fixed hover:text-on-primary-fixed transition-all duration-300">
+<span class="uppercase font-bold tracking-widest">Next Step: Security Handshake</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="mt-2">
+<span class="font-label-caps text-[9px] text-on-surface-variant opacity-40 uppercase tracking-[0.2em]">End-to-End Encryption Active (AES-256)</span>
+</div>
+</div>
+<!-- Background Atmospheric Elements -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+
+<div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary-fixed/5 blur-[120px] rounded-full"></div>
+</div>
+<script>
+        // Micro-interactions
+        document.querySelector('button').addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        document.querySelector('button').addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body></html>

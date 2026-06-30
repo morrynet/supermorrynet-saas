@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deployment Successful | Institutional Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-container {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(171, 214, 0, 0.3);
+        }
+        
+        /* New Animations */
+        @keyframes scale-up-pulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.2; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        
+        @keyframes draw-check {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes fade-slide-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shimmer-glow {
+            0% { box-shadow: 0 0 10px rgba(195, 244, 0, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(195, 244, 0, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(195, 244, 0, 0.2); }
+        }
+        
+        @keyframes white-out {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .animate-scale-up-pulse {
+            animation: scale-up-pulse 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        .success-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .animate-draw {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw-check 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+        
+        .animate-fade-slide-up {
+            opacity: 0;
+            animation: fade-slide-up 0.6s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.2s; }
+        .delay-200 { animation-delay: 0.4s; }
+        .delay-300 { animation-delay: 0.6s; }
+        .delay-400 { animation-delay: 0.8s; }
+        
+        .shimmer-glow {
+            animation: shimmer-glow 3s infinite ease-in-out;
+        }
+        
+        .flash-active {
+            animation: white-out 0.8s ease-in forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#e1e3e4",
+                      "surface-container-highest": "#323536",
+                      "on-error": "#690005",
+                      "surface-container": "#1d2021",
+                      "on-primary": "#283500",
+                      "inverse-primary": "#506600",
+                      "secondary": "#ffb4aa",
+                      "surface": "#111415",
+                      "on-secondary-container": "#ffd2cc",
+                      "surface-dim": "#111415",
+                      "primary-fixed-dim": "#abd600",
+                      "outline-variant": "#444933",
+                      "surface-container-high": "#282a2b",
+                      "on-secondary-fixed-variant": "#930005",
+                      "on-background": "#e1e3e4",
+                      "inverse-on-surface": "#2e3132",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "primary": "#ffffff",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-primary-container": "#556d00",
+                      "surface-container-lowest": "#0c0f10",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "error": "#ffb4ab",
+                      "background": "#111415",
+                      "on-secondary": "#690003",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "on-secondary-fixed": "#410001",
+                      "primary-container": "#c3f400",
+                      "on-tertiary": "#3a3000",
+                      "outline": "#8e9379",
+                      "on-tertiary-container": "#776300",
+                      "primary-fixed": "#c3f400",
+                      "on-tertiary-fixed": "#221b00",
+                      "surface-variant": "#323536",
+                      "on-surface": "#e1e3e4",
+                      "error-container": "#93000a",
+                      "surface-tint": "#abd600",
+                      "on-surface-variant": "#c4c9ac",
+                      "on-primary-fixed": "#161e00",
+                      "surface-container-low": "#191c1d",
+                      "secondary-container": "#c5020b",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#ffe16d",
+                      "secondary-fixed": "#ffdad5",
+                      "tertiary": "#ffffff",
+                      "surface-bright": "#373a3b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px",
+                      "container-max-width": "1440px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "data-lg": ["JetBrains Mono"],
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "data-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-transparent text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container relative">
+<!-- WebGL Background Canvas -->
+<canvas class="fixed inset-0 z-[-2] w-full h-full pointer-events-none" id="glcanvas"></canvas>
+<!-- TopAppBar Fragment -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface/40 backdrop-blur-xl flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 animate-fade-slide-up">
+<div class="flex items-center gap-2">
+<!-- Leading icon removed per prompt instructions for focused success state -->
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">DISTRIBUTION HUB</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary-fixed-dim transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-16 flex items-center justify-center px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="max-w-xl w-full flex flex-col items-center text-center py-12">
+<!-- Success Visual -->
+<div class="relative mb-12 animate-scale-up-pulse">
+<div class="absolute inset-0 success-pulse bg-primary-fixed/20 rounded-full blur-2xl"></div>
+<div class="relative w-32 h-32 md:w-40 md:h-40 glass-container rounded-full flex items-center justify-center neon-glow border-primary-fixed/30">
+<svg class="text-primary-fixed" fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path class="animate-draw" d="M8 12L11 15L16 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Headlines -->
+<div class="space-y-4 mb-10 animate-fade-slide-up delay-100">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">System Deployment Successful</h1>
+<p class="text-on-surface-variant max-w-md mx-auto">
+                    Precision Sniper ICT is now active and synchronized with your device node. Institutional execution protocols are engaged.
+                </p>
+</div>
+<!-- System Status Card -->
+<div class="glass-container w-full p-6 rounded-xl mb-12 text-left grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-slide-up delay-200">
+<div class="flex flex-col gap-1">
+<span class="text-label-caps font-label-caps text-on-surface-variant/60 uppercase">Node Identity</span>
+<span class="font-data-lg text-data-lg text-primary-fixed">INSTITUTIONAL</span>
+</div>
+<div class="flex flex-col gap-1 border-l border-outline-variant/30 pl-0 md:pl-6">
+<span class="text-label-caps font-label-caps text-on-surface-variant/60 uppercase">Protocol</span>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+<span class="font-data-lg text-data-lg text-on-surface">ACTIVE</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 border-l border-outline-variant/30 pl-0 md:pl-6">
+<span class="text-label-caps font-label-caps text-on-surface-variant/60 uppercase">Encryption</span>
+<span class="font-data-lg text-data-lg text-on-surface">AES-256</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col gap-4 w-full sm:w-80 animate-fade-slide-up delay-300">
+<button class="bg-primary-fixed text-on-primary-fixed font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-all active:scale-95 shimmer-glow group relative overflow-hidden" id="launchBtn">
+<span class="text-label-caps font-label-caps uppercase tracking-widest relative z-10">Launch Terminal</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10" data-icon="terminal">terminal</span>
+</button>
+<a class="text-on-surface-variant hover:text-primary-fixed transition-colors text-body-md flex items-center justify-center gap-2 group" href="#">
+                    View Onboarding Guide
+                    <span class="material-symbols-outlined text-sm opacity-60 group-hover:opacity-100" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</main>
+<!-- Flash Overlay -->
+<div class="fixed inset-0 bg-primary-fixed z-[100] pointer-events-none opacity-0" id="flashOverlay"></div>
+<!-- Background Decorative Element -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<!-- Scripts -->
+<script>
+        // Subtle parallax effect on the success container
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+            const container = document.querySelector('.glass-container');
+            if(container) {
+                container.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+
+        // Launch Interaction
+        const launchBtn = document.getElementById('launchBtn');
+        const flashOverlay = document.getElementById('flashOverlay');
+        
+        launchBtn.addEventListener('click', () => {
+            flashOverlay.classList.add('flash-active');
+            // Optional: simulate navigation after animation
+            setTimeout(() => {
+                console.log('Navigating to Terminal...');
+            }, 800);
+        });
+
+        // Initialize any data states if needed
+        console.log('Institutional Deployment Initialized - Secure Node Active');
+        
+        // --- WebGL Shader Background ---
+        const canvas = document.getElementById('glcanvas');
+        const gl = canvas.getContext('webgl');
+
+        if (gl) {
+            // Vertex Shader
+            const vsSource = `
+                attribute vec4 a_position;
+                varying vec2 v_texCoord;
+                void main() {
+                    gl_Position = a_position;
+                    v_texCoord = a_position.xy * 0.5 + 0.5;
+                }
+            `;
+
+            // Fragment Shader (from Animation 58)
+            const fsSource = `
+                precision highp float;
+                uniform float u_time;
+                uniform vec2 u_resolution;
+                varying vec2 v_texCoord;
+
+                void main() {
+                    vec2 uv = v_texCoord;
+                    
+                    // Base dark background
+                    vec3 color = vec3(0.05, 0.06, 0.08);
+                    
+                    // Neon Lime color from Precision Sniper ICT palette
+                    vec3 accent = vec3(0.8, 1.0, 0.0);
+                    
+                    // Vertical scanning pulse
+                    float pulse = sin(uv.y * 10.0 - u_time * 2.0) * 0.5 + 0.5;
+                    pulse = pow(pulse, 20.0);
+                    color += accent * pulse * 0.15;
+                    
+                    // Digital "glitch" lines
+                    float lines = sin(uv.y * 100.0 + u_time * 5.0) * 0.5 + 0.5;
+                    lines = step(0.98, lines);
+                    color += accent * lines * 0.1;
+                    
+                    // Vignette
+                    float dist = distance(uv, vec2(0.5));
+                    color *= 1.0 - smoothstep(0.4, 0.8, dist);
+                    
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vsSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+            const shaderProgram = gl.createProgram();
+            gl.attachShader(shaderProgram, vertexShader);
+            gl.attachShader(shaderProgram, fragmentShader);
+            gl.linkProgram(shaderProgram);
+
+            const programInfo = {
+                program: shaderProgram,
+                attribLocations: {
+                    vertexPosition: gl.getAttribLocation(shaderProgram, 'a_position'),
+                },
+                uniformLocations: {
+                    uTime: gl.getUniformLocation(shaderProgram, 'u_time'),
+                    uResolution: gl.getUniformLocation(shaderProgram, 'u_resolution'),
+                },
+            };
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            const positions = [
+                 1.0,  1.0,
+                -1.0,  1.0,
+                 1.0, -1.0,
+                -1.0, -1.0,
+            ];
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+            function resizeCanvasToDisplaySize(canvas) {
+                const displayWidth  = canvas.clientWidth;
+                const displayHeight = canvas.clientHeight;
+                if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+                    canvas.width  = displayWidth;
+                    canvas.height = displayHeight;
+                }
+            }
+
+            let startTime = Date.now();
+
+            function render() {
+                resizeCanvasToDisplaySize(canvas);
+                gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+                gl.useProgram(programInfo.program);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(programInfo.attribLocations.vertexPosition, 2, gl.FLOAT, false, 0, 0);
+                gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
+
+                const currentTime = (Date.now() - startTime) * 0.001;
+                gl.uniform1f(programInfo.uniformLocations.uTime, currentTime);
+                gl.uniform2f(programInfo.uniformLocations.uResolution, gl.canvas.width, gl.canvas.height);
+
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+            }
+            render();
+        }
+    </script>
+</body></html>

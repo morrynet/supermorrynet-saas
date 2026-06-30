@@ -1,0 +1,448 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Precision Sniper ICT - Bridge Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#556d00",
+                        "primary": "#ffffff",
+                        "on-secondary-container": "#ffd2cc",
+                        "on-error": "#690005",
+                        "on-secondary": "#690003",
+                        "on-tertiary-fixed": "#221b00",
+                        "tertiary-container": "#ffe16d",
+                        "outline": "#8e9379",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-secondary-fixed": "#410001",
+                        "on-background": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132",
+                        "secondary-container": "#c5020b",
+                        "secondary-fixed": "#ffdad5",
+                        "on-surface-variant": "#c4c9ac",
+                        "surface-container-lowest": "#0c0f10",
+                        "primary-fixed-dim": "#abd600",
+                        "surface-container-high": "#282a2b",
+                        "tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "tertiary-fixed": "#ffe16d",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "primary-fixed": "#c3f400",
+                        "surface-container": "#1d2021",
+                        "on-tertiary": "#3a3000",
+                        "on-primary": "#283500",
+                        "surface-container-highest": "#323536",
+                        "on-secondary-fixed-variant": "#930005",
+                        "inverse-surface": "#e1e3e4",
+                        "surface-variant": "#323536",
+                        "surface-tint": "#abd600",
+                        "inverse-primary": "#506600",
+                        "surface-bright": "#373a3b",
+                        "on-primary-fixed": "#161e00",
+                        "outline-variant": "#444933",
+                        "primary-container": "#c3f400",
+                        "background": "#111415",
+                        "surface-dim": "#111415",
+                        "on-surface": "#e1e3e4",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-container": "#776300",
+                        "error-container": "#93000a",
+                        "secondary": "#ffb4aa",
+                        "surface-container-low": "#191c1d",
+                        "surface": "#111415",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-max-width": "1440px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.3);
+        }
+        .terminal-gradient {
+            background: linear-gradient(180deg, rgba(17, 20, 21, 0) 0%, rgba(195, 244, 0, 0.05) 100%);
+        }
+        body {
+            background-color: #0b0e14;
+            color: #e1e3e4;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #111415; }
+        ::-webkit-scrollbar-thumb { background: #444933; border-radius: 2px; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-background/80 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">menu</span>
+<div class="flex items-center gap-2">
+<img alt="Morrynet Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRSLdqk64DpeT10iZX7XHGcCj7cYBns-Qlyfl8mu9lJU0rEe6hNdUr41WEvD3WcS-Zgcp5wNF-IkagxBhCzdgV_HKJWCRL9Lo3m6Ts2aoDE4rjWFXT-Vc8Qyd0jI_jGu3GCqMLZsr_B7QOgxSomV67YXi2eROptkwZuz-cqX7x4kxkT2gNvdslfhK1v3vLTGYd7rLsu7TbRw-QW6xDOmFrTt3t0wTJXGL6ywihOihmi-w1DpSe6OjavYmeslgBCBCkVtu27wflwCvS">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-container">BRIDGE MANAGEMENT</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-container transition-colors" href="#">DASHBOARD</a>
+<a class="font-label-caps text-label-caps text-primary-container" href="#">BRIDGE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-container transition-colors" href="#">TERMINAL</a>
+</div>
+<span class="material-symbols-outlined text-primary-container active:scale-95 duration-150 cursor-pointer">account_balance_wallet</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<!-- Connectivity Status -->
+<section class="mb-gutter">
+<div class="glass-panel p-6 rounded flex items-center justify-between terminal-gradient">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-3 h-3 bg-primary-container rounded-full animate-pulse"></div>
+<div class="absolute inset-0 w-3 h-3 bg-primary-container rounded-full animate-ping opacity-50"></div>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">SYSTEM STATUS</p>
+<h2 class="font-headline-md text-headline-md text-primary-container">READY TO LINK</h2>
+</div>
+</div>
+<div class="text-right hidden md:block">
+<p class="font-data-sm text-data-sm text-on-surface-variant">SECURE_TUNNEL: ACTIVE</p>
+<p class="font-data-sm text-data-sm text-on-surface-variant">PROTOCOL: MT-BRIDGE_V4.2</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Config -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Platform Selection -->
+<div class="glass-panel p-6 rounded">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4">SELECT TRADING PLATFORM</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="border border-primary-container bg-on-primary-container/10 p-4 flex flex-col items-center gap-2 rounded cursor-pointer group transition-all">
+<span class="material-symbols-outlined text-primary-container text-4xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps text-primary-container">METATRADER 4</span>
+</div>
+<div class="border border-outline-variant hover:border-on-surface-variant p-4 flex flex-col items-center gap-2 rounded cursor-pointer group transition-all opacity-60">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">monitoring</span>
+<span class="font-label-caps text-label-caps">METATRADER 5</span>
+</div>
+<div class="border border-outline-variant hover:border-on-surface-variant p-4 flex flex-col items-center gap-2 rounded cursor-pointer group transition-all opacity-40 grayscale">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">currency_exchange</span>
+<span class="font-label-caps text-label-caps">C-TRADER</span>
+</div>
+<div class="border border-outline-variant hover:border-on-surface-variant p-4 flex flex-col items-center gap-2 rounded cursor-pointer group transition-all opacity-40 grayscale">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">api</span>
+<span class="font-label-caps text-label-caps">FIX API</span>
+</div>
+</div>
+</div>
+<!-- Account Configuration -->
+<div class="glass-panel p-6 rounded">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">ACCOUNT CREDENTIALS</h3>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">ACCOUNT NUMBER</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" placeholder="e.g. 5092831" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">ACCOUNT TYPE</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-headline-md text-headline-md px-4 py-3 outline-none transition-all rounded appearance-none">
+<option>LIVE ACCOUNT</option>
+<option>DEMO ACCOUNT</option>
+</select>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">BROKER SERVER ADDRESS</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" placeholder="MT4Live-US-East-01" type="text">
+</div>
+<div class="space-y-2 md:col-span-2 relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant">TRADING PASSWORD</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" type="password" value="********">
+<span class="material-symbols-outlined absolute right-4 bottom-3 text-on-surface-variant cursor-pointer">visibility</span>
+</div>
+</form>
+</div>
+<!-- Linked Accounts -->
+<div class="glass-panel p-6 rounded">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE BRIDGES (2)</h3>
+<span class="font-data-sm text-data-sm text-primary-container">AUTO-RECONNECT: ON</span>
+</div>
+<div class="space-y-3">
+<!-- Account Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-on-primary-container/20 flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary-container">shield</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">IC-Markets Live 08</p>
+<p class="font-data-sm text-data-sm text-on-surface-variant">ID: 8820194 • <span class="text-primary-container">CONNECTED</span></p>
+</div>
+</div>
+<button class="font-label-caps text-label-caps text-error border border-error/50 px-4 py-2 hover:bg-error hover:text-on-error transition-all rounded">DISCONNECT</button>
+</div>
+<!-- Account Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-on-primary-container/20 flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary-container">shield</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">Pepperstone-Live03</p>
+<p class="font-data-sm text-data-sm text-on-surface-variant">ID: 440912 • <span class="text-primary-container">CONNECTED</span></p>
+</div>
+</div>
+<button class="font-label-caps text-label-caps text-error border border-error/50 px-4 py-2 hover:bg-error hover:text-on-error transition-all rounded">DISCONNECT</button>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">AUTO-RECONNECT LOGIC</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">Persistent Bridge Sync</p>
+<p class="text-sm text-on-surface-variant opacity-60">Maintain connection across network drops</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">RETRY THRESHOLD</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-body-md px-4 py-3 outline-none transition-all rounded appearance-none">
+<option>3 ATTEMPTS</option>
+<option>5 ATTEMPTS</option>
+<option selected="">CONTINUOUS</option>
+</select>
+</div>
+</div>
+</div><div class="glass-panel p-6 rounded">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">TRADE COPYING CONFIGURATION</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">MASTER ACCOUNT SELECTION</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-body-md px-4 py-3 outline-none transition-all rounded appearance-none">
+<option>IC-Markets Live 08 (8820194)</option>
+<option>Pepperstone-Live03 (440912)</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">LOT SIZE MULTIPLIER</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" placeholder="1.0" step="0.1" type="number" value="1.0">
+</div>
+<div class="flex items-center justify-between p-3 bg-on-primary-container/10 rounded border border-outline-variant/30">
+<span class="font-label-caps text-label-caps">RISK MIRRORING</span>
+<div class="w-10 h-5 bg-primary-container rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-0.5 w-4 h-4 bg-on-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div><div class="glass-panel p-6 rounded border-t-4 border-primary-container/30">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant">GLOBAL RISK LIMITS</h3>
+        <div class="flex items-center gap-3">
+            <span class="font-label-caps text-label-caps text-xs opacity-60">SAFETY SWITCH</span>
+            <div class="w-10 h-5 bg-primary-container rounded-full relative cursor-pointer">
+                <div class="absolute right-1 top-0.5 w-4 h-4 bg-on-primary rounded-full"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="space-y-6">
+        <div class="space-y-3">
+            <div class="flex justify-between items-center">
+                <label class="font-label-caps text-label-caps text-on-surface-variant">MAX DAILY DRAWDOWN %</label>
+                <span class="font-data-sm text-data-sm text-primary-container">5.0%</span>
+            </div>
+            <input type="range" min="1" max="10" value="5" class="w-full h-1 bg-surface-container-lowest rounded-lg appearance-none cursor-pointer accent-primary-container">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+                <label class="font-label-caps text-label-caps text-on-surface-variant">MAX TOTAL OPEN EXPOSURE</label>
+                <input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" placeholder="e.g. 50.0" type="number" value="10.0" step="0.1">
+            </div>
+            <div class="space-y-2">
+                <label class="font-label-caps text-label-caps text-on-surface-variant">EQUITY PROTECTION ($)</label>
+                <input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container text-on-surface font-data-lg text-data-lg px-4 py-3 outline-none transition-all rounded" placeholder="10,000" type="number" value="10000">
+            </div>
+        </div>
+
+        <button class="w-full border border-error/50 text-error font-bold py-4 rounded hover:bg-error hover:text-on-error transition-all flex items-center justify-center gap-2 group">
+            <span class="material-symbols-outlined text-lg">emergency_home</span>
+            <span class="font-label-caps text-label-caps tracking-widest">EMERGENCY KILL SWITCH</span>
+        </button>
+    </div>
+</div></div>
+<!-- Right Column: Security & Action -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Security Protocols -->
+<div class="glass-panel p-6 rounded border-l-4 border-primary-container">
+<h3 class="font-label-caps text-label-caps text-primary-container mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+                        SECURITY PROTOCOLS
+                    </h3>
+<div class="flex items-center justify-between mb-8">
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">Secure Bridge</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">ENCRYPTED TUNNELING</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full"></div>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="font-label-caps text-label-caps">AES-256 ENCRYPTION</p>
+<p class="text-sm text-on-surface-variant leading-tight">Military-grade encryption for all data packets.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">security</span>
+<div>
+<p class="font-label-caps text-label-caps">IP WHITELISTING</p>
+<p class="text-sm text-on-surface-variant leading-tight">Bridge only allows authorized static IPs.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Connection Terminal -->
+<div class="glass-panel p-6 rounded space-y-6">
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/30">
+<div class="flex justify-between items-center mb-2">
+<p class="font-label-caps text-label-caps text-on-surface-variant">LATENCY TEST</p>
+<span class="font-data-sm text-data-sm text-primary-container">OPTIMAL</span>
+</div>
+<div class="flex items-end gap-1 h-12">
+<div class="flex-1 bg-primary-container h-[20%] rounded-t-sm opacity-20"></div>
+<div class="flex-1 bg-primary-container h-[40%] rounded-t-sm opacity-40"></div>
+<div class="flex-1 bg-primary-container h-[35%] rounded-t-sm opacity-30"></div>
+<div class="flex-1 bg-primary-container h-[60%] rounded-t-sm opacity-60"></div>
+<div class="flex-1 bg-primary-container h-[85%] rounded-t-sm animate-pulse"></div>
+<div class="flex-1 bg-primary-container h-[55%] rounded-t-sm opacity-50"></div>
+</div>
+<p class="font-data-lg text-data-lg text-center mt-2 text-primary-container">15.3ms</p>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-bold py-6 rounded neon-glow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-caps text-label-caps text-lg tracking-widest">ESTABLISH BRIDGE</span>
+</button>
+<p class="text-xs text-center text-on-surface-variant opacity-60">
+                        By establishing a bridge, you agree to our High-Frequency Execution protocols and API Data Terms.
+                    </p>
+</div>
+<!-- Visual Asset / Ambient Info -->
+<div class="rounded overflow-hidden relative h-48 border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A professional, close-up macro shot of a server room with glowing green neon LED indicators and sleek black hardware units. The depth of field is shallow, creating a tech-focused institutional atmosphere with soft bokeh. The lighting is low-key, emphasizing the high-tech obsidian aesthetic and precision engineering of high-performance trading infrastructure." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOrArb8teFCUGSAqxW8Rw4zZcKv-6hN4e8sp4fr_XLTuT3gtVhS4avSS62NAz55IcmAVvxmp7c950IqR7zm9Q0LZPVowmmFn8hWGsXhx13ntp52e_RHc36bzpQrTb0JjS76TxjOFaX2eT9vXOUae0RasLvaSlC8sv6TYr8EBrsd2wA4Rr7j_j7ozpaednMtBHUQlcJDGui-7QVHmo7xyfw44QzZwAMEIOdTRGZgVVz1fcU1gZZcc5KFmRmx-agqx9TxYfwlj0wH2U5')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<p class="font-label-caps text-label-caps text-primary-container">NY4 SERVER HUB</p>
+<p class="text-[10px] font-data-sm text-on-surface-variant uppercase tracking-tighter">ULTRA-LOW LATENCY NODE #771</p>
+</div>
+</div>
+</div>
+</div>
+<section class="mt-gutter mb-8">
+<div class="glass-panel p-6 rounded border-t-4 border-error/50 bg-surface-container-low">
+<div class="flex items-center gap-2 mb-4 text-error">
+<span class="material-symbols-outlined">gavel</span>
+<h3 class="font-label-caps text-label-caps">LEGAL NOTICE &amp; RISK DISCLOSURE</h3>
+</div>
+<div class="space-y-4 text-xs text-on-surface-variant leading-relaxed opacity-80">
+<p class="">Trading high-frequency execution protocols involves substantial risk of loss and is not suitable for all investors. The use of bridge technology introduces specific risks including, but not limited to, execution latency, API disconnects, and slippage during volatile market conditions.</p>
+<p class="">Morrynet Bridge Management provides the infrastructure for connectivity but does not guarantee the stability or uptime of third-party platforms (MT4/MT5). Users are solely responsible for monitoring their linked accounts and ensuring that server addresses and credentials remain valid. By utilizing the 'Establish Bridge' function, you acknowledge that automated synchronization may result in unintended trade execution due to network instability.</p>
+</div>
+</div>
+</section></main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-outline-variant bg-surface-container/90 backdrop-blur-xl flex justify-around items-center h-20 pb-safe px-unit shadow-2xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-label-caps text-label-caps">Live Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-container font-bold scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for interactive elements
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label').classList.add('text-primary-container');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label').classList.remove('text-primary-container');
+            });
+        });
+
+        // Simulate Latency Pulse
+        setInterval(() => {
+            const latency = (Math.random() * (16.5 - 12.1) + 12.1).toFixed(1);
+            const display = document.querySelector('.font-data-lg.text-center');
+            if(display) display.textContent = latency + 'ms';
+        }, 3000);
+    </script>
+
+
+</body></html>

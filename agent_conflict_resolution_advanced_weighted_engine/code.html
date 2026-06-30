@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --obsidian-abyss: #111415;
+            --deep-black: #0A0C0D;
+            --neon-lime: #CCFF00;
+            --surface-container: #1C1F21;
+            --border-subtle: #24282B;
+        }
+        body {
+            background-color: var(--deep-black);
+            color: #dee3ec;
+            -webkit-font-smoothing: antialiased;
+        }
+        .matrix-grid {
+            background-image: radial-gradient(circle at 1px 1px, #24282B 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .neon-glow-border {
+            border: 1px solid rgba(204, 255, 0, 0.4);
+            box-shadow: 0 0 10px rgba(204, 255, 0, 0.1);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-lime), transparent);
+            opacity: 0.1;
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#ffffff",
+                        "surface-container-highest": "#30353d",
+                        "tertiary-container": "#ffe089",
+                        "surface-container-lowest": "#090f15",
+                        "on-secondary": "#2e3132",
+                        "on-tertiary-fixed": "#241a00",
+                        "primary": "#ffffff",
+                        "surface-bright": "#343a41",
+                        "surface-tint": "#abd600",
+                        "on-error": "#690005",
+                        "on-surface": "#dee3ec",
+                        "on-secondary-container": "#b3b5b6",
+                        "inverse-surface": "#dee3ec",
+                        "error-container": "#93000a",
+                        "surface-variant": "#30353d",
+                        "tertiary-fixed": "#ffe089",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "on-primary": "#283500",
+                        "tertiary-fixed-dim": "#efc11c",
+                        "on-primary-container": "#556d00",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#506600",
+                        "primary-fixed-dim": "#abd600",
+                        "secondary": "#c5c7c8",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "surface-container-high": "#252a32",
+                        "outline-variant": "#444933",
+                        "inverse-on-surface": "#2c3138",
+                        "on-secondary-fixed": "#191c1d",
+                        "secondary-fixed": "#e1e3e4",
+                        "primary-container": "#c3f400",
+                        "surface-container-low": "#171c23",
+                        "surface-dim": "#0e141a",
+                        "error": "#ffb4ab",
+                        "surface": "#0e141a",
+                        "outline": "#8e9379",
+                        "on-tertiary": "#3d2f00",
+                        "on-secondary-fixed-variant": "#444748",
+                        "on-background": "#dee3ec",
+                        "secondary-container": "#444748",
+                        "on-primary-fixed": "#161e00",
+                        "surface-container": "#1b2027",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "on-tertiary-container": "#7b6100",
+                        "background": "#0e141a",
+                        "primary-fixed": "#c3f400"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-sm": ["Space Grotesk"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-[100] bg-background border-b border-outline-variant h-14 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed text-headline-md">precision_manufacturing</span>
+<span class="font-headline-md text-headline-md text-primary-fixed tracking-tighter">SNIPER_ICT</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex items-center gap-4">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-colors px-3 py-2" href="#">Hub</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-colors px-3 py-2" href="#">Assistant</a>
+<a class="text-primary-fixed font-label-caps text-label-caps bg-primary/10 px-3 py-2 rounded-xl" href="#">Risk</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-highest transition-colors px-3 py-2" href="#">Market</a>
+</nav>
+<span class="material-symbols-outlined text-primary-fixed cursor-pointer active:scale-95 duration-150">psychology</span>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary-fixed">menu</span>
+</div>
+</header>
+<main class="pt-20 pb-24 px-margin-mobile md:px-margin-desktop max-w-[1600px] mx-auto min-h-screen">
+<!-- Header Section -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+<span class="text-label-caps font-label-caps text-primary-fixed tracking-[0.2em]">OPERATIONAL STATUS: CONFLICT DETECTED</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Agent Conflict Resolution</h1>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-low border border-outline-variant px-4 py-2 flex items-center gap-3">
+<span class="text-label-caps font-label-caps text-on-surface-variant">SESSION UUID</span>
+<span class="font-data-mono text-data-mono text-primary-fixed">SNPR-992-XRZ</span>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps px-6 py-2 hover:opacity-90 active:scale-95 transition-all">
+                    MANUAL OVERRIDE
+                </button>
+</div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-unit gap-y-6">
+<!-- Left Column: Weighted Decision Engine -->
+<div class="lg:col-span-4 space-y-6">
+<section class="bg-surface-container-low border border-outline-variant p-5 relative overflow-hidden">
+<div class="scanline"></div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 border-b border-outline-variant pb-2">WEIGHTED DECISION ENGINE</h3>
+<div class="space-y-6">
+<!-- Risk Agent -->
+<div class="relative">
+<div class="flex justify-between items-end mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Risk Agent</span>
+<span class="font-data-mono text-data-mono text-primary-fixed">85% WEIGHT</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-primary-fixed" style="width: 85%"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Logic: Liquidity protocols and drawdown protection prioritized.</p>
+</div>
+<!-- Entry Agent -->
+<div class="relative">
+<div class="flex justify-between items-end mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Entry Agent</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">12% WEIGHT</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-on-surface-variant" style="width: 12%"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Logic: Momentum triggers detected, but secondary to institutional risk.</p>
+</div>
+<!-- Sentiment Agent -->
+<div class="relative">
+<div class="flex justify-between items-end mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Sentiment Agent</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">3% WEIGHT</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-on-surface-variant" style="width: 3%"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Logic: Social volume spike ignored due to high wash-trading probability.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant">
+<div class="flex justify-between mb-2">
+<span class="text-label-caps font-label-caps text-on-surface-variant">CALCULATED RESOLUTION</span>
+<span class="text-label-caps font-label-caps text-primary-fixed">ABORT_TRADE</span>
+</div>
+<div class="bg-primary-fixed/5 border border-primary-fixed/20 p-4 neon-glow-border">
+<p class="font-data-mono text-data-mono text-primary-fixed leading-tight">
+                                EXECUTION_HALTED: RISK_PARAMETER_VIOLATION [DRAWDOWN_THRESHOLD_EXCEEDED]
+                            </p>
+</div>
+</div>
+</section><section class="bg-surface-container-low border border-outline-variant p-5">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 border-b border-outline-variant pb-2">AGENT WEIGHTING OVERRIDE</h3>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-label-caps text-[10px]">
+<span class="text-on-surface">NANOCLAW</span>
+<span class="text-primary-fixed">45%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-fixed" type="range" value="45"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-caps text-[10px]">
+<span class="text-on-surface">AEGIS</span>
+<span class="text-primary-fixed">35%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-fixed" type="range" value="35"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-caps text-[10px]">
+<span class="text-on-surface">NEXUS</span>
+<span class="text-primary-fixed">20%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-fixed" type="range" value="20"/>
+</div>
+</div>
+<div class="mt-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-3 text-[10px]">RESOLUTION STRATEGY</h3>
+<div class="grid grid-cols-3 gap-2">
+<button class="border border-outline-variant py-1 text-[10px] font-label-caps hover:bg-primary-fixed/10 transition-colors">AGGRESSIVE</button>
+<button class="border border-primary-fixed bg-primary-fixed/10 py-1 text-[10px] font-label-caps text-primary-fixed">BALANCED</button>
+<button class="border border-outline-variant py-1 text-[10px] font-label-caps hover:bg-primary-fixed/10 transition-colors">CONSERVATIVE</button>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low border border-outline-variant p-5">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 border-b border-outline-variant pb-2">MASTER OVERRIDE HIERARCHY</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-surface-container-high border-l-2 border-primary-fixed">
+<span class="material-symbols-outlined text-primary-fixed">security</span>
+<div>
+<div class="font-body-md text-on-surface">L0: Institutional Compliance</div>
+<div class="text-label-caps font-label-caps text-primary-fixed text-[10px]">IMMUTABLE</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 border-l-2 border-outline opacity-50">
+<span class="material-symbols-outlined">account_balance</span>
+<div>
+<div class="font-body-md text-on-surface-variant">L1: Portfolio Manager</div>
+<div class="text-label-caps font-label-caps text-[10px]">AUTH REQUIRED</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 border-l-2 border-outline opacity-50">
+<span class="material-symbols-outlined">smart_toy</span>
+<div>
+<div class="font-body-md text-on-surface-variant">L2: Agent Consensus</div>
+<div class="text-label-caps font-label-caps text-[10px]">DYNAMIC</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Center Column: Consensus Matrix -->
+<div class="lg:col-span-8">
+<section class="bg-obsidian-abyss border border-outline-variant h-full flex flex-col">
+<div class="p-5 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">CONSENSUS MATRIX : CROSS-AGENT SIGNAL ANALYSIS</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 bg-primary-fixed"></div>
+<span class="text-label-caps font-label-caps text-[10px]">BULLISH</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 bg-error"></div>
+<span class="text-label-caps font-label-caps text-[10px]">BEARISH</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 bg-outline"></div>
+<span class="text-label-caps font-label-caps text-[10px]">NEUTRAL</span>
+</div>
+</div>
+</div>
+<div class="flex-grow matrix-grid p-6 relative">
+<div class="grid grid-cols-4 gap-4 h-full">
+<!-- Matrix Header -->
+<div class="col-span-1"></div>
+<div class="text-center font-label-caps text-label-caps text-on-surface-variant">TIME_FRAME_H1</div>
+<div class="text-center font-label-caps text-label-caps text-on-surface-variant">TIME_FRAME_M15</div>
+<div class="text-center font-label-caps text-label-caps text-on-surface-variant">TIME_FRAME_M1</div>
+<!-- Row 1: Entry Agent -->
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">login</span>
+                                Entry
+                            </div>
+<div class="bg-primary-fixed/20 border border-primary-fixed/40 flex items-center justify-center font-data-mono text-primary-fixed">BUY_STRONG</div>
+<div class="bg-primary-fixed/10 border border-primary-fixed/20 flex items-center justify-center font-data-mono text-primary-fixed-dim">BUY_WEAK</div>
+<div class="bg-outline/20 border border-outline/40 flex items-center justify-center font-data-mono text-on-surface-variant">NO_SIGNAL</div>
+<!-- Row 2: Risk Agent -->
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm">shield_with_heart</span>
+                                Risk
+                            </div>
+<div class="bg-error/20 border border-error/40 flex items-center justify-center font-data-mono text-error">SELL_ALERT</div>
+<div class="bg-error/10 border border-error/20 flex items-center justify-center font-data-mono text-error/80">REDUCE</div>
+<div class="bg-error/20 border border-error/40 flex items-center justify-center font-data-mono text-error font-bold neon-glow-border">VOID_DETECTED</div>
+<!-- Row 3: Liquidity -->
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">waves</span>
+                                Liquidity
+                            </div>
+<div class="bg-outline/10 border border-outline/20 flex items-center justify-center font-data-mono text-on-surface-variant">STABLE</div>
+<div class="bg-error/10 border border-error/20 flex items-center justify-center font-data-mono text-error/80">THINNING</div>
+<div class="bg-error/30 border border-error/60 flex items-center justify-center font-data-mono text-error font-bold">VOID_GAP</div>
+<!-- Row 4: Delta -->
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed text-sm">change_history</span>
+                                Delta
+                            </div>
+<div class="bg-primary-fixed/10 border border-primary-fixed/20 flex items-center justify-center font-data-mono text-primary-fixed-dim">+4.2M</div>
+<div class="bg-primary-fixed/10 border border-primary-fixed/20 flex items-center justify-center font-data-mono text-primary-fixed-dim">+1.1M</div>
+<div class="bg-error/10 border border-error/20 flex items-center justify-center font-data-mono text-error/80">-2.8M</div>
+</div>
+<!-- Absolute Overlay: Conflict Visualizer -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<div class="w-64 h-64 border-2 border-dashed border-error/30 rounded-full animate-[spin_10s_linear_infinite] flex items-center justify-center">
+<div class="w-48 h-48 border border-primary-fixed/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+</div>
+<div class="absolute bg-deep-black/80 backdrop-blur-md p-4 border border-error/50 max-w-xs">
+<div class="flex items-center gap-2 text-error mb-2">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-caps text-label-caps">CRITICAL DISCONNECT</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface">Entry Agent signaling 'BUY' while Risk Agent identifies 'LIQUIDITY VOID'. Decision Engine yielding to Risk Agent Hierarchy.</p>
+</div>
+</div>
+</div>
+<!-- Resolution Log -->
+<div class="bg-surface-container border-t border-outline-variant p-0 overflow-hidden">
+<div class="p-4 border-b border-outline-variant bg-surface-container-high">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">RESOLUTION LOG_HISTORY</h3>
+</div>
+<div class="overflow-y-auto max-h-[300px] font-data-mono text-data-mono">
+<table class="w-full text-left">
+<thead class="bg-deep-black/30 border-b border-outline-variant sticky top-0">
+<tr>
+<th class="p-3 text-on-surface-variant font-label-caps text-[10px]">TIMESTAMP</th>
+<th class="p-3 text-on-surface-variant font-label-caps text-[10px]">CONFLICTING AGENTS</th>
+<th class="p-3 text-on-surface-variant font-label-caps text-[10px]">RESOLUTION PATH</th>
+<th class="p-3 text-on-surface-variant font-label-caps text-[10px]">RESULT</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="p-3 text-on-surface-variant">14:22:01.04</td>
+<td class="p-3">Entry v Risk</td>
+<td class="p-3">Risk Agent overrode Entry Agent due to Liquidity Void</td>
+<td class="p-3 text-error">REJECTED</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="p-3 text-on-surface-variant">14:18:55.22</td>
+<td class="p-3">Entry v Sentiment</td>
+<td class="p-3">Entry Agent consensus at 0.92 correlation</td>
+<td class="p-3 text-primary-fixed">EXECUTED</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="p-3 text-on-surface-variant">14:15:30.11</td>
+<td class="p-3">Portfolio v Risk</td>
+<td class="p-3">Manual Override L1 priority applied</td>
+<td class="p-3 text-primary-fixed">EXECUTED</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="p-3 text-on-surface-variant">14:10:12.89</td>
+<td class="p-3">Risk v Compliance</td>
+<td class="p-3">Compliance hard-stop on leverage limit</td>
+<td class="p-3 text-error">REJECTED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Terminal Visualization Section -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-unit">
+<div class="bg-surface-container-lowest border border-outline-variant p-4 h-64 relative overflow-hidden">
+<div class="absolute top-4 left-4 z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">AGENT_INTERNAL_STREAM : RISK</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-deep-black/80 backdrop-blur border border-outline-variant p-2 font-data-mono text-[10px] text-primary-fixed/70">
+                    TRACE: searching for institutional depth... [FOUND] | spread: 0.002% | alert: asymmetric skew detected
+                </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 h-64 relative overflow-hidden">
+<div class="absolute top-4 left-4 z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">AGENT_INTERNAL_STREAM : ENTRY</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-deep-black/80 backdrop-blur border border-outline-variant p-2 font-data-mono text-[10px] text-primary-fixed/70">
+                    TRACE: momentum pulse H1 active | vol: 14M | gap: 0.05 | recommendation: aggressive_entry
+                </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 h-64 relative overflow-hidden md:col-span-2">
+<div class="absolute top-4 left-4 z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant">HISTORICAL CONVERGENCE : LAST 100 CYCLES</span>
+</div>
+<div class="h-full flex items-end gap-1 pt-12 pb-8 px-2">
+<!-- Simulated Bar Chart -->
+<div class="flex-grow bg-primary-fixed/20 h-[60%] border-t border-primary-fixed/40 relative group">
+<div class="absolute -top-6 left-0 w-full text-center text-[8px] font-data-mono opacity-0 group-hover:opacity-100 transition-opacity">AGREE</div>
+</div>
+<div class="flex-grow bg-error/20 h-[40%] border-t border-error/40 relative group">
+<div class="absolute -top-6 left-0 w-full text-center text-[8px] font-data-mono opacity-0 group-hover:opacity-100 transition-opacity">CONFLICT</div>
+</div>
+<div class="flex-grow bg-primary-fixed/20 h-[75%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[85%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-error/20 h-[15%] border-t border-error/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[90%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[65%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-error/20 h-[35%] border-t border-error/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[55%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[80%] border-t border-primary-fixed/40"></div>
+<div class="flex-grow bg-error/20 h-[20%] border-t border-error/40"></div>
+<div class="flex-grow bg-primary-fixed/20 h-[70%] border-t border-primary-fixed/40"></div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between font-data-mono text-[10px] text-on-surface-variant">
+<span>CYCLE_001</span>
+<span class="text-primary-fixed">CONVERGENCE RATE: 72.4%</span>
+<span>CYCLE_100</span>
+</div>
+</div></div>
+</main>
+<!-- Bottom Navigation Mobile -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-lowest border-t border-outline-variant h-16 flex justify-around items-center px-2 z-[100]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-[10px] mt-1">Hub</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-caps text-[10px] mt-1">Assistant</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-fixed bg-primary/10 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="font-label-caps text-[10px] mt-1">Risk</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-[10px] mt-1">Market</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for matrix items
+        document.querySelectorAll('.matrix-grid div').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if(item.innerText.length > 2) {
+                    item.classList.add('transition-all', 'scale-[1.02]', 'z-10');
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('scale-[1.02]', 'z-10');
+            });
+        });
+
+        // Simulating data stream
+        const logBody = document.querySelector('tbody');
+        const timestamps = document.querySelectorAll('td:first-child');
+        
+        setInterval(() => {
+            const now = new Date();
+            const ts = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${Math.floor(Math.random() * 99)}`;
+            // In a real app, we'd add rows, here we just flicker some text for atmosphere
+            const rows = logBody.querySelectorAll('tr');
+            const randomRow = rows[Math.floor(Math.random() * rows.length)];
+            randomRow.style.backgroundColor = 'rgba(204, 255, 0, 0.05)';
+            setTimeout(() => randomRow.style.backgroundColor = '', 500);
+        }, 3000);
+    </script>
+</body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Central Navigation Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#574400",
+                    "on-primary-container": "#556d00",
+                    "secondary": "#c5c7c8",
+                    "outline-variant": "#444933",
+                    "surface-container-highest": "#30353d",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "inverse-on-surface": "#2c3138",
+                    "inverse-surface": "#dee3ec",
+                    "outline": "#8e9379",
+                    "on-secondary-fixed-variant": "#444748",
+                    "surface-tint": "#abd600",
+                    "primary-fixed-dim": "#abd600",
+                    "primary-fixed": "#c3f400",
+                    "on-tertiary-container": "#7b6100",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#161e00",
+                    "on-error": "#690005",
+                    "surface-container-high": "#252a32",
+                    "primary-container": "#c3f400",
+                    "error-container": "#93000a",
+                    "surface": "#0e141a",
+                    "on-tertiary": "#3d2f00",
+                    "secondary-container": "#444748",
+                    "primary": "#ffffff",
+                    "tertiary-fixed": "#ffe089",
+                    "on-primary": "#283500",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffffff",
+                    "on-secondary-container": "#b3b5b6",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "inverse-primary": "#506600",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-secondary-fixed": "#191c1d",
+                    "surface-variant": "#30353d",
+                    "on-secondary": "#2e3132",
+                    "surface-bright": "#343a41",
+                    "tertiary-container": "#ffe089",
+                    "on-surface": "#dee3ec",
+                    "surface-container-low": "#171c23",
+                    "background": "#0e141a",
+                    "secondary-fixed": "#e1e3e4",
+                    "surface-dim": "#0e141a",
+                    "surface-container-lowest": "#090f15",
+                    "on-tertiary-fixed": "#241a00",
+                    "tertiary-fixed-dim": "#efc11c",
+                    "surface-container": "#1b2027",
+                    "on-background": "#dee3ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-dense": "4px",
+                    "unit": "4px",
+                    "margin-desktop": "16px",
+                    "margin-mobile": "12px",
+                    "stack-standard": "12px",
+                    "gutter-terminal": "2px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "label-caps": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0C0D;
+            color: #dee3ec;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(17, 20, 21, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(36, 40, 43, 0.5);
+        }
+
+        .neon-glow-hover:hover {
+            border-color: rgba(204, 255, 0, 0.4);
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e141a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #30353d;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #abd600;
+        }
+
+        .active-glow {
+            box-shadow: 0 0 20px rgba(171, 214, 0, 0.15);
+        }
+
+        .iframe-container {
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md select-none">
+<!-- Navigation Shells -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed cursor-pointer">menu</span>
+<h1 class="font-data-mono text-headline-md font-bold text-primary-fixed tracking-tighter">TERMINAL_SECURE_ALPHA</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4">
+<span class="text-label-caps text-on-surface-variant font-bold">Uptime: 99.98%</span>
+<span class="text-label-caps text-primary-fixed font-bold">LATENCY: 12ms</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed cursor-pointer transition-colors">lock</span>
+</div>
+</header>
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full w-64 z-40 bg-surface border-r border-outline-variant pt-20">
+<div class="px-6 py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary-fixed">3p</span>
+</div>
+<div>
+<p class="font-headline-sm text-body-md font-bold">ADMIN_01</p>
+<p class="text-xs text-on-surface-variant">Institutional Node</p>
+</div>
+</div>
+<nav class="mt-6 flex flex-col">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary-fixed active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span>Secure Hub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span>Live Signals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">security</span>
+<span>Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant">
+<p class="text-label-caps text-on-surface-variant mb-2">DB SYNC STATUS</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+<span class="text-xs font-data-mono">SQLite/JSON Active</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-20 pb-20 px-4 md:px-8 min-h-screen">
+<!-- Search & Categories -->
+<section class="max-w-7xl mx-auto mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="flex-1 max-w-2xl">
+<h2 class="font-headline-lg text-primary-fixed mb-4">Central Navigation Hub</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-fixed transition-colors">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-fixed rounded-lg py-4 pl-12 pr-4 text-body-md font-data-mono focus:ring-1 focus:ring-primary-fixed transition-all outline-none" placeholder="Search 144+ screens, modules, and data clusters..." type="text"/>
+</div>
+</div>
+<div class="flex gap-2 p-1 bg-surface-container rounded-lg border border-outline-variant overflow-x-auto no-scrollbar">
+<button class="px-4 py-2 text-label-caps bg-primary-fixed text-on-primary-fixed rounded-md transition-all">Execution</button>
+<button class="px-4 py-2 text-label-caps text-on-surface-variant hover:text-primary-fixed transition-all">Analysis</button>
+<button class="px-4 py-2 text-label-caps text-on-surface-variant hover:text-primary-fixed transition-all">Security</button>
+<button class="px-4 py-2 text-label-caps text-on-surface-variant hover:text-primary-fixed transition-all">Billing</button>
+<button class="px-4 py-2 text-label-caps text-on-surface-variant hover:text-primary-fixed transition-all">Education</button>
+</div>
+</div>
+<!-- Preview & Controls -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Screen Selection Grid (Bento) -->
+<div class="xl:col-span-4 h-[600px] overflow-y-auto custom-scrollbar space-y-4 pr-2">
+<div class="grid grid-cols-1 gap-4">
+<!-- Card 1 -->
+<div class="glass-panel p-4 rounded-xl neon-glow-hover cursor-pointer group border-l-4 border-l-primary-fixed">
+<div class="flex justify-between items-start mb-3">
+<span class="text-label-caps text-primary-fixed">ID: EX-001</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</div>
+<h3 class="font-headline-sm mb-1">Sniper Terminal</h3>
+<p class="text-xs text-on-surface-variant mb-4">High-velocity order entry with depth of market.</p>
+<div class="h-24 rounded-lg bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A dark, high-contrast trading terminal interface with neon lime charts and monochrome candlesticks. The layout is dense with order books and micro-charts, reflecting a professional Tech-Noir aesthetic. Background is deep obsidian black." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCovhq-wcjYG40wO6OPHYEc7Dh6yTgYvilW0AoKSYdw3dA-iw3__2J88M3UVdcZ0GlIcgzfiGfkotIIR2nPk2A3PnjPdaCI0YAvFRlCUfTIyvoHncfH6D1mdWBijy2W4EpzBeTuY00qU9Ok6RIbA2teucHrqMu2PK_xLoQXwOB7aZwxO6MNwwyOH1e_tqJar0xOrBBzmeGPkkTxvdm7sTaN3IaCka1I-c_qkL7c8yqesA2yWcA4i934cPqhXIaD5oYV3eRaadyPvYsv"/>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-4 rounded-xl neon-glow-hover cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<span class="text-label-caps text-on-surface-variant">ID: AN-042</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</div>
+<h3 class="font-headline-sm mb-1">ICT Matrix</h3>
+<p class="text-xs text-on-surface-variant mb-4">Inter-market correlation and narrative analysis.</p>
+<div class="h-24 rounded-lg bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A sophisticated data visualization dashboard showing multiple correlating line graphs in shades of gray and neon lime. Digital gold accents highlight key pivot points. Minimalist, brutalist design on a black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUndCUka78R2xvMGqNXW3LfzY-6EOkRb0TxGg1vSAz2Lfgi-XcEGSLFvNXnVdacQAtJ38P_oYfa_ft1MD3nBfKbq_1qJyR0x8IwCszZ6-1PRxx_PHw5CEfpxdojXZ1YAtXJDsMXaHwWgm9LJ1Y22FbsOW5u4kpyyV7O-Wgic7ZJDfNa8J2tpuf10FW4phYtq-xlP1lzTYiONIm_PU4QB-GM6LWPoU2Btnaebo4krawMV4Fe8i1vvzp2e0qXWitkE6YrdCTA66ZxpJ5"/>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-4 rounded-xl neon-glow-hover cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<span class="text-label-caps text-on-surface-variant">ID: SC-012</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</div>
+<h3 class="font-headline-sm mb-1">Vault Monitor</h3>
+<p class="text-xs text-on-surface-variant mb-4">Real-time asset security and key rotation logs.</p>
+<div class="h-24 rounded-lg bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A security monitoring interface with a circular biometric graphic in the center, rendered in thin lime lines. Side panels display scrolling green log text on a dark obsidian background. Tech-noir corporate security style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ8UIMRtZhgtTsFGfmhwt0TWoG2oYcOQEocSld6vGMd4MhXr1wtkLkwLaby1YLA9Wlw3R77wXOLQow4oR_b8s22jkWmUhcEZZZybiaqrNFHs_J4hV5q-BgkocZuA5QLCV5OCoLS-qG01CEVmV-Ho-jZ2M1zKIMOVjtAnfhqJeQdnd56omNU-DqRi7SYUGylFIhTrbnXUms_M0vvHtoR5GRBCakoDc7hXsck2UsvmSLe-osVCr7P_hhMaTLdy-07tt6WH-7nTyzDkYJ"/>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel p-4 rounded-xl neon-glow-hover cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<span class="text-label-caps text-on-surface-variant">ID: ED-109</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">open_in_new</span>
+</div>
+<h3 class="font-headline-sm mb-1">Mentorship Core</h3>
+<p class="text-xs text-on-surface-variant mb-4">Interactive video repository and trade journal.</p>
+<div class="h-24 rounded-lg bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A minimalist educational platform layout with large typography and video thumbnails. High-end obsidian abyss theme with thin neon lime dividers and sharp corners. Modern corporate precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIBDq6IYgHW2HY9qqER-7oO_DcTblPRICQk78qpzz4Um01B2e1dY-Fd7bYOavDgGqjIKNYzcdvupuH2qZJEPPyGbYAAmfvgtpPtHFt_XhVSMVgg_2p802K6mxFYgX-63NzMrriIwwyfxAfD8iS_nhajXo6e-M40fbo8CKaGw2IrPOx7ncZaeiq7jkL4F1Kzzzv64G9rxNo2M6YIh6Knf4PvJu3uQ-i3UeEKVzeNRef1Tn5f9mhi28qq4S_U_IBLORI5iN98ysgsNL4"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Container -->
+<div class="xl:col-span-8 flex flex-col">
+<div class="glass-panel rounded-t-xl p-4 flex items-center justify-between border-b-0">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed"></div>
+<span class="ml-4 font-data-mono text-xs opacity-60">preview://sniper_terminal_v4.alpha</span>
+</div>
+<div class="flex items-center gap-2 p-1 bg-surface-container-high rounded-lg">
+<button class="p-2 hover:text-primary-fixed transition-colors" id="toggle-mobile">
+<span class="material-symbols-outlined text-lg">smartphone</span>
+</button>
+<button class="p-2 hover:text-primary-fixed transition-colors" id="toggle-tablet">
+<span class="material-symbols-outlined text-lg">tablet</span>
+</button>
+<button class="p-2 text-primary-fixed bg-surface-container-highest rounded transition-colors" id="toggle-desktop">
+<span class="material-symbols-outlined text-lg">desktop_windows</span>
+</button>
+</div>
+</div>
+<div class="flex-1 glass-panel border-t-0 p-4 min-h-[500px] flex items-center justify-center relative overflow-hidden">
+
+<!-- Simulated Device Wrapper -->
+<div class="iframe-container w-full h-full max-w-full bg-surface-container-lowest border border-outline rounded-lg flex items-center justify-center overflow-hidden active-glow" id="device-shell">
+<div class="text-center p-8">
+<span class="material-symbols-outlined text-6xl text-primary-fixed mb-4 animate-pulse">terminal</span>
+<h4 class="font-headline-md mb-2">MODULE LOADED</h4>
+<p class="text-on-surface-variant font-data-mono">Awaiting primary execution handshake...</p>
+<div class="mt-8 flex gap-4 justify-center">
+<div class="px-6 py-2 bg-primary-fixed text-on-primary-fixed font-bold rounded">INIT_CLIENT</div>
+<div class="px-6 py-2 border border-outline-variant text-on-surface-variant font-bold rounded">VIEW_SOURCE</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Institutional Status Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-col md:flex-row justify-between items-center px-4 py-2 bg-surface-container/90 backdrop-blur-lg border-t border-outline-variant">
+<div class="flex gap-6 items-center w-full md:w-auto overflow-x-auto no-scrollbar whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label-caps text-on-surface-variant">SERVER:</span>
+<span class="text-xs font-data-mono text-primary-fixed">Python/3.12 (Active)</span>
+</div>
+<div class="w-[1px] h-4 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label-caps text-on-surface-variant">DATABASE:</span>
+<span class="text-xs font-data-mono text-secondary-fixed-dim">SQLite/JSON Sync</span>
+</div>
+<div class="w-[1px] h-4 bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label-caps text-on-surface-variant">MEMORY:</span>
+<span class="text-xs font-data-mono text-on-surface-variant">44.2 MB / 512 MB</span>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-4">
+<span class="text-[10px] font-label-caps text-primary-fixed tracking-[0.2em]">INSTITUTIONAL GRADE ACCESS GRANTED</span>
+<div class="w-2 h-2 rounded-full bg-primary-fixed shadow-[0_0_8px_#abd600]"></div>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<nav class="lg:hidden fixed bottom-12 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container/90 backdrop-blur-lg border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center text-primary-fixed bg-surface-container-highest rounded-full p-2">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+</nav>
+<script>
+        // Device Toggle Logic
+        const shell = document.getElementById('device-shell');
+        const btnMobile = document.getElementById('toggle-mobile');
+        const btnTablet = document.getElementById('toggle-tablet');
+        const btnDesktop = document.getElementById('toggle-desktop');
+
+        const buttons = [btnMobile, btnTablet, btnDesktop];
+
+        function setActive(btn) {
+            buttons.forEach(b => {
+                b.classList.remove('text-primary-fixed', 'bg-surface-container-highest');
+                b.classList.add('text-on-surface-variant');
+            });
+            btn.classList.add('text-primary-fixed', 'bg-surface-container-highest');
+            btn.classList.remove('text-on-surface-variant');
+        }
+
+        btnMobile.addEventListener('click', () => {
+            shell.style.maxWidth = '375px';
+            shell.style.height = '667px';
+            setActive(btnMobile);
+        });
+
+        btnTablet.addEventListener('click', () => {
+            shell.style.maxWidth = '768px';
+            shell.style.height = '1024px';
+            setActive(btnTablet);
+        });
+
+        btnDesktop.addEventListener('click', () => {
+            shell.style.maxWidth = '100%';
+            shell.style.height = '100%';
+            setActive(btnDesktop);
+        });
+
+        // Interactive highlight for cards
+        const cards = document.querySelectorAll('.glass-panel.cursor-pointer');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('border-l-4', 'border-l-primary-fixed'));
+                card.classList.add('border-l-4', 'border-l-primary-fixed');
+            });
+        });
+    </script>
+</body></html>

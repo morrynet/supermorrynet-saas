@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Distribution Hub | AEGIS_TERMINAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(195, 244, 0, 0.15);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(195, 244, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scanning 3s linear infinite;
+        }
+        @keyframes scanning {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-primary": "#283500",
+                        "surface-container": "#1d2021",
+                        "on-tertiary": "#3a3000",
+                        "surface-container-highest": "#323536",
+                        "tertiary-fixed": "#ffe16d",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "primary-fixed": "#c3f400",
+                        "secondary-fixed": "#ffdad5",
+                        "on-surface-variant": "#c4c9ac",
+                        "surface-container-high": "#282a2b",
+                        "surface-container-lowest": "#0c0f10",
+                        "primary-fixed-dim": "#abd600",
+                        "secondary-container": "#c5020b",
+                        "on-background": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132",
+                        "tertiary-container": "#ffe16d",
+                        "outline": "#8e9379",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-secondary-fixed": "#410001",
+                        "on-secondary": "#690003",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-primary-container": "#556d00",
+                        "primary": "#ffffff",
+                        "on-secondary-container": "#ffd2cc",
+                        "on-error": "#690005",
+                        "surface-container-low": "#191c1d",
+                        "surface": "#111415",
+                        "error": "#ffb4ab",
+                        "secondary": "#ffb4aa",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#776300",
+                        "surface-dim": "#111415",
+                        "on-surface": "#e1e3e4",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "background": "#111415",
+                        "primary-container": "#c3f400",
+                        "on-primary-fixed": "#161e00",
+                        "surface-bright": "#373a3b",
+                        "outline-variant": "#444933",
+                        "surface-variant": "#323536",
+                        "surface-tint": "#abd600",
+                        "inverse-primary": "#506600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-max-width": "1440px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "data-lg": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex flex-col h-full w-[240px] fixed left-0 top-0 border-r border-outline-variant bg-surface-container z-40">
+<div class="px-6 py-8">
+<h1 class="font-headline-md text-headline-md font-bold text-primary-fixed">AEGIS_01</h1>
+<p class="text-[10px] font-data-sm text-outline tracking-widest mt-1">SECURE TERMINAL ACCESS</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-body-md">Live Signals</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<!-- Active State: Bridge/Distribution Hub -->
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed bg-surface-container-highest border-l-4 border-primary-fixed" href="#">
+<span class="material-symbols-outlined">router</span>
+<span class="font-body-md">Bridge</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md">Licensing</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylized portrait of a high-tech institutional trader in a dark, atmospheric room with multiple glowing green monitors. The person wears sleek eyewear, and the lighting is high-contrast with deep shadows and sharp neon highlights. The overall aesthetic is professional, technical, and slightly futuristic, emphasizing a focus on precision and digital security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPekSnlKfUQJQzG34ta5r2JGuwYGnzBRwKaB1iAJ6LP6ht6lTPNxMIp9Wy9NfoRbPbhHPhFYEz4GcVxjUNfgJi5hvvEdfS_E1h4uoXjBfgZsd8bmkEaPmdw8gtuRYHam0zyrmEAU9wUAl5DfC-c-xYpoFpA24-HDjQfoZTgKwqkHfid8MTuxUad44mpBfxGGxIiDg31jeAFpNXFnq8rH35yF3hRzha4H4O4fTV0yYFcN_K4UO6S_4l2M4G0sXevMlOI5BgNDcyv_xm"/>
+</div>
+<div>
+<p class="text-on-surface font-bold text-xs">TERMINAL_01</p>
+<p class="text-primary-fixed text-[10px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                        ACTIVE
+                    </p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop md:ml-[240px] h-16 w-full bg-surface-container/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden text-primary-fixed">menu</span>
+<h2 class="font-headline-md text-headline-md font-black tracking-tighter text-primary-fixed">AEGIS_TERMINAL</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary-fixed transition-colors">account_balance_wallet</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary-fixed transition-colors">notifications</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-[240px] min-h-[calc(100vh-64px)] p-6 md:p-12 pb-24">
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Breadcrumbs / Section Header -->
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-outline font-data-sm text-[10px] uppercase tracking-widest">
+<span>Repository</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface-variant">Builds</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary-fixed">Distribution Hub</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-5xl text-on-surface mt-2">Distribution Hub</h1>
+<p class="text-on-surface-variant max-w-2xl">Deploying Terminal Build <span class="text-primary-fixed font-data-sm">v2.4.0-STABLE</span> to production environments. Secure package ready for distribution.</p>
+</div>
+<!-- Main Distribution Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Primary Download Action (Column 1-8) -->
+<div class="md:col-span-8 glass-panel rounded-xl p-8 flex flex-col justify-between overflow-hidden relative group">
+<!-- Subtle background glow -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed/5 blur-[80px] rounded-full group-hover:bg-primary-fixed/10 transition-colors"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-8">
+<div class="space-y-1">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 rounded tracking-tighter uppercase">Production Ready</span>
+<h3 class="text-2xl font-bold mt-2">APK Installation Package</h3>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-full">
+<span class="material-symbols-outlined text-sm text-primary-fixed" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[11px] font-bold text-on-surface-variant">Verified</span>
+</div>
+</div>
+</div>
+<div class="flex-1 py-4">
+<p class="text-on-surface-variant text-sm mb-12 max-w-md">The institutional mobile terminal enables encrypted peer-to-peer signal streaming and instant order execution via Morrynet Secure Bridge.</p>
+<div class="space-y-4">
+<button class="w-full md:w-auto px-12 py-4 bg-primary-fixed text-on-primary-fixed font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 neon-glow">
+<span class="material-symbols-outlined font-bold">download</span>
+                                    DOWNLOAD APK
+                                </button>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline-variant">shield_lock</span>
+<span class="text-[10px] text-outline font-medium">256-bit AES Encrypted</span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-4">
+<span class="material-symbols-outlined text-outline-variant">security</span>
+<span class="text-[10px] text-outline font-medium">Verified by Morrynet Security</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- QR Code Fast Install (Column 9-12) -->
+<div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col items-center text-center">
+<h4 class="font-label-caps text-label-caps text-outline mb-6">Fast Mobile Install</h4>
+<div class="relative p-3 bg-white rounded-lg mb-6 group cursor-crosshair">
+<div class="scanline"></div>
+<img class="w-40 h-40 object-contain" data-alt="A clean, high-contrast QR code rendered in professional dark-mode terminal style. The QR code is perfectly centered on a crisp white square, surrounded by subtle glowing neon lime technical data fragments and architectural wireframes of a mobile device in the background. The mood is precise, institutional, and highly technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxhO6BIfybC63TywdiUMG3Pev45eb0puu_qLDD1lGz_uCvfUybdFW_PzX0v6weaTyTQlFG_yHvkbCzirmMeYIytQR6u5AHSo7fNJTgnn0EWlCIfoRq_yXm6HABevXrBSW5Mgc7E5GUVqg31PFQgkWEcuDufVCtmX5D1d1DpRhUBgo2qvgvrAPMonVYO4tIZ50fKyV7sQntX6fcJ25fuMLzd_SPhDqNDIlWcG3uTb8jEDSTiblu_n11Mjod-ab55sBoZPs1vN_5mDl9"/>
+<div class="absolute inset-0 border-2 border-primary-fixed/20 group-hover:border-primary-fixed/50 transition-colors pointer-events-none rounded-lg"></div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed px-4">
+                        Scan with your device camera to initiate direct secure installation bypassing standard browsers.
+                    </p>
+<div class="mt-auto pt-6 w-full">
+<div class="text-[10px] font-data-sm text-primary-fixed bg-primary-fixed/5 py-2 border border-primary-fixed/20 rounded">
+                            TOKEN EXPIRES IN: 04:59
+                        </div>
+</div>
+</div>
+<!-- Build Metadata (Column 1-6) -->
+<div class="md:col-span-6 glass-panel rounded-xl p-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary-fixed">analytics</span>
+<h4 class="font-headline-md text-headline-md">Build Metadata</h4>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-4">
+<div class="space-y-1">
+<span class="text-[10px] text-outline uppercase tracking-widest font-bold">File Size</span>
+<p class="font-data-lg text-data-lg text-on-surface">128.42 MB</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] text-outline uppercase tracking-widest font-bold">Architecture</span>
+<p class="font-data-lg text-data-lg text-on-surface">arm64-v8a</p>
+</div>
+<div class="col-span-2 space-y-1">
+<span class="text-[10px] text-outline uppercase tracking-widest font-bold">MD5 Checksum</span>
+<div class="bg-surface-container-lowest p-3 border border-outline-variant/30 flex justify-between items-center group">
+<code class="font-data-sm text-primary-fixed text-xs overflow-hidden text-ellipsis whitespace-nowrap">b5a1c3e7f9d2a4b6c8e0f2d4a6b8c0e2</code>
+<button class="material-symbols-outlined text-outline-variant hover:text-on-surface transition-colors ml-2">content_copy</button>
+</div>
+</div>
+<div class="col-span-2 space-y-1">
+<span class="text-[10px] text-outline uppercase tracking-widest font-bold">Build Timestamp</span>
+<p class="font-data-sm text-on-surface-variant text-sm">2023-10-24 14:32:01 UTC-0</p>
+</div>
+</div>
+</div>
+<!-- Secondary Options (Column 7-12) -->
+<div class="md:col-span-6 glass-panel rounded-xl p-8 flex flex-col">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-on-surface-variant">settings_input_component</span>
+<h4 class="font-headline-md text-headline-md">Alternative Deployment</h4>
+</div>
+<div class="space-y-4 flex-1">
+<!-- Option 1 -->
+<div class="p-4 border border-outline-variant/30 rounded-lg hover:border-primary-fixed/40 transition-all cursor-pointer group bg-surface-container-low">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<p class="font-bold text-sm">PUBLISH TO PRIVATE STORE</p>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<p class="text-xs text-outline mt-1 leading-relaxed">Push this build directly to the organization's private repository for fleet management.</p>
+</div>
+</div>
+</div>
+<!-- Option 2 -->
+<div class="p-4 border border-outline-variant/30 rounded-lg hover:border-on-surface/40 transition-all cursor-pointer group">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<p class="font-bold text-sm text-on-surface-variant">EMAIL SECURE LINK</p>
+<span class="material-symbols-outlined text-outline-variant">mail</span>
+</div>
+<p class="text-xs text-outline mt-1">Send a one-time valid download link to a registered terminal operator.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 p-4 bg-surface-container-high rounded-lg flex items-center justify-between border-l-4 border-error">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">warning</span>
+<span class="text-[10px] font-bold text-on-surface-variant">DEBUG MODE ENABLED IN THIS BUILD</span>
+</div>
+<button class="text-[10px] text-error font-bold uppercase tracking-widest hover:underline">Revoke</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center md:hidden pb-safe bg-surface-container/80 backdrop-blur-2xl border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(195,244,0,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-caps text-label-caps">Signals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-label-caps">Charts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed gap-1 py-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-caps text-label-caps">Hub</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-caps text-label-caps">Alerts</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for checksum copying
+        document.querySelector('button.material-symbols-outlined').addEventListener('click', function() {
+            const btn = this;
+            const originalIcon = btn.innerText;
+            btn.innerText = 'check';
+            btn.classList.add('text-primary-fixed');
+            setTimeout(() => {
+                btn.innerText = originalIcon;
+                btn.classList.remove('text-primary-fixed');
+            }, 2000);
+        });
+
+        // Background atmosphere: Subtle floating particles
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '1px';
+            particle.style.height = '1px';
+            particle.style.background = '#c3f400';
+            particle.style.opacity = Math.random() * 0.3;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.zIndex = '-1';
+            particle.style.pointerEvents = 'none';
+            document.body.appendChild(particle);
+
+            const animation = particle.animate([
+                { transform: 'translateY(0)', opacity: 0 },
+                { transform: 'translateY(-100px)', opacity: 0.3 },
+                { transform: 'translateY(-200px)', opacity: 0 }
+            ], {
+                duration: 5000 + Math.random() * 5000,
+                iterations: Infinity,
+                easing: 'linear'
+            });
+        };
+
+        for(let i=0; i<20; i++) createParticle();
+    </script>
+</body></html>

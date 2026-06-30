@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Licensing</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffb4aa",
+                        "surface-variant": "#323536",
+                        "on-primary": "#283500",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e1e3e4",
+                        "outline": "#8e9379",
+                        "on-secondary-container": "#ffd2cc",
+                        "on-background": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffe16d",
+                        "outline-variant": "#444933",
+                        "inverse-surface": "#e1e3e4",
+                        "background": "#111415",
+                        "primary": "#ffffff",
+                        "surface": "#111415",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-secondary-fixed": "#410001",
+                        "on-primary-fixed": "#161e00",
+                        "tertiary-container": "#ffe16d",
+                        "secondary-fixed": "#ffdad5",
+                        "on-tertiary-container": "#776300",
+                        "on-secondary-fixed-variant": "#930005",
+                        "surface-container": "#1d2021",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary": "#690003",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-container-low": "#191c1d",
+                        "surface-dim": "#111415",
+                        "primary-fixed": "#c3f400",
+                        "tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-primary-container": "#556d00",
+                        "surface-bright": "#373a3b",
+                        "surface-container-high": "#282a2b",
+                        "secondary-container": "#c5020b",
+                        "error-container": "#93000a",
+                        "surface-tint": "#abd600",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed-dim": "#abd600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-container-highest": "#323536",
+                        "inverse-primary": "#506600",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#2e3132",
+                        "primary-container": "#c3f400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Utilities for High-End Aesthetic */
+        .glass-panel {
+            background: rgba(29, 32, 33, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-glow-primary {
+            text-shadow: 0 0 10px rgba(195, 244, 0, 0.4);
+        }
+        .neon-pulse {
+            animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(195, 244, 0, 0.5); }
+            50% { border-color: rgba(195, 244, 0, 0.1); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant bg-surface/60 backdrop-blur-xl flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed" data-icon="security">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">DISTRIBUTION HUB</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed hover:text-primary-fixed-dim transition-colors active:opacity-80 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Main Layout Container -->
+<div class="flex h-screen pt-16">
+<!-- NavigationDrawer (Shared Component - Desktop Only) -->
+<nav class="hidden md:flex flex-col h-full w-[280px] bg-surface-container dark:bg-surface-container border-r border-outline-variant flex-shrink-0 z-40 fixed">
+<div class="p-4 border-b border-outline-variant/50 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">shield_lock</span>
+</div>
+<div>
+<h2 class="font-body-md text-body-md font-bold text-on-surface">INSTITUTIONAL HUB</h2>
+<p class="font-data-sm text-data-sm text-on-surface-variant">Tier-1 Access Only</p>
+</div>
+</div>
+<div class="mt-2 text-right">
+<span class="font-data-sm text-data-sm text-outline">v4.0.1-STABLE</span>
+</div>
+</div>
+<ul class="flex flex-col gap-2 p-4">
+<!-- Inactive Tab 1 -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-highest transition-all cursor-pointer transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">download</span>
+<span class="font-body-md text-body-md">Download Center</span>
+</a>
+</li>
+<!-- Active Tab: Security Protocols (Logically maps to Licensing) -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-full hover:bg-surface-container-highest transition-all cursor-pointer transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-body-md text-body-md">Security Protocols</span>
+</a>
+</li>
+<!-- Inactive Tab 3 -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-highest transition-all cursor-pointer transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="font-body-md text-body-md">Installation Guide</span>
+</a>
+</li>
+<!-- Inactive Tab 4 -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-full hover:bg-surface-container-highest transition-all cursor-pointer transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-body-md text-body-md">Terminal Access</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[280px] p-margin-mobile md:p-margin-desktop overflow-y-auto pb-24 md:pb-8">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2"><div class="w-12 h-12 mb-4 md:mb-0 md:mr-4 inline-block align-middle rounded-lg overflow-hidden border border-primary-fixed/30">https://lh3.googleusercontent.com/aida-public/AB6AXuAZBR6ulXaSDN6-N71onLSFW0JcUzgE0jIs-yh1_mf4nuGWlCkcTPnWpdMxqtw-DlNRRhjke2En2YObhTBsdNVgbzWYrOGPZvOVlrEF-0jU-xGbgKTN5RSwi-jysDiHmDw2pZPJsZrn-k0JQw_vUmR0luX_TiMbO9o8IJ1q8XF2rtweGySN3YSTcSxAe4q8nz9EK7OtTPmAhLOos9Jh85R9WVieTLngKMtS35H6zjW-kMK1eCxB8TCQ1W82q0a825lxSY9H_C2CkMzH</div>EA Marketplace Licensing</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Manage your active Expert Advisor deployments, review hardware ID bindings, and provision new terminal licenses.</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface hover:border-primary-fixed hover:text-primary-fixed transition-colors rounded-DEFAULT bg-surface-container/50 glass-panel">
+<span class="material-symbols-outlined text-sm">key</span>
+<span class="font-label-caps text-label-caps uppercase">Generate Dev Key</span>
+</button>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Licenses (8 cols on desktop) -->
+<div class="lg:col-span-8 space-y-6">
+<h3 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant pb-2">My Licenses</h3>
+<!-- License Card 1: Active -->
+<div class="glass-panel border border-outline-variant rounded-xl p-6 relative overflow-hidden group hover:border-primary-fixed/50 transition-colors duration-300">
+<!-- Top Accent Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-fixed/80"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface flex items-center gap-3">
+                                    Sniper Gold MT5
+                                    <span class="flex items-center gap-1 bg-primary-fixed/10 border border-primary-fixed/30 px-2 py-1 rounded-DEFAULT">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span><span class="flex items-center gap-1 bg-primary-fixed/10 border border-primary-fixed/30 px-2 py-1 rounded-DEFAULT ml-2"><span class="material-symbols-outlined text-[10px] text-primary-fixed">verified</span><span class="font-label-caps text-label-caps text-primary-fixed">SECURE</span></span>
+<span class="font-label-caps text-label-caps text-primary-fixed">ACTIVE</span>
+</span><span class="flex items-center gap-1 bg-primary-fixed/10 border border-primary-fixed/30 px-2 py-1 rounded-DEFAULT ml-2"><span class="material-symbols-outlined text-[10px] text-primary-fixed">verified</span><span class="font-label-caps text-label-caps text-primary-fixed">SECURE</span></span>
+</h4>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Order #ORD-992-XAU • High-Frequency Scalping Core</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="space-y-3">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Purchase Date</span>
+<span class="font-data-sm text-data-sm text-on-surface">Oct 12, 2023</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Bound Account ID</span>
+<span class="font-data-sm text-data-sm text-on-surface">MT5-88291004</span>
+</div><div class="flex justify-between border-b border-outline-variant/30 pb-1 mt-3"><span class="font-body-md text-body-md text-on-surface-variant">Hardware ID</span><div class="flex items-center gap-2"><span class="font-data-sm text-data-sm text-on-surface">HW-9928-XF</span><button class="text-on-surface-variant hover:text-primary-fixed transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Version</span>
+<span class="font-data-sm text-data-sm text-on-surface">v2.4.1 (Latest)</span>
+</div>
+</div>
+<!-- License Key Block -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 flex flex-col justify-between shadow-[0_0_15px_rgba(195,244,0,0.15)]">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Terminal License Key</span>
+<div class="flex items-center justify-between bg-surface p-2 rounded border border-outline-variant/50">
+<code class="font-data-lg text-data-lg text-primary-fixed tracking-widest break-all">XG7A-9P2M-KL44-VN8Q</code>
+<button class="text-on-surface-variant hover:text-primary-fixed transition-colors p-1" title="Copy Key">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- License Card 2: Expired/Issue -->
+<div class="glass-panel border border-outline-variant rounded-xl p-6 relative overflow-hidden group">
+<!-- Top Accent Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-surface-variant"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface flex items-center gap-3">
+                                    Liquidity Reaper MT4
+                                    <span class="flex items-center gap-1 bg-surface-variant border border-outline px-2 py-1 rounded-DEFAULT opacity-80">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-caps text-label-caps text-outline">EXPIRED</span>
+</span>
+</h4>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Order #ORD-441-LIQ • Institutional Flow Tracker</p>
+</div>
+<button class="bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-highest px-3 py-1.5 rounded text-sm font-medium transition-colors">
+                                Renew License
+                            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-60">
+<div class="space-y-3">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Purchase Date</span>
+<span class="font-data-sm text-data-sm text-on-surface">Jan 05, 2022</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Expiration</span>
+<span class="font-data-sm text-data-sm text-error">Jan 05, 2023</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-outline mb-2">lock</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Key revoked due to subscription expiry.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Security Info (4 cols on desktop) -->
+<div class="lg:col-span-4 space-y-6">
+<h3 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant pb-2">Security Lock Matrix</h3>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 space-y-6">
+<p class="font-data-sm text-data-sm text-on-surface-variant leading-relaxed">
+                            Precision Sniper EAs employ institutional-grade DRM. Licenses are strictly bound to prevent unauthorized distribution and ensure signal integrity.
+                        </p>
+<!-- HWID Block -->
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface">dns</span>
+</div>
+<div>
+<h5 class="font-body-md text-body-md font-bold text-on-surface">Hardware ID (HWID) Binding</h5>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Keys are locked to the specific VPS or machine where first activated. Contact support for HWID resets.</p>
+</div>
+</div>
+<!-- Account Block -->
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface">account_balance</span>
+</div>
+<div>
+<h5 class="font-body-md text-body-md font-bold text-on-surface">Trading Account Lock</h5>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Each license is valid for one live MT4/MT5 account number. Demo accounts are unrestricted.</p>
+</div>
+</div>
+<!-- IP Block -->
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface">public</span>
+</div>
+<div>
+<h5 class="font-body-md text-body-md font-bold text-on-surface">IP Geo-Fencing</h5>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">Suspicious multi-region concurrent logins will temporarily suspend the license key.</p>
+</div>
+</div>
+</div>
+<!-- System Status Panel -->
+<div class="glass-panel border border-primary-fixed/20 rounded-xl p-4 flex items-center justify-between neon-pulse">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">cloud_done</span>
+<span class="font-data-sm text-data-sm text-on-surface">License Server Status</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed">OPERATIONAL</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Shared Component - Mobile Only) -->
+<nav class="flex md:hidden justify-around items-center h-20 pb-safe px-4 fixed bottom-0 w-full z-50 border-t border-outline-variant bg-surface/80 backdrop-blur-lg">
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-label-caps text-label-caps">Hub</span>
+</a>
+<!-- Active -->
+<a class="flex flex-col items-center justify-center text-primary-fixed font-bold active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-caps text-label-caps">Shield</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">description</span>
+<span class="font-label-caps text-label-caps">Manual</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform duration-150 w-16" href="#">
+<span class="material-symbols-outlined mb-1">support_agent</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</nav>
+</body></html>

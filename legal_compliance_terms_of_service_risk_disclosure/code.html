@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Risk Disclosure | PRECISION SNIPER ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for institutional look */
+        .legal-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .legal-scroll::-webkit-scrollbar-track {
+            background: #111415;
+        }
+        .legal-scroll::-webkit-scrollbar-thumb {
+            background: #444933;
+            border-radius: 2px;
+        }
+        .legal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #8e9379;
+        }
+        /* Glassmorphism subtle inner glow */
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2D3139;
+            box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#c3f400",
+                      "inverse-surface": "#e1e3e4",
+                      "surface-tint": "#abd600",
+                      "outline-variant": "#444933",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "secondary": "#ffb4aa",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary-fixed": "#c3f400",
+                      "on-surface": "#e1e3e4",
+                      "on-primary": "#283500",
+                      "primary": "#ffffff",
+                      "on-primary-fixed": "#161e00",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-background": "#e1e3e4",
+                      "surface-container-highest": "#323536",
+                      "on-secondary-fixed-variant": "#930005",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#373a3b",
+                      "tertiary-fixed": "#ffe16d",
+                      "outline": "#8e9379",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-secondary-container": "#ffd2cc",
+                      "error-container": "#93000a",
+                      "on-surface-variant": "#c4c9ac",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#ffdad5",
+                      "on-tertiary-container": "#776300",
+                      "background": "#0B0E14",
+                      "surface-container": "#1d2021",
+                      "tertiary": "#ffffff",
+                      "inverse-on-surface": "#2e3132",
+                      "on-secondary-fixed": "#410001",
+                      "surface-container-high": "#282a2b",
+                      "secondary-container": "#c5020b",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-primary-container": "#556d00",
+                      "inverse-primary": "#506600",
+                      "surface-container-low": "#191c1d",
+                      "on-secondary": "#690003",
+                      "surface-variant": "#323536",
+                      "surface-dim": "#111415",
+                      "tertiary-container": "#ffe16d",
+                      "surface": "#111415",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-tertiary": "#3a3000",
+                      "primary-fixed-dim": "#abd600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "container-max-width": "1440px",
+                      "unit": "4px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "data-lg": ["JetBrains Mono"],
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "data-sm": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar from JSON Authority -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-16 bg-surface-container-low border-b border-outline-variant fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tighter">PRECISION SNIPER ICT</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant p-2 rounded-full cursor-pointer transition-colors" data-icon="monitoring">monitoring</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 pb-20 md:pb-0 overflow-y-auto legal-scroll bg-[#0B0E14] relative">
+<!-- Ambient Atmospheric Effect -->
+<div class="max-w-[800px] mx-auto px-margin-mobile py-12 relative z-10">
+<!-- Header Section -->
+<div class="mb-10"><div class="flex gap-2 mb-6 p-1 bg-surface-container-lowest/50 rounded-lg w-fit border border-outline-variant">
+<button class="px-6 py-2 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded-sm transition-all" id="tab-risk">RISK DISCLOSURE</button>
+<button class="px-6 py-2 text-on-surface-variant hover:text-primary font-label-caps text-label-caps rounded-sm transition-all" id="tab-tos">TERMS OF SERVICE</button>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary-container font-label-caps text-label-caps tracking-widest">LEGAL COMPLIANCE</span>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary mb-4">Risk Disclosure &amp; Terms of Service</h1>
+<p class="text-on-surface-variant text-body-md max-w-2xl">
+                    Institutional-grade trading involves significant risk of loss. Please review the following technical disclosures before accessing the terminal.
+                </p>
+</div>
+<!-- Legal Scrollable Area -->
+<div class="glass-panel rounded-xl p-8 mb-8 space-y-12" id="risk-content">
+<!-- General Risk Warning -->
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<h2 class="text-headline-md font-headline-md text-primary">General Risk Warning</h2>
+</div>
+<div class="bg-surface-container-lowest/50 p-4 border-l-2 border-error">
+<p class="text-on-surface-variant leading-relaxed">
+                            Trading foreign exchange (Forex), indices, and commodities on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite.
+                        </p>
+</div>
+<p class="text-on-surface-variant text-sm font-data-sm">
+                        CODE: RISK-402 // HIGH VOLATILITY ALERT
+                    </p>
+</section>
+<!-- No Financial Advice -->
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="gavel">gavel</span>
+<h2 class="text-headline-md font-headline-md text-primary">No Financial Advice</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                        PRECISION SNIPER ICT provides technical analysis tools and educational signals only. All information provided through this terminal is for educational purposes and does not constitute investment advice, financial advice, trading advice, or any other sort of advice. You should not treat any of the platform's content as such.
+                    </p>
+</section>
+<!-- Performance Disclaimer -->
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="history">history</span>
+<h2 class="text-headline-md font-headline-md text-primary">Performance Disclaimer</h2>
+</div>
+<div class="glass-panel p-6 rounded-lg border-dashed border-outline">
+<p class="text-on-surface-variant italic mb-4">
+                            "Past performance is not indicative of future results."
+                        </p>
+<p class="text-on-surface-variant leading-relaxed">
+                            The signals generated by the PRECISION SNIPER ICT algorithm represent historical technical convergences. Trading results vary significantly based on execution speed, slippage, spread differentials, and individual risk management parameters. No representation is being made that any account will or is likely to achieve profits similar to those shown.
+                        </p>
+</div>
+</section>
+<!-- Hypothetical Performance -->
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="query_stats">query_stats</span>
+<h2 class="text-headline-md font-headline-md text-primary">Hypothetical Performance Disclosure</h2>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed font-data-sm border-t border-outline-variant pt-4">
+                        HYPOTHETICAL PERFORMANCE RESULTS HAVE MANY INHERENT LIMITATIONS, SOME OF WHICH ARE DESCRIBED BELOW. NO REPRESENTATION IS BEING MADE THAT ANY ACCOUNT WILL OR IS LIKELY TO ACHIEVE PROFITS OR LOSSES SIMILAR TO THOSE SHOWN; IN FACT, THERE ARE FREQUENTLY SHARP DIFFERENCES BETWEEN HYPOTHETICAL PERFORMANCE RESULTS AND THE ACTUAL RESULTS SUBSEQUENTLY ACHIEVED BY ANY PARTICULAR TRADING PROGRAM.
+                    </p>
+</section>
+</div><div class="glass-panel rounded-xl p-8 mb-8 space-y-12 hidden" id="tos-content">
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">verified_user</span>
+<h2 class="text-headline-md font-headline-md text-primary">1. User Licensing</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">PRECISION SNIPER ICT grants you a limited, non-exclusive, non-transferable license to access and use the technical analysis terminal for personal, non-commercial use only.</p>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">rule</span>
+<h2 class="text-headline-md font-headline-md text-primary">2. Acceptable Use</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Users are prohibited from reverse-engineering the algorithm, using automated scraping tools, or redistributing signals without explicit written consent from the developers.</p>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">gavel</span>
+<h2 class="text-headline-md font-headline-md text-primary">3. Liability Limits</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">To the maximum extent permitted by law, PRECISION SNIPER ICT shall not be liable for any financial losses, data corruption, or system downtime resulting from the use of our technical tools.</p>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">copyright</span>
+<h2 class="text-headline-md font-headline-md text-primary">4. Intellectual Property</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">All proprietary indicators, UI designs, and the underlying ICT-based logic are the exclusive intellectual property of PRECISION SNIPER ICT.</p>
+</section>
+</div>
+<!-- Acknowledgement & Action -->
+<div class="space-y-6">
+<label class="flex items-start gap-4 group cursor-pointer p-4 rounded-lg hover:bg-surface-variant/30 transition-colors">
+<div class="relative flex items-center mt-1">
+<input class="peer appearance-none w-5 h-5 border-2 border-outline rounded-sm checked:bg-primary-container checked:border-primary-container transition-all cursor-pointer" id="risk-ack" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary-container opacity-0 peer-checked:opacity-100 text-sm pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" data-icon="check">check</span>
+</div>
+<span class="text-on-surface-variant text-body-md select-none group-hover:text-primary transition-colors">
+                        I confirm that I have read and understood the Risk Disclosure, Technical Disclaimers, and Performance warnings. I acknowledge the high-risk nature of institutional trading.
+                    </span>
+</label>
+<div class="flex flex-col md:flex-row gap-4 items-center pt-4 border-t border-outline-variant">
+<button class="w-full md:w-auto px-12 py-4 bg-primary-container text-on-primary-container font-headline-md font-bold rounded-sm uppercase tracking-wider opacity-50 cursor-not-allowed transition-all hover:scale-95 duration-100 neon-glow" disabled="" id="accept-btn">
+                        I ACCEPT &amp; PROCEED
+                    </button>
+<button class="w-full md:w-auto px-8 py-4 border border-outline-variant text-on-surface-variant font-headline-md hover:bg-surface-variant/50 transition-colors rounded-sm uppercase">
+                        DECLINE
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar from JSON Authority (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl rounded-t-xl shadow-lg">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</div>
+<!-- Settings Active per JSON instructions for "Account/Settings" flow -->
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</div>
+</nav>
+<script>
+        // Interactive Logic for the Legal Screen
+        const checkbox = document.getElementById('risk-ack');
+        const acceptBtn = document.getElementById('accept-btn');
+
+        checkbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                acceptBtn.disabled = false;
+                acceptBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                acceptBtn.classList.add('cursor-pointer');
+            } else {
+                acceptBtn.disabled = true;
+                acceptBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                acceptBtn.classList.remove('cursor-pointer');
+            }
+        });
+
+        acceptBtn.addEventListener('click', () => {
+            if(!acceptBtn.disabled) {
+                acceptBtn.innerText = "INITIALIZING TERMINAL...";
+                acceptBtn.classList.add('animate-pulse');
+                setTimeout(() => {
+                    alert('Access Granted. Precision Sniper ICT Terminal Loading.');
+                }, 1000);
+            }
+        });
+    </script>
+<script>
+    const tabRisk = document.getElementById('tab-risk');
+    const tabTos = document.getElementById('tab-tos');
+    const riskContent = document.getElementById('risk-content');
+    const tosContent = document.getElementById('tos-content');
+
+    function switchTab(activeTab, inactiveTab, activeContent, inactiveContent) {
+        activeTab.classList.add('bg-primary-container', 'text-on-primary-container');
+        activeTab.classList.remove('text-on-surface-variant');
+        inactiveTab.classList.remove('bg-primary-container', 'text-on-primary-container');
+        inactiveTab.classList.add('text-on-surface-variant');
+        activeContent.classList.remove('hidden');
+        inactiveContent.classList.add('hidden');
+    }
+
+    tabRisk.addEventListener('click', () => switchTab(tabRisk, tabTos, riskContent, tosContent));
+    tabTos.addEventListener('click', () => switchTab(tabTos, tabRisk, tosContent, riskContent));
+</script></body></html>

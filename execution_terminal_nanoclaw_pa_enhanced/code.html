@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Live Chart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#111415",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#191c1d",
+                    "error-container": "#93000a",
+                    "secondary": "#ffb4aa",
+                    "on-tertiary-container": "#776300",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-dim": "#111415",
+                    "on-surface": "#e1e3e4",
+                    "on-error-container": "#ffdad6",
+                    "background": "#111415",
+                    "primary-container": "#c3f400",
+                    "outline-variant": "#444933",
+                    "surface-bright": "#373a3b",
+                    "on-primary-fixed": "#161e00",
+                    "surface-tint": "#abd600",
+                    "inverse-primary": "#506600",
+                    "surface-variant": "#323536",
+                    "on-secondary-fixed-variant": "#930005",
+                    "inverse-surface": "#e1e3e4",
+                    "surface-container-highest": "#323536",
+                    "surface-container": "#1d2021",
+                    "on-tertiary": "#3a3000",
+                    "on-primary": "#283500",
+                    "primary-fixed": "#c3f400",
+                    "tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "tertiary-fixed": "#ffe16d",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "surface-container-lowest": "#0c0f10",
+                    "primary-fixed-dim": "#abd600",
+                    "surface-container-high": "#282a2b",
+                    "secondary-fixed": "#ffdad5",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-background": "#e1e3e4",
+                    "inverse-on-surface": "#2e3132",
+                    "secondary-container": "#c5020b",
+                    "tertiary-container": "#ffe16d",
+                    "outline": "#8e9379",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-secondary-fixed": "#410001",
+                    "on-tertiary-fixed": "#221b00",
+                    "on-secondary": "#690003",
+                    "primary": "#ffffff",
+                    "on-secondary-container": "#ffd2cc",
+                    "on-error": "#690005",
+                    "on-primary-container": "#556d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "container-max-width": "1440px",
+                    "margin-desktop": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "data-lg": ["JetBrains Mono"],
+                    "data-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0B0E14; color: #e1e3e4; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(26, 29, 38, 0.6); backdrop-filter: blur(20px); border: 1px solid #2D3139; }
+        .neon-glow-primary { box-shadow: 0 0 15px rgba(195, 244, 0, 0.3); }
+        .blinking-dot { animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .chart-grid { background-image: linear-gradient(#2D3139 0.5px, transparent 0.5px), linear-gradient(90deg, #2D3139 0.5px, transparent 0.5px); background-size: 40px 40px; }
+        .fvg-zone { background: rgba(195, 244, 0, 0.1); border-left: 1px solid #c3f400; border-right: 1px solid #c3f400; }
+        .ob-zone { background: rgba(255, 180, 170, 0.15); border-top: 1px dashed #ffb4aa; border-bottom: 1px dashed #ffb4aa; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-container-low border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile h-16 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tighter">EURUSD</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-2">
+<button class="text-label-caps font-label-caps px-2 py-1 bg-surface-variant rounded">M5</button>
+<button class="text-label-caps font-label-caps px-2 py-1 hover:bg-surface-variant transition-colors">M15</button>
+<button class="text-label-caps font-label-caps px-2 py-1 hover:bg-surface-variant transition-colors">H1</button>
+<button class="text-label-caps font-label-caps px-2 py-1 hover:bg-surface-variant transition-colors">H4</button>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="monitoring">monitoring</span>
+</div>
+</header>
+<!-- Main Chart Canvas -->
+<main class="relative flex-grow w-full chart-grid overflow-hidden">
+<!-- Time Selector Mobile Sticky -->
+<div class="md:hidden absolute top-4 left-4 right-4 z-20 flex justify-center">
+<div class="glass-panel rounded-full px-4 py-1 flex gap-4">
+<span class="text-label-caps font-label-caps text-primary-container">M5</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">M15</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">H1</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">H4</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">D1</span>
+</div>
+</div>
+<!-- Live Status -->
+<div class="absolute top-4 right-4 z-20 flex items-center gap-2 glass-panel rounded-lg px-3 py-1">
+<div class="w-2 h-2 rounded-full bg-secondary-container blinking-dot"></div>
+<span class="text-label-caps font-label-caps text-on-surface">LIVE</span>
+</div>
+<!-- Chart Elements Simulation -->
+<div class="absolute inset-0 pt-24 px-4 pointer-events-none">
+<!-- Price Scales -->
+<div class="absolute right-0 top-0 bottom-0 w-12 border-l border-outline-variant flex flex-col justify-between py-10 items-center bg-surface/50 backdrop-blur-sm">
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0920</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0910</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0900</span>
+<span class="text-data-sm font-data-sm text-primary bg-primary-container/20 px-1 rounded">1.0892</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0880</span>
+<span class="text-data-sm font-data-sm text-on-surface-variant">1.0870</span>
+</div>
+<!-- Candlestick Mock -->
+<div class="flex items-end gap-1 h-full opacity-80">
+<div class="w-4 bg-secondary h-32 relative"><div class="absolute -top-4 left-1/2 w-px h-40 bg-secondary/50 -translate-x-1/2"></div></div>
+<div class="w-4 bg-primary-container h-48 relative"><div class="absolute -top-8 left-1/2 w-px h-64 bg-primary-container/50 -translate-x-1/2"></div></div>
+<div class="w-4 bg-secondary h-24 relative"></div>
+<div class="w-4 bg-primary-container h-56 relative"></div>
+<div class="w-4 bg-primary-container h-40 relative"></div>
+<!-- Current Price Line -->
+<div class="absolute left-0 right-12 top-[60%] border-t border-dashed border-primary-container">
+<div class="absolute right-0 -top-3 px-2 py-0.5 bg-primary-container text-on-primary-container text-data-sm font-data-sm neon-glow-primary">1.08924</div>
+</div>
+</div>
+<!-- ICT Annotations -->
+<!-- BOS -->
+<div class="absolute top-[45%] left-[30%] flex flex-col items-center">
+<span class="text-label-caps font-label-caps text-primary-container mb-1">BOS</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</div>
+<!-- FVG Zone -->
+<div class="absolute top-[52%] left-[10%] w-[35%] h-12 fvg-zone flex items-center justify-center">
+<span class="text-label-caps font-label-caps text-primary-container/50">FVG (M5)</span>
+</div>
+<!-- OB Zone -->
+<div class="absolute top-[70%] left-[45%] w-[45%] h-16 ob-zone flex items-start justify-start p-2">
+<span class="text-label-caps font-label-caps text-secondary/60">BULLISH ORDER BLOCK</span>
+</div>
+<!-- Liq Sweep -->
+<div class="absolute top-[38%] left-0 right-12 border-t border-dotted border-on-tertiary-fixed-variant">
+<div class="absolute left-10 -top-6 flex flex-col items-center">
+<span class="text-headline-md font-bold text-on-tertiary-fixed-variant">×</span>
+<span class="text-label-caps font-label-caps text-on-tertiary-fixed-variant -mt-2">LIQ SWEEP</span>
+</div>
+</div>
+</div>
+<!-- Volume Bars -->
+<div class="absolute bottom-32 left-0 right-12 flex items-end gap-1 h-12 px-4 opacity-30">
+<div class="w-4 bg-primary-container h-[40%]"></div>
+<div class="w-4 bg-primary-container h-[80%]"></div>
+<div class="w-4 bg-secondary h-[30%]"></div>
+<div class="w-4 bg-primary-container h-[60%]"></div>
+<div class="w-4 bg-secondary h-[90%]"></div>
+<div class="w-4 bg-primary-container h-[45%]"></div>
+<div class="w-4 bg-primary-container h-[70%]"></div>
+</div>
+<!-- Consensus Overlay -->
+<div class="absolute bottom-20 left-margin-mobile right-margin-mobile">
+<div class="glass-panel rounded-xl p-4 flex justify-between items-center border-l-4 border-l-primary-container">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-label-caps font-label-caps text-on-surface-variant">CONSENSUS SIGNAL</span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-bold rounded">GRADE A+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md font-bold text-primary">BUY (84%)</span>
+<span class="text-data-sm font-data-sm text-primary-container">Strong Confidence</span>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold text-label-caps active:scale-95 transition-transform">
+                    EXECUTE
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl rounded-t-xl shadow-lg h-20">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="rss_feed" style="font-variation-settings: 'FILL' 1;">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for current price movement
+        setInterval(() => {
+            const priceTag = document.querySelector('.neon-glow-primary');
+            const priceLine = priceTag.parentElement;
+            const currentPrice = 1.08920 + (Math.random() * 0.00010);
+            priceTag.innerText = currentPrice.toFixed(5);
+            
+            // Subtle vertical jitter for the price line to simulate live market
+            const currentTop = parseFloat(priceLine.style.top || 60);
+            const newTop = currentTop + (Math.random() - 0.5) * 0.1;
+            priceLine.style.top = `${newTop}%`;
+        }, 1000);
+    </script>
+<div class="fixed inset-0 z-[100] flex items-end justify-center p-4 md:p-8 backdrop-blur-sm bg-surface/40" id="execution-terminal">
+<div class="glass-panel w-full max-w-lg rounded-xl overflow-hidden flex flex-col shadow-2xl border-primary-container/30">
+<!-- Header -->
+<div class="bg-surface-container-high p-4 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+<h2 class="text-headline-md font-bold text-primary tracking-tight">EXECUTE SIGNAL - EURUSD</h2>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-bold rounded">GRADE A+</span>
+<span class="px-2 py-0.5 bg-secondary text-on-secondary-fixed-variant text-[10px] font-bold rounded flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">bolt</span>NANOCLAW PA</span></div>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="document.getElementById('execution-terminal').remove()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Content -->
+<div class="p-6 space-y-6 bg-surface-container-low">
+<!-- Risk Management -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="text-label-caps text-on-surface-variant">RISK PER TRADE</label>
+<span class="text-data-lg text-primary-container">0.5%</span>
+</div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary-container" max="2.0" min="0.1" step="0.1" type="range" value="0.5"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-data-sm">
+<span>0.1%</span>
+<span>1.0%</span>
+<span>2.0%</span>
+</div>
+</div>
+<!-- Multi-Leg Distribution -->
+<div class="space-y-3">
+<label class="text-label-caps text-on-surface-variant">MULTI-LEG DISTRIBUTION (5 ORDERS)</label>
+<div class="space-y-2">
+<div class="flex justify-between items-center p-2 bg-surface-container rounded border border-outline-variant/30">
+<span class="text-data-sm text-primary">TP1 (20%)</span>
+<span class="text-data-sm text-on-surface-variant">0.05 Lots @ 1.08980</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container rounded border border-outline-variant/30">
+<span class="text-data-sm text-primary">TP2 (20%)</span>
+<span class="text-data-sm text-on-surface-variant">0.05 Lots @ 1.09050</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container rounded border border-outline-variant/30">
+<span class="text-data-sm text-primary">TP3 (20%)</span>
+<span class="text-data-sm text-on-surface-variant">0.05 Lots @ 1.09120</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container rounded border border-outline-variant/30">
+<span class="text-data-sm text-primary">TP4 (20%)</span>
+<span class="text-data-sm text-on-surface-variant">0.05 Lots @ 1.09200</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container rounded border border-outline-variant/30">
+<span class="text-data-sm text-primary-container">RUNNER (20%)</span>
+<span class="text-data-sm text-on-surface-variant">0.05 Lots @ OPEN</span>
+</div>
+</div>
+</div>
+<!-- Toggles -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<span class="text-label-caps text-on-surface-variant">LIQ-AWARE SL</span>
+<div class="w-10 h-5 bg-primary-container rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-on-primary-container rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<span class="text-label-caps text-on-surface-variant">AUTO-RATCHET</span>
+<div class="w-10 h-5 bg-surface-variant rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-on-surface-variant rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg col-span-2"><span class="text-label-caps text-on-surface-variant">NANOCLAW SL OPTIMIZATION</span><div class="w-10 h-5 bg-primary-container rounded-full relative"><div class="absolute right-1 top-1 w-3 h-3 bg-on-primary-container rounded-full"></div></div></div></div>
+<!-- Action Buttons -->
+<div class="flex gap-3 pt-2">
+<button class="flex-grow py-3 rounded-lg border border-outline-variant text-label-caps font-bold hover:bg-surface-variant transition-colors" onclick="document.getElementById('execution-terminal').remove()">CANCEL</button>
+<button class="flex-grow py-3 rounded-lg bg-primary-container text-on-primary-container text-label-caps font-bold neon-glow-primary active:scale-95 transition-transform">PLACE 5 ORDERS</button>
+</div>
+</div>
+</div>
+</div></body></html>

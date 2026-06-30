@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Google Play Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#506600",
+                    "tertiary": "#ffffff",
+                    "on-tertiary-container": "#776300",
+                    "on-primary-container": "#556d00",
+                    "secondary-container": "#c5020b",
+                    "surface-container-lowest": "#0c0f10",
+                    "on-secondary-container": "#ffd2cc",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "primary-container": "#c3f400",
+                    "background": "#111415",
+                    "surface-container-low": "#191c1d",
+                    "surface": "#111415",
+                    "on-error": "#690005",
+                    "secondary": "#ffb4aa",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-secondary": "#690003",
+                    "surface-variant": "#323536",
+                    "primary-fixed": "#c3f400",
+                    "surface-bright": "#373a3b",
+                    "tertiary-container": "#ffe16d",
+                    "surface-container-highest": "#323536",
+                    "on-tertiary": "#3a3000",
+                    "inverse-on-surface": "#2e3132",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e1e3e4",
+                    "secondary-fixed": "#ffdad5",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "tertiary-fixed": "#ffe16d",
+                    "outline-variant": "#444933",
+                    "on-background": "#e1e3e4",
+                    "on-secondary-fixed-variant": "#930005",
+                    "primary-fixed-dim": "#abd600",
+                    "on-secondary-fixed": "#410001",
+                    "on-surface-variant": "#c4c9ac",
+                    "surface-container": "#1d2021",
+                    "primary": "#ffffff",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#111415",
+                    "surface-container-high": "#282a2b",
+                    "on-primary": "#283500",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "inverse-surface": "#e1e3e4",
+                    "surface-tint": "#abd600",
+                    "outline": "#8e9379",
+                    "on-primary-fixed": "#161e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "container-max-width": "1440px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "data-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "data-lg": ["JetBrains Mono"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #111415; color: #e1e3e4; }
+        .glass-card {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2d3139;
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #111415; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #444933; border-radius: 10px; }
+        .active-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #c3f400;
+            box-shadow: 0 0 8px #c3f400;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-background/80 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-container">PRECISION SNIPER ICT</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<span class="material-symbols-outlined text-primary-container">account_balance_wallet</span>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pb-8 container mx-auto max-w-container-max-width px-margin-mobile md:px-margin-desktop">
+<!-- App Identity Section -->
+<section class="flex flex-col md:flex-row gap-gutter md:items-start mb-8">
+<div class="relative flex-shrink-0">
+<div class="w-24 h-24 md:w-48 md:h-48 rounded-xl overflow-hidden shadow-2xl glass-card p-1">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A high-tech minimalist app icon for an institutional trading app. The icon features a sleek, neon lime geometric sniper reticle centered over a deep obsidian black background. Subtle micro-circuitry patterns in dark charcoal gray trace across the background, giving a professional, technical, and high-stakes financial atmosphere. The lighting is low-key with a sharp, crisp glow emitting from the neon lime elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2FUmSwJtt_b1hN3CCRgiu-kE2hkBbWfbDLDzHpbfp9I-NQpcbEgoLPWw1k_0YfkZmzOSVB64zukSudkqqHPS6MIXp3o7dmGBMGbtxkKtUGijri9qc77VbIOuMGN1rAu-pkrLK86m-uLhbHdiK2A62Wf9d-xWlquTv14VS76sRYoG__xFWHnfnaswOyjvha27XIubhsxAaJJ1ievdv4FD7_5k6QPWKrgPA63UQRb4DcSKpDntTINg6MX1D1WvxAUPLQuegIIZHOQWi"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary-container text-on-primary-container p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-grow">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-1">Precision Sniper ICT</h2>
+<p class="text-primary-container font-medium mb-4">Institutional Trading Strategies &amp; Signals</p>
+<div class="flex flex-wrap gap-4 mb-6 items-center">
+<div class="flex flex-col items-center border-r border-outline-variant pr-4">
+<span class="flex items-center gap-1 font-bold text-on-surface">4.9 <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<span class="text-label-caps text-on-surface-variant uppercase">82K Reviews</span>
+</div>
+<div class="flex flex-col items-center border-r border-outline-variant pr-4">
+<span class="font-bold text-on-surface">1M+</span>
+<span class="text-label-caps text-on-surface-variant uppercase">Downloads</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface">shield</span>
+<span class="text-label-caps text-on-surface-variant uppercase">Secured</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<button class="bg-primary-container text-on-primary-fixed px-12 py-3 rounded-lg font-bold text-headline-md uppercase tracking-tight flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all neon-glow">
+                        Install
+                    </button>
+<button class="border border-outline text-on-surface px-8 py-3 rounded-lg font-bold text-label-caps uppercase flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_to_home_screen</span>
+                        Add to Wishlist
+                    </button>
+</div>
+</div>
+</section>
+<!-- Trust Badges -->
+<div class="flex gap-4 mb-12 overflow-x-auto pb-4 custom-scrollbar">
+<div class="glass-card flex items-center gap-3 px-4 py-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-primary-container">editor_choice</span>
+<span class="text-label-caps text-on-surface uppercase whitespace-nowrap">Editor's Choice</span>
+</div>
+<div class="glass-card flex items-center gap-3 px-4 py-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-primary-container">encrypted</span>
+<span class="text-label-caps text-on-surface uppercase whitespace-nowrap">Bank-Grade Encryption</span>
+</div>
+<div class="glass-card flex items-center gap-3 px-4 py-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-primary-container">monitoring</span>
+<span class="text-label-caps text-on-surface uppercase whitespace-nowrap">Real-time ICT Liquidity</span>
+</div>
+</div>
+<!-- Screenshots Bento Grid/Gallery -->
+<section class="mb-16">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+                App Showcase <span class="material-symbols-outlined text-primary-container">gallery_thumbnail</span>
+</h3>
+<div class="flex gap-gutter overflow-x-auto pb-6 custom-scrollbar snap-x">
+<!-- Screenshot 1: Live ICT Chart -->
+<div class="flex-shrink-0 w-72 md:w-80 aspect-[9/19] rounded-2xl overflow-hidden glass-card snap-start relative group">
+<img class="w-full h-full object-cover" data-alt="A professional vertical smartphone screenshot of a live ICT trading chart interface. The UI is deep obsidian dark mode with glowing neon lime candlesticks and technical indicators like Fair Value Gaps and Order Blocks highlighted in soft, translucent green boxes. High-resolution price action for XAUUSD is displayed with JetBrains Mono typography for technical data points. The atmosphere is sophisticated, technical, and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2YJPgz-gBC6ujhB8_FyEEnVPprlg_CNKVnlgdKPt1-JrvzEfXCp6JHZrVcBVLap9Qciyn5NORmVW3aGo39MRVTeE3gMwjTrk2iUr-IBgOEwLtnvzDGCCnJCktz6j5s7iyNgSDzjMmXhp0qZgq1ZQ7l7zLNmJASlqjFn0LOQJKin63WgCjSckBmVf0lO23qszMFdto8VrzzoSl-zqMMdSEG0r4u__F_BMqjZY0sBFx7ugSoJHK9eiTDgggdrpB2sdp3oCkJxQ-evjE"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background to-transparent">
+<p class="font-headline-md text-primary-container">Live ICT Engine</p>
+</div>
+</div>
+<!-- Screenshot 2: Consensus Matrix -->
+<div class="flex-shrink-0 w-72 md:w-80 aspect-[9/19] rounded-2xl overflow-hidden glass-card snap-start relative group">
+<img class="w-full h-full object-cover" data-alt="A vertical app screenshot featuring a high-density 'Consensus Matrix' dashboard. The screen shows a grid of various currency pairs like EURUSD and GBPJPY, each with complex color-coded strength meters and technical institutional flow data. The design uses neon lime accents on a charcoal navy background with backdrop blurs and micro-borders, creating a glassmorphic aesthetic for high-end institutional trading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHK_hcai7ain0lRGxs9qwJPNQl29Hy_VllMdNCus9FF2LnwAOCKRQUft-Tc36srwWsMl-jNZPh_uytNXlwPgMXGMHW7ry2XEh0uHu4DGJ73J9g_m8O2v9tlAYmSVn6Uu_rGqTDcPIXH8Lyp9Kmq2SUmprIN1YsXnsmiEVnpNCQbxPtaZ1X0fPgnt847rZ3eYATL2dqXLoP4N-5LsN0a7QQ9blQrAHDaAWNbwjUbstwk158G5AwAzuKwbMdBFW6rYmuhxuAvX5dXAlX"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background to-transparent">
+<p class="font-headline-md text-primary-container">Consensus Matrix</p>
+</div>
+</div>
+<!-- Screenshot 3: Signal Feed -->
+<div class="flex-shrink-0 w-72 md:w-80 aspect-[9/19] rounded-2xl overflow-hidden glass-card snap-start relative group">
+<img class="w-full h-full object-cover" data-alt="A sleek vertical mobile UI showing a 'Sniper Signal' alert. A large, bold neon lime button labeled 'EXECUTE' sits at the bottom. The main card features a premium Gold 'Grade A+' badge and detailed entry, stop loss, and take profit levels in crisp mono-spaced font. The background is a deep black void with subtle glowing light leaks of neon lime from the screen edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUzBUKrvg-1crk1NSqXli22c0eyKCof8BhExw4zC4JTgZquSpwQXggtUVTA54xxxKg68CkZ9HfnMRn2dST_kle4o-db6llQRTpTMohQRF2iduZFY5aU_RgowuW6DG1R9GcUAk-M88aURs4oQoBeaTHe8cwP4WshDo5Y7AzltstQyVEX6RbEaR5x8KjNEi982G1QjUpLGQPfZ_HwkCreBkLXkXTWgRs36YACN3rCX8-DOAqs7IzXYPzvEswIT453_lHftA77YFNMhnv"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background to-transparent">
+<p class="font-headline-md text-primary-container">Precision Signals</p>
+</div>
+</div>
+<!-- Screenshot 4: Analytics -->
+<div class="flex-shrink-0 w-72 md:w-80 aspect-[9/19] rounded-2xl overflow-hidden glass-card snap-start relative group">
+<img class="w-full h-full object-cover" data-alt="A mobile app interface displaying advanced portfolio analytics. A large, dynamic line chart glows with neon lime against a dark grid-patterned background. Data cards with glassmorphic depth show win-rate percentages and drawdown metrics. The styling is minimal yet data-dense, suggesting an expert-level trading tool for professionals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQvdrAKDEEdPdHpuUAOZouSGeuzv-vCq_zmoCwqTZ40JUV3VbL8eab8WSh3oejpt3X88qwTBXXPmZla_HlGM2N4kjkqlCI0ch3bbpe2OwyeDXATOzdcrBZagnRcisPfi2T_3VxXYQat2eTx_cW7r7WCsjR9dscxNl1OxdMwS5vH4eMJAGjnHFwjyoiI0-gXb-1Wuz4h81PgKUAYfWKtJ3jnSu_vtwVVyvK--AtYwQaTaRQuF3p_leEX4Nso8uoUIOBsk89Ry33P5k4"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background to-transparent">
+<p class="font-headline-md text-primary-container">Advanced Analytics</p>
+</div>
+</div>
+</div>
+</section>
+<!-- What's New & Security Hardening -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<section class="glass-card p-6 rounded-2xl">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">What's New</h3>
+<span class="text-primary-container font-data-sm text-data-sm">v3.0.42</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="mt-1"><div class="active-dot"></div></div>
+<div>
+<p class="font-bold text-on-surface">Obsidian Aegis Hardening</p>
+<p class="text-on-surface-variant text-sm">Enhanced kernel-level security for trade execution and private key management. Total isolation during market volatility.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="mt-1"><div class="w-2 h-2 rounded-full bg-outline-variant"></div></div>
+<div>
+<p class="font-bold text-on-surface">Matrix v2 Engine</p>
+<p class="text-on-surface-variant text-sm">Latency reduced to 12ms for inter-bank liquidity liquidity sweep detection.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="glass-card p-6 rounded-2xl border-primary-container/30">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container">security</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Data Safety</h3>
+</div>
+<p class="text-on-surface-variant mb-6 text-sm">Safety starts with understanding how developers collect and share your data. Data privacy and security practices may vary based on your use, region, and age.</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">share_off</span>
+                        No data shared with third parties
+                    </div>
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">lock</span>
+                        Data is encrypted in transit
+                    </div>
+<button class="text-primary-container text-label-caps uppercase font-bold text-left mt-2">See details</button>
+</div>
+</section>
+</div>
+<!-- About this app -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">About this app</h3>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</div>
+<div class="space-y-4 text-on-surface-variant">
+<p>Precision Sniper ICT is the definitive mobile terminal for institutional-grade Inner Circle Trader (ICT) methodologies. Designed for the sophisticated trader who demands surgical accuracy, our engine processes millions of market data points to identify High-Probability Liquidity Pools, Order Blocks, and Fair Value Gaps in real-time.</p>
+<p>Equipped with the proprietary 'Consensus Matrix', the app synthesizes multiple timeframes to present a unified institutional bias, ensuring you are never on the wrong side of the 'Smart Money' flow.</p>
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-3 py-1 bg-surface-container-highest rounded text-label-caps text-on-surface uppercase">Finance</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded text-label-caps text-on-surface uppercase">Professional Tools</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded text-label-caps text-on-surface uppercase">Signals</span>
+</div>
+</div>
+</section>
+<!-- Ratings & Reviews -->
+<section class="mb-16">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Ratings and reviews</h3>
+<div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+<div class="text-center md:text-left">
+<div class="text-6xl font-bold text-on-surface mb-2">4.9</div>
+<div class="flex justify-center md:justify-start text-primary-container mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="text-on-surface-variant text-label-caps">82,419 RATINGS</div>
+</div>
+<div class="flex-grow w-full space-y-2">
+<div class="flex items-center gap-4">
+<span class="text-sm font-data-sm w-4">5</span>
+<div class="h-2 flex-grow bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[92%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-data-sm w-4">4</span>
+<div class="h-2 flex-grow bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[6%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-data-sm w-4">3</span>
+<div class="h-2 flex-grow bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[1%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-data-sm w-4">2</span>
+<div class="h-2 flex-grow bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[0.5%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-data-sm w-4">1</span>
+<div class="h-2 flex-grow bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[0.5%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Review Card Sample -->
+<div class="mt-12 space-y-8">
+<div class="glass-card p-6 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">M</div>
+<div>
+<p class="text-on-surface font-bold">Marcus V.</p>
+<div class="flex text-primary-container text-[12px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant text-xs font-data-sm">Dec 14, 2023</span>
+</div>
+<p class="text-on-surface-variant italic">"The accuracy of the Fair Value Gap detection is unparalleled. Version 3.0 with the security hardening gives me the confidence to execute high-lot trades directly from the matrix. A masterpiece for ICT traders."</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl border-t border-outline-variant flex justify-around items-center h-20 pb-safe px-unit shadow-2xl">
+<div class="flex flex-col items-center justify-center text-primary-container font-bold scale-110 transition-transform">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-caps uppercase">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="text-label-caps uppercase">Live Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-caps uppercase">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-caps uppercase">Settings</span>
+</div>
+</nav>
+<!-- Interactive Layer for Install Button -->
+<script>
+        document.querySelector('button.bg-primary-container').addEventListener('click', function() {
+            this.textContent = 'Installing...';
+            this.classList.add('animate-pulse');
+            setTimeout(() => {
+                this.textContent = 'Open';
+                this.classList.remove('animate-pulse');
+            }, 3000);
+        });
+    </script>
+</body></html>

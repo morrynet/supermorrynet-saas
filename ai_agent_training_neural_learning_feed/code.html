@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SNIPER_ICT | AI Agent Training</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Implementation -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffffff",
+                    "surface-container-highest": "#30353d",
+                    "tertiary-container": "#ffe089",
+                    "surface-container-lowest": "#090f15",
+                    "on-secondary": "#2e3132",
+                    "on-tertiary-fixed": "#241a00",
+                    "primary": "#ffffff",
+                    "surface-bright": "#343a41",
+                    "surface-tint": "#abd600",
+                    "on-error": "#690005",
+                    "on-surface": "#dee3ec",
+                    "on-secondary-container": "#b3b5b6",
+                    "inverse-surface": "#dee3ec",
+                    "error-container": "#93000a",
+                    "surface-variant": "#30353d",
+                    "tertiary-fixed": "#ffe089",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "on-primary": "#283500",
+                    "tertiary-fixed-dim": "#efc11c",
+                    "on-primary-container": "#556d00",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#506600",
+                    "primary-fixed-dim": "#abd600",
+                    "secondary": "#c5c7c8",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "surface-container-high": "#252a32",
+                    "outline-variant": "#444933",
+                    "inverse-on-surface": "#2c3138",
+                    "on-secondary-fixed": "#191c1d",
+                    "secondary-fixed": "#e1e3e4",
+                    "primary-container": "#c3f400",
+                    "surface-container-low": "#171c23",
+                    "surface-dim": "#0e141a",
+                    "error": "#ffb4ab",
+                    "surface": "#0e141a",
+                    "outline": "#8e9379",
+                    "on-tertiary": "#3d2f00",
+                    "on-secondary-fixed-variant": "#444748",
+                    "on-background": "#dee3ec",
+                    "secondary-container": "#444748",
+                    "on-primary-fixed": "#161e00",
+                    "surface-container": "#1b2027",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "on-tertiary-container": "#7b6100",
+                    "background": "#0e141a",
+                    "primary-fixed": "#c3f400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-desktop": "16px",
+                    "gutter-terminal": "2px",
+                    "stack-dense": "4px",
+                    "margin-mobile": "12px",
+                    "stack-standard": "12px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-sm": ["Space Grotesk"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        
+        /* Custom Terminal Aesthetics */
+        .obsidian-abyss { background-color: #0A0C0D; }
+        .module-border { border: 1px solid #24282B; }
+        .neon-lime-glow { box-shadow: 0 0 10px rgba(204, 255, 0, 0.15); }
+        .neon-lime-text { color: #CCFF00; }
+        .neon-lime-bg { background-color: #CCFF00; }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #111415; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #24282B; }
+        
+        @keyframes pulse-lime {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0.2; }
+        }
+        .animate-pulse-lime { animation: pulse-lime 2s infinite; }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(204, 255, 0, 0.05);
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface obsidian-abyss font-body-md overflow-hidden h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="scanline"></div>
+<!-- TopAppBar -->
+<header class="bg-background border-b border-outline-variant flex justify-between items-center px-margin-mobile h-14 w-full fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed text-headline-md" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h1 class="font-headline-md text-headline-md text-primary-fixed tracking-tighter uppercase">SNIPER_ICT</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-widest cursor-pointer hover:bg-surface-container-highest transition-colors px-2 py-1 rounded">TRAINING_CENTER</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest cursor-pointer hover:bg-surface-container-highest transition-colors px-2 py-1 rounded">LIVE_OPERATIONS</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded active:scale-95 duration-150">psychology</button>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-1 mt-14 mb-16 p-2 grid grid-cols-12 gap-gutter-terminal overflow-hidden">
+<!-- Sidebar: Agent Knowledge Base -->
+<aside class="col-span-12 lg:col-span-3 flex flex-col gap-2 overflow-hidden">
+<section class="bg-surface-container-low module-border rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Agent Knowledge Base</h2>
+<span class="text-[10px] font-data-mono text-primary-fixed-dim bg-primary/10 px-1.5 py-0.5 rounded">V.4.2-ALPHA</span>
+</div>
+<div class="space-y-4 custom-scrollbar overflow-y-auto pr-2">
+<!-- Strategy Module 1 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-data-mono">
+<span class="text-on-surface">MACRO_CONFLUENCE</span>
+<span class="neon-lime-text">92%</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full neon-lime-bg w-[92%] transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Strategy Module 2 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-data-mono">
+<span class="text-on-surface">LIQUIDITY_VOID_ID</span>
+<span class="neon-lime-text">68%</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full neon-lime-bg w-[68%] transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Strategy Module 3 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-data-mono">
+<span class="text-on-surface">FVG_REBALANCE</span>
+<span class="neon-lime-text">45%</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full neon-lime-bg w-[45%] transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Strategy Module 4 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] font-data-mono">
+<span class="text-on-surface">VOLATILITY_HEDGE</span>
+<span class="neon-lime-text">12%</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full neon-lime-bg w-[12%] animate-pulse transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant">
+<div class="text-[10px] font-data-mono text-on-surface-variant mb-3">TRAINING_HARDWARE_LOAD</div>
+<div class="flex gap-1 h-8 items-end">
+<div class="flex-1 bg-primary/20 h-2"></div>
+<div class="flex-1 bg-primary/40 h-4"></div>
+<div class="flex-1 bg-primary/60 h-6"></div>
+<div class="flex-1 neon-lime-bg h-5"></div>
+<div class="flex-1 bg-primary/30 h-3"></div>
+<div class="flex-1 bg-primary/50 h-7"></div>
+</div>
+</div>
+</section>
+<!-- Quick Metrics -->
+<section class="bg-surface-container-low module-border rounded-lg p-3 grid grid-cols-2 gap-2">
+<div class="p-2 bg-surface-container-lowest module-border">
+<div class="text-[9px] font-label-caps text-on-surface-variant">VELOCITY</div>
+<div class="font-data-mono text-lg neon-lime-text">4.2k/s</div>
+</div>
+<div class="p-2 bg-surface-container-lowest module-border">
+<div class="text-[9px] font-label-caps text-on-surface-variant">SUCCESS_ATT</div>
+<div class="font-data-mono text-lg neon-lime-text">78.4%</div>
+</div>
+</section>
+</aside>
+<!-- Center: Neural Learning Feed -->
+<section class="col-span-12 lg:col-span-6 flex flex-col gap-2 overflow-hidden">
+<div class="flex-1 bg-surface-container-low module-border rounded-lg relative overflow-hidden flex flex-col">
+<div class="p-4 flex justify-between items-center border-b border-outline-variant bg-surface-container-low/50 backdrop-blur-sm z-20">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full neon-lime-bg animate-pulse"></div>
+<h2 class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Neural Learning Feed</h2>
+</div>
+<div class="flex gap-2">
+<button class="px-2 py-1 bg-surface-container-highest text-[10px] font-data-mono rounded hover:bg-primary/20">LIVE_DATA</button>
+<button class="px-2 py-1 border border-primary/20 text-[10px] font-data-mono rounded neon-lime-text">VIRTUAL_SYNTH</button>
+</div>
+</div>
+<!-- Feed Content -->
+<div class="flex-1 p-4 custom-scrollbar overflow-y-auto space-y-1 font-data-mono text-[12px] relative">
+<!-- Background Shader Placeholder -->
+
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:01.04</span>
+<span class="text-primary-fixed-dim">[AGENT_01]</span>
+<span class="text-on-surface">Validating <span class="neon-lime-text">EUR/USD</span> 15m Fair Value Gap. Result: Correlation confirmed (0.89). Logic updated.</span>
+</div>
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:02.12</span>
+<span class="text-primary-fixed-dim">[SYSTEM]</span>
+<span class="text-error">Virtual deviation detected (+0.04%). Re-calibrating risk parameters for high-impact news.</span>
+</div>
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors bg-primary/5">
+<span class="text-on-surface-variant shrink-0">14:22:03.45</span>
+<span class="text-primary-fixed-dim">[AGENT_03]</span>
+<span class="text-on-surface">Executing <span class="neon-lime-text">BTC/USDT</span> Virtual Simulation: Module "Volatility_Hedge" +3.4% gain. Attribution: Liquidity Sweep.</span>
+</div>
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:05.11</span>
+<span class="text-primary-fixed-dim">[AGENT_01]</span>
+<span class="text-on-surface">Weighting strategy "Institutional_Order_Flow" against live tap. Weight adjusted from 0.42 -&gt; 0.58.</span>
+</div>
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:06.89</span>
+<span class="text-primary-fixed-dim">[CORE]</span>
+<span class="neon-lime-text">GLOBAL_LEARNING_REWARD_DISTRIBUTED (Delta: +12.4ms)</span>
+</div>
+<!-- Recursive entries added by script later if needed -->
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:07.02</span>
+<span class="text-primary-fixed-dim">[AGENT_04]</span>
+<span class="text-on-surface">Processing historical 'Black Swan' event (2020-03-12). Identifying early-warning harmonics.</span>
+</div>
+<div class="flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors">
+<span class="text-on-surface-variant shrink-0">14:22:08.54</span>
+<span class="text-primary-fixed-dim">[SYSTEM]</span>
+<span class="text-on-surface">Correlation scan: Virtual vs Live divergence &lt; 0.012%. Status: GREEN.</span>
+</div>
+</div>
+<!-- Footer Console -->
+<div class="p-2 bg-surface-container-lowest border-t border-outline-variant flex gap-2">
+<span class="text-primary-fixed-dim font-data-mono text-[12px] px-2">CMD&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-data-mono text-[12px] w-full p-0 placeholder:text-on-surface-variant/30" placeholder="inject_parameter --agent=all --speed=max" type="text"/>
+</div>
+</div>
+</section>
+<!-- Right: Execution Metrics -->
+<section class="col-span-12 lg:col-span-3 flex flex-col gap-2 overflow-hidden">
+<!-- Learning Velocity Visualization -->
+<div class="bg-surface-container-low module-border rounded-lg p-4 h-1/2 flex flex-col">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase">Performance Matrix</h2>
+<div class="flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="text-[10px] font-data-mono text-on-surface-variant">LEARNING_VELOCITY</div>
+<div class="text-3xl font-display-lg neon-lime-text leading-tight">184.2<span class="text-sm">GHz/m</span></div>
+<div class="flex items-center gap-1 text-[10px] font-data-mono text-green-400">
+<span class="material-symbols-outlined text-xs">trending_up</span> +14.2% FROM PREV_EPOCH
+                        </div>
+</div>
+<div class="relative h-24 mt-4">
+<!-- Tiny Chart Placeholder -->
+<div class="absolute inset-0 flex items-end gap-1">
+<div class="flex-1 bg-primary/10 h-[20%]"></div>
+<div class="flex-1 bg-primary/20 h-[40%]"></div>
+<div class="flex-1 bg-primary/30 h-[30%]"></div>
+<div class="flex-1 bg-primary/40 h-[60%]"></div>
+<div class="flex-1 bg-primary/50 h-[80%]"></div>
+<div class="flex-1 neon-lime-bg h-[95%]"></div>
+<div class="flex-1 neon-lime-bg h-[70%]"></div>
+<div class="flex-1 bg-primary/40 h-[40%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-data-mono text-on-surface-variant">VIR_TO_LIVE_CORR</span>
+<span class="text-[12px] font-data-mono neon-lime-text">0.9984</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-data-mono text-on-surface-variant">EPOCH_STABILITY</span>
+<span class="text-[12px] font-data-mono text-on-surface">NOMINAL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Focus Module -->
+<div class="bg-surface-container-low module-border rounded-lg p-4 flex-1 flex flex-col">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase">Active Agent Monitor</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded object-cover border border-outline-variant" data-alt="A macro close-up of a futuristic CPU architecture glowing with neon lime circuits, hyper-detailed, tech-noir aesthetic, deep charcoal and obsidian surfaces, 8k resolution, professional institutional trading environment vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbt6pddazq1qpQYwyUxMqRoUjHOecCR0q9sWpFum6toG7iDRvFW57NTrzA6HC6w4PqxvHfb7KLnHlW9aXKH4kRgMGhZMrtlPaW4Gntmn8i_krJgh-9jIwPZVQYK6OzhZAfNHg7DcR242IAhLpTfGN2w62k1vY4t6Qtbdxx87pKqz60FcJaRiwPlxtWuh99Df_Dxo4ryu8LxsDZxTfUr_9RwsQxPAkVm3GXdgRiW1Fg7XZ4evV_5DuBpWSojw2JDcwEl6yUVZsHt3RW"/>
+<div>
+<div class="text-[11px] font-data-mono text-on-surface">THETA_PRIME_01</div>
+<div class="text-[9px] font-data-mono text-primary-fixed-dim">STATUS: OPTIMIZING</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded object-cover border border-outline-variant" data-alt="A digital visualization of a neural network with nodes glowing in a vibrant neon lime color against a pitch black background, sleek lines, technical precision, high-contrast, professional fintech UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKFCBoePqW-mHxdndyU7PzJoq_ydDuzCGOJsiuNlYxAor-g7PMkX_Q6QXJ0ai1Uo3wMWB-SUroBF7KgrOnbMn4WxPrRNz1KsMk0ViVdzTcaGdgY9-aYde-JjIWsrocvuw4Q-ve-fT6gExSmY2ZCgUQ9wO7DbAGgWgR6J5huqfZiM178BaxG1nZzLU0V_OVcOzGPCElY7ytYx6S1o7JAsrfPcwc-ptzFDEF6AkWoQ4hAvLrefk1BHJMrvCKWmG0Q7mXeowj2kWiHEnp"/>
+<div>
+<div class="text-[11px] font-data-mono text-on-surface">DELTA_SCANNER_04</div>
+<div class="text-[9px] font-data-mono text-on-surface-variant">STATUS: IDLE_STANDBY</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded object-cover border border-outline-variant" data-alt="Abstract visualization of financial data flow, cascading columns of green and white light against a deep obsidian abyss, brutalist corporate aesthetic, sharp corners, digital gold highlights, 4k cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIU7ClvbojgjVJWJ4NF9iC5fIeSc9anDTi7fDeMKnbR2XnqUUl3KASJaledR4Oa-1HBwFhMX86EOHrg4z-mAnREjbCTC6Wun2lkZzf3LShrBmUjHLRGVnIbTbJCWfnIVCEjYYlsNnq8xcoUkrv26yGg8H3Yb20kdeFgDiqr9ArN0zNqqy67qeUJhzSuH7NQ66tK8OJT61Y7YvTUhk1ex9_Zl2GuhLQ5KQ7e45bTsb-9FGc_Rb6T9PDht8wNlK_SBvdek-pqfJpGxv_"/>
+<div>
+<div class="text-[11px] font-data-mono text-on-surface">SIGMA_HEDGE_09</div>
+<div class="text-[9px] font-data-mono text-error">STATUS: RE-LEARNING</div>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2 bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps uppercase rounded active:scale-95 transition-transform">
+                    INITIATE_SWARM_SYNC
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-lowest border-t border-outline-variant fixed bottom-0 w-full flex justify-around items-center h-16 px-2 z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer group active:scale-90 duration-200">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">Hub</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-fixed bg-primary/10 rounded-xl px-4 py-1 group active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-caps text-label-caps mt-1">Assistant</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer group active:scale-90 duration-200">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="font-label-caps text-label-caps mt-1">Risk</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer group active:scale-90 duration-200">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-label-caps mt-1">Market</span>
+</div>
+</nav>
+<!-- Interactive Layer -->
+<script>
+        // Micro-interaction: Random Feed Update
+        const feed = document.querySelector('.custom-scrollbar.space-y-1');
+        const agents = ['AGENT_01', 'AGENT_02', 'AGENT_03', 'CORE', 'SYSTEM'];
+        const actions = [
+            'analyzing liquidity pool depth...',
+            're-weighting risk coefficients.',
+            'virtual cycle complete. Profitability verified.',
+            'syncing with central ledger...',
+            'identifying market anomaly in 1h timeframe.',
+            'backtest failure: adjusting logic branch #452.'
+        ];
+
+        setInterval(() => {
+            if (feed.children.length > 50) feed.removeChild(feed.children[0]);
+            
+            const time = new Date().toLocaleTimeString('en-GB', { hour12: false }) + '.' + Math.floor(Math.random() * 100);
+            const agent = agents[Math.floor(Math.random() * agents.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            
+            const entry = document.createElement('div');
+            entry.className = 'flex gap-3 py-1 border-b border-outline-variant/30 hover:bg-surface-container-highest transition-colors opacity-0';
+            entry.innerHTML = `
+                <span class="text-on-surface-variant shrink-0">${time}</span>
+                <span class="text-primary-fixed-dim">[${agent}]</span>
+                <span class="text-on-surface">${action}</span>
+            `;
+            
+            feed.appendChild(entry);
+            setTimeout(() => entry.classList.remove('opacity-0'), 50);
+            
+            // Auto scroll to bottom
+            feed.scrollTop = feed.scrollHeight;
+        }, 3000);
+
+        // Terminal Prompt Interaction
+        document.querySelector('input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const val = this.value;
+                this.value = '';
+                const commandEntry = document.createElement('div');
+                commandEntry.className = 'flex gap-3 py-1 border-b border-outline-variant/30 text-primary-fixed';
+                commandEntry.innerHTML = `<span class="text-on-surface-variant shrink-0">></span> EXEC_COMMAND: ${val}`;
+                feed.appendChild(commandEntry);
+                feed.scrollTop = feed.scrollHeight;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AEGIS_TERMINAL | Broker Review &amp; Referral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(27, 32, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(68, 73, 51, 0.3);
+        }
+        .neon-border-glow:focus-within {
+            border-color: #c3f400;
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0e141a; }
+        ::-webkit-scrollbar-thumb { background: #30353d; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c3f400; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#abd600",
+                        "surface-container-lowest": "#090f15",
+                        "tertiary-fixed": "#ffe089",
+                        "on-tertiary-fixed": "#241a00",
+                        "background": "#0e141a",
+                        "primary-fixed": "#c3f400",
+                        "secondary-container": "#444748",
+                        "on-primary-container": "#556d00",
+                        "on-surface": "#dee3ec",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-secondary-container": "#b3b5b6",
+                        "secondary-fixed": "#e1e3e4",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#30353d",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-background": "#dee3ec",
+                        "surface-tint": "#abd600",
+                        "outline-variant": "#444933",
+                        "inverse-surface": "#dee3ec",
+                        "on-primary": "#283500",
+                        "inverse-on-surface": "#2c3138",
+                        "on-primary-fixed": "#161e00",
+                        "tertiary-fixed-dim": "#efc11c",
+                        "surface-container": "#1b2027",
+                        "secondary": "#c5c7c8",
+                        "on-tertiary-container": "#7b6100",
+                        "on-secondary-fixed-variant": "#444748",
+                        "tertiary-container": "#ffe089",
+                        "on-tertiary": "#3d2f00",
+                        "on-secondary": "#2e3132",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#171c23",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "surface-container-high": "#252a32",
+                        "surface": "#0e141a",
+                        "surface-dim": "#0e141a",
+                        "primary-container": "#c3f400",
+                        "on-error": "#690005",
+                        "tertiary": "#ffffff",
+                        "primary": "#ffffff",
+                        "outline": "#8e9379",
+                        "surface-container-highest": "#30353d",
+                        "on-surface-variant": "#c4c9ac",
+                        "surface-bright": "#343a41",
+                        "inverse-primary": "#506600",
+                        "secondary-fixed-dim": "#c5c7c8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-standard": "12px",
+                        "margin-mobile": "12px",
+                        "margin-desktop": "16px",
+                        "gutter-terminal": "2px",
+                        "unit": "4px",
+                        "stack-dense": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full bg-surface-container/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed cursor-pointer active:opacity-70">menu</span>
+<h1 class="font-headline-md text-headline-md font-black tracking-tighter text-primary-fixed uppercase">AEGIS_TERMINAL</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed cursor-pointer active:opacity-70">account_balance_wallet</span>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex flex-col h-full w-[240px] fixed left-0 top-0 pt-20 border-r border-outline-variant bg-surface-container z-40">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed font-bold">T1</div>
+<div>
+<div class="font-headline-sm text-sm font-bold text-primary-fixed">TERMINAL_01</div>
+<div class="text-[10px] text-on-surface-variant tracking-widest uppercase">Aegis Premium Node</div>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">sensors</span>
+<span class="font-body-md">Live Signals</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed bg-surface-container-highest border-l-4 border-primary-fixed" href="#">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="font-body-md">Licensing</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">router</span>
+<span class="font-body-md">Bridge</span>
+</a>
+</nav>
+<div class="mt-auto p-4">
+<div class="p-3 bg-surface-container-low border border-outline-variant rounded flex items-center justify-between">
+<span class="text-xs font-bold text-primary-fixed">SYSTEM STATUS</span>
+<span class="flex h-2 w-2 rounded-full bg-primary-fixed animate-pulse"></span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-[240px] p-margin-mobile md:p-margin-desktop pb-24">
+<!-- Page Header -->
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 tracking-tight">Institutional Broker Hub</h2>
+<p class="text-on-surface-variant max-w-2xl font-body-md">Optimized execution environments for the Aegis Precision Sniper ICT algorithm. Reduced latency and raw spread infrastructure.</p>
+</div>
+<!-- Top Section: Broker Ratings -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+<!-- IC Markets -->
+<div class="glass-panel p-6 flex flex-col border-t-2 border-primary-fixed">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="text-label-caps text-primary-fixed-dim tracking-[0.2em] mb-1">RAW SPREAD SPECIALIST</span>
+<h3 class="font-headline-sm text-2xl font-bold">IC Markets</h3>
+</div>
+<div class="flex items-center bg-primary-fixed/10 px-2 py-1 rounded gap-1 border border-primary-fixed/20">
+<span class="material-symbols-outlined text-xs text-primary-fixed" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary-fixed">VERIFIED</span>
+</div>
+</div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-8 border-y border-outline-variant/30 py-4">
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">SPREADS</div>
+<div class="font-data-mono text-primary-fixed text-sm">0.0 PIPS</div>
+</div>
+<div class="text-center border-x border-outline-variant/30">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">LEVERAGE</div>
+<div class="font-data-mono text-primary-fixed text-sm">1:500</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">LATENCY</div>
+<div class="font-data-mono text-primary-fixed text-sm">&lt;1MS</div>
+</div>
+</div>
+<button class="w-full bg-primary-fixed py-3 text-on-primary-fixed font-bold text-sm rounded hover:brightness-110 active:scale-[0.98] transition-all uppercase tracking-wider">Open Account</button>
+</div>
+<!-- Pepperstone -->
+<div class="glass-panel p-6 flex flex-col border-t-2 border-primary-fixed/40">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="text-label-caps text-on-surface-variant tracking-[0.2em] mb-1">ULTRA-LOW LATENCY</span>
+<h3 class="font-headline-sm text-2xl font-bold">Pepperstone</h3>
+</div>
+<div class="flex items-center bg-primary-fixed/10 px-2 py-1 rounded gap-1 border border-primary-fixed/20">
+<span class="material-symbols-outlined text-xs text-primary-fixed" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary-fixed">VERIFIED</span>
+</div>
+</div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-8 border-y border-outline-variant/30 py-4">
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">SPREADS</div>
+<div class="font-data-mono text-primary-fixed text-sm">0.0 PIPS</div>
+</div>
+<div class="text-center border-x border-outline-variant/30">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">LEVERAGE</div>
+<div class="font-data-mono text-primary-fixed text-sm">1:500</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">COMM.</div>
+<div class="font-data-mono text-primary-fixed text-sm">ZERO</div>
+</div>
+</div>
+<button class="w-full bg-surface-container-highest border border-primary-fixed py-3 text-primary-fixed font-bold text-sm rounded hover:bg-primary-fixed hover:text-on-primary-fixed active:scale-[0.98] transition-all uppercase tracking-wider">Open Account</button>
+</div>
+<!-- Vantage -->
+<div class="glass-panel p-6 flex flex-col border-t-2 border-primary-fixed/40">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="text-label-caps text-on-surface-variant tracking-[0.2em] mb-1">INSTITUTIONAL GRADE</span>
+<h3 class="font-headline-sm text-2xl font-bold">Vantage</h3>
+</div>
+<div class="flex items-center bg-primary-fixed/10 px-2 py-1 rounded gap-1 border border-primary-fixed/20">
+<span class="material-symbols-outlined text-xs text-primary-fixed" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary-fixed">VERIFIED</span>
+</div>
+</div>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">star</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-8 border-y border-outline-variant/30 py-4">
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">SPREADS</div>
+<div class="font-data-mono text-primary-fixed text-sm">0.1 PIPS</div>
+</div>
+<div class="text-center border-x border-outline-variant/30">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">LEVERAGE</div>
+<div class="font-data-mono text-primary-fixed text-sm">1:500</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold mb-1">MIN DEP.</div>
+<div class="font-data-mono text-primary-fixed text-sm">$50</div>
+</div>
+</div>
+<button class="w-full bg-surface-container-highest border border-outline-variant py-3 text-on-surface font-bold text-sm rounded hover:bg-surface-container-high active:scale-[0.98] transition-all uppercase tracking-wider">Open Account</button>
+</div>
+</section>
+<!-- Middle Section: Why These Brokers? -->
+<section class="mb-12 relative overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-low p-8">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h3 class="font-headline-md text-headline-md mb-6">Algorithm Synergy: <span class="text-primary-fixed">Precision Sniper ICT</span></h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded bg-primary-fixed/10 flex items-center justify-center border border-primary-fixed/20">
+<span class="material-symbols-outlined text-primary-fixed">speed</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Low Latency Execution</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">The Sniper ICT algorithm relies on micro-second timing for HFT entries. These brokers provide direct Equinix NY4 fiber cross-connects.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded bg-primary-fixed/10 flex items-center justify-center border border-primary-fixed/20">
+<span class="material-symbols-outlined text-primary-fixed">layers</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Raw Spreads (True ECN)</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">ICT logic targets precise fair-value gaps. Wide spreads can skip orders. We only certify brokers with consistent 0.0-0.2 pip average on Majors.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded bg-primary-fixed/10 flex items-center justify-center border border-primary-fixed/20">
+<span class="material-symbols-outlined text-primary-fixed">security</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Zero Slippage Policy</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Verified deep liquidity pools ensure your stop-losses and take-profits are hit at the exact tick defined by the Aegis Terminal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="relative aspect-square glass-panel flex items-center justify-center p-8 overflow-hidden">
+<div class="absolute inset-0 border border-primary-fixed/10 animate-pulse"></div>
+<img class="w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A highly detailed 3D technical schematic of a high-frequency trading server rack glowing with neon green fiber optic cables. The atmosphere is tech-noir and industrial, with digital data overlays and floating holographic interfaces showing trading charts. Dark obsidian materials and sharp metallic edges dominate the composition, illuminated by intense lime green light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4NEAQI55bHzcyGKBrdXP-mUWt1euk_cgTemBWRDIS8UwDcIxZvukl-n7EwGkHUWcaLMO9GtQLZM0jPJdLD6nvARhawGZzSW0_-3B-taAiVWDa-0WuCNspvR6Qd7vluPAkxBcVc1lhoyc-ymwF4GrJsIHccBsqiZkw-1wDP8jF2yeNYOOADv8PRfM_UbbW5uaC-suNrOwNYStrcmYjbG1n0UdjrDF9Hqe5Sd_4kSbofksCXEE8sw2XbpXhAbemBG0bPTrMBnjWiAxu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Referral Hub -->
+<section class="glass-panel p-8 rounded-xl border-l-4 border-primary-fixed">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Link & Tier Stats -->
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-2">Referral Program Hub</h3>
+<p class="text-on-surface-variant mb-8 font-body-md">Onboard institutional traders and scale your passive commission yields across our 6-tier architecture.</p>
+<div class="mb-8">
+<label class="text-[10px] font-bold text-primary-fixed-dim tracking-widest uppercase block mb-2">Your Unique Referral Link</label>
+<div class="flex gap-2">
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant p-3 rounded font-data-mono text-sm text-on-surface overflow-hidden whitespace-nowrap">
+                                    https://aegis.terminal/ref/TRADER_01_77X
+                                </div>
+<button class="bg-primary-fixed px-6 py-3 text-on-primary-fixed font-bold rounded flex items-center gap-2 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span>COPY</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded border border-outline-variant/30">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Total Referrals</div>
+<div class="font-headline-sm text-primary-fixed">124</div>
+</div>
+<div class="bg-surface-container-high p-4 rounded border border-outline-variant/30">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Commission Earned</div>
+<div class="font-headline-sm text-primary-fixed">$2,840.00</div>
+</div>
+</div>
+</div>
+<!-- 6-Tier Visualization -->
+<div class="lg:w-1/3">
+<h4 class="text-label-caps text-on-surface-variant mb-6 text-center lg:text-left tracking-[0.2em]">6-TIER COMMISSION REBATE</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-primary-fixed/20 border-l-4 border-primary-fixed rounded-r">
+<span class="font-bold text-primary-fixed">Tier 01 (Direct)</span>
+<span class="font-data-mono text-xl font-black text-primary-fixed">25%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high/50 border-l-4 border-primary-fixed/60 rounded-r">
+<span class="font-medium text-on-surface">Tier 02</span>
+<span class="font-data-mono text-lg font-bold text-primary-fixed-dim">10%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high/40 border-l-4 border-primary-fixed/40 rounded-r">
+<span class="font-medium text-on-surface">Tier 03</span>
+<span class="font-data-mono text-on-surface">6%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high/30 border-l-4 border-primary-fixed/30 rounded-r">
+<span class="font-medium text-on-surface">Tier 04</span>
+<span class="font-data-mono text-on-surface">4%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high/20 border-l-4 border-primary-fixed/20 rounded-r">
+<span class="font-medium text-on-surface">Tier 05</span>
+<span class="font-data-mono text-on-surface">3%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-high/10 border-l-4 border-primary-fixed/10 rounded-r">
+<span class="font-medium text-on-surface">Tier 06</span>
+<span class="font-data-mono text-on-surface">2%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar Shell (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center md:hidden pb-safe bg-surface-container/80 backdrop-blur-2xl border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(195,244,0,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 hover:text-primary-fixed-dim transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-caps text-label-caps">Signals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 hover:text-primary-fixed-dim transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-label-caps">Charts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 py-2 hover:text-primary-fixed-dim transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-caps text-label-caps">Hub</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed gap-1 py-2 active:scale-90" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-caps text-label-caps">Brokers</span>
+</a>
+</nav>
+<!-- Contextual Micro-interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Copy link functionality
+            const copyBtn = document.querySelector('button:has(.material-symbols-outlined:contains("content_copy"))');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span><span>COPIED</span>';
+                    copyBtn.classList.replace('bg-primary-fixed', 'bg-on-primary-container');
+                    copyBtn.classList.replace('text-on-primary-fixed', 'text-primary-fixed');
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                        copyBtn.classList.replace('bg-on-primary-container', 'bg-primary-fixed');
+                        copyBtn.classList.replace('text-primary-fixed', 'text-on-primary-fixed');
+                    }, 2000);
+                });
+            }
+
+            // Hover state for broker cards
+            const cards = document.querySelectorAll('.glass-panel');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-4px)';
+                    card.style.transition = 'transform 0.3s ease';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0px)';
+                });
+            });
+        });
+    </script>
+</body></html>

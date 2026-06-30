@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consensus Matrix Pro - Precision Sniper ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e1e3e4",
+                        "on-secondary-fixed": "#410001",
+                        "error": "#ffb4ab",
+                        "on-background": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-error": "#690005",
+                        "primary-container": "#c3f400",
+                        "inverse-on-surface": "#2e3132",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#ffffff",
+                        "outline-variant": "#444933",
+                        "tertiary-container": "#ffe16d",
+                        "surface-container-lowest": "#0c0f10",
+                        "surface-container-low": "#191c1d",
+                        "on-primary": "#283500",
+                        "tertiary": "#ffffff",
+                        "surface-container": "#1d2021",
+                        "tertiary-fixed": "#ffe16d",
+                        "primary-fixed-dim": "#abd600",
+                        "on-surface": "#e1e3e4",
+                        "surface": "#111415",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed": "#161e00",
+                        "inverse-primary": "#506600",
+                        "secondary-container": "#c5020b",
+                        "surface-tint": "#abd600",
+                        "secondary-fixed": "#ffdad5",
+                        "surface-variant": "#323536",
+                        "on-secondary": "#690003",
+                        "on-primary-container": "#556d00",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-bright": "#373a3b",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-container": "#776300",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed": "#c3f400",
+                        "background": "#111415",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#930005",
+                        "surface-dim": "#111415",
+                        "outline": "#8e9379",
+                        "secondary": "#ffb4aa",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-secondary-container": "#ffd2cc",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 0.5);
+            box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.05);
+        }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.15);
+            border-color: rgba(171, 214, 0, 0.3);
+        }
+        .neon-pulse {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 1px #c3f400); }
+            50% { opacity: .6; filter: drop-shadow(0 0 4px #c3f400); }
+        }
+        .live-indicator {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .sync-pulse {
+            animation: sync-fade 3s infinite;
+        }
+        @keyframes sync-fade {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-[100] bg-surface-container-low/90 backdrop-blur-xl border-b border-outline-variant h-16 flex items-center justify-between px-margin-mobile">
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant active:scale-95 duration-100 transition-all text-primary" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<div class="flex flex-col -space-y-1">
+<h1 class="text-headline-md font-headline-md tracking-tighter text-primary">CONSENSUS</h1>
+<span class="text-[10px] font-bold text-primary-container tracking-widest uppercase">High Density Matrix</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<span class="text-[9px] font-bold text-on-surface-variant tracking-tighter uppercase">Latency</span>
+<span class="text-data-sm text-primary-container font-bold">200ms</span>
+</div>
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+</header>
+<main class="pt-16 pb-32">
+<!-- Consolidated Global Summary -->
+<div class="sticky top-16 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant py-3 px-margin-mobile flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5">
+<span class="text-label-caps text-primary-container">BUY</span>
+<span class="text-data-lg font-data-lg text-primary-container">22</span>
+</div>
+<div class="w-px h-4 bg-outline-variant"></div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-caps text-secondary">SELL</span>
+<span class="text-data-lg font-data-lg text-secondary">4</span>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-full">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container live-indicator"></div>
+<span class="text-[10px] font-bold text-on-surface uppercase sync-pulse">Live Syncing</span>
+</div>
+</div>
+<div class="px-margin-mobile mt-4 space-y-6">
+<!-- Unified High Density Table -->
+<div class="glass-panel rounded-xl overflow-hidden border border-outline-variant/30">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30">
+<th class="px-3 py-4 text-label-caps text-on-surface-variant border-b border-outline-variant/50">Voter / Logic Module</th>
+<th class="px-3 py-4 text-label-caps text-on-surface-variant border-b border-outline-variant/50">Status</th>
+<th class="px-3 py-4 text-label-caps text-on-surface-variant border-b border-outline-variant/50 text-right">Rating</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Group: Structure (High Priority) -->
+<tr class="bg-primary-container/5">
+<td class="px-3 py-2" colspan="3">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-black text-primary-container tracking-widest uppercase">Category: Structure</span>
+<span class="text-[9px] text-primary-container/60">Last Sync: 180ms ago</span>
+</div>
+</td>
+</tr>
+<tr class="active-glow transition-all hover:bg-surface-container-highest/40">
+<td class="px-3 py-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">HTF Structure</span>
+<span class="material-symbols-outlined text-[14px] text-primary-container" title="Verified Logic">verified</span>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase tracking-tighter">Institutional Flow</span>
+</div>
+</td>
+<td class="px-3 py-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-primary-container/10 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container text-[14px]">arrow_upward</span>
+<span class="text-[10px] font-bold text-primary-container uppercase">Bull</span>
+</div>
+</td>
+<td class="px-3 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">94.2%</span>
+</td>
+</tr>
+<tr class="transition-all hover:bg-surface-container-highest/40">
+<td class="px-3 py-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">D1 Projection</span>
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase tracking-tighter">Daily Liquidity</span>
+</div>
+</td>
+<td class="px-3 py-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-primary-container/10 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container text-[14px]">shopping_cart</span>
+<span class="text-[10px] font-bold text-primary-container uppercase">Buy</span>
+</div>
+</td>
+<td class="px-3 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">88.5%</span>
+</td>
+</tr>
+<!-- Group: Liquidity (Execution) -->
+<tr class="bg-surface-container-low">
+<td class="px-3 py-2" colspan="3">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Category: Liquidity</span>
+<span class="text-[9px] text-on-surface-variant/40">Last Sync: 212ms ago</span>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-highest/20">
+<td class="px-3 py-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">M15 Order Block</span>
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase tracking-tighter">Point of Interest</span>
+</div>
+</td>
+<td class="px-3 py-3">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container neon-pulse"></div>
+<span class="text-[10px] font-bold text-primary uppercase">Active</span>
+</div>
+</td>
+<td class="px-3 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">2.5x</span>
+</td>
+</tr>
+<tr>
+<td class="px-3 py-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">SSL Liquidity Sweep</span>
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase tracking-tighter">Market Intake</span>
+</div>
+</td>
+<td class="px-3 py-3">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="text-[10px] font-bold uppercase">Filled</span>
+</div>
+</td>
+<td class="px-3 py-3 text-right">
+<span class="text-data-sm font-data-sm text-on-surface-variant">3.2x</span>
+</td>
+</tr>
+<!-- Group: Session (Timing) -->
+<tr class="bg-secondary-container/5">
+<td class="px-3 py-2" colspan="3">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-black text-secondary tracking-widest uppercase">Category: Session</span>
+<span class="text-[9px] text-secondary/40">Last Sync: 195ms ago</span>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-highest/20">
+<td class="px-3 py-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">London Expansion</span>
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase tracking-tighter">Timed Volatility</span>
+</div>
+</td>
+<td class="px-3 py-3">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-primary-container/10 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container text-[14px]">bolt</span>
+<span class="text-[10px] font-bold text-primary-container uppercase">High</span>
+</div>
+</td>
+<td class="px-3 py-3 text-right">
+<span class="text-data-sm font-data-sm text-primary">82.1%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Logic Verification Footer -->
+<div class="flex items-center justify-center gap-2 py-4 px-6 border border-outline-variant/20 rounded-xl bg-surface-container-low/50">
+<span class="material-symbols-outlined text-primary-container">security</span>
+<p class="text-[11px] text-on-surface-variant text-center leading-relaxed">
+                All algorithmic logic modules are <span class="text-primary">Verified Logic</span> under Precision Sniper ICT protocols. Calculations refreshed every 200ms.
+            </p>
+</div>
+</div>
+</main>
+<!-- Live Broadcast Overlay -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-sm z-[60]">
+<div class="bg-surface-container-highest border border-primary-container/20 rounded-full py-2.5 px-5 shadow-2xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary-container live-indicator"></div>
+<span class="text-label-caps text-secondary-container font-black">LIVE</span>
+</div>
+<div class="w-px h-3 bg-outline-variant"></div>
+<p class="text-[11px] font-bold text-on-surface tracking-tight">Broadcasting Consensus Alpha</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">sensors</span>
+</div>
+</div>
+</div>
+<!-- Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl rounded-t-xl shadow-lg h-[72px]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+    // Visual row interactions
+    document.querySelectorAll('tbody tr:not([colspan])').forEach(row => {
+        row.addEventListener('touchstart', () => {
+            row.classList.add('bg-primary-container/10');
+            if ('vibrate' in navigator) navigator.vibrate(2);
+        });
+        row.addEventListener('touchend', () => {
+            setTimeout(() => row.classList.remove('bg-primary-container/10'), 150);
+        });
+    });
+</script>
+</body></html>

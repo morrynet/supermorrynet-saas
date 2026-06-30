@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aegis Risk Engine | Precision Sniper ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#506600",
+                        "on-tertiary": "#3d2f00",
+                        "primary-fixed-dim": "#abd600",
+                        "surface-dim": "#0e141a",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "on-primary-fixed": "#161e00",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#30353d",
+                        "tertiary": "#ffffff",
+                        "on-background": "#dee3ec",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-error": "#690005",
+                        "surface-tint": "#abd600",
+                        "surface-container-high": "#252a32",
+                        "on-secondary-container": "#b3b5b6",
+                        "surface-container-lowest": "#090f15",
+                        "on-surface": "#dee3ec",
+                        "background": "#0e141a",
+                        "surface-variant": "#30353d",
+                        "outline": "#8e9379",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#2e3132",
+                        "on-primary-container": "#556d00",
+                        "inverse-surface": "#dee3ec",
+                        "tertiary-container": "#ffe089",
+                        "surface-container": "#1b2027",
+                        "secondary-fixed": "#e1e3e4",
+                        "error-container": "#93000a",
+                        "surface-bright": "#343a41",
+                        "primary-fixed": "#c3f400",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary-fixed-variant": "#444748",
+                        "primary-container": "#c3f400",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "outline-variant": "#444933",
+                        "on-secondary-fixed": "#191c1d",
+                        "tertiary-fixed-dim": "#efc11c",
+                        "secondary": "#c5c7c8",
+                        "tertiary-fixed": "#ffe089",
+                        "on-primary": "#283500",
+                        "inverse-on-surface": "#2c3138",
+                        "surface": "#0e141a",
+                        "secondary-container": "#444748",
+                        "on-tertiary-container": "#7b6100",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#171c23"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "12px",
+                        "gutter-terminal": "2px",
+                        "unit": "4px",
+                        "stack-dense": "4px",
+                        "margin-desktop": "16px",
+                        "stack-standard": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-caps": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0C0D; /* Obsidian Abyss Level 0 */
+            color: #dee3ec;
+            -webkit-font-smoothing: antialiased;
+        }
+        .module-border {
+            border-top: 1px solid #24282B;
+            background-color: #111415; /* Obsidian Abyss Level 1 */
+        }
+        .neon-glow:focus-within {
+            box-shadow: 0 0 4px 0 rgba(204, 255, 0, 0.4);
+            border-color: #CCFF00;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: #24282B;
+            height: 4px;
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #CCFF00;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0A0C0D;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #30353d;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md overflow-x-hidden selection:bg-primary-fixed/30 selection:text-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-14 bg-background/95 backdrop-blur-sm border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<h1 class="font-headline-md text-headline-md tracking-tighter font-bold text-primary-fixed uppercase">PRECISION SNIPER ICT</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 mr-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">DASHBOARD</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">TERMINAL</a>
+<a class="font-label-caps text-label-caps text-primary-fixed border-b border-primary-fixed pb-1" href="#">RISK ENGINE</a>
+</div>
+<button class="p-2 hover:bg-surface-container-highest transition-colors rounded-lg active:scale-95 duration-100">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-24 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+<!-- Header Section -->
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-1">Aegis Risk Engine Configuration</h2>
+<p class="font-body-lg text-on-surface-variant">Institutional-grade capital preservation and drawdown defense layer.</p>
+</div>
+<!-- Master Kill Switch -->
+<section class="mb-6 p-6 bg-error-container/10 border border-error/30 rounded-lg flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-error mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined">gpp_maybe</span>
+                    Master Institutional Kill-Switch
+                </h3>
+<p class="font-body-md text-on-error-container/80">Immediate emergency liquidation of all open bridge positions and clearing of order book.</p>
+</div>
+<button class="relative z-10 bg-error hover:bg-error-container text-on-error font-bold py-4 px-10 rounded-lg flex items-center gap-3 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,180,171,0.2)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">power_settings_new</span>
+                TERMINATE ALL EXPOSURE
+            </button>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-terminal md:gap-stack-standard">
+<!-- Column 1: Protection & Gating -->
+<div class="md:col-span-8 flex flex-col gap-stack-standard">
+<!-- Dynamic Drawdown Protection -->
+<div class="module-border p-5 rounded-lg">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-label-caps text-label-caps text-primary-fixed">DYNAMIC DRAWDOWN PROTECTION</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">shield</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-body-sm text-on-surface-variant uppercase tracking-wider">Daily Drawdown Limit</label>
+<span class="font-data-mono text-data-mono text-primary-fixed">1.25%</span>
+</div>
+<div class="flex items-center gap-4">
+<input class="flex-grow accent-primary-fixed" max="5.0" min="0.1" step="0.05" type="range" value="1.25"/>
+<input class="w-16 bg-surface-container-lowest border border-outline-variant text-center font-data-mono text-data-mono py-1 rounded focus:border-primary-fixed outline-none" type="text" value="1.25"/>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-body-sm text-on-surface-variant uppercase tracking-wider">Max Trailing Drawdown</label>
+<span class="font-data-mono text-data-mono text-primary-fixed">1.25%</span>
+</div>
+<div class="flex items-center gap-2 p-3 bg-surface-container-low rounded border border-outline-variant/30">
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[45%]"></div>
+</div>
+<span class="font-data-mono text-[10px] text-on-surface-variant whitespace-nowrap">STATUS: STABLE</span>
+</div>
+</div>
+<div><div class="flex justify-between mb-2"><label class="font-body-sm text-on-surface-variant uppercase tracking-wider">Max Consecutive Losses</label><span class="font-data-mono text-data-mono text-primary-fixed">4</span></div><div class="flex items-center gap-4"><input class="flex-grow accent-primary-fixed" max="10" min="1" step="1" type="range" value="4"/><input class="w-16 bg-surface-container-lowest border border-outline-variant text-center font-data-mono text-data-mono py-1 rounded focus:border-primary-fixed outline-none" type="text" value="4"/></div></div></div>
+<div class="space-y-4">
+<label class="font-body-sm text-on-surface-variant uppercase tracking-wider block">Action on Breach</label>
+<div class="flex flex-col gap-2"><label class="flex items-center justify-between p-3 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-primary-fixed/40 transition-colors cursor-pointer"><span class="font-body-md">Partial Liquidation (50%)</span><input class="accent-primary-fixed" name="breach_action" type="radio"/></label>
+<label class="flex items-center justify-between p-3 rounded bg-surface-container-lowest border border-primary-fixed/20 cursor-pointer">
+<span class="font-body-md">Close All Positions</span>
+<input checked="" class="accent-primary-fixed" name="breach_action" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-primary-fixed/40 transition-colors cursor-pointer">
+<span class="font-body-md">Close &amp; Lock Terminal</span>
+<input class="accent-primary-fixed" name="breach_action" type="radio"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-primary-fixed/40 transition-colors cursor-pointer">
+<span class="font-body-md">Alert Only (Passive)</span>
+<input class="accent-primary-fixed" name="breach_action" type="radio"/>
+</label>
+<div class="mt-2 pt-2 border-t border-outline-variant/10 flex items-center justify-between"><div class="flex flex-col"><span class="font-body-sm text-primary">Global Margin Stop-Out</span><span class="text-[10px] text-primary-fixed font-data-mono">ACTIVE @ 150%</span></div><div class="w-10 h-5 bg-primary-fixed rounded-full relative cursor-pointer"><div class="absolute right-1 top-1 w-3 h-3 bg-on-primary-fixed rounded-full"></div></div></div></div>
+</div>
+</div>
+</div>
+<!-- Risk-Per-Trade Gating -->
+<div class="module-border p-5 rounded-lg">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-label-caps text-label-caps text-primary-fixed">RISK-PER-TRADE GATING</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">lock_open</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 bg-surface-container-lowest rounded border border-outline-variant/20 neon-glow">
+<label class="font-label-caps text-[10px] text-on-surface-variant block mb-2">MAX LOT SIZE / PAIR</label>
+<div class="flex items-end gap-2">
+<input class="bg-transparent border-none p-0 font-headline-sm text-headline-sm text-primary w-full outline-none" type="text" value="5.0"/>
+<span class="font-data-mono text-on-surface-variant mb-1">LOTS</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded border border-outline-variant/20 neon-glow">
+<label class="font-label-caps text-[10px] text-on-surface-variant block mb-2">MAX OPEN POSITIONS</label>
+<div class="flex items-end gap-2">
+<input class="bg-transparent border-none p-0 font-headline-sm text-headline-sm text-primary w-full outline-none" type="text" value="3"/>
+<span class="material-symbols-outlined text-on-surface-variant mb-1">layers</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded border border-outline-variant/20 flex flex-col justify-between">
+<label class="font-label-caps text-[10px] text-on-surface-variant block mb-2">AUTO-POSITION SIZING</label>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-on-surface-variant">Equity Linked</span>
+<div class="w-10 h-5 bg-primary-fixed rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-on-primary-fixed rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Black-Swan Protection -->
+<div class="module-border p-5 rounded-lg">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-label-caps text-label-caps text-primary-fixed">BLACK-SWAN PROTECTION</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">emergency_home</span>
+</div>
+<div class="space-y-4"><div class="p-3 bg-surface-container-lowest border border-outline-variant/20 rounded"><div class="flex justify-between mb-2"><p class="font-body-md text-primary">Volatility Spike Threshold</p><span class="font-data-mono text-data-mono text-primary-fixed">4.5 Sigma</span></div><input class="w-full accent-primary-fixed" max="10" min="1" step="0.1" type="range" value="4.5"/></div><div class="flex items-center justify-between p-3 bg-surface-container-lowest border border-outline-variant/20 rounded"><div><p class="font-body-md text-primary">News Impact Tier</p><p class="font-body-sm text-on-surface-variant">Filter by event severity</p></div><select class="bg-surface-container-low border border-outline-variant text-on-surface text-xs rounded p-1 outline-none focus:border-primary-fixed"><option>Low</option><option>Medium</option><option selected="">High</option></select></div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<div>
+<p class="font-body-md text-primary">High-Impact News Buffer</p>
+<p class="font-body-sm text-on-surface-variant">Pause trading around Red-Folder events</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-data-mono text-data-mono text-on-surface-variant">±30m</span>
+<button class="p-1 hover:bg-surface-container-highest rounded"><span class="material-symbols-outlined text-sm">settings</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<div>
+<p class="font-body-md text-primary">Friday Market Close Auto-Exit</p>
+<p class="font-body-sm text-on-surface-variant">Close all bridge assets before weekend gap risk</p>
+</div>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-surface-container-lowest rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest border border-outline-variant/20 rounded">
+<div>
+<p class="font-body-md text-primary">Spread Spike Protection</p>
+<p class="font-body-sm text-on-surface-variant">Disable entry if spread exceeds threshold</p>
+</div>
+<div class="flex items-center gap-2">
+<input class="w-12 bg-surface-container-low border border-outline-variant text-center font-data-mono text-data-mono py-1 rounded outline-none" type="text" value="3.5"/>
+<span class="font-label-caps text-[10px] text-on-surface-variant">PIPS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Analytics & Real-time Info -->
+<div class="md:col-span-4 flex flex-col gap-stack-standard">
+<!-- Real-time Risk Analytics -->
+<div class="module-border p-5 rounded-lg bg-surface-container flex flex-col h-full">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-label-caps text-label-caps text-primary-fixed">REAL-TIME ANALYTICS</h4>
+<span class="material-symbols-outlined text-on-surface-variant text-sm animate-pulse">sensors</span>
+</div>
+<!-- Exposure by Asset -->
+<div class="mb-8">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-4">EXPOSURE BY ASSET</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs font-data-mono mb-1">
+<span>XAUUSD</span>
+<span class="text-primary-fixed">0.82 LOTS</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full rounded-full">
+<div class="h-full bg-primary-fixed w-[60%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-data-mono mb-1">
+<span>NAS100</span>
+<span class="text-primary-fixed">1.20 LOTS</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full rounded-full">
+<div class="h-full bg-primary-fixed w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-data-mono mb-1 text-on-surface-variant/40">
+<span>EURUSD</span>
+<span>0.00 LOTS</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full rounded-full opacity-20"></div>
+</div>
+</div>
+</div>
+<!-- Projected Drawdown -->
+<div class="p-4 bg-surface-container-lowest rounded border border-outline-variant/20 mb-6">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-2">PROJECTED DD AT SL</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-error">-$1,240.00</span>
+<span class="font-data-mono text-data-mono text-error/60">(-0.62%)</span>
+</div>
+</div>
+<!-- Margin Level Gauge -->
+<div class="mt-auto pt-6 border-t border-outline-variant/10">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-4 text-center">MARGIN LEVEL SAFETY</p>
+<div class="relative w-40 h-20 mx-auto overflow-hidden">
+<!-- Simple Semi-circle Gauge placeholder -->
+<div class="absolute inset-0 border-[10px] border-surface-container-highest rounded-t-full"></div>
+<div class="absolute inset-0 border-[10px] border-primary-fixed rounded-t-full" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: rotate(140deg); transform-origin: center bottom;"></div>
+<div class="absolute bottom-0 left-0 right-0 text-center">
+<span class="font-headline-sm text-headline-sm text-primary-fixed">1,450%</span>
+</div>
+</div>
+<p class="text-center font-data-mono text-[10px] text-primary-fixed mt-2 uppercase tracking-widest">STATUS: OPTIMAL</p>
+</div>
+</div>
+<!-- Strategy Card Decor -->
+<div class="module-border p-5 rounded-lg flex-grow overflow-hidden relative min-h-[200px]">
+<div class="absolute inset-0 bg-cover bg-center opacity-30 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A futuristic digital data visualization with neon-lime lines of code and financial charts glowing against a deep obsidian background. The image has a high-tech corporate aesthetic, featuring sharp geometric elements and a shallow depth of field. Soft volumetric lighting highlights the metallic textures of a trading terminal interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9Kec8oE1afQW0VZyAihIlomHPxppa0NwG5TylR1-PrOvqEbTaVJf5BOTJPwtzbSggehPY6oPdrIAlQlNKJDE4SO_UKg8SePW1mYpTfKRVUgwyxePQQfjmuVZPXgqjLEVDuZOY528a_AQiJPbqhvN7HZ9JdiCNCatB8AaHF5yY7FMSR4kvQWJZICqhM7geNCAQ0NzH1bEs9C43EcVkuOaP5suxe1oEoYcqaWC2DZhZaiKQeqO-pK5mE15M9-NSdPM-3kfSMc6HmNiL')"></div>
+<div class="relative z-10">
+<h5 class="font-headline-sm text-headline-sm text-primary">Aegis Intelligence</h5>
+<p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">System continuously monitors order flow toxicity and liquidity gaps to adjust your safety buffers dynamically.</p>
+<button class="mt-4 flex items-center gap-2 text-primary-fixed font-label-caps text-label-caps group">
+                            VIEW LOGS
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">HUB</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-caps text-label-caps mt-1">ASSISTANT</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary-fixed bg-primary-container/10 rounded-xl px-4 py-1 border-t-2 border-primary-fixed transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-label-caps text-label-caps mt-1">RISK</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-caps text-label-caps mt-1">MARKET</span>
+</button>
+</nav>
+<!-- Floating Action Button: Contextual -->
+<button class="fixed bottom-20 right-6 w-14 h-14 bg-primary-fixed text-on-primary-fixed rounded-xl flex items-center justify-center shadow-lg active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">save</span>
+</button>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            slider.addEventListener('input', (e) => {
+                const valInput = e.target.parentElement.querySelector('input[type="text"]');
+                const labelVal = e.target.closest('div').parentElement.querySelector('.font-data-mono');
+                if (valInput) valInput.value = parseFloat(e.target.value).toFixed(2);
+                if (labelVal) labelVal.textContent = parseFloat(e.target.value).toFixed(2) + '%';
+            });
+        });
+
+        // Toggle simulation
+        document.querySelectorAll('.cursor-pointer').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const circle = this.querySelector('div');
+                if (circle) {
+                    if (this.classList.contains('bg-primary-fixed')) {
+                        this.classList.remove('bg-primary-fixed');
+                        this.classList.add('bg-outline-variant');
+                        circle.style.right = 'auto';
+                        circle.style.left = '4px';
+                    } else if (this.classList.contains('bg-outline-variant')) {
+                        this.classList.remove('bg-outline-variant');
+                        this.classList.add('bg-primary-fixed');
+                        circle.style.left = 'auto';
+                        circle.style.right = '4px';
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

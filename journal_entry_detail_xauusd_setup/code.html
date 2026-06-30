@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Journal Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#c5020b",
+                      "outline-variant": "#444933",
+                      "inverse-primary": "#506600",
+                      "on-background": "#e1e3e4",
+                      "error": "#ffb4ab",
+                      "outline": "#8e9379",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#abd600",
+                      "on-secondary": "#690003",
+                      "on-secondary-fixed": "#410001",
+                      "primary-container": "#c3f400",
+                      "surface-container-highest": "#323536",
+                      "inverse-surface": "#e1e3e4",
+                      "on-primary": "#283500",
+                      "background": "#111415",
+                      "on-tertiary": "#3a3000",
+                      "surface-container": "#1d2021",
+                      "surface-container-low": "#191c1d",
+                      "on-secondary-container": "#ffd2cc",
+                      "tertiary": "#ffffff",
+                      "on-primary-fixed": "#161e00",
+                      "surface-bright": "#373a3b",
+                      "error-container": "#93000a",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "surface": "#111415",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "primary-fixed": "#c3f400",
+                      "on-tertiary-fixed": "#221b00",
+                      "surface-container-high": "#282a2b",
+                      "on-secondary-fixed-variant": "#930005",
+                      "tertiary-fixed": "#ffe16d",
+                      "surface-variant": "#323536",
+                      "on-surface-variant": "#c4c9ac",
+                      "surface-dim": "#111415",
+                      "on-surface": "#e1e3e4",
+                      "secondary-fixed": "#ffdad5",
+                      "surface-container-lowest": "#0c0f10",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#ffffff",
+                      "tertiary-container": "#ffe16d",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-primary-container": "#556d00",
+                      "on-tertiary-container": "#776300",
+                      "surface-tint": "#abd600",
+                      "inverse-on-surface": "#2e3132",
+                      "secondary": "#ffb4aa"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-desktop": "32px",
+                      "container-max-width": "1440px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "data-sm": ["JetBrains Mono"],
+                      "headline-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "data-lg": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0E14; /* Deep Obsidian Base */
+            color: #e1e3e4;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background-color: rgba(26, 29, 38, 0.6); /* Charcoal Navy with opacity */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .text-neon {
+            color: #c3f400;
+        }
+
+        .border-neon {
+            border-color: #c3f400;
+        }
+
+        .bg-neon {
+            background-color: #c3f400;
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+        }
+        
+        .neon-glow-strong {
+            box-shadow: 0 0 25px rgba(195, 244, 0, 0.4);
+        }
+
+        .data-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Custom scrollbar for a technical feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0E14; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D3139; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c3f400; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface pb-24 md:pb-8 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 bg-background/60 dark:bg-background/60 shadow-sm flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16">
+<button class="text-on-surface-variant hover:text-primary-fixed transition-colors active:scale-95 duration-150 flex items-center gap-2" onclick="window.history.back()">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+<span class="font-label-caps text-label-caps hidden sm:block">BACK TO LOG</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed dark:text-primary-fixed-dim">PRECISION SNIPER ICT</h1>
+<button class="text-on-surface-variant hover:text-primary-fixed transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">share</span>
+</button>
+</header>
+<main class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop space-y-6">
+<!-- Hero Section: Trade Result & Basic Info -->
+<section class="glass-panel rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-4">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps px-3 py-1 rounded-full font-bold">PROFIT</span>
+<span class="text-on-surface-variant font-data-sm text-data-sm data-font">OCT 24, 2023 - 09:30 EST</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">XAUUSD</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">NY Killzone • Day Trade • Long</p>
+</div>
+<div class="text-left md:text-right w-full md:w-auto p-4 md:p-0 rounded-lg bg-surface/50 md:bg-transparent border border-outline-variant/30 md:border-none">
+<p class="text-on-surface-variant font-label-caps text-label-caps mb-1">NET RESULT</p>
+<div class="font-data-lg text-data-lg md:text-[32px] md:leading-[40px] text-primary-fixed data-font tracking-tight">
+                    +45.2 PIPS
+                </div>
+<p class="text-primary-fixed/80 font-data-sm text-data-sm data-font mt-1">+$4,520.00</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column: Details & Narrative -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Chart Snapshot -->
+<section class="glass-panel rounded-xl p-1 flex flex-col h-[400px]">
+<div class="flex justify-between items-center px-4 py-3 border-b border-outline-variant/30">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+                            EXECUTION CHART
+                        </h3>
+<button class="text-on-surface-variant hover:text-primary-fixed text-sm">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+<div class="relative flex-grow bg-surface-lowest overflow-hidden rounded-b-lg">
+<img alt="Trading Chart Snapshot" class="w-full h-full object-cover opacity-80" data-alt="A highly detailed, futuristic trading chart interface in dark mode. The screen displays complex candlestick data for XAUUSD with neon lime green and dark grey technical indicators overlayed. Deep black background (#0B0E14) with subtle glowing blue and green accents. High-tech institutional trading terminal aesthetic, sharp, precise, analytical mood. 8k resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2bv_JD_aZ3zOqq9MHY_Sp5KjjrkPHM8B-WqDX2I8L8km-kndnEBGBkWGUx0log6ozOc-F7cZ0R0iqPV2LZMJmZUeGkFbu2RoJvfaHFYk39CYi2fy3m4jpvvC89zFfDy2l3E70lZZVFqNkrq6Adi75DylqErgK_oFmQbM_y9hhRnDqEWsD9r_F_H66t0AEBTncVslwSlIVGUA3sEY8NVoHaHUkyTnKVd2xkLwlR57uelyhqZTaGzZBj0NgmuaBqZZVhkpDFfd-ASxP"/>
+<!-- Overlay elements to make it look like a technical terminal -->
+<div class="absolute inset-0 pointer-events-none border border-primary-fixed/10 m-2 rounded"></div>
+<div class="absolute top-4 left-4 bg-background/80 backdrop-blur px-2 py-1 rounded text-primary-fixed font-data-sm text-data-sm data-font border border-primary-fixed/20">
+                            ENTRY: 1984.50
+                        </div>
+<div class="absolute bottom-4 right-4 bg-background/80 backdrop-blur px-2 py-1 rounded text-error font-data-sm text-data-sm data-font border border-error/20">
+                            SL: 1980.00
+                        </div>
+</div>
+</section>
+<!-- Narrative & Lessons -->
+<section class="glass-panel rounded-xl p-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant/30 pb-2 mb-4">TRADE NARRATIVE</h3>
+<div class="space-y-4">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Price swept Asian session liquidity prior to NY open. Observed a clear 15m Fair Value Gap (FVG) form alongside a strong displacement leg upward. Waited for a return to the discount array within the FVG to execute the long position.
+                        </p>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Confluence provided by a bullish order block on the 1H timeframe. Market showed immediate respect to the level, confirming institutional sponsorship.
+                        </p>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mt-6 mb-2 pt-4 border-t border-outline-variant/20">LESSONS LEARNED</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+                            "Patience paid off. By waiting for the precise retracement into the FVG rather than market executing on the initial displacement, the risk-to-reward ratio was significantly improved. Need to maintain this discipline on volatile pairs like Gold."
+                        </p>
+</div>
+</section>
+</div>
+<!-- Right Column: Meta Data & Execution -->
+<div class="space-y-6">
+<!-- Execution Data -->
+<section class="glass-panel rounded-xl p-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant/30 pb-2 mb-4">EXECUTION LOG</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Direction</span>
+<span class="font-data-sm text-data-sm data-font text-primary-fixed bg-primary-fixed/10 px-2 py-0.5 rounded border border-primary-fixed/20">LONG</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Size</span>
+<span class="font-data-sm text-data-sm data-font text-on-surface">10.0 Lots</span>
+</div>
+<div class="h-px w-full bg-outline-variant/30 my-2"></div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Entry</span>
+<span class="font-data-lg text-data-lg data-font text-on-surface">1984.50</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Stop Loss</span>
+<span class="font-data-lg text-data-lg data-font text-error">1980.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Take Profit</span>
+<span class="font-data-lg text-data-lg data-font text-primary-fixed">1995.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Exit Price</span>
+<span class="font-data-lg text-data-lg data-font text-on-surface">1989.02</span>
+</div>
+</div>
+<div class="h-px w-full bg-outline-variant/30 my-2"></div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Risk/Reward</span>
+<span class="font-data-sm text-data-sm data-font text-on-surface">1 : 2.3</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Duration</span>
+<span class="font-data-sm text-data-sm data-font text-on-surface">2h 14m</span>
+</div>
+</div>
+</section>
+<!-- Tags -->
+<section class="glass-panel rounded-xl p-6">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant/30 pb-2 mb-4">CLASSIFICATIONS</h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface border border-outline-variant px-3 py-1.5 rounded-md font-data-sm text-data-sm data-font text-on-surface-variant flex items-center gap-1">
+<span class="text-primary-fixed">#</span> FVG
+                        </span>
+<span class="bg-surface border border-outline-variant px-3 py-1.5 rounded-md font-data-sm text-data-sm data-font text-on-surface-variant flex items-center gap-1">
+<span class="text-primary-fixed">#</span> OB_1H
+                        </span>
+<span class="bg-surface border border-outline-variant px-3 py-1.5 rounded-md font-data-sm text-data-sm data-font text-on-surface-variant flex items-center gap-1">
+<span class="text-primary-fixed">#</span> NY_AM
+                        </span>
+<span class="bg-surface border border-outline-variant px-3 py-1.5 rounded-md font-data-sm text-data-sm data-font text-on-surface-variant flex items-center gap-1">
+<span class="text-primary-fixed">#</span> High_Confidence
+                        </span>
+<span class="bg-surface border border-outline-variant px-3 py-1.5 rounded-md font-data-sm text-data-sm data-font text-on-surface-variant flex items-center gap-1 opacity-50 border-dashed hover:opacity-100 cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">add</span> Add Tag
+                        </span>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col gap-3 pt-4">
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-headline-md text-headline-md py-3 rounded-lg hover:bg-primary-fixed-dim transition-colors flex items-center justify-center gap-2 neon-glow">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                        EDIT ENTRY
+                    </button>
+<button class="w-full bg-transparent border border-outline-variant text-on-surface font-headline-md text-headline-md py-3 rounded-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+                        SHARE REPORT
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Suppressed for Detail View based on logic rules -->
+</body></html>

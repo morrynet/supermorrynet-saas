@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Installation Guide - Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.2);
+        }
+        @keyframes pulse-lime {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-lime 3s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#506600",
+                        "secondary-container": "#c5020b",
+                        "surface-tint": "#abd600",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed": "#161e00",
+                        "tertiary-fixed": "#ffe16d",
+                        "primary-fixed-dim": "#abd600",
+                        "surface": "#111415",
+                        "on-surface": "#e1e3e4",
+                        "surface-container-low": "#191c1d",
+                        "on-primary": "#283500",
+                        "tertiary": "#ffffff",
+                        "surface-container": "#1d2021",
+                        "tertiary-container": "#ffe16d",
+                        "surface-container-lowest": "#0c0f10",
+                        "primary": "#ffffff",
+                        "outline-variant": "#444933",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-error": "#690005",
+                        "primary-container": "#c3f400",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#2e3132",
+                        "on-secondary-fixed": "#410001",
+                        "inverse-surface": "#e1e3e4",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#323536",
+                        "on-background": "#e1e3e4",
+                        "secondary": "#ffb4aa",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-secondary-container": "#ffd2cc",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2b",
+                        "surface-dim": "#111415",
+                        "outline": "#8e9379",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-surface-variant": "#c4c9ac",
+                        "primary-fixed": "#c3f400",
+                        "background": "#111415",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-container": "#776300",
+                        "surface-bright": "#373a3b",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-secondary": "#690003",
+                        "on-primary-container": "#556d00",
+                        "secondary-fixed": "#ffdad5",
+                        "surface-variant": "#323536"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max-width": "1440px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface/60 backdrop-blur-xl flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="security">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">DISTRIBUTION HUB</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile max-w-md mx-auto w-full">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">Guide Progress</span>
+<span class="font-data-lg text-data-lg text-on-surface">Step 02 / 03</span>
+</div>
+<div class="flex gap-1.5">
+<div class="w-8 h-1.5 rounded-full bg-primary-fixed"></div>
+<div class="w-8 h-1.5 rounded-full bg-primary-fixed neon-glow"></div>
+<div class="w-8 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Header -->
+<section class="mb-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">System Permissions</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Execute <span class="text-on-surface font-bold">Permission Authorization</span> to allow the terminal to initialize package installation.
+            </p>
+</section>
+<!-- Illustration Component -->
+<div class="glass-card rounded-xl p-6 mb-8 overflow-hidden relative group">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-fixed/5 blur-3xl rounded-full"></div>
+<div class="relative z-10 space-y-6">
+<!-- Mock OS Header -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Settings &gt; Security</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="more_vert">more_vert</span>
+</div>
+<!-- Mock Settings Item -->
+<div class="bg-surface-container-high rounded-lg p-4 border border-outline-variant/30 flex items-center justify-between transition-all group-hover:border-primary-fixed/50">
+<div class="flex gap-4 items-center">
+<div class="w-10 h-10 rounded bg-primary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="install_mobile">install_mobile</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Install unknown apps</p>
+<p class="text-[12px] text-on-surface-variant leading-tight">Allow Distribution Hub access</p>
+</div>
+</div>
+<!-- Toggle Switch Animation -->
+<div class="relative w-12 h-6 bg-primary-fixed rounded-full flex items-center px-1 cursor-pointer transition-colors duration-300">
+<div class="w-4 h-4 bg-on-primary rounded-full translate-x-6 shadow-md transition-transform duration-300"></div>
+<div class="absolute inset-0 rounded-full border border-primary-fixed animate-pulse-slow"></div>
+</div>
+</div>
+<!-- Informational Graphic -->
+<div class="aspect-video w-full relative rounded-lg overflow-hidden border border-outline-variant bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-60" data-alt="A highly detailed technical 3D illustration of a smartphone screen showing the Android system settings menu. The focus is on a glowing neon lime toggle switch being moved from the 'off' to the 'on' position. The background is a dark obsidian environment with floating holographic data particles. Soft cinematic lighting highlights the metallic texture of the digital interface elements, maintaining a professional institutional trading terminal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvHKxjE0Qo4HgP2EGt4WcrnaXmOX7bPZmYggMF8H7NKFAdY7gFsWmku9GwQIiB8IlJoNBXpUnHpiYRWLeZF00aisv7bWsbzJNMoT5bhSXas-Gn6X27QRUAzlgtLcw8ASAPTvOenoLzosjHQVN80LWw2S4owbOrVgry5ml_UJHTiYOoqORORSfIsAGiQ8BSIFvr7xnoJQU_uaZuxmldVihlgDZEo5N1NW9XWy_ydLGCDNrfDGFTlKVinuaZfWBfg_HOVMPQtYZNyFdH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex gap-2">
+<div class="flex-1 h-1 bg-primary-fixed/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-2/3"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Instructions -->
+<div class="space-y-4 mb-8">
+<div class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed py-1">01</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Access <span class="text-on-surface font-semibold">Bypassing Standard Restrictions</span> by selecting 'Settings' in the system prompt.
+                </p>
+</div>
+<div class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed py-1">02</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Locate 'Distribution Hub' in the list of authorized providers.
+                </p>
+</div>
+<div class="flex gap-4">
+<span class="font-data-sm text-data-sm text-primary-fixed py-1">03</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Toggle the switch to <span class="text-primary-fixed font-semibold">AUTHORIZED</span> state to proceed.
+                </p>
+</div>
+</div>
+<!-- Warning Alert -->
+<div class="border-l-2 border-primary-fixed bg-primary-fixed/5 p-4 rounded-r-lg mb-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]" data-icon="info">info</span>
+<p class="text-[13px] leading-relaxed text-on-surface-variant italic">
+                    Institutional security protocols require manual authorization for non-store binaries. This is a standard procedure for Tier-1 Distribution Hub access.
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 w-full z-50 border-t border-outline-variant bg-surface/80 backdrop-blur-lg flex justify-between items-center h-20 pb-safe px-margin-mobile">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full border border-outline text-on-surface-variant font-label-caps text-label-caps uppercase hover:bg-surface-container-highest transition-all active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+            Back
+        </button>
+<button class="flex items-center gap-2 px-8 py-3 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps uppercase font-bold hover:opacity-90 transition-all active:scale-95 neon-glow">
+            Next Step
+            <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</footer>
+<!-- Atmosphere Effects -->
+<div class="fixed top-1/4 -right-24 w-64 h-64 bg-primary-fixed/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -left-24 w-64 h-64 bg-primary-fixed/5 rounded-full blur-[100px] pointer-events-none"></div>
+<script>
+        // Micro-interaction for toggle animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.relative.w-12.h-6');
+            const handle = toggle?.querySelector('div:first-child');
+            let isOn = true;
+
+            setInterval(() => {
+                isOn = !isOn;
+                if (isOn) {
+                    toggle.classList.remove('bg-surface-container-highest');
+                    toggle.classList.add('bg-primary-fixed');
+                    handle.classList.remove('translate-x-0');
+                    handle.classList.add('translate-x-6');
+                } else {
+                    toggle.classList.remove('bg-primary-fixed');
+                    toggle.classList.add('bg-surface-container-highest');
+                    handle.classList.remove('translate-x-6');
+                    handle.classList.add('translate-x-0');
+                }
+            }, 2500);
+        });
+    </script>
+</body></html>

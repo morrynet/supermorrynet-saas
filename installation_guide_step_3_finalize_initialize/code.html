@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Installation Guide - Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-container {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.3);
+        }
+        .step-segment {
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(142, 147, 121, 0.2);
+        }
+        .step-segment.active {
+            background: #c3f400;
+            box-shadow: 0 0 8px #c3f400;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#506600",
+                      "secondary-container": "#c5020b",
+                      "surface-tint": "#abd600",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-primary-fixed": "#161e00",
+                      "tertiary-fixed": "#ffe16d",
+                      "primary-fixed-dim": "#abd600",
+                      "surface": "#111415",
+                      "on-surface": "#e1e3e4",
+                      "surface-container-low": "#191c1d",
+                      "on-primary": "#283500",
+                      "tertiary": "#ffffff",
+                      "surface-container": "#1d2021",
+                      "tertiary-container": "#ffe16d",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary": "#ffffff",
+                      "outline-variant": "#444933",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-error": "#690005",
+                      "primary-container": "#c3f400",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#2e3132",
+                      "on-secondary-fixed": "#410001",
+                      "inverse-surface": "#e1e3e4",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#323536",
+                      "on-background": "#e1e3e4",
+                      "secondary": "#ffb4aa",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-secondary-container": "#ffd2cc",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#282a2b",
+                      "surface-dim": "#111415",
+                      "outline": "#8e9379",
+                      "on-tertiary": "#3a3000",
+                      "on-secondary-fixed-variant": "#930005",
+                      "on-surface-variant": "#c4c9ac",
+                      "primary-fixed": "#c3f400",
+                      "background": "#111415",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "on-tertiary-container": "#776300",
+                      "surface-bright": "#373a3b",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-secondary": "#690003",
+                      "on-primary-container": "#556d00",
+                      "secondary-fixed": "#ffdad5",
+                      "surface-variant": "#323536"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max-width": "1440px",
+                      "margin-desktop": "32px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "data-sm": ["JetBrains Mono"],
+                      "data-lg": ["JetBrains Mono"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface/60 backdrop-blur-xl flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="security">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">DISTRIBUTION HUB</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile min-h-screen flex flex-col gap-6 max-w-md mx-auto">
+<!-- Step Indicator -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<span class="font-data-lg text-data-lg text-primary-fixed">Step 03 / 03</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase opacity-60">Finalize & Initialize</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="step-segment active"></div>
+<div class="step-segment active"></div>
+<div class="step-segment active"></div>
+</div>
+</div>
+<!-- Main Title -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">
+            Finalize & <br/>Initialize
+        </h1>
+<!-- Instruction Card (Glassmorphic) -->
+<section class="glass-container p-6 rounded-xl flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="folder_zip">folder_zip</span>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Locate APK</h2>
+<p class="text-on-surface-variant text-body-md leading-relaxed">
+                        Navigate to your system's <span class="text-primary font-bold">Downloads</span> folder. Identify the signed institutional binary and execute the installer to proceed.
+                    </p>
+</div>
+</div>
+<div class="mt-2 p-3 bg-surface-container-low border border-outline-variant rounded flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]" data-icon="terminal">terminal</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">path: /storage/emulated/0/Download/</span>
+</div>
+</section>
+<!-- Visual Context Placeholder -->
+<div class="w-full h-48 rounded-xl overflow-hidden relative border border-outline-variant">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-background/80 to-transparent"></div>
+<img class="w-full h-full object-cover grayscale opacity-60" data-alt="A macro photography shot of a high-tech smartphone screen displaying a secure file directory in a dark, obsidian-themed user interface. The screen glows with subtle neon lime accents, highlighting a professional software installer icon. The background is a dimly lit, professional institutional trading desk environment with soft bokeh of multiple monitors. The atmosphere is technical, precise, and high-stakes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT8ceRwtXxQJumqS-LHvsqoY-3gqXTKW01DqTIFVnF6esuww_SegxcLMuVSqw8t6_mvU8jZ40FzEmndmmtVScc0vH9kmDi-tT_lb0Y3Y0fefq5atJJUuBRpc3fFZRHJM4F4jNuztbdDJn7N7nrQsVug4m9A8nOQLwOuHD853K7rgfcPsspI-zfMp4FkpY0d0KUQMrmsifhMohyzS72yKOnNbzoHcifM3VZRElWzErxiEsVkMWdiCZMXJrx5fHY-La68nfC2cv3TA3u"/>
+<div class="absolute bottom-4 left-4 z-20">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase">System Ready</span>
+</div>
+</div>
+</div>
+<!-- Checklist -->
+<div class="flex flex-col gap-3">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.1em] mb-1">Pre-Flight Checklist</h3>
+<label class="glass-container px-4 py-3 rounded-lg flex items-center justify-between cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="verified">verified</span>
+<span class="font-body-md text-on-surface">Verify Checksum</span>
+</div>
+<input checked="" class="form-checkbox bg-transparent border-primary-fixed text-primary-fixed rounded-sm focus:ring-0" type="checkbox"/>
+</label>
+<label class="glass-container px-4 py-3 rounded-lg flex items-center justify-between cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-body-md text-on-surface">Launch App</span>
+</div>
+<input class="form-checkbox bg-transparent border-outline text-primary-fixed rounded-sm focus:ring-0" type="checkbox"/>
+</label>
+<label class="glass-container px-4 py-3 rounded-lg flex items-center justify-between cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="sync_alt">sync_alt</span>
+<span class="font-body-md text-on-surface">Sync HWID</span>
+</div>
+<input class="form-checkbox bg-transparent border-outline text-primary-fixed rounded-sm focus:ring-0" type="checkbox"/>
+</label>
+</div>
+<!-- Next Step Meta -->
+<div class="p-4 rounded-xl border border-primary-fixed/20 bg-primary-fixed/5 flex items-center gap-3 mt-4">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-[13px] text-on-surface-variant">
+                Post-initialization, you will automatically transition to the <span class="text-primary font-bold">Onboarding V3.0</span> sequence.
+            </p>
+</div>
+</main>
+<!-- Bottom Navigation Area (Fixed CTA) -->
+<div class="fixed bottom-0 w-full px-margin-mobile pb-8 pt-4 bg-gradient-to-t from-background via-background to-transparent z-50">
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-bold py-4 rounded-xl font-headline-md text-headline-md uppercase tracking-wider neon-glow flex items-center justify-center gap-2 transition-all active:scale-95 hover:brightness-110">
+            LAUNCH INSTALLER
+            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const icon = this.closest('label').querySelector('.material-symbols-outlined');
+                if(this.checked) {
+                    this.closest('label').classList.add('border-primary-fixed/50');
+                    icon.classList.replace('text-on-surface-variant', 'text-primary-fixed');
+                } else {
+                    this.closest('label').classList.remove('border-primary-fixed/50');
+                    icon.classList.replace('text-primary-fixed', 'text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>
