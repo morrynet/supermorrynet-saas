@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Performance Recap - Precision Sniper ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffe16d",
+                        "primary": "#ffffff",
+                        "inverse-primary": "#506600",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#0c0f10",
+                        "primary-container": "#c3f400",
+                        "on-secondary-container": "#ffd2cc",
+                        "surface": "#111415",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-tint": "#abd600",
+                        "secondary-container": "#c5020b",
+                        "on-secondary-fixed": "#410001",
+                        "on-tertiary-container": "#776300",
+                        "surface-dim": "#111415",
+                        "on-primary-container": "#556d00",
+                        "surface-container-low": "#191c1d",
+                        "outline-variant": "#444933",
+                        "on-tertiary": "#3a3000",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffffff",
+                        "on-surface-variant": "#c4c9ac",
+                        "surface-bright": "#373a3b",
+                        "primary-fixed": "#c3f400",
+                        "on-surface": "#e1e3e4",
+                        "on-background": "#e1e3e4",
+                        "inverse-surface": "#e1e3e4",
+                        "on-primary": "#283500",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-primary-fixed": "#161e00",
+                        "background": "#111415",
+                        "outline": "#8e9379",
+                        "surface-container-high": "#282a2b",
+                        "surface-container": "#1d2021",
+                        "on-secondary": "#690003",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#ffb4aa",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#ffdad5",
+                        "inverse-on-surface": "#2e3132",
+                        "tertiary-container": "#ffe16d",
+                        "surface-variant": "#323536",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#323536",
+                        "primary-fixed-dim": "#abd600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-max-width": "1440px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0c0f10; /* Obsidian Abyss Base */
+            color: #e1e3e4;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2D3139;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-text {
+            color: #c3f400;
+            text-shadow: 0 0 10px rgba(195, 244, 0, 0.3);
+        }
+        .neon-border {
+            border-color: #c3f400;
+            box-shadow: 0 0 10px rgba(195, 244, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #c3f400;
+            color: #0B0E14;
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 25px rgba(195, 244, 0, 0.6);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(195, 244, 0, 0.4);
+        }
+        /* Custom Line Graph Styles for pure CSS visual */
+        .graph-line {
+            stroke: #c3f400;
+            stroke-width: 3;
+            fill: none;
+            filter: drop-shadow(0px 4px 6px rgba(195, 244, 0, 0.4));
+        }
+        .graph-area {
+            fill: url(#graph-gradient);
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+<!-- Top Navigation Placeholder (Hidden for this specific graphic view, but included based on instructions for potential context) -->
+<!-- Nav is suppressed as this is a specific shareable graphic view / transactional endpoint -->
+<main class="w-full max-w-[600px] glass-panel rounded-xl overflow-hidden relative border-t-4 border-t-primary-container">
+<!-- Header -->
+<div class="p-6 md:p-8 flex flex-col items-center text-center border-b border-surface-variant">
+<img alt="Morrynet Logo" class="h-16 w-auto mb-4 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMbGPXzr9r1ICcyuyWM4yUQ5twjeOCOPB-tnWPUd_v6Bob7an2qe_tmxdxRszBRR68ty0_yA7C8ZSgS4kW6sKK03AbTDHLczm3iGaAbgfQfC28ItuM-fO73Z1XRMbNnekMyYCsBN23aUB_YTntLF0l_aKFxnjUGHWFuObPuvXNPe01wcunt0SPGXsQCfna_twdq42PYA14eoqhGQKyj7VIGMoYK_533FIwawJPMoZBCE_DXEPqVpaDlQhrVpOoRkUNzdInX3qST-y"/>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-primary uppercase tracking-tight mb-2">Weekly Performance Recap</h1>
+<p class="font-data-sm text-on-surface-variant uppercase tracking-wider">Jun 10 - Jun 16, 2026</p>
+</div>
+<!-- Main Stats Grid -->
+<div class="grid grid-cols-2 gap-[1px] bg-surface-variant border-b border-surface-variant">
+<!-- P&L -->
+<div class="bg-surface-container-low p-6 flex flex-col items-center justify-center">
+<span class="font-label-caps text-on-surface-variant mb-2">Total P&amp;L</span>
+<span class="font-data-lg md:text-3xl text-primary-container neon-text tracking-tighter">+$14,280.50</span>
+</div>
+<!-- Win Rate -->
+<div class="bg-surface-container-low p-6 flex flex-col items-center justify-center">
+<span class="font-label-caps text-on-surface-variant mb-2">Win Rate</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-data-lg text-primary">78.4%</span>
+</div>
+</div>
+<!-- Total Signals -->
+<div class="bg-surface-container-low p-6 flex flex-col items-center justify-center">
+<span class="font-label-caps text-on-surface-variant mb-2">Total Signals</span>
+<span class="font-data-lg text-primary">42</span>
+</div>
+<!-- Top Asset -->
+<div class="bg-surface-container-low p-6 flex flex-col items-center justify-center">
+<span class="font-label-caps text-on-surface-variant mb-2">Top Asset</span>
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-primary">XAUUSD</span>
+<span class="font-data-sm text-primary-container">+8.2%</span>
+</div>
+</div>
+</div>
+<!-- Performance Chart Section -->
+<div class="p-6 md:p-8 border-b border-surface-variant">
+<h2 class="font-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">show_chart</span>
+                Equity Curve
+            </h2>
+<div class="h-32 w-full relative">
+<svg class="absolute inset-0" height="100%" preserveaspectratio="none" viewbox="0 0 500 100" width="100%">
+<defs>
+<lineargradient id="graph-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#c3f400" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#c3f400" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path class="graph-area" d="M0,100 L0,80 C100,70 150,90 200,50 C250,10 350,60 400,20 C450,0 500,10 500,10 L500,100 Z"></path>
+<path class="graph-line" d="M0,80 C100,70 150,90 200,50 C250,10 350,60 400,20 C450,0 500,10"></path>
+</svg>
+</div>
+</div>
+<!-- Branded Signal Snapshots -->
+<div class="p-6 md:p-8">
+<h2 class="font-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">photo_library</span>
+                Key Trade Snapshots
+            </h2>
+<div class="grid grid-cols-3 gap-3">
+<!-- Card 1 -->
+<div class="bg-surface-container p-2 rounded border border-outline-variant relative overflow-hidden group">
+<div class="h-16 bg-surface-dim mb-2 rounded flex items-center justify-center opacity-50 relative" data-alt="A dark mode trading terminal chart for XAUUSD showing a successful breakout setup with technical analysis lines, Fibonacci retracements, and a prominent green target zone hit. The overall aesthetic is institutional, high-contrast, with neon lime accents on a deep charcoal background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrpUhke8nopvzjqFvxhj-Cu7RTOwHfdDq3bNB4kYZLe-Xi7oSA6NK1SEeSwsuNnubVCzaOs-45qrETrJBNPERIWA6d1JeSC8lGrSegjq5Ln-Eipj4LixzpYKp97lVXnogCS4oy1_cG133J0YsmY6LLwrdl-f2_WkBdc85ZWUER0UaghJvmtzaTfrRPWnSscc9PpnSV_Jy08p9Vv9FfVFGqxL72fGs7dTmvFM0x_suG4kdhQfBh3vERvptmubATJinsosPIqjyzE_d6')">
+<img alt="Watermark" class="absolute inset-0 w-full h-full object-contain opacity-20 p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMbGPXzr9r1ICcyuyWM4yUQ5twjeOCOPB-tnWPUd_v6Bob7an2qe_tmxdxRszBRR68ty0_yA7C8ZSgS4kW6sKK03AbTDHLczm3iGaAbgfQfC28ItuM-fO73Z1XRMbNnekMyYCsBN23aUB_YTntLF0l_aKFxnjUGHWFuObPuvXNPe01wcunt0SPGXsQCfna_twdq42PYA14eoqhGQKyj7VIGMoYK_533FIwawJPMoZBCE_DXEPqVpaDlQhrVpOoRkUNzdInX3qST-y"/>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline-md text-[12px] text-primary leading-none">XAUUSD</span>
+<span class="font-data-sm text-primary-container leading-none text-[10px]">+3.2R</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-2 rounded border border-outline-variant relative overflow-hidden group">
+<div class="h-16 bg-surface-dim mb-2 rounded flex items-center justify-center opacity-50 relative" data-alt="A dark mode trading terminal chart for EURUSD displaying a precise sniper entry on a lower timeframe with clear support and resistance levels. A clean neon lime line marks the profitable trade trajectory against a deep obsidian background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGEFf4cNuz606KqAPoulaCPJv_9w3XVzX8x0dswSyLK8szHeqeX9Uo8v2BRjGc5bqvAf0qcTzexqTmH-FQA97By8zJVN5JRA06I2-L0rNWsG-d3yE1aQk27W3e55wQDoDcur3WEQHgafqMiLPXsO9DVpNxUnok1g-sg49nDVHmGkr8cVYtbX4WBQ02ObTtOGNROksoTnK1877HRh0h5a5LofcNDHW9N1ya0ENal0geF3v3AJUXqdymSA4ksYc90KOc7qmANsSiKoBW')">
+<img alt="Watermark" class="absolute inset-0 w-full h-full object-contain opacity-20 p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMbGPXzr9r1ICcyuyWM4yUQ5twjeOCOPB-tnWPUd_v6Bob7an2qe_tmxdxRszBRR68ty0_yA7C8ZSgS4kW6sKK03AbTDHLczm3iGaAbgfQfC28ItuM-fO73Z1XRMbNnekMyYCsBN23aUB_YTntLF0l_aKFxnjUGHWFuObPuvXNPe01wcunt0SPGXsQCfna_twdq42PYA14eoqhGQKyj7VIGMoYK_533FIwawJPMoZBCE_DXEPqVpaDlQhrVpOoRkUNzdInX3qST-y"/>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline-md text-[12px] text-primary leading-none">EURUSD</span>
+<span class="font-data-sm text-primary-container leading-none text-[10px]">+2.1R</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-2 rounded border border-outline-variant relative overflow-hidden group">
+<div class="h-16 bg-surface-dim mb-2 rounded flex items-center justify-center opacity-50 relative" data-alt="A dark mode trading terminal chart for GBPUSD illustrating a successful trend continuation pattern. The chart features institutional-style volume bars and a vibrant lime green checkmark indicating a hit take-profit level over a charcoal base." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9ZawBcIidZVMVF3_7LLu1UCGHHJHYzPp9_lVKRq7T-0tlRJstqV_6mxD5XPk2IOUQfCY1ch50Unazp9ljXmMr7LMBC-Kt7ORToX9Vy_8zOC2oVjchJwspPL6tNRRCe1oKXdu_PrmckD1w1vZ04fwbU7QbBAyovIGltImgGjxdfVkpVd0ruXdHbT2CclqLalyQYb3OV6hNkgoCCdv5RBdvrnoRR93EZrxLVOL8A9itPib5QoS8Ku0wcHm1YrgXX44kbSuHJr7Iu1MO')">
+<img alt="Watermark" class="absolute inset-0 w-full h-full object-contain opacity-20 p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARMbGPXzr9r1ICcyuyWM4yUQ5twjeOCOPB-tnWPUd_v6Bob7an2qe_tmxdxRszBRR68ty0_yA7C8ZSgS4kW6sKK03AbTDHLczm3iGaAbgfQfC28ItuM-fO73Z1XRMbNnekMyYCsBN23aUB_YTntLF0l_aKFxnjUGHWFuObPuvXNPe01wcunt0SPGXsQCfna_twdq42PYA14eoqhGQKyj7VIGMoYK_533FIwawJPMoZBCE_DXEPqVpaDlQhrVpOoRkUNzdInX3qST-y"/>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-headline-md text-[12px] text-primary leading-none">GBPUSD</span>
+<span class="font-data-sm text-primary-container leading-none text-[10px]">+4.5R</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer & Action -->
+<div class="p-6 md:p-8 border-t border-surface-variant bg-surface-container-low">
+<h2 class="font-label-caps text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+        Automation Scheduler
+    </h2>
+<div class="flex flex-col gap-6">
+<!-- Toggle Switch -->
+<div class="flex items-center justify-between">
+<span class="font-body-md text-primary">Automate Sunday Delivery</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Time Picker & Frequency -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-on-surface-variant">Delivery Time (UTC)</span>
+<div class="bg-surface-dim border border-outline-variant p-3 rounded font-data-lg text-primary-container">
+                    18:00 UTC
+                </div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-on-surface-variant">Frequency</span>
+<div class="bg-surface-dim border border-outline-variant p-3 rounded font-data-sm text-on-surface-variant">
+                    Sends every Sunday
+                </div>
+</div>
+</div>
+<!-- Admin Preview Checkbox -->
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-outline-variant bg-surface-dim checked:bg-primary-container checked:border-primary-container transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary text-sm opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Send Preview to Admin before public broadcasting</span>
+</label>
+</div>
+</div><div class="p-6 bg-surface-container-lowest border-t border-surface-variant flex flex-col items-center">
+<p class="font-data-sm text-on-surface-variant text-center mb-6 tracking-widest opacity-70">
+                PRECISION SNIPER ICT | INSTITUTIONAL SIGNAL SYNC
+            </p>
+<button class="btn-primary w-full md:w-auto px-8 py-4 rounded font-headline-md uppercase tracking-wider flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">send</span>
+                Share to Telegram
+            </button>
+</div>
+</main>
+</body></html>

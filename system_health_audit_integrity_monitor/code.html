@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Morrynet | System Health &amp; Audit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffffff",
+                    "tertiary-fixed-dim": "#efc11c",
+                    "surface-tint": "#abd600",
+                    "on-tertiary": "#3d2f00",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#0e141a",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-surface-variant": "#c4c9ac",
+                    "inverse-surface": "#dee3ec",
+                    "surface-container": "#1b2027",
+                    "secondary": "#c5c7c8",
+                    "on-tertiary-container": "#7b6100",
+                    "tertiary-container": "#ffe089",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "tertiary-fixed": "#ffe089",
+                    "inverse-on-surface": "#2c3138",
+                    "on-primary": "#283500",
+                    "secondary-fixed": "#e1e3e4",
+                    "on-surface": "#dee3ec",
+                    "on-background": "#dee3ec",
+                    "primary-container": "#c3f400",
+                    "surface-bright": "#343a41",
+                    "outline": "#8e9379",
+                    "tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#b3b5b6",
+                    "surface-container-lowest": "#090f15",
+                    "outline-variant": "#444933",
+                    "surface-container-high": "#252a32",
+                    "secondary-container": "#444748",
+                    "on-secondary": "#2e3132",
+                    "on-secondary-fixed-variant": "#444748",
+                    "on-primary-fixed": "#161e00",
+                    "surface": "#0e141a",
+                    "surface-container-highest": "#30353d",
+                    "on-secondary-fixed": "#191c1d",
+                    "surface-container-low": "#171c23",
+                    "primary-fixed": "#c3f400",
+                    "on-primary-container": "#556d00",
+                    "surface-variant": "#30353d",
+                    "primary-fixed-dim": "#abd600",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "background": "#0e141a",
+                    "on-tertiary-fixed": "#241a00",
+                    "inverse-primary": "#506600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-standard": "12px",
+                    "gutter-terminal": "2px",
+                    "stack-dense": "4px",
+                    "margin-mobile": "12px",
+                    "margin-desktop": "16px"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Space Grotesk"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0C0D; /* Obsidian Abyss */
+            color: #dee3ec;
+            -webkit-font-smoothing: antialiased;
+        }
+        .terminal-grid {
+            display: grid;
+            gap: 2px; /* Micro-Gutter */
+            grid-template-columns: repeat(12, 1fr);
+        }
+        .module-border {
+            border: 1px solid #24282B;
+        }
+        .neon-glow-active {
+            border: 1px solid rgba(171, 214, 0, 0.4);
+            box-shadow: 0 0 10px rgba(171, 214, 0, 0.1);
+        }
+        .scanline {
+            width: 100%;
+            height: 1px;
+            background: rgba(171, 214, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            from { top: 0; }
+            to { top: 100%; }
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e141a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444933;
+        }
+        .log-row:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-margin-mobile h-12 md:px-margin-desktop">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="font-display-lg text-headline-sm tracking-tighter text-primary">Morrynet</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<nav class="flex gap-4">
+<a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">DASHBOARD</a>
+<a class="font-label-caps text-primary border-b-2 border-surface-tint pb-1" href="#">TERMINAL</a>
+<a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">AUDIT</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high p-1 rounded transition-colors">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-high p-1 rounded transition-colors">account_circle</span>
+</div>
+</header>
+<main class="pt-12 pb-16 md:pb-0 min-h-screen">
+<div class="max-w-[1600px] mx-auto p-gutter-terminal lg:p-margin-desktop">
+<!-- Terminal Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-terminal">
+<!-- Section 1: Node Health -->
+<section class="md:col-span-4 bg-surface-container-low module-border p-4 relative overflow-hidden">
+<div class="scanline"></div>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">analytics</span>
+                            NODE_HEALTH
+                        </h2>
+<span class="font-data-mono text-[10px] text-surface-tint">STABLE_CONNECT</span>
+</div>
+<div class="space-y-3">
+<!-- Node NY-04 -->
+<div class="bg-surface-container p-3 border-t border-outline-variant/30 flex justify-between items-center">
+<div>
+<p class="font-headline-sm text-primary mb-1">NY-04</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">NEW YORK DATA CENTER</p>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end gap-2 text-surface-tint font-data-mono">
+<span class="text-xl">4.2ms</span>
+<span class="material-symbols-outlined text-sm">wifi_tethering</span>
+</div>
+<div class="w-24 h-1 bg-surface-container-highest mt-2 rounded-full overflow-hidden">
+<div class="bg-surface-tint h-full w-[99.98%]"></div>
+</div>
+<p class="font-data-mono text-[10px] text-on-surface-variant mt-1">UPTIME: 99.98%</p>
+</div>
+</div>
+<!-- Node LD-02 -->
+<div class="bg-surface-container p-3 border-t border-outline-variant/30 flex justify-between items-center">
+<div>
+<p class="font-headline-sm text-primary mb-1">LD-02</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">LONDON DATA CENTER</p>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end gap-2 text-surface-tint font-data-mono">
+<span class="text-xl">12.8ms</span>
+<span class="material-symbols-outlined text-sm">wifi_tethering</span>
+</div>
+<div class="w-24 h-1 bg-surface-container-highest mt-2 rounded-full overflow-hidden">
+<div class="bg-surface-tint h-full w-[99.94%]"></div>
+</div>
+<p class="font-data-mono text-[10px] text-on-surface-variant mt-1">UPTIME: 99.94%</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Data Integrity Audit -->
+<section class="md:col-span-4 bg-surface-container-low module-border p-4">
+<h2 class="font-label-caps text-on-surface-variant flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+                        DATA_INTEGRITY_AUDIT
+                    </h2>
+<div class="space-y-1">
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest border-l-2 border-surface-tint hover:bg-surface-container transition-all cursor-default">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md font-medium text-on-surface">Cryptographic Proof</span>
+</div>
+<span class="font-data-mono text-xs text-on-surface-variant">SHA-512_OK</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest border-l-2 border-surface-tint hover:bg-surface-container transition-all cursor-default">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md font-medium text-on-surface">AES-256 Tunnel</span>
+</div>
+<span class="font-data-mono text-xs text-on-surface-variant">ENCR_STABLE</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest border-l-2 border-surface-tint hover:bg-surface-container transition-all cursor-default">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md font-medium text-on-surface">MD5 Checksums</span>
+</div>
+<span class="font-data-mono text-xs text-on-surface-variant">VALID_PARITY</span>
+</div>
+</div>
+<div class="mt-6 border-t border-outline-variant pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant">AUDIT PROGRESS</span>
+<span class="font-data-mono text-[10px] text-surface-tint">100%</span>
+</div>
+<div class="flex gap-1 h-1">
+<div class="flex-1 bg-surface-tint"></div>
+<div class="flex-1 bg-surface-tint"></div>
+<div class="flex-1 bg-surface-tint"></div>
+<div class="flex-1 bg-surface-tint"></div>
+<div class="flex-1 bg-surface-tint"></div>
+</div>
+</div>
+</section>
+<!-- Section 3: Automation Fail-Safes -->
+<section class="md:col-span-4 bg-surface-container-low module-border p-4 relative">
+<h2 class="font-label-caps text-on-surface-variant flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-xs">security</span>
+                        AUTOMATION_FAIL_SAFES
+                    </h2>
+<div class="grid grid-cols-2 gap-2">
+<!-- Guard 1 -->
+<div class="bg-surface-container-highest/30 p-3 border border-outline-variant hover:border-surface-tint transition-all cursor-default group">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-surface-tint">memory</span>
+<div class="w-2 h-2 rounded-full bg-surface-tint animate-pulse"></div>
+</div>
+<p class="font-body-sm font-bold text-primary">Memory Leak Guard</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant mt-1">ACTIVE • 12.4GB/32GB</p>
+</div>
+<!-- Guard 2 -->
+<div class="bg-surface-container-highest/30 p-3 border border-outline-variant hover:border-surface-tint transition-all cursor-default group">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-surface-tint">key</span>
+<div class="w-2 h-2 rounded-full bg-surface-tint"></div>
+</div>
+<p class="font-body-sm font-bold text-primary">API Key Rotation</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant mt-1">ROTATION_NEXT: 04:00H</p>
+</div>
+<!-- Guard 3 -->
+<div class="bg-surface-container-highest/30 p-3 border border-outline-variant hover:border-surface-tint transition-all cursor-default group">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">sync_problem</span>
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+</div>
+<p class="font-body-sm font-bold text-primary">Latency Kill-Switch</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant mt-1">STANDBY • THRESHOLD: 50MS</p>
+</div>
+<!-- Guard 4 -->
+<div class="bg-surface-container-highest/30 p-3 border border-outline-variant hover:border-surface-tint transition-all cursor-default group">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-surface-tint">shield</span>
+<div class="w-2 h-2 rounded-full bg-surface-tint"></div>
+</div>
+<p class="font-body-sm font-bold text-primary">DDOS Shield</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant mt-1">PROXY: L3 CLOUDFLARE</p>
+</div>
+</div>
+</section>
+<!-- Section 4: System Event Log -->
+<section class="md:col-span-12 bg-surface-container-lowest module-border overflow-hidden flex flex-col h-[400px]">
+<div class="p-4 bg-surface-container-low border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-label-caps text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">terminal</span>
+                            SYSTEM_EVENT_LOG
+                        </h2>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">LIVE_STREAM</span>
+</div>
+<span class="font-data-mono text-[10px] text-on-surface-variant">BUFFER: 4096KB</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-2 font-data-mono text-sm space-y-1" id="event-log">
+<!-- Log entries are injected via script for realism -->
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:01.002</span>
+<span class="text-surface-tint">[INFO]</span>
+<span class="text-primary">System Boot Sequence Initiated</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:01.442</span>
+<span class="text-surface-tint">[OK]</span>
+<span class="text-primary">Handshake Verified: NY-04 &lt;-&gt; LD-02</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:02.109</span>
+<span class="text-surface-tint">[INFO]</span>
+<span class="text-primary">Risk Guard Active: Volatility Filter Applied</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:02.500</span>
+<span class="text-surface-tint">[SYNC]</span>
+<span class="text-primary">Sync Completed: Order Book Delta [62013-A]</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:03.112</span>
+<span class="text-tertiary-fixed-dim">[WARN]</span>
+<span class="text-primary">Latency spike detected on LD-02 (15.2ms)</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:03.444</span>
+<span class="text-surface-tint">[SEC]</span>
+<span class="text-primary">AES-256 Key Rotation Successful</span>
+</div>
+<div class="log-row flex gap-4 p-1">
+<span class="text-on-surface-variant/50">14:20:03.901</span>
+<span class="text-surface-tint">[OK]</span>
+<span class="text-primary">Cryptographic Proof Validated for Block #88219</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-gutter-terminal bg-surface-container-lowest border-t border-outline-variant z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-[9px] mt-1">Live</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span class="font-label-caps text-[9px] mt-1">Automation</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary/10 rounded-lg py-1 px-3">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[9px] mt-1">Risk</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-[9px] mt-1">Settings</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction: Periodic log update simulator
+        const logElement = document.getElementById('event-log');
+        const eventTypes = [
+            { type: '[OK]', color: 'text-surface-tint', msg: 'Heartbeat signal received' },
+            { type: '[INFO]', color: 'text-primary', msg: 'Data packet segment reconstructed' },
+            { type: '[SEC]', color: 'text-surface-tint', msg: 'Signature verified for incoming flow' },
+            { type: '[SYNC]', color: 'text-surface-tint', msg: 'State synchronization finished' }
+        ];
+
+        setInterval(() => {
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0] + '.' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            const event = eventTypes[Math.floor(Math.random() * eventTypes.length)];
+            
+            const div = document.createElement('div');
+            div.className = 'log-row flex gap-4 p-1 animate-pulse';
+            div.innerHTML = `
+                <span class="text-on-surface-variant/50">${timeStr}</span>
+                <span class="${event.color}">${event.type}</span>
+                <span class="text-primary">${event.msg}</span>
+            `;
+            
+            logElement.appendChild(div);
+            logElement.scrollTop = logElement.scrollHeight;
+            
+            // Limit log entries
+            if(logElement.children.length > 50) {
+                logElement.removeChild(logElement.firstChild);
+            }
+        }, 2500);
+    </script>
+</body></html>

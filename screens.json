@@ -1,0 +1,1707 @@
+[
+  {
+    "folderName": "affiliate_payout_portal_institutional_commissions",
+    "title": "Affiliate Payouts | Precision Sniper ICT",
+    "path": "affiliate_payout_portal_institutional_commissions/code.html",
+    "screenshot": "affiliate_payout_portal_institutional_commissions/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "payment_success_access_granted",
+    "title": "Payment Success | MORRYNET",
+    "path": "payment_success_access_granted/code.html",
+    "screenshot": "payment_success_access_granted/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "affiliate_referral_program_6_tier_system",
+    "title": "Precision Sniper ICT - Referral Dashboard",
+    "path": "affiliate_referral_program_6_tier_system/code.html",
+    "screenshot": "affiliate_referral_program_6_tier_system/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "affiliate_leaderboard_top_advocates",
+    "title": "Precision Sniper ICT | Affiliate Leaderboard",
+    "path": "affiliate_leaderboard_top_advocates/code.html",
+    "screenshot": "affiliate_leaderboard_top_advocates/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "affiliate_revenue_hub",
+    "title": "Revenue & Affiliate Analytics | CORE TERMINAL",
+    "path": "affiliate_revenue_hub/code.html",
+    "screenshot": "affiliate_revenue_hub/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "subscription_management_billing_hub",
+    "title": "SUBSCRIPTION MANAGEMENT BILLING HUB",
+    "path": "subscription_management_billing_hub/code.html",
+    "screenshot": "subscription_management_billing_hub/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "secure_checkout_m_pesa_paypal",
+    "title": "Secure Checkout | Precision Sniper ICT",
+    "path": "secure_checkout_m_pesa_paypal/code.html",
+    "screenshot": "secure_checkout_m_pesa_paypal/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "settings_subscription_integrated",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "settings_subscription_integrated/code.html",
+    "screenshot": "settings_subscription_integrated/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "subscription_access_control",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "subscription_access_control/code.html",
+    "screenshot": "subscription_access_control/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "subscription_tier_comparison_view",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "subscription_tier_comparison_view/code.html",
+    "screenshot": "subscription_tier_comparison_view/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "subscription_yearly_plan_integration",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "subscription_yearly_plan_integration/code.html",
+    "screenshot": "subscription_yearly_plan_integration/screen.png",
+    "category": "Billing & Affiliates",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "consensus_matrix_institutional_grade_v2.0",
+    "title": "Consensus Matrix Pro - Precision Sniper ICT",
+    "path": "consensus_matrix_institutional_grade_v2.0/code.html",
+    "screenshot": "consensus_matrix_institutional_grade_v2.0/screen.png",
+    "category": "Consensus Matrix",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "consensus_matrix_integrated",
+    "title": "Voter Consensus Detail - Precision Sniper ICT",
+    "path": "consensus_matrix_integrated/code.html",
+    "screenshot": "consensus_matrix_integrated/screen.png",
+    "category": "Consensus Matrix",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_pro_desktop_terminal_1",
+    "title": "MORRYNET | TERMINAL v1.0",
+    "path": "precision_sniper_ict_pro_desktop_terminal_1/code.html",
+    "screenshot": "precision_sniper_ict_pro_desktop_terminal_1/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_pro_desktop_v4.0_nanoclaw_pa",
+    "title": "MORRYNET | TERMINAL v1.0",
+    "path": "precision_sniper_ict_pro_desktop_v4.0_nanoclaw_pa/code.html",
+    "screenshot": "precision_sniper_ict_pro_desktop_v4.0_nanoclaw_pa/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "desktop_configuration_advanced_execution_hotkeys",
+    "title": "Precision Sniper ICT - Hotkey Configuration",
+    "path": "desktop_configuration_advanced_execution_hotkeys/code.html",
+    "screenshot": "desktop_configuration_advanced_execution_hotkeys/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "desktop_configuration_profile_manager_visual_overlay",
+    "title": "Precision Sniper ICT - Hotkey Configuration",
+    "path": "desktop_configuration_profile_manager_visual_overlay/code.html",
+    "screenshot": "desktop_configuration_profile_manager_visual_overlay/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "desktop_hotkey_configuration_one_click_execution",
+    "title": "Precision Sniper ICT - Hotkey Configuration",
+    "path": "desktop_hotkey_configuration_one_click_execution/code.html",
+    "screenshot": "desktop_hotkey_configuration_one_click_execution/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "execution_terminal_live_order_entry",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "execution_terminal_live_order_entry/code.html",
+    "screenshot": "execution_terminal_live_order_entry/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "execution_terminal_nanoclaw_pa_enhanced",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "execution_terminal_nanoclaw_pa_enhanced/code.html",
+    "screenshot": "execution_terminal_nanoclaw_pa_enhanced/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_interactive_pro_terminal",
+    "title": "Precision Sniper ICT - Terminal",
+    "path": "precision_sniper_ict_interactive_pro_terminal/code.html",
+    "screenshot": "precision_sniper_ict_interactive_pro_terminal/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_pro_desktop_terminal_2",
+    "title": "Precision Sniper ICT - Terminal",
+    "path": "precision_sniper_ict_pro_desktop_terminal_2/code.html",
+    "screenshot": "precision_sniper_ict_pro_desktop_terminal_2/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "autonomous_execution_live_terminal_v4.5",
+    "title": "Precision Sniper ICT | Autonomous Execution Terminal",
+    "path": "autonomous_execution_live_terminal_v4.5/code.html",
+    "screenshot": "autonomous_execution_live_terminal_v4.5/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_elite_dashboard_v2.0",
+    "title": "Precision Sniper ICT | Dashboard",
+    "path": "precision_sniper_ict_elite_dashboard_v2.0/code.html",
+    "screenshot": "precision_sniper_ict_elite_dashboard_v2.0/screen.png",
+    "category": "Desktop Terminals",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "apk_packaging_hardened_build_v3.0",
+    "title": "AEGIS_TERMINAL | APK Packaging",
+    "path": "apk_packaging_hardened_build_v3.0/code.html",
+    "screenshot": "apk_packaging_hardened_build_v3.0/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "broker_reviews_referral_hub",
+    "title": "AEGIS_TERMINAL | Broker Review &amp; Referral",
+    "path": "broker_reviews_referral_hub/code.html",
+    "screenshot": "broker_reviews_referral_hub/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "api_latency_node_thresholds_global_config",
+    "title": "API LATENCY NODE THRESHOLDS GLOBAL CONFIG",
+    "path": "api_latency_node_thresholds_global_config/code.html",
+    "screenshot": "api_latency_node_thresholds_global_config/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "aegis_risk_engine_advanced_protection_thresholds",
+    "title": "Aegis Risk Engine | Precision Sniper ICT",
+    "path": "aegis_risk_engine_advanced_protection_thresholds/code.html",
+    "screenshot": "aegis_risk_engine_advanced_protection_thresholds/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "aegis_risk_engine_configuration_deep_dive",
+    "title": "Aegis Risk Engine | Precision Sniper ICT",
+    "path": "aegis_risk_engine_configuration_deep_dive/code.html",
+    "screenshot": "aegis_risk_engine_configuration_deep_dive/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "global_risk_dashboard_multi_platform_monitor",
+    "title": "Global Risk Dashboard - INST-TRADER",
+    "path": "global_risk_dashboard_multi_platform_monitor/code.html",
+    "screenshot": "global_risk_dashboard_multi_platform_monitor/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "telegram_integration_advanced_reporting_branding",
+    "title": "ICT Terminal - Telegram Integration",
+    "path": "telegram_integration_advanced_reporting_branding/code.html",
+    "screenshot": "telegram_integration_advanced_reporting_branding/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "telegram_integration_pro_branding_suite",
+    "title": "ICT Terminal - Telegram Integration",
+    "path": "telegram_integration_pro_branding_suite/code.html",
+    "screenshot": "telegram_integration_pro_branding_suite/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "telegram_integration_signal_expiry_controls",
+    "title": "ICT Terminal - Telegram Integration",
+    "path": "telegram_integration_signal_expiry_controls/code.html",
+    "screenshot": "telegram_integration_signal_expiry_controls/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "success_walkthrough_step_3_execution_success",
+    "title": "Institutional Exit - Sniper Terminal",
+    "path": "success_walkthrough_step_3_execution_success/code.html",
+    "screenshot": "success_walkthrough_step_3_execution_success/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "pro_feature_trial_10_min_access",
+    "title": "MORRYNET | Liquidity Heatmap - Feature Trial",
+    "path": "pro_feature_trial_10_min_access/code.html",
+    "screenshot": "pro_feature_trial_10_min_access/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "module_marketplace_advanced_institutional_suite_v2.0",
+    "title": "MORRYNET | Module Marketplace",
+    "path": "module_marketplace_advanced_institutional_suite_v2.0/code.html",
+    "screenshot": "module_marketplace_advanced_institutional_suite_v2.0/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "module_marketplace_institutional_control_center",
+    "title": "MORRYNET | Module Marketplace",
+    "path": "module_marketplace_institutional_control_center/code.html",
+    "screenshot": "module_marketplace_institutional_control_center/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "listing_meta_data_optimizer",
+    "title": "Meta-Data Editor | CORE TERMINAL",
+    "path": "listing_meta_data_optimizer/code.html",
+    "screenshot": "listing_meta_data_optimizer/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "simulation_details_cycle_sniper_x_042",
+    "title": "Morrynet Terminal - Simulation Details",
+    "path": "simulation_details_cycle_sniper_x_042/code.html",
+    "screenshot": "simulation_details_cycle_sniper_x_042/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "nanoclaw_insights_detailed_pa_signature_library",
+    "title": "Nanoclaw Insights | Precision Sniper ICT",
+    "path": "nanoclaw_insights_detailed_pa_signature_library/code.html",
+    "screenshot": "nanoclaw_insights_detailed_pa_signature_library/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "nanoclaw_insights_institutional_pa_library",
+    "title": "Nanoclaw Insights | Precision Sniper ICT",
+    "path": "nanoclaw_insights_institutional_pa_library/code.html",
+    "screenshot": "nanoclaw_insights_institutional_pa_library/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "nanoclaw_pa_institutional_assistant_hub",
+    "title": "Nanoclaw PA | AI Assistant Hub",
+    "path": "nanoclaw_pa_institutional_assistant_hub/code.html",
+    "screenshot": "nanoclaw_pa_institutional_assistant_hub/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "social_streaming_hub_live_broadcast_integration",
+    "title": "OBSIDIAN_HUB - Social Streaming Hub",
+    "path": "social_streaming_hub_live_broadcast_integration/code.html",
+    "screenshot": "social_streaming_hub_live_broadcast_integration/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "a_b_test_manager_store_assets",
+    "title": "Precision Sniper ICT - A/B Test Manager",
+    "path": "a_b_test_manager_store_assets/code.html",
+    "screenshot": "a_b_test_manager_store_assets/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "central_navigation_hub_glassmorphic_control_panel",
+    "title": "Precision Sniper ICT - Central Navigation Hub",
+    "path": "central_navigation_hub_glassmorphic_control_panel/code.html",
+    "screenshot": "central_navigation_hub_glassmorphic_control_panel/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "live_learning_ai_simulator_monitor",
+    "title": "Precision Sniper ICT - Live Learning",
+    "path": "live_learning_ai_simulator_monitor/code.html",
+    "screenshot": "live_learning_ai_simulator_monitor/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "automatic_trading_simplified_terminal",
+    "title": "Precision Sniper ICT | Autonomous Execution Terminal",
+    "path": "automatic_trading_simplified_terminal/code.html",
+    "screenshot": "automatic_trading_simplified_terminal/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "autonomous_execution_professional_terminal_v4.6",
+    "title": "Precision Sniper ICT | Autonomous Execution Terminal",
+    "path": "autonomous_execution_professional_terminal_v4.6/code.html",
+    "screenshot": "autonomous_execution_professional_terminal_v4.6/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_elite_v3.0_nanoclaw_pa_matrix",
+    "title": "Precision Sniper ICT | Dashboard",
+    "path": "precision_sniper_ict_elite_v3.0_nanoclaw_pa_matrix/code.html",
+    "screenshot": "precision_sniper_ict_elite_v3.0_nanoclaw_pa_matrix/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "store_optimization_institutional_growth_hub",
+    "title": "Precision Sniper ICT | Store Optimization",
+    "path": "store_optimization_institutional_growth_hub/code.html",
+    "screenshot": "store_optimization_institutional_growth_hub/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_secure_dashboard_v3.0",
+    "title": "Precision Sniper ICT | V3.0 Secure Dashboard",
+    "path": "precision_sniper_ict_secure_dashboard_v3.0/code.html",
+    "screenshot": "precision_sniper_ict_secure_dashboard_v3.0/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_dashboard_active_session_v3.1",
+    "title": "Precision Sniper ICT | V3.0 Secure Dashboard",
+    "path": "secure_dashboard_active_session_v3.1/code.html",
+    "screenshot": "secure_dashboard_active_session_v3.1/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "sniper_trading_simplified_dashboard",
+    "title": "Precision Sniper ICT | V3.0 Secure Dashboard",
+    "path": "sniper_trading_simplified_dashboard/code.html",
+    "screenshot": "sniper_trading_simplified_dashboard/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "legal_compliance_terms_of_service_risk_disclosure",
+    "title": "Risk Disclosure | PRECISION SNIPER ICT",
+    "path": "legal_compliance_terms_of_service_risk_disclosure/code.html",
+    "screenshot": "legal_compliance_terms_of_service_risk_disclosure/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "legal_disclaimers_risk_disclosure",
+    "title": "Risk Disclosure | PRECISION SNIPER ICT",
+    "path": "legal_disclaimers_risk_disclosure/code.html",
+    "screenshot": "legal_disclaimers_risk_disclosure/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "seo_keyword_detail_ict_trading",
+    "title": "SEO Detail | ICT Trading",
+    "path": "seo_keyword_detail_ict_trading/code.html",
+    "screenshot": "seo_keyword_detail_ict_trading/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_gateway_signup_portal_v4.0",
+    "title": "Secure Gateway - Unified Signup Portal",
+    "path": "secure_gateway_signup_portal_v4.0/code.html",
+    "screenshot": "secure_gateway_signup_portal_v4.0/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "alert_frequency_cooldown_institutional_config",
+    "title": "Signature Alerts | Nanoclaw Price Action",
+    "path": "alert_frequency_cooldown_institutional_config/code.html",
+    "screenshot": "alert_frequency_cooldown_institutional_config/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "signature_specific_alerts_nanoclaw_pa_config",
+    "title": "Signature Alerts | Nanoclaw Price Action",
+    "path": "signature_specific_alerts_nanoclaw_pa_config/code.html",
+    "screenshot": "signature_specific_alerts_nanoclaw_pa_config/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "success_walkthrough_step_1_signal_identification",
+    "title": "Sniper Terminal - Institutional Signal",
+    "path": "success_walkthrough_step_1_signal_identification/code.html",
+    "screenshot": "success_walkthrough_step_1_signal_identification/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "success_walkthrough_step_2_precision_entry",
+    "title": "Sniper Terminal - Precision Entry",
+    "path": "success_walkthrough_step_2_precision_entry/code.html",
+    "screenshot": "success_walkthrough_step_2_precision_entry/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "backend_infrastructure_api_monitor",
+    "title": "TERMINAL_SECURE_ALPHA - Backend Infrastructure",
+    "path": "backend_infrastructure_api_monitor/code.html",
+    "screenshot": "backend_infrastructure_api_monitor/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "secure_gateway_signup",
+    "title": "TERMINAL_SECURE_ALPHA - Register Node",
+    "path": "secure_gateway_signup/code.html",
+    "screenshot": null,
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "trial_expired_conversion_gateway",
+    "title": "TRIAL EXPIRED CONVERSION GATEWAY",
+    "path": "trial_expired_conversion_gateway/code.html",
+    "screenshot": "trial_expired_conversion_gateway/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "wordpress_portal_advanced_monitoring_key_rotation_v3.1",
+    "title": "WordPress Integration Portal - TERMINAL_SECURE_ALPHA",
+    "path": "wordpress_portal_advanced_monitoring_key_rotation_v3.1/code.html",
+    "screenshot": "wordpress_portal_advanced_monitoring_key_rotation_v3.1/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "wordpress_portal_gutenberg_sandbox",
+    "title": "WordPress Integration Portal - TERMINAL_SECURE_ALPHA",
+    "path": "wordpress_portal_gutenberg_sandbox/code.html",
+    "screenshot": "wordpress_portal_gutenberg_sandbox/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "wordpress_portal_secure_plugin_distribution_v3.0",
+    "title": "WordPress Integration Portal - TERMINAL_SECURE_ALPHA",
+    "path": "wordpress_portal_secure_plugin_distribution_v3.0/code.html",
+    "screenshot": "wordpress_portal_secure_plugin_distribution_v3.0/screen.png",
+    "category": "General UI Modules",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "installation_success_immersive_launch_transition",
+    "title": "Deployment Successful | Institutional Hub",
+    "path": "installation_success_immersive_launch_transition/code.html",
+    "screenshot": "installation_success_immersive_launch_transition/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "installation_success_system_ready",
+    "title": "Deployment Successful | Institutional Hub",
+    "path": "installation_success_system_ready/code.html",
+    "screenshot": "installation_success_system_ready/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "installation_guide_step_1_secure_download",
+    "title": "Installation Guide - Step 1",
+    "path": "installation_guide_step_1_secure_download/code.html",
+    "screenshot": "installation_guide_step_1_secure_download/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "installation_guide_step_2_system_permissions",
+    "title": "Installation Guide - Step 2",
+    "path": "installation_guide_step_2_system_permissions/code.html",
+    "screenshot": "installation_guide_step_2_system_permissions/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "installation_guide_step_3_finalize_initialize",
+    "title": "Installation Guide - Step 3",
+    "path": "installation_guide_step_3_finalize_initialize/code.html",
+    "screenshot": "installation_guide_step_3_finalize_initialize/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "complete_setup_implementation_guide",
+    "title": "Precision Sniper ICT | Implementation Guide",
+    "path": "complete_setup_implementation_guide/code.html",
+    "screenshot": "complete_setup_implementation_guide/screen.png",
+    "category": "Installation & Setup",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "access_matrix_feature_gating_hub",
+    "title": "Precision Sniper ICT - Access Control",
+    "path": "access_matrix_feature_gating_hub/code.html",
+    "screenshot": "access_matrix_feature_gating_hub/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "license_key_management_ea_marketplace",
+    "title": "Precision Sniper ICT - Licenses",
+    "path": "license_key_management_ea_marketplace/code.html",
+    "screenshot": "license_key_management_ea_marketplace/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "ea_marketplace_institutional_licensing_hub_v2.0",
+    "title": "Precision Sniper ICT - Licensing",
+    "path": "ea_marketplace_institutional_licensing_hub_v2.0/code.html",
+    "screenshot": "ea_marketplace_institutional_licensing_hub_v2.0/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "ea_marketplace_license_management_security",
+    "title": "Precision Sniper ICT - Licensing",
+    "path": "ea_marketplace_license_management_security/code.html",
+    "screenshot": "ea_marketplace_license_management_security/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "ea_marketplace_license_validation_session_control",
+    "title": "Precision Sniper ICT - Licensing",
+    "path": "ea_marketplace_license_validation_session_control/code.html",
+    "screenshot": "ea_marketplace_license_validation_session_control/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_hub_unified_access_licensing",
+    "title": "SECURE HUB UNIFIED ACCESS LICENSING",
+    "path": "secure_hub_unified_access_licensing/code.html",
+    "screenshot": "secure_hub_unified_access_licensing/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "secure_hub_v2.1_ea_marketplace_integrated",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "secure_hub_v2.1_ea_marketplace_integrated/code.html",
+    "screenshot": "secure_hub_v2.1_ea_marketplace_integrated/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_hub_v3.0_hardened_ea_marketplace",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "secure_hub_v3.0_hardened_ea_marketplace/code.html",
+    "screenshot": "secure_hub_v3.0_hardened_ea_marketplace/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "settings_access_secure_hub_v2.0",
+    "title": "Upgrade | PRECISION SNIPER ICT",
+    "path": "settings_access_secure_hub_v2.0/code.html",
+    "screenshot": "settings_access_secure_hub_v2.0/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_hub_v3.0_hardened_institutional_access",
+    "title": "V3.0 Institutional Hub | PRECISION SNIPER ICT",
+    "path": "secure_hub_v3.0_hardened_institutional_access/code.html",
+    "screenshot": "secure_hub_v3.0_hardened_institutional_access/screen.png",
+    "category": "Licensing & Security Hub",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "liquidity_rates_provider_terminal",
+    "title": "Morrynet | Institutional Liquidity Terminal",
+    "path": "liquidity_rates_provider_terminal/code.html",
+    "screenshot": "liquidity_rates_provider_terminal/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "market_movers_institutional_targets",
+    "title": "Morrynet | Market Movers &amp; Targets",
+    "path": "market_movers_institutional_targets/code.html",
+    "screenshot": "market_movers_institutional_targets/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "liquidity_heatmap_institutional_void_analysis",
+    "title": "OBSIDIAN_HUB - Liquidity Heatmap",
+    "path": "liquidity_heatmap_institutional_void_analysis/code.html",
+    "screenshot": "liquidity_heatmap_institutional_void_analysis/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "integrated_ict_chart_motion_enhanced_v2.0",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "integrated_ict_chart_motion_enhanced_v2.0/code.html",
+    "screenshot": "integrated_ict_chart_motion_enhanced_v2.0/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "integrated_ict_chart_secure_execution_v2.0",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "integrated_ict_chart_secure_execution_v2.0/code.html",
+    "screenshot": "integrated_ict_chart_secure_execution_v2.0/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "interactive_live_chart_pro_features",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "interactive_live_chart_pro_features/code.html",
+    "screenshot": "interactive_live_chart_pro_features/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "live_chart_integrated",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "live_chart_integrated/code.html",
+    "screenshot": "live_chart_integrated/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "live_chart_one_click_execution_config",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "live_chart_one_click_execution_config/code.html",
+    "screenshot": "live_chart_one_click_execution_config/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "live_ict_chart_eurusd",
+    "title": "Precision Sniper ICT - Live Chart",
+    "path": "live_ict_chart_eurusd/code.html",
+    "screenshot": "live_ict_chart_eurusd/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "consensus_matrix_matrix_live_feed",
+    "title": "Voter Consensus Detail - Precision Sniper ICT",
+    "path": "consensus_matrix_matrix_live_feed/code.html",
+    "screenshot": "consensus_matrix_matrix_live_feed/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "consensus_matrix_motion_enhanced_feed",
+    "title": "Voter Consensus Detail - Precision Sniper ICT",
+    "path": "consensus_matrix_motion_enhanced_feed/code.html",
+    "screenshot": "consensus_matrix_motion_enhanced_feed/screen.png",
+    "category": "Live Charts & Market Feeds",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "telegram_auto_post_institutional_signal_sync",
+    "title": "ICT Terminal - Telegram Integration",
+    "path": "telegram_auto_post_institutional_signal_sync/code.html",
+    "screenshot": "telegram_auto_post_institutional_signal_sync/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "multi_node_sync_global_infrastructure",
+    "title": "Multi-Node Sync Configuration | PRECISION SNIPER ICT",
+    "path": "multi_node_sync_global_infrastructure/code.html",
+    "screenshot": "multi_node_sync_global_infrastructure/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "bridge_api_management_live_mt4_mt5_sync",
+    "title": "Precision Sniper ICT - Bridge Management",
+    "path": "bridge_api_management_live_mt4_mt5_sync/code.html",
+    "screenshot": "bridge_api_management_live_mt4_mt5_sync/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "bridge_management_advanced_sync_disclaimers",
+    "title": "Precision Sniper ICT - Bridge Management",
+    "path": "bridge_management_advanced_sync_disclaimers/code.html",
+    "screenshot": "bridge_management_advanced_sync_disclaimers/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "bridge_management_v3.0_encrypted_synchronization",
+    "title": "Precision Sniper ICT - V3.0 Encrypted Bridge",
+    "path": "bridge_management_v3.0_encrypted_synchronization/code.html",
+    "screenshot": "bridge_management_v3.0_encrypted_synchronization/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "bridge_management_institutional_risk_sync",
+    "title": "TERMINAL_SECURE_ALPHA - Bridge Management",
+    "path": "bridge_management_institutional_risk_sync/code.html",
+    "screenshot": "bridge_management_institutional_risk_sync/screen.png",
+    "category": "MT4/MT5 Bridge Sync",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "distribution_hub_secure_apk_download",
+    "title": "Distribution Hub | AEGIS_TERMINAL",
+    "path": "distribution_hub_secure_apk_download/code.html",
+    "screenshot": "distribution_hub_secure_apk_download/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "mobile_execution_hotkey_config",
+    "title": "ICT Terminal - Execution Settings",
+    "path": "mobile_execution_hotkey_config/code.html",
+    "screenshot": "mobile_execution_hotkey_config/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_mobile_hq_dashboard_2",
+    "title": "MORRYNET | Precision Sniper ICT Terminal",
+    "path": "precision_sniper_ict_mobile_hq_dashboard_2/code.html",
+    "screenshot": "precision_sniper_ict_mobile_hq_dashboard_2/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_mobile_hq_v4.0_nanoclaw_pa_integrated",
+    "title": "MORRYNET | Precision Sniper ICT Terminal",
+    "path": "precision_sniper_ict_mobile_hq_v4.0_nanoclaw_pa_integrated/code.html",
+    "screenshot": "precision_sniper_ict_mobile_hq_v4.0_nanoclaw_pa_integrated/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_motion_enhanced_hq_dashboard",
+    "title": "MORRYNET | Precision Sniper ICT Terminal",
+    "path": "precision_sniper_ict_motion_enhanced_hq_dashboard/code.html",
+    "screenshot": "precision_sniper_ict_motion_enhanced_hq_dashboard/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "mobile_app_landing_page_play_store_focus",
+    "title": "PRECISION SNIPER ICT | Institutional Grade Trading",
+    "path": "mobile_app_landing_page_play_store_focus/code.html",
+    "screenshot": "mobile_app_landing_page_play_store_focus/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_mobile_hq_dashboard_1",
+    "title": "Precision Sniper ICT",
+    "path": "precision_sniper_ict_mobile_hq_dashboard_1/code.html",
+    "screenshot": "precision_sniper_ict_mobile_hq_dashboard_1/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "google_play_store_listing_precision_sniper_ict",
+    "title": "Precision Sniper ICT - Google Play Store",
+    "path": "google_play_store_listing_precision_sniper_ict/code.html",
+    "screenshot": "google_play_store_listing_precision_sniper_ict/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_mobile_dashboard",
+    "title": "Precision Sniper ICT | Dashboard",
+    "path": "precision_sniper_ict_mobile_dashboard/code.html",
+    "screenshot": "precision_sniper_ict_mobile_dashboard/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "precision_sniper_ict_professional_mobile_dashboard_v4.1",
+    "title": "Precision Sniper ICT | V3.0 Secure Dashboard",
+    "path": "precision_sniper_ict_professional_mobile_dashboard_v4.1/code.html",
+    "screenshot": "precision_sniper_ict_professional_mobile_dashboard_v4.1/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "android_simulator_advanced_3d_target_animation",
+    "title": "TERMINAL_SECURE_ALPHA - Live Feed Simulator",
+    "path": "android_simulator_advanced_3d_target_animation/code.html",
+    "screenshot": "android_simulator_advanced_3d_target_animation/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "android_simulator_immersive_target_hit_animation",
+    "title": "TERMINAL_SECURE_ALPHA - Live Feed Simulator",
+    "path": "android_simulator_immersive_target_hit_animation/code.html",
+    "screenshot": "android_simulator_immersive_target_hit_animation/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "android_simulator_live_p_l_ticker_integration",
+    "title": "TERMINAL_SECURE_ALPHA - Live Feed Simulator",
+    "path": "android_simulator_live_p_l_ticker_integration/code.html",
+    "screenshot": null,
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "android_simulator_sideload_hub",
+    "title": "TERMINAL_SECURE_ALPHA - Live Feed Simulator",
+    "path": "android_simulator_sideload_hub/code.html",
+    "screenshot": "android_simulator_sideload_hub/screen.png",
+    "category": "Mobile HQ & Simulators",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "agent_conflict_resolution_advanced_weighted_engine",
+    "title": "AGENT CONFLICT RESOLUTION ADVANCED WEIGHTED ENGINE",
+    "path": "agent_conflict_resolution_advanced_weighted_engine/code.html",
+    "screenshot": "agent_conflict_resolution_advanced_weighted_engine/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "agent_conflict_resolution_weighted_decision_engine",
+    "title": "AGENT CONFLICT RESOLUTION WEIGHTED DECISION ENGINE",
+    "path": "agent_conflict_resolution_weighted_decision_engine/code.html",
+    "screenshot": "agent_conflict_resolution_weighted_decision_engine/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "apex_volatility_engine_configuration_deep_dive",
+    "title": "Apex Volatility Engine Configuration",
+    "path": "apex_volatility_engine_configuration_deep_dive/code.html",
+    "screenshot": "apex_volatility_engine_configuration_deep_dive/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "automation_hub_centralized_workflow_control",
+    "title": "Automation Hub | Morrynet Precision Sniper",
+    "path": "automation_hub_centralized_workflow_control/code.html",
+    "screenshot": "automation_hub_centralized_workflow_control/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "backtest_optimizer_neural_engine_v4.2",
+    "title": "Backtest Optimizer | MORRYNET PRECISION",
+    "path": "backtest_optimizer_neural_engine_v4.2/code.html",
+    "screenshot": "backtest_optimizer_neural_engine_v4.2/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "global_status_neural_node_health",
+    "title": "Global Status Dashboard | Morrynet Precision",
+    "path": "global_status_neural_node_health/code.html",
+    "screenshot": "global_status_neural_node_health/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "neural_attribution_live_virtual_optimization",
+    "title": "Morrynet Terminal - Simulation Details",
+    "path": "neural_attribution_live_virtual_optimization/code.html",
+    "screenshot": "neural_attribution_live_virtual_optimization/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "neural_engine_advanced_logic_optimization",
+    "title": "Neural Engine - Predictive Logic Config",
+    "path": "neural_engine_advanced_logic_optimization/code.html",
+    "screenshot": "neural_engine_advanced_logic_optimization/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "neural_engine_predictive_logic_config_1",
+    "title": "Neural Engine - Predictive Logic Config",
+    "path": "neural_engine_predictive_logic_config_1/code.html",
+    "screenshot": "neural_engine_predictive_logic_config_1/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "neural_engine_predictive_logic_config_2",
+    "title": "Neural Engine Configuration | PRECISION SNIPER ICT",
+    "path": "neural_engine_predictive_logic_config_2/code.html",
+    "screenshot": "neural_engine_predictive_logic_config_2/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "nexus_correlation_matrix_configuration_deep_dive",
+    "title": "Nexus Correlation Matrix Configuration",
+    "path": "nexus_correlation_matrix_configuration_deep_dive/code.html",
+    "screenshot": "nexus_correlation_matrix_configuration_deep_dive/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "strategy_backtester_alpha_optimizer_v1.0",
+    "title": "OBSIDIAN_HUB - Strategy Backtester &amp; Alpha Optimizer",
+    "path": "strategy_backtester_alpha_optimizer_v1.0/code.html",
+    "screenshot": "strategy_backtester_alpha_optimizer_v1.0/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "ai_agent_optimization_hub_autonomous_strategy_control",
+    "title": "Precision Sniper ICT - Agent Optimization Hub",
+    "path": "ai_agent_optimization_hub_autonomous_strategy_control/code.html",
+    "screenshot": "ai_agent_optimization_hub_autonomous_strategy_control/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "neural_engine_manual_stress_test_terminal",
+    "title": "Precision Sniper ICT | Stress Test Terminal",
+    "path": "neural_engine_manual_stress_test_terminal/code.html",
+    "screenshot": "neural_engine_manual_stress_test_terminal/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "ai_agent_training_neural_learning_feed",
+    "title": "SNIPER_ICT | AI Agent Training",
+    "path": "ai_agent_training_neural_learning_feed/code.html",
+    "screenshot": "ai_agent_training_neural_learning_feed/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "zenith_sentiment_core_configuration_deep_dive",
+    "title": "Zenith Sentiment Core Configuration",
+    "path": "zenith_sentiment_core_configuration_deep_dive/code.html",
+    "screenshot": "zenith_sentiment_core_configuration_deep_dive/screen.png",
+    "category": "Neural Engines & Algos",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "onboarding_v3.0_security_hardening",
+    "title": "Precision Sniper - Obsidian Aegis",
+    "path": "onboarding_v3.0_security_hardening/code.html",
+    "screenshot": "onboarding_v3.0_security_hardening/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "onboarding_v3.0_signal_config",
+    "title": "Precision Sniper - Onboarding Step 3",
+    "path": "onboarding_v3.0_signal_config/code.html",
+    "screenshot": "onboarding_v3.0_signal_config/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "onboarding_v3.0_terminal_sync",
+    "title": "Precision Sniper - Terminal Integration",
+    "path": "onboarding_v3.0_terminal_sync/code.html",
+    "screenshot": "onboarding_v3.0_terminal_sync/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "onboarding_advanced_tutorials",
+    "title": "Precision Sniper ICT | Onboarding",
+    "path": "onboarding_advanced_tutorials/code.html",
+    "screenshot": "onboarding_advanced_tutorials/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "user_onboarding_walkthrough",
+    "title": "Precision Sniper ICT | Onboarding",
+    "path": "user_onboarding_walkthrough/code.html",
+    "screenshot": "user_onboarding_walkthrough/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "onboarding_v3.0_initialization",
+    "title": "Precision Sniper V3.0 | Onboarding",
+    "path": "onboarding_v3.0_initialization/code.html",
+    "screenshot": "onboarding_v3.0_initialization/screen.png",
+    "category": "Onboarding",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "aegis_intelligence_institutional_audit_logs",
+    "title": "AEGIS INTELLIGENCE | Audit Logs",
+    "path": "aegis_intelligence_institutional_audit_logs/code.html",
+    "screenshot": "aegis_intelligence_institutional_audit_logs/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "mfa_setup_recovery_codes",
+    "title": "MFA Setup - Recovery Codes",
+    "path": "mfa_setup_recovery_codes/code.html",
+    "screenshot": "mfa_setup_recovery_codes/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "mfa_setup_method_selection",
+    "title": "MFA Setup - Secure Terminal",
+    "path": "mfa_setup_method_selection/code.html",
+    "screenshot": "mfa_setup_method_selection/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "social_verification_hub_cryptographic_proof",
+    "title": "OBSIDIAN_HUB - Verified Trader Profile",
+    "path": "social_verification_hub_cryptographic_proof/code.html",
+    "screenshot": "social_verification_hub_cryptographic_proof/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "security_audit_hardening_hub",
+    "title": "Precision Sniper ICT - Security Audit",
+    "path": "security_audit_hardening_hub/code.html",
+    "screenshot": "security_audit_hardening_hub/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "mfa_setup_app_sync",
+    "title": "SECURE TERMINAL - MFA Setup Step 2",
+    "path": "mfa_setup_app_sync/code.html",
+    "screenshot": "mfa_setup_app_sync/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "secure_gateway_authgate_turnstile",
+    "title": "TERMINAL_SECURE_ALPHA - Gateway",
+    "path": "secure_gateway_authgate_turnstile/code.html",
+    "screenshot": "secure_gateway_authgate_turnstile/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "enforced_mfa_totp_verification",
+    "title": "TOTP Authentication - Terminal Secure Alpha",
+    "path": "enforced_mfa_totp_verification/code.html",
+    "screenshot": "enforced_mfa_totp_verification/screen.png",
+    "category": "Security & MFA",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "monthly_performance_audit_june_2026",
+    "title": "MORRYNET | Monthly Performance Audit",
+    "path": "monthly_performance_audit_june_2026/code.html",
+    "screenshot": "monthly_performance_audit_june_2026/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "trade_analytics_journal_performance_hub",
+    "title": "MORRYNET | Post-Trade Analytics",
+    "path": "trade_analytics_journal_performance_hub/code.html",
+    "screenshot": "trade_analytics_journal_performance_hub/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "system_health_audit_integrity_monitor",
+    "title": "Morrynet | System Health &amp; Audit",
+    "path": "system_health_audit_integrity_monitor/code.html",
+    "screenshot": "system_health_audit_integrity_monitor/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Obsidian Abyss",
+      "badgeClass": "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+    }
+  },
+  {
+    "folderName": "journal_entry_detail_xauusd_setup",
+    "title": "Precision Sniper ICT - Journal Detail",
+    "path": "journal_entry_detail_xauusd_setup/code.html",
+    "screenshot": "journal_entry_detail_xauusd_setup/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "new_journal_entry_trade_narrative",
+    "title": "Precision Sniper ICT - New Journal Entry",
+    "path": "new_journal_entry_trade_narrative/code.html",
+    "screenshot": "new_journal_entry_trade_narrative/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "post_trade_analytics_performance_deep_dive_1",
+    "title": "Precision Sniper ICT - Trade Analytics",
+    "path": "post_trade_analytics_performance_deep_dive_1/code.html",
+    "screenshot": null,
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "post_trade_analytics_performance_deep_dive_2",
+    "title": "Precision Sniper ICT - Trade Analytics",
+    "path": "post_trade_analytics_performance_deep_dive_2/code.html",
+    "screenshot": "post_trade_analytics_performance_deep_dive_2/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "trade_analytics_integrated",
+    "title": "Precision Sniper ICT - Trade Analytics",
+    "path": "trade_analytics_integrated/code.html",
+    "screenshot": "trade_analytics_integrated/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "trade_journal_institutional_log",
+    "title": "Precision Sniper ICT - Trade Journal",
+    "path": "trade_journal_institutional_log/code.html",
+    "screenshot": "trade_journal_institutional_log/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "weekly_performance_recap_automated_delivery_config",
+    "title": "Weekly Performance Recap - Precision Sniper ICT",
+    "path": "weekly_performance_recap_automated_delivery_config/code.html",
+    "screenshot": "weekly_performance_recap_automated_delivery_config/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  },
+  {
+    "folderName": "weekly_performance_recap_telegram_broadcast",
+    "title": "Weekly Performance Recap - Precision Sniper ICT",
+    "path": "weekly_performance_recap_telegram_broadcast/code.html",
+    "screenshot": "weekly_performance_recap_telegram_broadcast/screen.png",
+    "category": "Trade Journal & Analytics",
+    "theme": {
+      "name": "Precision Sniper ICT",
+      "badgeClass": "bg-lime-500/10 text-lime-400 border border-lime-500/20"
+    }
+  }
+]

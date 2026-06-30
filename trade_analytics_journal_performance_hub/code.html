@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MORRYNET | Post-Trade Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#0e141a",
+                    "surface-variant": "#30353d",
+                    "surface-container-lowest": "#090f15",
+                    "on-secondary": "#2e3132",
+                    "surface-container": "#1b2027",
+                    "tertiary-fixed": "#ffe089",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#556d00",
+                    "surface-container-highest": "#30353d",
+                    "on-primary": "#283500",
+                    "tertiary-fixed-dim": "#efc11c",
+                    "on-tertiary-fixed": "#241a00",
+                    "inverse-on-surface": "#2c3138",
+                    "primary": "#ffffff",
+                    "background": "#0e141a",
+                    "on-secondary-container": "#b3b5b6",
+                    "surface-bright": "#343a41",
+                    "secondary-container": "#444748",
+                    "inverse-primary": "#506600",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#7b6100",
+                    "on-surface": "#dee3ec",
+                    "on-secondary-fixed-variant": "#444748",
+                    "surface-tint": "#abd600",
+                    "surface-dim": "#0e141a",
+                    "secondary-fixed": "#e1e3e4",
+                    "outline": "#8e9379",
+                    "primary-fixed": "#c3f400",
+                    "surface-container-low": "#171c23",
+                    "on-error": "#690005",
+                    "tertiary-container": "#ffe089",
+                    "on-primary-fixed": "#161e00",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "on-tertiary": "#3d2f00",
+                    "inverse-surface": "#dee3ec",
+                    "primary-container": "#c3f400",
+                    "on-surface-variant": "#c4c9ac",
+                    "primary-fixed-dim": "#abd600",
+                    "on-background": "#dee3ec",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-secondary-fixed": "#191c1d",
+                    "error-container": "#93000a",
+                    "outline-variant": "#444933",
+                    "secondary": "#c5c7c8",
+                    "surface-container-high": "#252a32",
+                    "tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-dense": "4px",
+                    "stack-standard": "12px",
+                    "margin-mobile": "12px",
+                    "margin-desktop": "16px",
+                    "unit": "4px",
+                    "gutter-terminal": "2px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0e141a; color: #dee3ec; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-module { background: rgba(17, 20, 21, 0.8); backdrop-filter: blur(12px); border-top: 1px solid #24282B; }
+        .terminal-scroll::-webkit-scrollbar { width: 2px; height: 2px; }
+        .terminal-scroll::-webkit-scrollbar-track { background: transparent; }
+        .terminal-scroll::-webkit-scrollbar-thumb { background: #444933; }
+        .glow-hover:hover { border-color: rgba(204, 255, 0, 0.4); box-shadow: 0 0 10px rgba(204, 255, 0, 0.1); }
+        .chart-glow { filter: drop-shadow(0 0 4px #abd600); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface text-primary border-b border-outline-variant flex justify-between items-center px-margin-desktop py-stack-standard">
+<div class="flex items-center gap-stack-standard">
+<span class="material-symbols-outlined text-primary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<h1 class="font-display-lg text-display-lg tracking-tighter text-primary">MORRYNET</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest transition-colors rounded-lg active:opacity-80">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-surface-container-highest transition-colors rounded-lg active:opacity-80">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="hidden md:flex flex-col h-screen fixed left-0 top-0 w-64 bg-surface-container-lowest border-r border-outline-variant z-40 pt-24">
+<div class="px-6 mb-8">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TERMINAL v1.0</span>
+</div>
+<nav class="flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-primary border-l-2 border-primary bg-surface-container-high transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-caps text-label-caps">Risk Control</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps">EA Marketplace</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-20 md:pb-8 px-margin-mobile md:px-margin-desktop min-h-screen">
+<!-- Dashboard Header & Performance Overview -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-stack-standard mb-stack-standard">
+<div class="lg:col-span-8 flex flex-col gap-stack-standard">
+<div class="bg-surface-container p-6 border-t border-outline-variant rounded-lg">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Post-Trade Performance</h2>
+<p class="text-on-surface-variant font-body-sm">Aggregate data across 256 active trading sessions.</p>
+</div>
+<div class="text-right">
+<span class="text-primary-fixed font-data-mono text-xl">+$12,482.30</span>
+<div class="flex items-center justify-end text-[#abd600] text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_drop_up">arrow_drop_up</span>
+<span class="font-data-mono">4.2% (30D)</span>
+</div>
+</div>
+</div>
+<!-- Performance Chart Placeholder -->
+<div class="relative h-64 w-full bg-surface-container-low rounded border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+
+<div class="z-10 w-full h-full p-4 flex flex-col justify-end">
+<svg class="w-full h-32 chart-glow" preserveaspectratio="none" viewbox="0 0 1000 100">
+<path d="M0,80 Q100,20 200,60 T400,40 T600,70 T800,20 T1000,30" fill="none" stroke="#abd600" stroke-width="2"></path>
+</svg>
+<div class="flex justify-between mt-2 font-data-mono text-[10px] text-on-surface-variant">
+<span>OCT 01</span><span>OCT 10</span><span>OCT 20</span><span>OCT 30</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="lg:col-span-4 grid grid-cols-2 gap-stack-standard">
+<div class="bg-surface-container-high p-4 border-t border-outline-variant rounded flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Win Rate</span>
+<div class="mt-4">
+<span class="font-headline-lg text-primary">68.4%</span>
+<div class="h-1 w-full bg-surface-container-lowest mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[68.4%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 border-t border-outline-variant rounded flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Avg RR</span>
+<div class="mt-4">
+<span class="font-headline-lg text-primary">1:2.4</span>
+<p class="text-on-surface-variant text-[10px] font-data-mono mt-1">PROFIT FACTOR: 1.82</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 border-t border-outline-variant rounded flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Max DD</span>
+<div class="mt-4">
+<span class="font-headline-lg text-error">4.12%</span>
+<p class="text-on-surface-variant text-[10px] font-data-mono mt-1">PEAK: $152,400</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 border-t border-outline-variant rounded flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Trades</span>
+<div class="mt-4">
+<span class="font-headline-lg text-primary">1,242</span>
+<p class="text-on-surface-variant text-[10px] font-data-mono mt-1">TOTAL EXECUTED</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trade Journal Feed & Filters -->
+<section class="flex flex-col gap-stack-standard">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">Trade Journal</h3>
+<div class="flex gap-2">
+<button class="bg-surface-container-high px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 rounded border border-outline-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="bg-primary-fixed text-on-primary-fixed px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 rounded hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                        Manual Entry
+                    </button>
+</div>
+</div>
+<!-- List View: Trade Entries -->
+<div class="flex flex-col gap-gutter-terminal">
+<!-- Entry 1 -->
+<div class="group bg-surface-container p-4 flex flex-col md:flex-row gap-6 border-t border-outline-variant glow-hover transition-all">
+<div class="md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A detailed financial trading chart screenshot displayed on a dark sleek interface. The chart shows high-volatility price action for a Bitcoin pair with neon lime green candlestick bars and sharp red downward movements. Professional technical indicators like RSI and EMA lines are visible in thin, precise strokes. The atmosphere is tech-noir, high-contrast, and focused on institutional data visualization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBcztKprfcd00c1gxiKGq0HyC_lGtXZrs2p_RkO0XgQ5KMTuKhGr2GOO8WUizvyGv5kmz_K9hAxu0q5J9pYeGxHZQaDnFzClqU4B5c_VxCBlFoSoqyi3VWvU405tL99QmZgzUgamcW4xGYFumK-WuUXnRff19cFX1CryJVPtiWxb_vFHR39sTqPS1ud5V2euFnQZDFEltKIp61396xVJVdkgvEPS1XtoOw4wucFO8RPA4C6ojOzbW_lgGMMsBMMkQtB-TTlNnO6au-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+<span class="absolute bottom-2 left-2 font-data-mono text-[10px] bg-black/60 px-1 py-0.5 rounded">BTC/USDT</span>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary-fixed/10 text-primary-fixed px-2 py-0.5 font-label-caps text-[10px] border border-primary-fixed/20">LONG</span>
+<span class="font-data-mono text-primary text-sm">#TRD-20412</span>
+<span class="text-on-surface-variant font-body-sm text-[11px] ml-2">2023.10.24 14:32:01</span>
+</div>
+<p class="text-on-surface font-body-md line-clamp-2 max-w-2xl">Re-entry on 15m bullish divergence. Market showed strong absorption at $29.4k support level. Stop-loss trailed manually after first take-profit hit at 1.2R.</p>
+</div>
+<div class="text-right">
+<span class="text-primary-fixed font-data-mono text-lg">+$1,420.00</span>
+<p class="text-[10px] text-on-surface-variant font-label-caps">PROFIT (REALIZED)</p>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">SCALPING</span>
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">BULLISH_DIV</span>
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">HIGH_CONFIDENCE</span>
+</div>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="group bg-surface-container p-4 flex flex-col md:flex-row gap-6 border-t border-outline-variant glow-hover transition-all">
+<div class="md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A professional trading terminal view focusing on the Nasdaq-100 index performance. The visual features sharp, clean UI modules with a dark obsidian background. A price breakout pattern is clearly highlighted with a glowing white primary line against subtle grid markers. The lighting is low-key, professional, and emphasizes precision and algorithmic trading speed. The aesthetic is modern corporate meets brutalist digital design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrIZzJoxhZnNlGayYMaw1MSX6NN_SdndvPi4TJzIDt5kWfZpEH3yN4-VP5036wTZd64kD-HHcuChoUlcYgSIhcqRlTCujhn34gYERdD4BMT2pphAmkbYgiHCLg3Rvms4L-GinxPiIdVCLVwLs6YEmYzqyseF5tJJ1mDJW8N8_5i9Wl1Wl6Zb3Gc74wYVFXhBiJGvkDNNUdyZXMOL5rb6lWOWP9CB_SYMXTsFi8NWKUsmxAor4065Sng91FP-Tk8UO7nMuL5x3qjbGS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+<span class="absolute bottom-2 left-2 font-data-mono text-[10px] bg-black/60 px-1 py-0.5 rounded">NAS100</span>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-error/10 text-error px-2 py-0.5 font-label-caps text-[10px] border border-error/20">SHORT</span>
+<span class="font-data-mono text-primary text-sm">#TRD-20409</span>
+<span class="text-on-surface-variant font-body-sm text-[11px] ml-2">2023.10.24 10:15:45</span>
+</div>
+<p class="text-on-surface font-body-md line-clamp-2 max-w-2xl">Attempted short on liquidity sweep at session open. Price failed to hold below VWAP. Exited manually when momentum shifted bullish. Emotions: Slightly rushed entry.</p>
+</div>
+<div class="text-right">
+<span class="text-error font-data-mono text-lg">-$450.20</span>
+<p class="text-[10px] text-on-surface-variant font-label-caps">LOSS (REALIZED)</p>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">BREAKOUT</span>
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">NY_OPEN</span>
+</div>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="group bg-surface-container p-4 flex flex-col md:flex-row gap-6 border-t border-outline-variant glow-hover transition-all">
+<div class="md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A specialized view of a currency exchange pair USD/JPY within an institutional-grade trading platform. The screenshot highlights a long-term trend analysis with a clean, dark-mode background and metallic accents. Multiple data modules show volume profile and order book density in a monochrome palette with sharp white accents. The mood is high-stakes, analytical, and hyper-efficient, typical of a professional financial terminal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCULS3I17hkEAfgW0WqKYZfJiVBtB59WynZLEQryBcW6gw7-nxrjd4cnz33cl9GZxFA8W2rDCSuIo43ZeVHyWdmx8JW3AwsmN-GKCyjA3k4nntz9xjcdjLOALKXK4nYP8nC9wnRBxLJkhunIBeLGC2OGs2uFZhCoGu_cXZyg3gf0YTuNPC6NhM4A_zfGIBqgeuRPqs2qDX7PhAEDmfMnvsmymJjPD-V9HDhvA-EXYchy4SUWjVaUDxKfzipg9os4oQ2jrxztNM16MLy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+<span class="absolute bottom-2 left-2 font-data-mono text-[10px] bg-black/60 px-1 py-0.5 rounded">USD/JPY</span>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary-fixed/10 text-primary-fixed px-2 py-0.5 font-label-caps text-[10px] border border-primary-fixed/20">LONG</span>
+<span class="font-data-mono text-primary text-sm">#TRD-20398</span>
+<span class="text-on-surface-variant font-body-sm text-[11px] ml-2">2023.10.23 22:11:10</span>
+</div>
+<p class="text-on-surface font-body-md line-clamp-2 max-w-2xl">Daily trend continuation. Bounce off 50-day EMA confirmed with high relative volume. Macro outlook remains dollar-positive following CPI data.</p>
+</div>
+<div class="text-right">
+<span class="text-primary-fixed font-data-mono text-lg">+$3,892.44</span>
+<p class="text-[10px] text-on-surface-variant font-label-caps">PROFIT (REALIZED)</p>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">SWING</span>
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">MACRO_PLAY</span>
+<span class="px-2 py-1 bg-surface-container-highest font-label-caps text-[10px] text-on-surface-variant rounded">VOLUME_CONF</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Bento Section -->
+<section class="mt-stack-standard grid grid-cols-1 md:grid-cols-3 gap-stack-standard">
+<div class="bg-surface-container-high p-6 rounded border-t border-outline-variant md:col-span-1">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4">Trading Psychology</h4>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="text-sm">Discipline Score</span>
+<span class="text-primary-fixed font-data-mono">92/100</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">FOMO Index</span>
+<span class="text-error font-data-mono">Low</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                        Performance is strongest during London session. Accuracy drops significantly after 16:00 UTC. Recommend tightening session window.
+                    </p>
+</div>
+</div>
+<div class="bg-surface-container p-1 rounded border border-outline-variant/30 md:col-span-2 relative overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" data-alt="A wide, cinematic wide-angle view of a futuristic trading room environment. Multiple translucent monitors display complex data arrays, heatmaps, and global financial feeds. The room is dark with a deep charcoal and obsidian palette, illuminated by the soft white glow of the screens and metallic lime green status indicators. The overall feel is one of immense processing power, global connectivity, and professional calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqMxDLD6afQVOG6EeB_0Hrz5WYbuWxUaZBGDEKtRp2POxL86oXNqGyiWivDqRqmNT6XcLyl9j2E7ZPDhbi12T5wx-IvbHg7whOALcnpqaPjXu8luQzIw0zsurXqGoIdwW55W2RLjyIGGoN7klA1--RTcJRy4dgtDvhuMpj7bFnoekiOjwRrOSCqDVe5-fSBCRNF33F0rII09p_0k9qTlBn3r12fNR2URGRVGylIxGyFj3OsPxmrwXZdsgbKpTy4Ujyvq3Abcivx7Pr"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container to-transparent flex items-center p-8">
+<div class="max-w-xs">
+<span class="bg-primary text-on-primary px-2 py-1 font-label-caps text-[10px] mb-2 inline-block">SYSTEM INSIGHT</span>
+<h5 class="font-headline-sm text-primary mb-2 leading-tight">Automated Edge Detection v2.4</h5>
+<p class="text-body-sm text-on-surface-variant mb-4">Your strategy is currently performing 14% better on EUR/USD than your historical average.</p>
+<button class="text-primary-fixed font-label-caps text-[11px] underline">VIEW ANALYSIS</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-high border-t border-outline-variant flex justify-around items-center px-margin-mobile py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-[10px]">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed bg-surface-container-highest rounded-lg p-stack-dense transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-caps text-[10px]">Data</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="gpp_maybe">gpp_maybe</span>
+<span class="font-label-caps text-[10px]">Risk</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-caps text-[10px]">Market</span>
+</a>
+</footer>
+<script>
+        // Micro-interaction: Update active state simulation
+        document.querySelectorAll('nav a, footer a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // For demonstration, just a visual pulse
+                link.classList.add('opacity-50');
+                setTimeout(() => link.classList.remove('opacity-50'), 150);
+            });
+        });
+    </script>
+</body></html>

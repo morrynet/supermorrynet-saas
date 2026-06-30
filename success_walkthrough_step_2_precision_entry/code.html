@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sniper Terminal - Precision Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-secondary-container": "#ffd2cc",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "outline": "#8e9379",
+                        "surface": "#111415",
+                        "on-primary-container": "#556d00",
+                        "outline-variant": "#444933",
+                        "secondary": "#ffb4aa",
+                        "surface-container-high": "#282a2b",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#c3f400",
+                        "on-primary": "#283500",
+                        "surface-container-highest": "#323536",
+                        "on-secondary-fixed": "#410001",
+                        "inverse-primary": "#506600",
+                        "tertiary-container": "#ffe16d",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "background": "#111415",
+                        "inverse-surface": "#e1e3e4",
+                        "surface-container-low": "#191c1d",
+                        "surface-container": "#1d2021",
+                        "surface-bright": "#373a3b",
+                        "primary": "#ffffff",
+                        "on-tertiary": "#3a3000",
+                        "primary-fixed": "#c3f400",
+                        "surface-tint": "#abd600",
+                        "tertiary": "#ffffff",
+                        "surface-variant": "#323536",
+                        "surface-dim": "#111415",
+                        "surface-container-lowest": "#0c0f10",
+                        "error-container": "#93000a",
+                        "secondary-container": "#c5020b",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-primary-fixed": "#161e00",
+                        "on-surface": "#e1e3e4",
+                        "secondary-fixed": "#ffdad5",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary": "#690003",
+                        "on-tertiary-fixed": "#221b00",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#776300",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "primary-fixed-dim": "#abd600",
+                        "on-background": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1440px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 0.5);
+            box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        .spotlight-mask {
+            mask-image: radial-gradient(circle at var(--x) var(--y), transparent 80px, black 120px);
+            -webkit-mask-image: radial-gradient(circle at var(--x) var(--y), transparent 80px, black 120px);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(171, 214, 0, 0.3);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #abd600, transparent);
+            opacity: 0.1;
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            from { top: 0%; }
+            to { top: 100%; }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-hidden h-screen font-body-md">
+<!-- Background Chart Layer -->
+<div class="fixed inset-0 z-0 opacity-40 pointer-events-none">
+<div class="absolute inset-0 bg-[radial-gradient(#1A1D26_1px,transparent_1px)] [background-size:20px_20px]"></div>
+<div class="h-full w-full flex items-end p-margin-desktop space-x-1">
+<!-- Simulated Candlesticks -->
+<div class="flex-1 bg-outline-variant h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary-container h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-outline-variant h-[35%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary-fixed-dim h-[80%] rounded-t-sm opacity-60"></div>
+<div class="flex-1 bg-primary-fixed-dim h-[85%] rounded-t-sm opacity-80"></div>
+<div class="flex-1 bg-secondary-container h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary-fixed-dim h-[90%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary-container h-[40%] rounded-t-sm"></div>
+</div>
+<div class="scanline"></div>
+</div>
+<!-- Top App Bar (Shared Component Logic) -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface/80 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">security</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary-fixed-dim tracking-tighter">SNIPER TERMINAL</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-data-sm text-data-sm text-outline">0.2415 BTC</span>
+<button class="material-symbols-outlined text-primary-fixed-dim hover:text-primary transition-colors active:scale-95 duration-100">account_balance_wallet</button>
+</div>
+</header>
+<!-- Overlay Mask for Spotlight Effect -->
+<div class="fixed inset-0 z-40 bg-black/80 transition-all duration-700 pointer-events-none" id="spotlight-overlay" style="--x: 50%; --y: 50%;"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-40 pt-20 pb-24 px-margin-mobile md:px-margin-desktop h-full flex flex-col items-center justify-center">
+<!-- Execution Terminal Overlay -->
+<div class="w-full max-w-4xl glass-panel p-8 rounded-xl relative overflow-hidden">
+<!-- Terminal Header -->
+<div class="flex justify-between items-end mb-8 border-b border-outline-variant pb-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">XAUUSD <span class="text-outline text-headline-md font-normal">/ GOLD SPOT</span></h2>
+<div class="flex gap-4 mt-2">
+<span class="flex items-center gap-1 text-primary-fixed-dim font-data-sm text-data-sm">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></span> TRENDING
+                        </span>
+<span class="text-outline font-data-sm text-data-sm">VOL: 1.2M</span>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-primary">2,145.82</div>
+<div class="text-primary-fixed-dim font-data-sm text-data-sm">+0.42% (+$8.90)</div>
+</div>
+</div>
+<!-- Execution Controls Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+<!-- Sell Side -->
+<div class="space-y-6 opacity-40">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-outline">ORDER TYPE</label>
+<div class="w-full bg-surface-container-low border border-outline-variant p-3 font-data-sm text-data-sm flex justify-between">
+                            MARKET <span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+<button class="w-full py-6 border-2 border-secondary text-secondary font-headline-md text-headline-md rounded-lg flex flex-col items-center justify-center gap-1">
+                        SELL
+                        <span class="font-data-sm text-data-sm">2145.78</span>
+</button>
+</div>
+<!-- Buy Side (Spotlight Target) -->
+<div class="space-y-6">
+<div class="space-y-2 relative" id="lot-size-target">
+<label class="font-label-caps text-label-caps text-primary-fixed-dim">LOT SIZE (PRECISION)</label>
+<div class="flex items-center gap-2">
+<input class="w-full bg-surface-container-highest border border-primary-fixed-dim p-3 font-data-lg text-data-lg text-primary focus:outline-none focus:ring-1 focus:ring-primary-fixed-dim transition-all text-center" type="text" value="1.50"/>
+<div class="flex flex-col gap-1">
+<button class="bg-surface-container-high p-1 text-xs hover:bg-outline-variant">▲</button>
+<button class="bg-surface-container-high p-1 text-xs hover:bg-outline-variant">▼</button>
+</div>
+</div>
+</div>
+<button class="w-full py-6 bg-primary-fixed-dim text-on-primary-fixed font-headline-md text-headline-md rounded-lg neon-glow flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform" id="buy-button-target">
+                        BUY
+                        <span class="font-data-sm text-data-sm">2145.86</span>
+</button>
+</div>
+</div>
+<!-- Protection Shield Indicator -->
+<div class="mt-8 pt-6 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-primary">OBSIDIAN AEGIS ACTIVE</div>
+<div class="text-outline text-xs">Latent order routing obfuscation engaged</div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="w-12 h-1 bg-primary-fixed-dim rounded-full"></div>
+<div class="w-12 h-1 bg-primary-fixed-dim rounded-full"></div>
+<div class="w-12 h-1 bg-outline-variant rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Coach Mark (Floating Tooltip) -->
+<div class="absolute z-50 floating max-w-xs transition-all duration-500 opacity-0 transform translate-y-4" id="coach-mark">
+<div class="glass-panel p-6 rounded-xl border-primary-fixed-dim border-2 shadow-[0_0_30px_rgba(171,214,0,0.2)]">
+<div class="flex items-start gap-3 mb-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">bolt</span>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">One-Click Execution</h3>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm leading-relaxed mb-4">
+                    Instantly enter the market at the best available price. The <span class="text-primary-fixed-dim font-bold">Obsidian Aegis</span> protocol splits your order across institutional dark pools to prevent front-running and slippage.
+                </p>
+<div class="flex justify-between items-center">
+<span class="text-outline text-[10px] font-label-caps">STEP 2 OF 4</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-surface-container-high text-xs font-bold hover:bg-surface-container-highest transition-colors rounded">BACK</button>
+<button class="px-3 py-1 bg-primary-fixed-dim text-on-primary-fixed text-xs font-bold hover:opacity-90 transition-opacity rounded">NEXT STEP</button>
+</div>
+</div>
+</div>
+<!-- Tooltip Arrow -->
+<div class="w-6 h-6 glass-panel border-l-2 border-t-2 border-primary-fixed-dim rotate-45 absolute -bottom-3 left-1/2 -translate-x-1/2 z-[-1] bg-surface"></div>
+</div>
+</main>
+<!-- Bottom Navigation (Shared Component Logic) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-4 border-t border-outline-variant bg-surface-container-lowest/90 backdrop-blur-xl shadow-lg">
+<div class="flex flex-col items-center justify-center text-primary-fixed-dim bg-surface-container-highest rounded-xl px-3 py-1 transition-all active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps mt-1">TERMINAL</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:bg-surface-container-high transition-all active:scale-90 duration-150 cursor-pointer p-2 rounded-xl">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-label-caps text-label-caps mt-1">SIGNALS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:bg-surface-container-high transition-all active:scale-90 duration-150 cursor-pointer p-2 rounded-xl">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-caps text-label-caps mt-1">PORTFOLIO</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:bg-surface-container-high transition-all active:scale-90 duration-150 cursor-pointer p-2 rounded-xl">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps mt-1">SETTINGS</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions and Spotlight Positioning
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('spotlight-overlay');
+            const coachMark = document.getElementById('coach-mark');
+            const target = document.getElementById('buy-button-target');
+            const lotInput = document.getElementById('lot-size-target');
+
+            const updateSpotlight = () => {
+                const rect = target.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                overlay.style.setProperty('--x', `${centerX}px`);
+                overlay.style.setProperty('--y', `${centerY}px`);
+                overlay.classList.add('spotlight-mask');
+
+                // Position Coach Mark
+                coachMark.style.left = `${centerX - (coachMark.offsetWidth / 2)}px`;
+                coachMark.style.top = `${rect.top - coachMark.offsetHeight - 40}px`;
+                coachMark.classList.remove('opacity-0', 'translate-y-4');
+            };
+
+            // Trigger animation after delay
+            setTimeout(updateSpotlight, 800);
+
+            // Handle window resizing
+            window.addEventListener('resize', updateSpotlight);
+
+            // Dynamic background atmospheric noise (subtle dots shift)
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 20;
+                const y = (e.clientY / window.innerHeight) * 20;
+                document.querySelector('.fixed.inset-0.z-0').style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body></html>

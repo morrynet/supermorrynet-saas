@@ -1,0 +1,16 @@
+{
+  "name": "stitch-precision-sniper-institutional-dashboard",
+  "version": "1.0.0",
+  "description": "Unified dashboard hub for Precision Sniper ICT platform, connecting 144+ screens with simulated frontend-backend authentication.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "metadata": "node scripts/generate_metadata.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

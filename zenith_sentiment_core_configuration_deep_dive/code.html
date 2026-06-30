@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zenith Sentiment Core Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #24282b;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #abd600;
+        }
+        .neon-glow-focus:focus-within {
+            box-shadow: 0 0 8px rgba(171, 214, 0, 0.4);
+            border-color: #abd600;
+        }
+        .range-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #abd600;
+            cursor: pointer;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-highest": "#30353d",
+                "error-container": "#93000a",
+                "tertiary-fixed": "#ffe089",
+                "primary-fixed-dim": "#abd600",
+                "outline": "#8e9379",
+                "on-secondary": "#2e3132",
+                "surface-bright": "#343a41",
+                "tertiary-container": "#ffe089",
+                "on-background": "#dee3ec",
+                "primary-fixed": "#c3f400",
+                "primary-container": "#c3f400",
+                "on-error-container": "#ffdad6",
+                "secondary": "#c5c7c8",
+                "secondary-fixed-dim": "#c5c7c8",
+                "on-surface": "#dee3ec",
+                "tertiary": "#ffffff",
+                "on-surface-variant": "#c4c9ac",
+                "secondary-fixed": "#e1e3e4",
+                "on-tertiary-container": "#7b6100",
+                "surface-variant": "#30353d",
+                "error": "#ffb4ab",
+                "tertiary-fixed-dim": "#efc11c",
+                "surface-tint": "#abd600",
+                "on-secondary-fixed": "#191c1d",
+                "surface-container-high": "#252a32",
+                "surface-container": "#1b2027",
+                "surface-container-lowest": "#090f15",
+                "background": "#0e141a",
+                "outline-variant": "#444933",
+                "inverse-surface": "#dee3ec",
+                "surface-container-low": "#171c23",
+                "surface": "#0e141a",
+                "on-secondary-container": "#b3b5b6",
+                "on-primary-fixed-variant": "#3c4d00",
+                "on-primary-container": "#556d00",
+                "surface-dim": "#0e141a",
+                "primary": "#ffffff",
+                "on-tertiary-fixed": "#241a00",
+                "on-primary-fixed": "#161e00",
+                "inverse-primary": "#506600",
+                "inverse-on-surface": "#2c3138",
+                "on-primary": "#283500",
+                "secondary-container": "#444748",
+                "on-error": "#690005",
+                "on-tertiary-fixed-variant": "#574400",
+                "on-tertiary": "#3d2f00",
+                "on-secondary-fixed-variant": "#444748"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "margin-mobile": "12px",
+                "margin-desktop": "16px",
+                "stack-dense": "4px",
+                "unit": "4px",
+                "gutter-terminal": "2px",
+                "stack-standard": "12px"
+            },
+            "fontFamily": {
+                "headline-md": ["Space Grotesk"],
+                "headline-lg": ["Space Grotesk"],
+                "body-lg": ["Inter"],
+                "display-lg": ["Space Grotesk"],
+                "data-mono": ["JetBrains Mono"],
+                "body-sm": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-sm": ["Space Grotesk"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Header / TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-low border-b border-outline-variant flex justify-between items-center h-14 px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="target">target</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary-fixed">PRECISION SNIPER ICT</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant/20 transition-colors p-2 active:scale-95 duration-150" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-20 pb-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter-terminal">
+<!-- Sidebar / Navigation Context (Desktop Only) -->
+<aside class="hidden md:flex md:col-span-3 flex-col gap-stack-standard pr-4">
+<div class="bg-surface-container p-4 border-t border-primary-fixed/40">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-4">SYSTEM STATUS</p>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Core Engine</span>
+<span class="text-primary-fixed-dim font-data-mono">ACTIVE</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Data Sync</span>
+<span class="text-primary-fixed-dim font-data-mono">2ms LATENCY</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-4 border-t border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">ACTIVE ALGORITHMS</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 p-2 bg-surface-variant/10">
+<span class="w-2 h-2 bg-primary-fixed"></span>
+<span class="font-body-sm">Zenith Core</span>
+</div>
+<div class="flex items-center gap-2 p-2 text-on-surface-variant">
+<span class="w-2 h-2 bg-outline-variant"></span>
+<span class="font-body-sm">Alpha Hedge</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Configuration Core -->
+<section class="md:col-span-9 flex flex-col gap-stack-standard">
+<!-- Hero Configuration Section -->
+<div class="bg-surface-container border-t border-primary-fixed relative overflow-hidden p-6 md:p-8">
+<div class="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+
+</div>
+<div class="relative z-10">
+<h1 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight mb-2">Sentiment Core Configuration</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Calibrate institutional flow dominance. The Zenith engine synthesizes Commitment of Traders data to determine the directional bias of the Precision Sniper execution layer.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-terminal">
+<!-- Source & Weighting -->
+<div class="flex flex-col gap-gutter-terminal">
+<!-- COT Data Source -->
+<div class="bg-surface-container p-5 border-t border-outline-variant">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-3 uppercase">COT Data Source Selection</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-md p-3 outline-none focus:border-primary-fixed appearance-none cursor-pointer">
+<option>Legacy COT</option>
+<option selected="">Disaggregated</option>
+<option>Traders in Financial Futures</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Sentiment Weighting -->
+<div class="bg-surface-container p-5 border-t border-outline-variant flex-grow">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-6 uppercase">Sentiment Dominance Weighting</label>
+<div class="space-y-8">
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-primary">Commercial Positions</span>
+<span class="font-data-mono text-primary-fixed" id="comm-val">65%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest accent-primary-fixed cursor-pointer range-slider" max="100" min="0" oninput="document.getElementById('comm-val').innerText = this.value + '%'" type="range" value="65"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-primary">Non-Commercial Positions</span>
+<span class="font-data-mono text-primary-fixed" id="noncomm-val">35%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest accent-primary-fixed cursor-pointer range-slider" max="100" min="0" oninput="document.getElementById('noncomm-val').innerText = this.value + '%'" type="range" value="35"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Conviction & Overwrite -->
+<div class="flex flex-col gap-gutter-terminal">
+<!-- Trend Alignment Threshold -->
+<div class="bg-surface-container p-5 border-t border-outline-variant">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-3 uppercase">Trend Alignment Threshold</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant p-3 neon-glow-focus transition-all group">
+<input class="bg-transparent border-none text-on-surface font-headline-md w-full focus:ring-0" max="100" min="0" type="number" value="78"/>
+<span class="text-primary-fixed font-headline-md group-focus-within:animate-pulse">%</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">Minimum conviction required for trade authorization.</p>
+</div>
+<!-- Manual Overwrite -->
+<div class="bg-surface-container p-5 border-t border-outline-variant flex-grow">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-6 uppercase">System Authority</label>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant">
+<div>
+<span class="font-body-md block text-primary">Manual Overwrite</span>
+<span class="text-[10px] text-error">Emergency Protocol Only</span>
+</div>
+<button class="w-14 h-7 bg-surface-variant relative transition-colors duration-200" onclick="this.classList.toggle('bg-error-container'); this.classList.toggle('bg-surface-variant')">
+<div class="absolute top-1 left-1 bg-white w-5 h-5 transition-all duration-200" id="toggle-circle"></div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Historical Sentiment Feed -->
+<div class="bg-surface-container border-t border-outline-variant overflow-hidden">
+<div class="p-4 flex justify-between items-center border-b border-outline-variant/30">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Historical Sentiment (Last 4 Cycles)</label>
+<span class="text-primary-fixed font-data-mono text-[10px] px-2 py-0.5 border border-primary-fixed">REAL-TIME FEED</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
+<div class="p-5 flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-data-mono text-on-surface-variant text-[11px]">OCT 27</span>
+<span class="text-primary-fixed material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-primary">82.4%</div>
+<div class="w-full bg-surface-container-lowest h-1.5">
+<div class="bg-primary-fixed h-full" style="width: 82.4%"></div>
+</div>
+<span class="text-[10px] text-on-secondary-container">EXTREME BULLISH</span>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-data-mono text-on-surface-variant text-[11px]">OCT 20</span>
+<span class="text-primary-fixed material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-primary">76.1%</div>
+<div class="w-full bg-surface-container-lowest h-1.5">
+<div class="bg-primary-fixed h-full opacity-80" style="width: 76.1%"></div>
+</div>
+<span class="text-[10px] text-on-secondary-container">MODERATE BULLISH</span>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-data-mono text-on-surface-variant text-[11px]">OCT 13</span>
+<span class="text-on-surface-variant material-symbols-outlined text-sm" data-icon="trending_flat">trending_flat</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface">51.2%</div>
+<div class="w-full bg-surface-container-lowest h-1.5">
+<div class="bg-on-surface-variant h-full" style="width: 51.2%"></div>
+</div>
+<span class="text-[10px] text-on-secondary-container">NEUTRAL BIAS</span>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-data-mono text-on-surface-variant text-[11px]">OCT 06</span>
+<span class="text-error material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-error">34.8%</div>
+<div class="w-full bg-surface-container-lowest h-1.5">
+<div class="bg-error h-full" style="width: 34.8%"></div>
+</div>
+<span class="text-[10px] text-on-secondary-container">BEARISH CORE</span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex justify-end gap-3 mt-4">
+<button class="px-6 py-3 font-label-caps text-label-caps border border-outline-variant hover:bg-surface-variant/20 transition-all text-on-surface uppercase tracking-widest">Reset Core</button>
+<button class="px-8 py-3 font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed hover:brightness-110 active:scale-95 transition-all uppercase tracking-widest font-bold">Apply Configuration</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-background border-t border-outline-variant flex justify-around items-center h-16 w-full px-2">
+<div class="flex flex-col items-center justify-center text-on-surface-variant pt-1 hover:bg-surface-container-highest/30 transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Hub</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary-fixed font-bold border-t-2 border-primary-fixed pt-1 transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-caps text-label-caps">Assistant</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant pt-1 hover:bg-surface-container-highest/30 transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="font-label-caps text-label-caps">Risk</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant pt-1 hover:bg-surface-container-highest/30 transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-caps text-label-caps">Market</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for the manual overwrite toggle
+        const toggleBtn = document.querySelector('button[onclick*="toggle"]');
+        const toggleCircle = document.getElementById('toggle-circle');
+        
+        toggleBtn.addEventListener('click', () => {
+            if (toggleBtn.classList.contains('bg-error-container')) {
+                toggleCircle.style.left = '32px';
+                toggleCircle.style.backgroundColor = '#000';
+            } else {
+                toggleCircle.style.left = '4px';
+                toggleCircle.style.backgroundColor = '#fff';
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT - Trade Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#111415",
+                    "on-secondary-fixed-variant": "#930005",
+                    "on-primary": "#283500",
+                    "primary-fixed-dim": "#abd600",
+                    "on-primary-fixed": "#161e00",
+                    "on-primary-container": "#556d00",
+                    "secondary": "#ffb4aa",
+                    "on-tertiary": "#3a3000",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#776300",
+                    "outline": "#8e9379",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "primary-container": "#c3f400",
+                    "outline-variant": "#444933",
+                    "tertiary-container": "#ffe16d",
+                    "background": "#111415",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "on-surface": "#e1e3e4",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#323536",
+                    "on-surface-variant": "#c4c9ac",
+                    "secondary-fixed": "#ffdad5",
+                    "primary": "#ffffff",
+                    "inverse-surface": "#e1e3e4",
+                    "surface-container-high": "#282a2b",
+                    "surface-dim": "#111415",
+                    "on-secondary": "#690003",
+                    "on-tertiary-fixed": "#221b00",
+                    "inverse-primary": "#506600",
+                    "surface-container-lowest": "#0c0f10",
+                    "surface-container-highest": "#323536",
+                    "error-container": "#93000a",
+                    "surface-tint": "#abd600",
+                    "surface-container": "#1d2021",
+                    "on-secondary-fixed": "#410001",
+                    "surface-bright": "#373a3b",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "surface-container-low": "#191c1d",
+                    "on-secondary-container": "#ffd2cc",
+                    "on-background": "#e1e3e4",
+                    "inverse-on-surface": "#2e3132",
+                    "primary-fixed": "#c3f400",
+                    "tertiary-fixed": "#ffe16d",
+                    "tertiary": "#ffffff",
+                    "secondary-container": "#c5020b",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "margin-desktop": "32px",
+                    "container-max-width": "1440px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "data-lg": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "data-sm": ["JetBrains Mono"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0E14;
+            color: #e1e3e4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .neon-accent {
+            color: #abd600; /* Neon Lime approximating the theme Primary container text or Fixed dim */
+        }
+
+        .neon-border-glow:focus {
+            border-color: #abd600;
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.2);
+        }
+
+        .chart-bar {
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #444933;
+            border-radius: 10px;
+        }
+
+        .pulse-lime {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="dark selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 h-16 bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant flex justify-between items-center px-margin-mobile">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tighter uppercase">TRADE ANALYTICS</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-variant p-2 rounded-full transition-all" data-icon="monitoring">monitoring</span>
+</div>
+</header>
+<main class="pt-20 pb-24 px-4 md:px-margin-desktop max-w-container-max-width mx-auto"><div class="mb-6 overflow-x-auto custom-scrollbar pb-2">
+<div class="flex gap-2 min-w-max">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-label-caps font-label-caps transition-all">ALL</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">EURUSD</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">XAUUSD</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">GBPUSD</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">NAS100</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">USDJPY</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-caps font-label-caps hover:bg-surface-variant transition-all">BTCUSD</button>
+</div>
+</div>
+<!-- Hero Metrics Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<div class="glass-card p-6 rounded-xl md:col-span-1 flex flex-col justify-between">
+<div>
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Total Profit</span>
+<h2 class="text-[42px] font-bold leading-tight neon-accent font-data-lg mt-2 tracking-tighter">+$14,280.42</h2>
+</div>
+<div class="flex items-center gap-2 mt-4 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-data-sm font-data-sm">+12.4% vs last month</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between">
+<div>
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Hit Rate</span>
+<div class="flex items-baseline gap-2 mt-2">
+<h2 class="text-headline-lg font-headline-lg text-primary font-data-lg">68.4</h2>
+<span class="text-headline-md font-headline-md text-on-surface-variant">%</span>
+</div>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full mt-4 overflow-hidden">
+<div class="bg-primary-fixed-dim h-full" style="width: 68.4%"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between">
+<div>
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Average R:R</span>
+<h2 class="text-headline-lg font-headline-lg text-primary font-data-lg mt-2">1 : 3.2</h2>
+</div>
+<div class="flex items-center gap-2 mt-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+<span class="text-data-sm font-data-sm">Avg duration: 4h 12m</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Charting & Distribution -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Equity Growth Chart Container -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-label-caps font-label-caps text-primary uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-lime"></span>
+                            Equity Growth (30D)
+                        </h3>
+<div class="flex gap-2">
+<button class="text-label-caps font-label-caps bg-surface-variant px-3 py-1 rounded text-on-surface-variant">1D</button>
+<button class="text-label-caps font-label-caps bg-primary-container px-3 py-1 rounded text-on-primary-container">1M</button>
+<button class="text-label-caps font-label-caps bg-surface-variant px-3 py-1 rounded text-on-surface-variant">ALL</button>
+</div>
+</div>
+<!-- Simulated Vector Chart -->
+<div class="absolute inset-x-6 bottom-12 h-64 border-l border-b border-outline-variant">
+<svg class="w-full h-full preserve-3d" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#abd600" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#abd600" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 250 Q 100 240, 200 180 T 400 120 T 600 140 T 800 60 T 1000 20" fill="none" stroke="#abd600" stroke-linecap="round" stroke-width="3"></path>
+<path d="M0 250 Q 100 240, 200 180 T 400 120 T 600 140 T 800 60 T 1000 20 L 1000 300 L 0 300 Z" fill="url(#chartGradient)"></path>
+<!-- Data Points -->
+<circle cx="200" cy="180" fill="#abd600" r="4"></circle>
+<circle cx="400" cy="120" fill="#abd600" r="4"></circle>
+<circle cx="800" cy="60" fill="#abd600" r="4"></circle>
+<circle class="pulse-lime" cx="1000" cy="20" fill="#fff" r="6"></circle>
+</svg>
+<div class="flex justify-between mt-4 text-label-caps font-label-caps text-on-surface-variant">
+<span class="">AUG 01</span>
+<span class="">AUG 15</span>
+<span class="">AUG 30</span>
+</div>
+</div>
+</div>
+<!-- Leg Distribution Bar Chart -->
+<div class="glass-card rounded-xl p-6">
+<h3 class="text-label-caps font-label-caps text-primary uppercase mb-8">Leg Distribution Frequency</h3>
+<div class="flex items-end justify-between h-48 px-4">
+<div class="flex flex-col items-center gap-4 group w-1/5">
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[90%] relative group-hover:brightness-125 transition-all">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-data-sm font-data-sm text-primary">92%</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">TP1</span>
+</div>
+<div class="flex flex-col items-center gap-4 group w-1/5">
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[75%] relative group-hover:brightness-125 transition-all">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-data-sm font-data-sm text-primary">75%</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">TP2</span>
+</div>
+<div class="flex flex-col items-center gap-4 group w-1/5">
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[42%] relative group-hover:brightness-125 transition-all">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-data-sm font-data-sm text-primary">42%</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">TP3</span>
+</div>
+<div class="flex flex-col items-center gap-4 group w-1/5">
+<div class="w-full bg-primary-fixed-dim opacity-60 rounded-t-sm h-[21%] relative group-hover:brightness-125 transition-all">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-data-sm font-data-sm text-primary">21%</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">TP4</span>
+</div>
+<div class="flex flex-col items-center gap-4 group w-1/5">
+<div class="w-full bg-primary-fixed-dim opacity-30 rounded-t-sm h-[12%] relative group-hover:brightness-125 transition-all">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-data-sm font-data-sm text-primary">12%</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant">RUNNER</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Efficacy & Recent Trades -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Voter Efficacy -->
+<div class="glass-card rounded-xl p-6">
+<h3 class="text-label-caps font-label-caps text-primary uppercase mb-6 flex items-center justify-between">
+                        Best Performing Logic
+                        <span class="material-symbols-outlined text-primary text-sm" data-icon="psychology">psychology</span>
+</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded border border-outline-variant">
+<div>
+<p class="text-body-md font-body-md font-bold text-primary">BOS + Liq Sweep</p>
+<p class="text-data-sm font-data-sm text-on-surface-variant">32 Trades Executed</p>
+</div>
+<div class="text-right">
+<p class="text-data-lg font-data-lg neon-accent">78%</p>
+<p class="text-label-caps font-label-caps text-on-surface-variant">WIN RATE</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded border border-outline-variant">
+<div>
+<p class="text-body-md font-body-md font-bold text-primary">FVG Rejection</p>
+<p class="text-data-sm font-data-sm text-on-surface-variant">18 Trades Executed</p>
+</div>
+<div class="text-right">
+<p class="text-data-lg font-data-lg neon-accent">64%</p>
+<p class="text-label-caps font-label-caps text-on-surface-variant">WIN RATE</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded border border-outline-variant">
+<div>
+<p class="text-body-md font-body-md font-bold text-primary">London Open Judas</p>
+<p class="text-data-sm font-data-sm text-on-surface-variant">12 Trades Executed</p>
+</div>
+<div class="text-right">
+<p class="text-data-lg font-data-lg neon-accent">59%</p>
+<p class="text-label-caps font-label-caps text-on-surface-variant">WIN RATE</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Trades List -->
+<div class="glass-card rounded-xl p-6 flex flex-col h-[520px]">
+<h3 class="text-label-caps font-label-caps text-primary uppercase mb-4">Recent Executions - ALL</h3>
+<div class="overflow-y-auto flex-1 custom-scrollbar space-y-3 pr-2">
+<!-- Trade Row 1 -->
+<div class="p-4 bg-surface-container-high rounded-lg border-l-4 border-primary-fixed-dim hover:bg-surface-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="text-data-lg font-data-lg text-primary">XAUUSD</span>
+<span class="text-[10px] bg-primary-container text-on-primary-container px-1.5 py-0.5 rounded uppercase font-bold">Grade A+</span>
+</div>
+<span class="text-data-sm font-data-sm text-on-surface-variant">24 AUG</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md neon-accent font-data-lg">+5.2R</p>
+</div>
+</div>
+</div>
+<!-- Trade Row 2 -->
+<div class="p-4 bg-surface-container-high rounded-lg border-l-4 border-primary-fixed-dim hover:bg-surface-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="text-data-lg font-data-lg text-primary">EURUSD</span>
+<span class="text-[10px] bg-outline-variant text-on-surface-variant px-1.5 py-0.5 rounded uppercase font-bold">Grade B</span>
+</div>
+<span class="text-data-sm font-data-sm text-on-surface-variant">23 AUG</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md neon-accent font-data-lg">+2.1R</p>
+</div>
+</div>
+</div>
+<!-- Trade Row 3 (Loss) -->
+<div class="p-4 bg-surface-container-high rounded-lg border-l-4 border-error hover:bg-surface-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="text-data-lg font-data-lg text-primary">GBPUSD</span>
+<span class="text-[10px] bg-error-container text-on-error-container px-1.5 py-0.5 rounded uppercase font-bold">Scalp</span>
+</div>
+<span class="text-data-sm font-data-sm text-on-surface-variant">22 AUG</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-error text-sm" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-error font-data-lg">-1.0R</p>
+</div>
+</div>
+</div>
+<!-- Trade Row 4 -->
+<div class="p-4 bg-surface-container-high rounded-lg border-l-4 border-primary-fixed-dim hover:bg-surface-variant transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="text-data-lg font-data-lg text-primary">NAS100</span>
+<span class="text-[10px] bg-primary-container text-on-primary-container px-1.5 py-0.5 rounded uppercase font-bold">Grade A+</span>
+</div>
+<span class="text-data-sm font-data-sm text-on-surface-variant">21 AUG</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md neon-accent font-data-lg">+8.5R</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-container border-t border-outline-variant backdrop-blur-xl shadow-lg flex justify-around items-center px-gutter py-2 rounded-t-xl h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined mb-1" data-icon="rss_feed">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-full px-4 py-1 scale-90 transition-transform duration-150" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined mb-1" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction for chart entrance
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.height = bar.dataset.height;
+                }, 200 * index);
+            });
+        });
+
+        // Toggle Active State logic
+        document.querySelectorAll('nav a').forEach(navItem => {
+            navItem.addEventListener('click', (e) => {
+                // Handle navigation logic here
+            });
+        });
+    </script>
+</body></html>
