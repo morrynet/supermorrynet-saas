@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MORRYNET | Precision Sniper ICT Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Scrollbar for Terminal Feel */
+        ::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444933;
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 10px rgba(171, 214, 0, 0.1);
+        }
+
+        .neo-lime-pulse {
+            animation: pulse-lime 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-lime {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+
+        .glass-panel {
+            background: rgba(17, 20, 21, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #24282B;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#0e141a",
+                      "surface-variant": "#30353d",
+                      "surface-container-lowest": "#090f15",
+                      "on-secondary": "#2e3132",
+                      "surface-container": "#1b2027",
+                      "tertiary-fixed": "#ffe089",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-container": "#556d00",
+                      "surface-container-highest": "#30353d",
+                      "on-primary": "#283500",
+                      "tertiary-fixed-dim": "#efc11c",
+                      "on-tertiary-fixed": "#241a00",
+                      "inverse-on-surface": "#2c3138",
+                      "primary": "#ffffff",
+                      "background": "#0e141a",
+                      "on-secondary-container": "#b3b5b6",
+                      "surface-bright": "#343a41",
+                      "secondary-container": "#444748",
+                      "inverse-primary": "#506600",
+                      "secondary-fixed-dim": "#c5c7c8",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#7b6100",
+                      "on-surface": "#dee3ec",
+                      "on-secondary-fixed-variant": "#444748",
+                      "surface-tint": "#abd600",
+                      "surface-dim": "#0e141a",
+                      "secondary-fixed": "#e1e3e4",
+                      "outline": "#8e9379",
+                      "primary-fixed": "#c3f400",
+                      "surface-container-low": "#171c23",
+                      "on-error": "#690005",
+                      "tertiary-container": "#ffe089",
+                      "on-primary-fixed": "#161e00",
+                      "on-tertiary-fixed-variant": "#574400",
+                      "on-tertiary": "#3d2f00",
+                      "inverse-surface": "#dee3ec",
+                      "primary-container": "#c3f400",
+                      "on-surface-variant": "#c4c9ac",
+                      "primary-fixed-dim": "#abd600",
+                      "on-background": "#dee3ec",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-secondary-fixed": "#191c1d",
+                      "error-container": "#93000a",
+                      "outline-variant": "#444933",
+                      "secondary": "#c5c7c8",
+                      "surface-container-high": "#252a32",
+                      "tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-dense": "4px",
+                      "stack-standard": "12px",
+                      "margin-mobile": "12px",
+                      "margin-desktop": "16px",
+                      "unit": "4px",
+                      "gutter-terminal": "2px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Inter"],
+                      "display-lg": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "data-mono": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                      "label-caps-mobile": ["10px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 left-0 bg-surface dark:bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-stack-standard md:px-margin-desktop sticky z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary uppercase">MORRYNET</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-primary-fixed neo-lime-pulse">LIVE BRIDGE</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant">MS: 14.2ms</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded-lg" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Side Navigation (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-container-lowest w-64 border-r border-outline-variant z-40 pt-24">
+<div class="px-6 mb-8">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant opacity-50">TERMINAL v1.0</h2>
+</div>
+<nav class="flex flex-col w-full">
+<a class="flex items-center gap-4 px-6 py-4 text-primary border-l-2 border-primary bg-surface-container-high transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-high text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-high text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-caps text-label-caps">Risk Control</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-high text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps">EA Marketplace</span>
+</a>
+</nav>
+</aside>
+<main class="md:ml-64 p-margin-mobile md:p-margin-desktop pb-24">
+<!-- Live Ticker Banner -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-gutter-terminal mb-stack-standard">
+<div class="bg-surface-container p-stack-standard border-t border-primary-fixed">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">EQUITY</p>
+<p class="font-data-mono text-headline-sm text-primary-fixed">$142,405.12</p>
+</div>
+<div class="bg-surface-container p-stack-standard border-t border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">UNREALIZED P&amp;L</p>
+<p class="font-data-mono text-headline-sm text-primary-fixed">+$2,104.50</p>
+</div>
+<div class="bg-surface-container p-stack-standard border-t border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">DAILY DD</p>
+<p class="font-data-mono text-headline-sm text-error">0.42%</p>
+</div>
+<div class="bg-surface-container p-stack-standard border-t border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">SIGNAL HEALTH</p>
+<p class="font-data-mono text-headline-sm text-primary-fixed">OPTIMAL</p>
+</div>
+</section>
+<!-- Bento Grid Main Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-standard">
+<!-- Signal Matrix (Wide Column) -->
+<div class="md:col-span-8 space-y-stack-standard">
+<div class="bg-surface-container-low border border-outline-variant p-stack-standard">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="radar">radar</span>
+                            SIGNAL MATRIX
+                        </h3>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant font-label-caps text-[10px]">M5</span>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed font-label-caps text-[10px]">M15</span>
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant font-label-caps text-[10px]">H1</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-outline-variant">
+<tr>
+<th class="py-2 font-label-caps text-label-caps text-on-surface-variant">INSTRUMENT</th>
+<th class="py-2 font-label-caps text-label-caps text-on-surface-variant">BIAS</th>
+<th class="py-2 font-label-caps text-label-caps text-on-surface-variant">POI</th>
+<th class="py-2 font-label-caps text-label-caps text-on-surface-variant">STRENGTH</th>
+<th class="py-2 font-label-caps text-label-caps text-on-surface-variant text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-body-sm">
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-high transition-colors">
+<td class="py-3 text-primary">XAUUSD</td>
+<td class="py-3 text-primary-fixed">BULLISH</td>
+<td class="py-3">2014.50</td>
+<td class="py-3">
+<div class="flex gap-1">
+<div class="w-2 h-4 bg-primary-fixed"></div>
+<div class="w-2 h-4 bg-primary-fixed"></div>
+<div class="w-2 h-4 bg-primary-fixed"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+</div>
+</td>
+<td class="py-3 text-right">
+<button class="bg-primary-fixed text-on-primary-fixed px-3 py-1 font-label-caps text-[10px] rounded-sm hover:opacity-90 active:scale-95 transition-all">EXECUTE</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-high transition-colors">
+<td class="py-3 text-primary">NAS100</td>
+<td class="py-3 text-error">BEARISH</td>
+<td class="py-3">17850.25</td>
+<td class="py-3">
+<div class="flex gap-1">
+<div class="w-2 h-4 bg-error"></div>
+<div class="w-2 h-4 bg-error"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+</div>
+</td>
+<td class="py-3 text-right">
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1 font-label-caps text-[10px] rounded-sm cursor-not-allowed">WAIT</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-3 text-primary">EURUSD</td>
+<td class="py-3 text-on-surface-variant">NEUTRAL</td>
+<td class="py-3">1.08502</td>
+<td class="py-3">
+<div class="flex gap-1">
+<div class="w-2 h-4 bg-surface-variant"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+<div class="w-2 h-4 bg-surface-variant"></div>
+</div>
+</td>
+<td class="py-3 text-right">
+<button class="bg-surface-container-highest text-on-surface-variant px-3 py-1 font-label-caps text-[10px] rounded-sm cursor-not-allowed">WAIT</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Live Chart Visualization Placeholder -->
+<div class="relative h-64 bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+</div>
+<div class="absolute top-4 left-4 z-10">
+<h4 class="font-label-caps text-label-caps text-primary-fixed bg-surface-container-high/80 px-2 py-1">XAUUSD M1 / REAL-TIME DATA STREAM</h4>
+</div>
+<div class="absolute bottom-4 right-4 flex gap-4">
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-[9px] text-on-surface-variant">BID</span>
+<span class="font-data-mono text-body-md text-primary">2014.52</span>
+</div>
+<div class="flex flex-col items-end border-l border-outline-variant pl-4">
+<span class="font-label-caps text-[9px] text-on-surface-variant">ASK</span>
+<span class="font-data-mono text-body-md text-primary">2014.58</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bridge Status & Risk (Sidebar Column) -->
+<div class="md:col-span-4 space-y-stack-standard">
+<div class="bg-surface-container p-stack-standard border-l-2 border-primary-fixed">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4">BRIDGE STATUS</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Execution Engine</span>
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed neo-lime-pulse"></span>
+<span class="font-data-mono text-xs text-primary-fixed">CONNECTED</span>
+</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Data Feed (IQ)</span>
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-data-mono text-xs text-primary-fixed">STABLE</span>
+</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Risk Guard</span>
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span class="font-data-mono text-xs text-primary-fixed">ACTIVE</span>
+</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant">
+<button class="w-full bg-surface-container-highest text-primary border border-outline-variant py-2 font-label-caps text-label-caps hover:bg-surface-variant transition-colors">
+                            RE-SYNC BRIDGE
+                        </button>
+</div>
+</div><div class="bg-surface-container p-stack-standard border-l-2 border-tertiary-fixed">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">NANOCLAW PA</h3>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-[9px] text-on-surface-variant">AUTO-INFLUENCE</span>
+<button class="w-8 h-4 bg-primary-fixed rounded-full relative transition-colors">
+<div class="absolute right-0.5 top-0.5 w-3 h-3 bg-on-primary-fixed rounded-full"></div>
+</button>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Signal Strength</span>
+<div class="flex gap-1">
+<div class="w-3 h-1 bg-tertiary-fixed"></div>
+<div class="w-3 h-1 bg-tertiary-fixed"></div>
+<div class="w-3 h-1 bg-tertiary-fixed"></div>
+<div class="w-3 h-1 bg-tertiary-fixed"></div>
+<div class="w-3 h-1 bg-surface-variant"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Detected Pattern</span>
+<span class="font-data-mono text-xs text-tertiary-fixed">FRACTAL CLAMP</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface">Secondary Bias</span>
+<span class="font-data-mono text-xs text-primary-fixed">NANOVOID DETECTED</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30">
+<div class="flex items-center gap-2 text-[10px] font-data-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+<span>PA influence active on XAUUSD execution</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-stack-standard">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4">ACTIVE POSITION</h3>
+<div class="relative overflow-hidden group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-data-mono text-headline-sm text-primary">XAUUSD</span>
+<span class="font-label-caps text-[10px] text-primary-fixed block">BUY 2.50 LOTS</span>
+</div>
+<span class="font-data-mono text-body-lg text-primary-fixed">+$1,450.00</span>
+</div>
+<div class="h-1 bg-surface-variant w-full mb-4">
+<div class="h-full bg-primary-fixed w-3/4"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] font-label-caps text-on-surface-variant">ENTRY</p>
+<p class="font-data-mono text-xs">2012.45</p>
+</div>
+<div class="bg-surface-container-low p-2">
+<p class="text-[9px] font-label-caps text-on-surface-variant">SL</p>
+<p class="font-data-mono text-xs text-error">2011.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Promotional / Asset Block -->
+<div class="bg-primary-fixed p-stack-standard text-on-primary-fixed group relative overflow-hidden">
+<h4 class="font-headline-sm leading-tight mb-2 relative z-10">SNIPER PRO<br/>ANNUAL PASS</h4>
+<p class="font-body-sm mb-4 relative z-10">Institutional-grade ICT automation for retail traders.</p>
+<button class="px-4 py-2 bg-on-primary-fixed text-primary-fixed font-label-caps text-label-caps hover:opacity-90 transition-opacity relative z-10">UPGRADE NOW</button>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[120px]" data-icon="token">token</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-high dark:bg-surface-container-high border-t border-outline-variant flex justify-around items-center px-margin-mobile py-2">
+<a class="flex flex-col items-center justify-center text-primary-fixed bg-surface-container-highest rounded-lg p-stack-dense scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-label-caps-mobile">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-caps text-label-caps-mobile">Data</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="gpp_maybe">gpp_maybe</span>
+<span class="font-label-caps text-label-caps-mobile">Risk</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-stack-dense active:bg-surface-variant transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-caps text-label-caps-mobile">Market</span>
+</a>
+</nav>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Fake Real-time Ticker Updates
+        const pnlTicker = document.querySelector('p.text-primary-fixed.text-headline-sm');
+        if (pnlTicker) {
+            setInterval(() => {
+                const base = 2104.50;
+                const change = (Math.random() * 10 - 5).toFixed(2);
+                const newValue = (parseFloat(base) + parseFloat(change)).toFixed(2);
+                pnlTicker.textContent = `+$${newValue}`;
+                
+                // Visual Flash Effect
+                pnlTicker.classList.add('transition-colors');
+                pnlTicker.style.color = change > 0 ? '#c3f400' : '#ffb4ab';
+                setTimeout(() => {
+                    pnlTicker.style.color = '#c3f400';
+                }, 200);
+            }, 3000);
+        }
+
+        // Bridge status health check simulation
+        const bridgePulse = document.querySelector('.neo-lime-pulse');
+        setInterval(() => {
+            const status = Math.random() > 0.05 ? 'CONNECTED' : 'RETREIVING...';
+            const ms = (Math.random() * 5 + 10).toFixed(1);
+            document.querySelector('.text-on-surface-variant.text-\\[10px\\]').textContent = `MS: ${ms}ms`;
+        }, 1500);
+    </script>
+</body></html>

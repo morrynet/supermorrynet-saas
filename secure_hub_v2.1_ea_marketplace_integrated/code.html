@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upgrade | PRECISION SNIPER ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(195, 244, 0, 0.2);
+        }
+        .institutional-premium {
+            background: linear-gradient(135deg, rgba(29,32,33,1) 0%, rgba(50,53,54,1) 50%, rgba(171,214,0,0.1) 100%);
+            border: 1px solid rgba(171,214,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .institutional-premium::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(171,214,0,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .segment-active {
+            background-color: #c3f400;
+            box-shadow: 0 0 8px #c3f400;
+        }
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .pulse-red { animation: pulse-red 2s infinite; }
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+        .pulse-green { animation: pulse-green 2s infinite; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-variant": "#323536",
+                        "on-secondary": "#690003",
+                        "secondary": "#ffb4aa",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-primary": "#283500",
+                        "outline": "#8e9379",
+                        "on-secondary-container": "#ffd2cc",
+                        "tertiary": "#ffffff",
+                        "inverse-surface": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "secondary-fixed": "#ffdad5",
+                        "surface-container-low": "#191c1d",
+                        "tertiary-container": "#ffe16d",
+                        "surface-dim": "#111415",
+                        "surface": "#111415",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-primary-fixed": "#161e00",
+                        "primary-container": "#c3f400",
+                        "tertiary-fixed": "#ffe16d",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary": "#3a3000",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-primary-container": "#556d00",
+                        "primary-fixed-dim": "#abd600",
+                        "on-surface": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132",
+                        "background": "#111415",
+                        "primary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#410001",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-error": "#690005",
+                        "primary-fixed": "#c3f400",
+                        "surface-tint": "#abd600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "secondary-container": "#c5020b",
+                        "outline-variant": "#444933",
+                        "on-tertiary-container": "#776300",
+                        "on-surface-variant": "#c4c9ac",
+                        "inverse-primary": "#506600",
+                        "surface-container": "#1d2021",
+                        "on-background": "#e1e3e4",
+                        "surface-bright": "#373a3b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max-width": "1440px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-surface-container-low border-b border-outline-variant px-margin-mobile h-16 flex justify-between items-center w-full">
+<div class="flex items-center gap-3">
+<img alt="Morrynet Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQgO0qgh0MG68-2XRvHdRNJozKCj64u6nJrIziu01UZCH6wPhdv82AlkaEQ8Tko34K1REg2FD4l6xSysZfsijSpUBek3o4YsBxA_UVWmabrCo5tkCL7Ds0Bb5sMyWAj8eMtYN5TCR4dR7dHUbDs90fqDEuzfNiajB59dFbaH1-RxfIwwxSDeGPfLdpZXE5SPluOHN4Tfe6xLEqZx7IIaKL0NtMJC-seqhAMrMNMgDbnhOGDAnBefny3bNy2sEXvg5fZ_o7mPMpW39"/>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tighter">PRECISION SNIPER</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-[10px] font-label-caps text-on-surface-variant uppercase">Sync Status</span>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container pulse-green"></div>
+<span class="text-data-sm font-data-sm text-primary-container">Active</span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile py-6 max-w-md mx-auto">
+<!-- User Profile & Account Sync Header -->
+<section class="mb-6 flex items-center justify-between glass-card rounded-xl p-4 border-l-4 border-l-primary-container">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<h2 class="text-body-md font-semibold text-primary">Trader_8829</h2>
+<p class="text-data-sm text-on-surface-variant">Account Sync Status: <span class="text-primary-container font-bold">Active</span></p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-caps text-on-surface-variant block mb-1">NETWORK</span>
+<img alt="Morrynet" class="h-4 opacity-70 ml-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQgO0qgh0MG68-2XRvHdRNJozKCj64u6nJrIziu01UZCH6wPhdv82AlkaEQ8Tko34K1REg2FD4l6xSysZfsijSpUBek3o4YsBxA_UVWmabrCo5tkCL7Ds0Bb5sMyWAj8eMtYN5TCR4dR7dHUbDs90fqDEuzfNiajB59dFbaH1-RxfIwwxSDeGPfLdpZXE5SPluOHN4Tfe6xLEqZx7IIaKL0NtMJC-seqhAMrMNMgDbnhOGDAnBefny3bNy2sEXvg5fZ_o7mPMpW39"/>
+</div>
+</section>
+<!-- Unified Access Hub -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-label-caps font-label-caps text-on-surface-variant">ACCESS HUB</h3>
+<div class="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] text-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-caps text-primary-container scale-90">SECURE NODE</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Trial Status (Integrated) -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden bg-surface-container-low/40">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase mb-0.5 block">Trial Environment</span>
+<h4 class="text-body-md font-bold text-primary">5-Minute Daily Demo</h4>
+</div>
+<div class="bg-surface-container-highest px-3 py-1 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error pulse-red"></div>
+<span class="text-data-sm font-data-sm text-error">EXPIRED</span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex gap-1 mb-2">
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-outline-variant rounded-full opacity-30"></div>
+</div>
+<p class="text-[10px] font-data-sm text-on-surface-variant">Limit exhausted for IP: 192.168.1.XXX</p>
+</div>
+<div class="text-right border-l border-outline-variant pl-4">
+<div class="text-headline-md font-data-lg text-primary tracking-widest leading-none" id="countdown">14:22:01</div>
+<span class="text-[10px] font-label-caps text-on-surface-variant">RESET IN</span>
+</div>
+</div>
+</div>
+<!-- Plan Selection -->
+<div class="space-y-3">
+<!-- Daily Access -->
+<button class="plan-card w-full text-left glass-card rounded-xl p-5 transition-all duration-200 border-2 border-transparent hover:border-outline-variant" id="plan-daily" onclick="selectPlan('daily')">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block">Daily</span>
+<span class="text-data-sm text-on-surface-variant">24h Instant Access</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary">$1.00</span>
+</div>
+</div>
+</button>
+<!-- Weekly Access (Featured) -->
+<button class="plan-card w-full text-left glass-card rounded-xl p-5 transition-all duration-200 border-primary-container relative neon-glow" id="plan-weekly" onclick="selectPlan('weekly')">
+<div class="absolute -top-3 right-5 bg-primary-container text-on-primary-container px-3 py-0.5 rounded-full text-label-caps font-label-caps">MOST POPULAR</div>
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block">Weekly</span>
+<span class="text-data-sm text-primary-container">Institutional Grade</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary-container font-bold">$3.00</span>
+</div>
+</div>
+<ul class="grid grid-cols-1 gap-2 pt-2 border-t border-outline-variant/30">
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-primary">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Live Signal Alerts (All Pairs)
+                            </li>
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-primary">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                ICT Consensus Matrix Access
+                            </li>
+</ul>
+</button>
+<!-- Institutional (Elite) -->
+<button class="plan-card w-full text-left institutional-premium rounded-xl p-5 transition-all duration-200 border-2 border-transparent" id="plan-monthly" onclick="selectPlan('monthly')">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-container to-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block uppercase tracking-tight">Institutional</span>
+<span class="text-data-sm text-primary-container/80">Full Suite + VIP Network</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary font-bold">$10.00</span>
+<span class="block text-[10px] text-on-surface-variant">PER MONTH</span>
+</div>
+</div>
+<ul class="space-y-2 pt-2 border-t border-primary-container/20">
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                                Private Discord Signal Room
+                            </li>
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                                Advanced Liquidity Analytics
+                            </li>
+</ul>
+</button>
+</div>
+</div>
+</section><section class="mb-8"><div class="flex items-center justify-between mb-4 px-1"><h3 class="text-label-caps font-label-caps text-on-surface-variant uppercase">EA Marketplace</h3><div class="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[12px] text-primary-container" style="font-variation-settings: 'FILL' 1;">shopping_cart</span><span class="text-label-caps text-primary-container scale-90">MT5 EXPERT ADVISORS</span></div></div><div class="space-y-4"><div class="glass-card rounded-xl p-5 border-l-4 border-l-primary-container"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center"><span class="material-symbols-outlined text-primary-container">smart_toy</span></div><div><h4 class="text-headline-md font-headline-md text-primary">Precision Sniper MT5 EA</h4><p class="text-data-sm text-on-surface-variant">Automated ICT Strategy Execution</p></div></div><div class="space-y-3"><div class="glass-card rounded-lg p-4 border border-outline-variant/30 hover:border-primary-container/50 transition-colors"><div class="flex justify-between items-start mb-2"><div><span class="text-body-md font-bold text-primary block">Source Code (.mq5 + .ex5)</span><span class="text-[12px] text-on-surface-variant">Full developer access &amp; lifetime updates.</span></div><span class="text-data-lg font-data-lg text-primary-container font-bold">$200.00</span></div><button class="w-full mt-2 bg-primary-container/10 hover:bg-primary-container text-primary-container hover:text-on-primary-container py-2 rounded-lg text-label-caps font-bold transition-all uppercase tracking-wider">Buy Now</button></div><div class="glass-card rounded-lg p-4 border border-outline-variant/30 hover:border-primary-container/50 transition-colors"><div class="flex justify-between items-start mb-2"><div><span class="text-body-md font-bold text-primary block">Executable (.ex5)</span><span class="text-[12px] text-on-surface-variant">Ready-to-trade compiled file.</span></div><span class="text-data-lg font-data-lg text-primary-container font-bold">$100.00</span></div><button class="w-full mt-2 bg-primary-container/10 hover:bg-primary-container text-primary-container hover:text-on-primary-container py-2 rounded-lg text-label-caps font-bold transition-all uppercase tracking-wider">Buy Now</button></div></div></div></div></section>
+<!-- Payment Gateway Section -->
+<section class="mb-4">
+<div class="flex flex-col items-center mb-4 gap-1">
+<h3 class="text-label-caps font-label-caps text-on-surface-variant">SECURE CHECKOUT</h3>
+<div class="flex gap-4 items-center opacity-70">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="security">security</span>
+<span class="text-[10px] font-label-caps text-on-surface">256-BIT AES</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-container" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-label-caps text-on-surface font-bold uppercase">PCI-DSS COMPLIANT</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-bold flex items-center justify-center gap-3 active:scale-[0.98] transition-transform shadow-lg shadow-primary-container/10">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="tracking-tight">Pay with PayPal</span>
+</button>
+<button class="w-full bg-[#3BB34A] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 active:scale-[0.98] transition-transform border border-white/10">
+<div class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden">
+<img alt="M-Pesa logo" class="w-6 h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_xSFc4J-ofnL_JythyQgquGn9WNQOgHHKGyqEgQUhQjC3oQoY2tipvoiChfgXUQGf7cEFHT34FQZfOG6RBKBDrYO8MDqDBMhJ2JpAkkpWadnEh4mH_jajy3bIi3XOm0N8CmAZiPW9pCeMy-p_upgYzh7qAq6rlF8UY6WQ0mGscT8bNp32uu5h0gJyJqFha0yZR4mI3OQkVsliN9Q0W-I8D7CKsvk15yw0MMOzW2ggf6b2_QEEAPavJvRH1AfFImv84QkKWjnB5mBM"/>
+</div>
+<span class="tracking-tight uppercase">Pay with M-Pesa</span>
+</button>
+</div>
+<div class="mt-8 flex flex-col items-center gap-3">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">lock</span>
+<span class="text-data-sm text-on-surface-variant">SSL Secure Gateway</span>
+</div>
+<div class="flex items-center gap-4 grayscale opacity-40">
+<img alt="PayPal" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV1k8obNkleqiDJwetIoAP6ZC6d1opP9L9yzEHey6UtCisP-PbA6C-TdWMm39EiFpfqVSM_u4Psj5OTvKB70lH-ryuLK4Ltl23W1yVJ9pXIlvNDdghqhe_J6QqwE8RK3vblilPJmdmwUOfJ0uQsMLmt_F1fVOe5RzjmpWmZvBOh_zXz9KmDB0U9I7pjBWg0s2PbNvC3qHz6XIjjBFVpGFbZ8id9nLmmnt-EB7WFpdzO8u3gRyHZIxc5QDS4IJtxY-nsINs13e9SdnR"/>
+<img alt="Visa" class="h-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfztU1b9BuxNFVwp4ybZ7HohbEUA_vyYArqmKxgsG5B2Grb0nwnF9ncmdb5sTtMdqmGGh8Cu6zifg3QWJqh9h6wJhtw3QzfV1zioYVTm4RE0lSnLvhowUoLXKf5vEzHN4_w8-EvGyT4hn_AQDZZx3yvVcgn5JL5sq9ZuKhs4j5EVL4zckEiyldGXwDiSeqk8NLoHjmmYW67R9-GuTtcxQDGUi9jom5b2kZ0h_hIfZRFNISPN-90P-L77ndZxyuXelIALJobFupzAn8"/>
+<img alt="Mastercard" class="h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCWMcumkVC8-l4hR65aUrM7BDjaM9bkvyYOOW7PpTZESMwUVcRxC4drYYEyEfAh1JvkBSNlHz2pkWOOzuTmY-fCPNjdJ4VzU5OSZKseVoZ1M454-W7wOkA_H2GurS-EHDLiF1uXovl2QwAVc60jKVmWA3GnSS28bT_ZwrHvnv5_VIY1uf67VWsO5BBYd2psnvXW9Ltv99hFVVV2fllpIBxc74EL_i_34dxBIfAMqBd1CL5w4a1UBfRNHSF7x3-VgDajKNxWLfsaaRj"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-24 left-0 w-full flex justify-center px-margin-mobile z-40">
+<a class="glass-card px-6 py-2 rounded-full flex items-center gap-2 border-primary-container/30 hover:bg-surface-variant transition-colors active:scale-95" href="{{DATA:SCREEN:SCREEN_5}}">
+<span class="material-symbols-outlined text-primary-container text-[18px]">group</span>
+<span class="text-label-caps font-label-caps text-primary">Referral Program</span>
+</a>
+</div>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-xl shadow-lg rounded-t-xl h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="text-label-caps font-label-caps">Live Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-caps font-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        function selectPlan(planId) {
+            const plans = document.querySelectorAll('.plan-card');
+            plans.forEach(plan => {
+                plan.classList.remove('border-primary-container', 'neon-glow', 'border-2');
+                plan.classList.add('border-transparent', 'border-2');
+                
+                const labels = plan.querySelectorAll('.text-primary-container');
+                labels.forEach(label => {
+                    if (!label.parentElement.classList.contains('bg-primary-container') && !plan.id.includes('weekly')) {
+                         label.classList.replace('text-primary-container', 'text-on-surface-variant');
+                    }
+                });
+            });
+
+            const activePlan = document.getElementById('plan-' + planId);
+            activePlan.classList.remove('border-transparent');
+            activePlan.classList.add('border-primary-container', 'neon-glow');
+            
+            activePlan.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                activePlan.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function updateCountdown() {
+            const timerEl = document.getElementById('countdown');
+            if (!timerEl) return;
+            let parts = timerEl.innerText.split(':');
+            let h = parseInt(parts[0]);
+            let m = parseInt(parts[1]);
+            let s = parseInt(parts[2]);
+
+            s--;
+            if (s < 0) { s = 59; m--; }
+            if (m < 0) { m = 59; h--; }
+            if (h < 0) { h = 23; }
+
+            timerEl.innerText = 
+                String(h).padStart(2, '0') + ':' + 
+                String(m).padStart(2, '0') + ':' + 
+                String(s).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body></html>

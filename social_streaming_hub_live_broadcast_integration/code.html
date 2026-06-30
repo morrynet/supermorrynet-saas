@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN_HUB - Social Streaming Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#c3f400",
+                      "inverse-on-surface": "#2e3132",
+                      "surface-tint": "#abd600",
+                      "on-primary-container": "#556d00",
+                      "background": "#111415",
+                      "error": "#ffb4ab",
+                      "surface-variant": "#323536",
+                      "secondary": "#ffb4aa",
+                      "on-primary-fixed": "#161e00",
+                      "on-secondary-container": "#ffd2cc",
+                      "primary-fixed-dim": "#abd600",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-surface": "#e1e3e4",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#ffffff",
+                      "surface-dim": "#111415",
+                      "tertiary-container": "#ffe16d",
+                      "inverse-primary": "#506600",
+                      "on-secondary": "#690003",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "surface-container-highest": "#323536",
+                      "on-surface-variant": "#c4c9ac",
+                      "on-tertiary": "#3a3000",
+                      "on-secondary-fixed-variant": "#930005",
+                      "on-background": "#e1e3e4",
+                      "surface-container-lowest": "#0c0f10",
+                      "tertiary-fixed": "#ffe16d",
+                      "surface": "#111415",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "outline-variant": "#444933",
+                      "outline": "#8e9379",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "surface-container-high": "#282a2b",
+                      "secondary-fixed": "#ffdad5",
+                      "primary": "#ffffff",
+                      "on-error": "#690005",
+                      "surface-container": "#1d2021",
+                      "surface-container-low": "#191c1d",
+                      "on-tertiary-container": "#776300",
+                      "primary-fixed": "#c3f400",
+                      "secondary-container": "#c5020b",
+                      "surface-bright": "#373a3b",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-primary": "#283500",
+                      "inverse-surface": "#e1e3e4",
+                      "on-secondary-fixed": "#410001"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max-width": "1440px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "data-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .glass-card {
+            background-color: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid theme('colors.surface-variant');
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px theme('colors.primary-fixed-dim');
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row pb-24 md:pb-0 pt-16 md:pt-0">
+<!-- TopAppBar (Mobile Only) -->
+<header class="md:hidden bg-background/60 backdrop-blur-xl text-primary-fixed-dim font-headline-md text-headline-md dark:text-on-background fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed-dim">OBSIDIAN_HUB</span>
+</div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sensors</span>
+</header>
+<!-- SideNav (Desktop Only) -->
+<aside class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-surface-container/80 backdrop-blur-xl border-r border-outline-variant/20 z-50">
+<div class="h-16 flex items-center px-6 border-b border-outline-variant/20">
+<span class="material-symbols-outlined mr-2 text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed-dim">OBSIDIAN_HUB</span>
+</div>
+<nav class="flex-1 py-6 flex flex-col gap-2 px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-highest/50 transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-highest/50 transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-body-md text-body-md">Signals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-highest/50 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container/20 text-primary-fixed-dim border border-primary-fixed-dim/30 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-body-md text-body-md font-semibold">Streaming Hub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary-fixed hover:bg-surface-container-highest/50 transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-container-max-width mx-auto">
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-1">Social Streaming Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Synchronize and broadcast your active chart overlays directly to major social networks.</p>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps uppercase px-6 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-colors neon-glow">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+                Broadcast Now
+            </button>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Stream Configurations -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Facebook Live Card -->
+<section class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#1877F2] opacity-5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center border border-[#1877F2]/30">
+<span class="material-symbols-outlined text-[#1877F2]">face_nod</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Facebook Live</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">OFFLINE</span>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-background after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">RTMP URL</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0" readonly="" type="text" value="rtmps://live-api-s.facebook.com:443/rtmp/"/>
+<button class="px-3 text-on-surface-variant hover:text-primary-fixed transition-colors flex items-center justify-center border-l border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Stream Key</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0" type="password" value="FB-1234567890-SECRET-KEY"/>
+<button class="px-3 text-on-surface-variant hover:text-on-background transition-colors flex items-center justify-center border-l border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- YouTube Gaming Card -->
+<section class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#FF0000] opacity-5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#FF0000]/10 flex items-center justify-center border border-[#FF0000]/30">
+<span class="material-symbols-outlined text-[#FF0000]">smart_display</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">YouTube Live</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+<span class="font-data-sm text-data-sm text-primary-fixed-dim">SYNCED</span>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-background after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">RTMP URL</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0" readonly="" type="text" value="rtmp://a.rtmp.youtube.com/live2"/>
+<button class="px-3 text-on-surface-variant hover:text-primary-fixed transition-colors flex items-center justify-center border-l border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Stream Key</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0" type="password" value="YT-abc1-def2-ghi3-jkl4"/>
+<button class="px-3 text-on-surface-variant hover:text-on-background transition-colors flex items-center justify-center border-l border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- TikTok Live Card -->
+<section class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#00f2fe] opacity-5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-background">music_note</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">TikTok Live</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">OFFLINE</span>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-background after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">RTMP URL</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0 placeholder:text-on-surface-variant/50" placeholder="Enter TikTok RTMP URL" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Stream Key</label>
+<div class="flex relative bg-surface-container rounded-lg border border-outline-variant focus-within:border-primary-fixed-dim transition-colors overflow-hidden">
+<input class="w-full bg-transparent border-none text-on-background font-data-sm text-data-sm p-3 focus:ring-0 placeholder:text-on-surface-variant/50" placeholder="Enter Stream Key" type="password"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Notice -->
+<div class="flex items-start gap-3 p-4 bg-error-container/10 border border-error/20 rounded-lg">
+<span class="material-symbols-outlined text-error">gpp_maybe</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-error mb-1">Security Warning</h4>
+<p class="font-data-sm text-data-sm text-on-surface-variant">Never share your stream keys publicly. Anyone with access to these keys can broadcast to your channels. Obsidian Hub stores these securely using AES-256 encryption.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Preview & Status -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Stream Preview -->
+<section class="glass-card rounded-xl p-4 flex flex-col h-full">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background">Live Preview</h3>
+<div class="px-2 py-1 bg-surface-container rounded text-on-surface-variant font-data-sm text-data-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hd</span> 1080p60
+                        </div>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-lowest rounded-lg border border-outline-variant/50 overflow-hidden mb-4 group">
+<div class="w-full h-full bg-cover bg-center opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A dark mode trading interface showing complex candlestick charts, technical indicators like MACD and RSI, with glowing neon green and red elements on a deep charcoal background. The style is highly technical, precise, and institutional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW_7xDJ9_WcUvqpSstwkdmDpf4Luadch3If9s7Kk6tA_CCWICMCP6-L3a8Rt7VBs9Ii7N83c5hOH0XGntcZ78OS6wETq4kkSrdn3opGIrON0KNvJbq9Zdnam_0Tcw4qQXTnrBk72n08moYOZ8ZZwBzohGr7NXTHZJjrOg-c5MG0GeQJex2etKoP_pTxkSgzKoyznrjZNNpd7ezSKxzj9LNN_GzEPdpW6YKOE-qzgIPP-pcZXaI93bb0HAGU91Dg0loxy0Yov6vjOig')"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-12 h-12 rounded-full bg-background/80 border border-outline-variant flex items-center justify-center text-on-background hover:bg-primary-container/20 hover:text-primary-fixed-dim hover:border-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-background/80 backdrop-blur text-error font-data-sm text-data-sm rounded flex items-center gap-1 border border-error/20">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span> REC
+                        </div>
+</div>
+<!-- Output Stats -->
+<div class="mt-auto space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">CPU USAGE</span>
+<span class="font-data-sm text-data-sm text-on-background">14.2%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[14%]"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">BITRATE</span>
+<span class="font-data-sm text-data-sm text-on-background">6000 kbps</span>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DROPPED FRAMES</span>
+<span class="font-data-sm text-data-sm text-on-background">0 (0.0%)</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container/80 backdrop-blur-xl font-label-caps text-label-caps font-headline-md text-headline-md text-primary-fixed-dim fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(171,214,0,0.1)] flex justify-around items-center h-20 px-gutter">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined text-[24px]">insights</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary-fixed-dim rounded-xl p-2 border border-primary-fixed-dim/30 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">sensors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</a>
+</nav>
+<script>
+        // Simple script to handle password visibility toggle
+        document.querySelectorAll('button').forEach(button => {
+            if(button.querySelector('span') && (button.querySelector('span').innerText === 'visibility' || button.querySelector('span').innerText === 'visibility_off')) {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const icon = this.querySelector('span');
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.innerText = 'visibility_off';
+                    } else {
+                        input.type = 'password';
+                        icon.innerText = 'visibility';
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

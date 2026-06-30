@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN_HUB - Verified Trader Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#776300",
+                      "on-background": "#e1e3e4",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#ffe16d",
+                      "primary": "#ffffff",
+                      "on-secondary": "#690003",
+                      "background": "#111415",
+                      "outline-variant": "#444933",
+                      "outline": "#8e9379",
+                      "on-primary": "#283500",
+                      "surface-container-lowest": "#0c0f10",
+                      "surface-container": "#1d2021",
+                      "on-secondary-fixed-variant": "#930005",
+                      "tertiary-container": "#ffe16d",
+                      "on-surface-variant": "#c4c9ac",
+                      "primary-fixed-dim": "#abd600",
+                      "surface-container-low": "#191c1d",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "secondary-fixed": "#ffdad5",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-surface": "#e1e3e4",
+                      "secondary-container": "#c5020b",
+                      "secondary": "#ffb4aa",
+                      "on-tertiary-fixed": "#221b00",
+                      "tertiary": "#ffffff",
+                      "surface": "#111415",
+                      "on-tertiary": "#3a3000",
+                      "primary-fixed": "#c3f400",
+                      "surface-tint": "#abd600",
+                      "surface-dim": "#111415",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "surface-container-highest": "#323536",
+                      "inverse-primary": "#506600",
+                      "surface-bright": "#373a3b",
+                      "on-primary-container": "#556d00",
+                      "on-secondary-container": "#ffd2cc",
+                      "on-primary-fixed": "#161e00",
+                      "surface-variant": "#323536",
+                      "on-secondary-fixed": "#410001",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "surface-container-high": "#282a2b",
+                      "primary-container": "#c3f400",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#2e3132",
+                      "inverse-surface": "#e1e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "container-max-width": "1440px",
+                      "gutter": "16px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "data-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0B0E14; /* Deep Obsidian Base */
+            color: #e1e3e4;
+        }
+        .glass-panel {
+            background-color: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2D3139;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(171, 214, 0, 0.4);
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .text-neon {
+            color: #abd600; /* Neon Lime */
+        }
+        .bg-neon {
+            background-color: #abd600;
+        }
+        .border-neon {
+            border-color: #abd600;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pt-16 pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="terminal">terminal</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed-dim">OBSIDIAN_HUB</span>
+</div>
+<div class="hidden md:flex gap-8">
+<span class="text-on-surface-variant font-body-md hover:text-primary-fixed transition-colors cursor-pointer">Explore</span>
+<span class="text-on-surface-variant font-body-md hover:text-primary-fixed transition-colors cursor-pointer">Signals</span>
+<span class="text-on-surface-variant font-body-md hover:text-primary-fixed transition-colors cursor-pointer">Verification</span>
+<span class="text-primary-fixed-dim font-body-md cursor-pointer border-b-2 border-primary-fixed-dim pb-1">Profile</span>
+</div>
+<div>
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="sensors">sensors</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[container-max-width] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-6 md:gap-8">
+<!-- Profile Header Section -->
+<section class="glass-panel rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center relative overflow-hidden">
+<!-- Decorative Glow -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="relative">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary-fixed-dim neon-glow flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a high-tech trader avatar. The avatar is a sleek, modern digital representation, set against a deep obsidian dark background. Lighting is dramatic, with a subtle neon lime rim light outlining the figure, conveying a sense of precision, technical expertise, and institutional authority within a high-stakes financial environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcYsNjcxHVQoNDQBMalItoXRpJKzjYQ4SMVkAfTOkt4ff0doYhPQeshfu9SN1iUq_TP8i_dZC-1hNSMvfw2M9JcZpOERHqrUjQWE02R3xCHWZhaE8pbsY602XwzgPCUV6MTLVdQI9q_b-r_I95g43Ha8WnQ4StdtivkKTu5Y3MDF2HJgyTXDhEKC6LTnOZrP_R_sdt-DlRl4DXyaRyBuwhp7Rc1SXfo4aEJtFvlEpc7aQ1GxwkVS9d8iAzanvlSXsa-iXHKJzH3FGm"/>
+</div>
+<!-- Verified Badge -->
+<div class="absolute -bottom-2 -right-2 bg-[#1A1D26] border border-primary-fixed-dim rounded-full p-1.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">ApexSniper_01</h1>
+<span class="bg-[#1A1D26] border border-[#2D3139] px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[16px]" data-icon="military_tech">military_tech</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Grade A+</span>
+</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Institutional-grade scalp execution. Algorithmic signals backed by cryptographic proof. Specializing in high-volatility XAUUSD pairs.
+                </p>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+                        Verified by Precision Sniper
+                    </span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto mt-4 md:mt-0">
+<button class="bg-primary-fixed text-[#0B0E14] font-headline-md text-headline-md uppercase px-6 py-3 rounded-lg hover:bg-primary-container active:scale-95 transition-all neon-glow flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+                    Follow Signals
+                </button>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<div class="glass-panel p-4 md:p-6 rounded-xl flex flex-col gap-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary-fixed/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Success Rate</span>
+<span class="font-data-lg text-data-lg text-primary-fixed-dim">84.2%</span>
+<div class="w-full h-1 bg-[#1A1D26] rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary-fixed-dim" style="width: 84.2%"></div>
+</div>
+</div>
+<div class="glass-panel p-4 md:p-6 rounded-xl flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Pips Secured</span>
+<span class="font-data-lg text-data-lg text-on-background">+12,450</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed-dim" data-icon="trending_up">trending_up</span>
+                    All Time
+                </span>
+</div>
+<div class="glass-panel p-4 md:p-6 rounded-xl flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Avg. Trade Duration</span>
+<span class="font-data-lg text-data-lg text-on-background">14m 22s</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span>
+                    Scalp Class
+                </span>
+</div>
+<div class="glass-panel p-4 md:p-6 rounded-xl flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Followers</span>
+<span class="font-data-lg text-data-lg text-on-background">4,892</span>
+<div class="flex gap-2 mt-2">
+<span class="bg-[#1A1D26] border border-[#2D3139] rounded px-2 py-0.5 text-[10px] text-on-surface-variant font-mono">YT: @ApexSniper</span>
+</div>
+</div>
+</section>
+<!-- Cryptographic Audit Log -->
+<section class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-1">Cryptographic Audit Log</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Recent verified executions. Signatures verified on-chain.</p>
+</div>
+<button class="text-primary-fixed-dim font-label-caps text-label-caps hover:text-primary-fixed flex items-center gap-1 transition-colors">
+                    View Full Ledger <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#2D3139] bg-[#1A1D26]/40">
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Asset</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Type</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Result</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase hidden md:table-cell">Timestamp</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase">MD5 Hash</th>
+</tr>
+</thead>
+<tbody class="font-data-sm text-data-sm text-on-background">
+<tr class="border-b border-[#2D3139]/50 hover:bg-[#1A1D26]/60 transition-colors">
+<td class="p-4 font-bold">XAUUSD</td>
+<td class="p-4"><span class="text-error">SELL</span></td>
+<td class="p-4 text-primary-fixed-dim">+45 Pips</td>
+<td class="p-4 text-on-surface-variant hidden md:table-cell">10:42:05 UTC</td>
+<td class="p-4 text-on-surface-variant opacity-70 font-mono text-[10px] truncate max-w-[120px] md:max-w-[200px]">e4d909c290d0fb1ca068ffaddf22cbd0</td>
+</tr>
+<tr class="border-b border-[#2D3139]/50 hover:bg-[#1A1D26]/60 transition-colors">
+<td class="p-4 font-bold">GBPUSD</td>
+<td class="p-4"><span class="text-primary-fixed-dim">BUY</span></td>
+<td class="p-4 text-primary-fixed-dim">+12 Pips</td>
+<td class="p-4 text-on-surface-variant hidden md:table-cell">09:15:22 UTC</td>
+<td class="p-4 text-on-surface-variant opacity-70 font-mono text-[10px] truncate max-w-[120px] md:max-w-[200px]">8b1a9953c4611296a827abf8c47804d7</td>
+</tr>
+<tr class="border-b border-[#2D3139]/50 hover:bg-[#1A1D26]/60 transition-colors">
+<td class="p-4 font-bold">US30</td>
+<td class="p-4"><span class="text-primary-fixed-dim">BUY</span></td>
+<td class="p-4 text-on-surface-variant">-5 Pips</td>
+<td class="p-4 text-on-surface-variant hidden md:table-cell">08:05:11 UTC</td>
+<td class="p-4 text-on-surface-variant opacity-70 font-mono text-[10px] truncate max-w-[120px] md:max-w-[200px]">f3ea17b8f0dbbcf3a1a51240c49615a1</td>
+</tr>
+<tr class="hover:bg-[#1A1D26]/60 transition-colors">
+<td class="p-4 font-bold">XAUUSD</td>
+<td class="p-4"><span class="text-error">SELL</span></td>
+<td class="p-4 text-primary-fixed-dim">+80 Pips</td>
+<td class="p-4 text-on-surface-variant hidden md:table-cell">Yesterday</td>
+<td class="p-4 text-on-surface-variant opacity-70 font-mono text-[10px] truncate max-w-[120px] md:max-w-[200px]">2a07c570b6dcf42f06b6f72cfa9e394b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/80 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(171,214,0,0.1)] flex justify-around items-center h-20 px-gutter">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="Insights">insights</span>
+<span class="font-label-caps text-label-caps mt-1">Signals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps mt-1">Verify</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container/20 text-primary-fixed-dim rounded-xl p-2 border border-primary-fixed-dim/30 hover:text-primary-fixed active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

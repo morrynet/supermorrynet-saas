@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TERMINAL_SECURE_ALPHA - Register Node</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#111415",
+          "on-surface": "#e1e3e4",
+          "on-surface-variant": "#c4c9ac",
+          "primary-fixed": "#c3f400",
+          "primary-fixed-dim": "#abd600",
+          "on-primary-fixed": "#161e00",
+          "surface-container-highest": "#323536",
+          "surface-container-high": "#282a2b",
+          "surface-container": "#1d2021",
+          "surface-container-low": "#191c1d",
+          "surface-container-lowest": "#0c0f10",
+          "outline-variant": "#444933",
+          "error-container": "#93000a",
+          "on-error-container": "#ffdad6",
+          "error": "#ffb4ab",
+          "primary-container": "#c3f400"
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { min-height: 100dvh; font-family: 'Inter', sans-serif; }
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(45,49,57,0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(45,49,57,0.18) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .turnstile-spin { animation: spin 1s linear infinite; }
+  .btn-neon-glow { box-shadow: 0 0 20px -3px rgba(195,244,0,0.45); }
+  .btn-neon-glow:hover { box-shadow: 0 0 32px -2px rgba(195,244,0,0.7); }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  .fade-in { animation: fadeIn 0.4s ease both; }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex items-center justify-center bg-grid-pattern overflow-hidden relative">
+
+<!-- Corner accent lines -->
+<div class="absolute top-0 left-0 w-28 h-[2px] bg-primary-fixed opacity-60"></div>
+<div class="absolute top-0 left-0 w-[2px] h-28 bg-primary-fixed opacity-60"></div>
+<div class="absolute bottom-0 right-0 w-28 h-[2px] bg-primary-fixed opacity-20"></div>
+<div class="absolute bottom-0 right-0 w-[2px] h-28 bg-primary-fixed opacity-20"></div>
+
+<!-- Brand header -->
+<div class="fixed top-0 left-0 w-full px-6 py-5 flex justify-between items-center pointer-events-none z-50">
+  <div class="text-primary-fixed font-mono font-bold tracking-tighter text-sm">TERMINAL_SECURE_ALPHA</div>
+  <div class="flex items-center gap-2 text-on-surface-variant text-xs font-mono">
+    <span class="material-symbols-outlined text-sm">person_add</span>
+    REGISTER_NODE_V1.2
+  </div>
+</div>
+
+<!-- Server check banner -->
+<div id="server-banner" class="hidden fixed top-16 left-0 right-0 z-40 mx-auto max-w-md px-4">
+  <div class="bg-yellow-900/40 border border-yellow-500/30 rounded-lg p-3 flex items-start gap-2 text-yellow-300 text-xs font-mono">
+    <span class="material-symbols-outlined text-sm shrink-0 mt-0.5">warning</span>
+    <div>
+      <strong>Demo Mode:</strong> Registration saved locally in browser.
+      Open via <code class="bg-black/30 px-1 rounded">http://localhost:3000</code> for persistent server storage.
+    </div>
+  </div>
+</div>
+
+<!-- Main form container -->
+<main class="w-full max-w-[420px] px-4 relative z-10 fade-in">
+  <!-- Glass card -->
+  <div class="bg-surface-container-high/60 backdrop-blur-2xl border border-outline-variant/50 rounded-2xl relative overflow-hidden shadow-2xl">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-fixed/40 to-transparent"></div>
+
+    <div class="p-8">
+      <!-- Header -->
+      <div class="mb-8">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-primary-fixed rounded-full"></span>
+          <span class="text-primary-fixed text-xs font-mono uppercase tracking-widest">Node Registration</span>
+        </div>
+        <h1 class="text-2xl font-bold text-on-surface leading-tight mb-1">Request Node Access</h1>
+        <p class="text-on-surface-variant text-sm">Register your operator identity key to deploy new credentials.</p>
+      </div>
+
+      <!-- Alerts -->
+      <div id="signupAlert" class="hidden mb-4 p-3 bg-error-container/30 border border-error/20 rounded-lg flex items-center gap-2 text-on-error-container text-xs">
+        <span class="material-symbols-outlined text-sm shrink-0">error</span>
+        <span id="signupAlertText">Registration failed.</span>
+      </div>
+      <div id="signupSuccess" class="hidden mb-4 p-3 bg-green-900/30 border border-primary-fixed/20 rounded-lg flex items-center gap-2 text-primary-fixed text-xs">
+        <span class="material-symbols-outlined text-sm shrink-0">check_circle</span>
+        <span>Identity node created. Redirecting to authentication gateway...</span>
+      </div>
+
+      <!-- Form -->
+      <form id="signupForm" novalidate class="space-y-5">
+        <!-- Email -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-mono text-on-surface-variant uppercase tracking-wider" for="signup-email">Identity Key (Email)</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm pointer-events-none">mail</span>
+            <input
+              id="signup-email"
+              type="email"
+              autocomplete="email"
+              placeholder="operator@institutional.node"
+              class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-10 pr-4 py-3 text-sm text-on-surface placeholder-on-surface-variant/40 focus:border-primary-fixed focus:outline-none focus:ring-1 focus:ring-primary-fixed/30 transition-all duration-150 font-mono"
+            />
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-mono text-on-surface-variant uppercase tracking-wider" for="signup-password">Create Access Token (Password)</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm pointer-events-none">key</span>
+            <input
+              id="signup-password"
+              type="password"
+              autocomplete="new-password"
+              placeholder="min. 6 characters"
+              class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-10 pr-10 py-3 text-sm text-on-surface placeholder-on-surface-variant/40 focus:border-primary-fixed focus:outline-none focus:ring-1 focus:ring-primary-fixed/30 transition-all duration-150 font-mono"
+            />
+            <button type="button" id="toggle-pw1" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined text-sm" id="toggle-pw1-icon">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-mono text-on-surface-variant uppercase tracking-wider" for="signup-confirm">Confirm Access Token</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm pointer-events-none">key</span>
+            <input
+              id="signup-confirm"
+              type="password"
+              autocomplete="new-password"
+              placeholder="repeat password"
+              class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-10 pr-10 py-3 text-sm text-on-surface placeholder-on-surface-variant/40 focus:border-primary-fixed focus:outline-none focus:ring-1 focus:ring-primary-fixed/30 transition-all duration-150 font-mono"
+            />
+            <button type="button" id="toggle-pw2" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined text-sm" id="toggle-pw2-icon">visibility</span>
+            </button>
+          </div>
+          <!-- Password match indicator -->
+          <div id="pw-match" class="hidden flex items-center gap-1 text-[11px] font-mono mt-1"></div>
+        </div>
+
+        <!-- Turnstile -->
+        <div
+          id="turnstile-container"
+          class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-outline-variant transition-all duration-150 select-none"
+          role="button"
+          tabindex="0"
+          aria-label="Verify system signature"
+        >
+          <div class="flex items-center gap-3">
+            <div id="turnstile-icon" class="w-6 h-6 border-2 border-outline-variant/60 rounded flex items-center justify-center bg-surface-container transition-all duration-200"></div>
+            <span class="text-sm text-on-surface font-mono" id="turnstile-label">Verify system signature</span>
+          </div>
+          <div class="flex flex-col items-end text-on-surface-variant/40 font-mono">
+            <span class="text-[10px]">Cloudflare</span>
+            <span class="text-[8px]">Privacy · Terms</span>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button
+          type="submit"
+          id="submitBtn"
+          disabled
+          class="w-full py-3 rounded-lg font-mono text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 transition-all duration-200 bg-surface-container-highest text-on-surface-variant border border-outline-variant/30 cursor-not-allowed"
+        >
+          <span class="material-symbols-outlined text-sm" id="submit-icon">app_registration</span>
+          <span id="submit-label">Register Node</span>
+        </button>
+
+        <!-- Link back to login -->
+        <div class="text-center">
+          <a href="/secure_gateway_authgate_turnstile/code.html" id="login-link" class="text-xs font-mono text-on-surface-variant hover:text-primary-fixed transition-colors flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-xs">arrow_back</span>
+            Already registered? Authenticate
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Metadata footer -->
+  <div class="mt-6 flex justify-between text-on-surface-variant/30 font-mono text-[10px]">
+    <span>NODE: REG-GLOBAL-01</span>
+    <span>GATEWAY STATUS: STANDBY</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  // ─── Detect server context ───────────────────────────────────────────────
+  const isServer = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+
+  if (!isServer) {
+    document.getElementById('server-banner').classList.remove('hidden');
+    // Fix login link for file:// context
+    document.getElementById('login-link').href = '../secure_gateway_authgate_turnstile/code.html';
+  }
+
+  // ─── Toggle password visibility ──────────────────────────────────────────
+  function makeToggle(btnId, inputId, iconId) {
+    document.getElementById(btnId).addEventListener('click', function () {
+      const inp = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        inp.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    });
+  }
+  makeToggle('toggle-pw1', 'signup-password', 'toggle-pw1-icon');
+  makeToggle('toggle-pw2', 'signup-confirm', 'toggle-pw2-icon');
+
+  // ─── Password match indicator ─────────────────────────────────────────────
+  document.getElementById('signup-confirm').addEventListener('input', checkMatch);
+  document.getElementById('signup-password').addEventListener('input', checkMatch);
+
+  function checkMatch() {
+    const pw = document.getElementById('signup-password').value;
+    const conf = document.getElementById('signup-confirm').value;
+    const el = document.getElementById('pw-match');
+    if (!conf) { el.classList.add('hidden'); return; }
+    el.classList.remove('hidden');
+    if (pw === conf) {
+      el.innerHTML = '<span class="material-symbols-outlined text-primary-fixed" style="font-size:12px">check</span><span class="text-primary-fixed">Tokens match</span>';
+    } else {
+      el.innerHTML = '<span class="material-symbols-outlined text-red-400" style="font-size:12px">close</span><span class="text-red-400">Tokens do not match</span>';
+    }
+  }
+
+  // ─── Turnstile simulation ─────────────────────────────────────────────────
+  let isVerified = false;
+  const turnstile = document.getElementById('turnstile-container');
+  const turnstileIcon = document.getElementById('turnstile-icon');
+  const turnstileLabel = document.getElementById('turnstile-label');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function activateTurnstile() {
+    if (isVerified) return;
+    turnstileIcon.innerHTML = '<span class="material-symbols-outlined text-primary-fixed turnstile-spin text-sm">sync</span>';
+    turnstileLabel.textContent = 'Verifying signature...';
+
+    setTimeout(function () {
+      isVerified = true;
+      turnstileIcon.innerHTML = '<span class="material-symbols-outlined text-primary-fixed text-sm">check</span>';
+      turnstileIcon.classList.add('border-primary-fixed', 'bg-primary-container/10');
+      turnstileIcon.classList.remove('border-outline-variant/60');
+      turnstileLabel.textContent = 'Signature verified ✓';
+      turnstile.classList.add('border-primary-fixed/30', 'cursor-default');
+      turnstile.setAttribute('tabindex', '-1');
+
+      // Enable submit button
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant', 'border-outline-variant/30', 'cursor-not-allowed');
+      submitBtn.classList.add('bg-primary-fixed', 'text-on-primary-fixed', 'border-primary-fixed', 'btn-neon-glow');
+    }, 1400);
+  }
+
+  turnstile.addEventListener('click', activateTurnstile);
+  turnstile.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') activateTurnstile();
+  });
+
+  // ─── Form submit ──────────────────────────────────────────────────────────
+  document.getElementById('signupForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const alert = document.getElementById('signupAlert');
+    const alertText = document.getElementById('signupAlertText');
+    const success = document.getElementById('signupSuccess');
+    alert.classList.add('hidden');
+    success.classList.add('hidden');
+
+    if (!isVerified) {
+      alertText.textContent = 'Please verify system signature first (click the Cloudflare card).';
+      alert.classList.remove('hidden');
+      return;
+    }
+
+    const email = document.getElementById('signup-email').value.trim().toLowerCase();
+    const password = document.getElementById('signup-password').value;
+    const confirm = document.getElementById('signup-confirm').value;
+
+    if (!email || !password) {
+      alertText.textContent = 'Please fill in all required fields.';
+      alert.classList.remove('hidden');
+      return;
+    }
+
+    if (password.length < 6) {
+      alertText.textContent = 'Access Token must be at least 6 characters.';
+      alert.classList.remove('hidden');
+      return;
+    }
+
+    if (password !== confirm) {
+      alertText.textContent = 'Access Tokens do not match. Please re-enter.';
+      alert.classList.remove('hidden');
+      return;
+    }
+
+    // Loading state
+    submitBtn.disabled = true;
+    document.getElementById('submit-icon').textContent = 'hourglass_top';
+    document.getElementById('submit-label').textContent = 'Deploying identity key...';
+
+    // Demo mode (file:// access) — save to localStorage
+    if (!isServer) {
+      const stored = JSON.parse(localStorage.getItem('registered_users') || '[]');
+      if (stored.find(function (u) { return u.email === email; })) {
+        alertText.textContent = 'Identity node already registered. Please authenticate.';
+        alert.classList.remove('hidden');
+        submitBtn.disabled = false;
+        document.getElementById('submit-icon').textContent = 'app_registration';
+        document.getElementById('submit-label').textContent = 'Register Node';
+        return;
+      }
+      stored.push({ email: email, password: password, createdAt: new Date().toISOString() });
+      localStorage.setItem('registered_users', JSON.stringify(stored));
+
+      setTimeout(function () {
+        success.classList.remove('hidden');
+        setTimeout(function () {
+          window.location.href = '../secure_gateway_authgate_turnstile/code.html';
+        }, 1800);
+      }, 900);
+      return;
+    }
+
+    // Server mode — real API call
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, password: password })
+      });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Registration failed.');
+
+      success.classList.remove('hidden');
+      setTimeout(function () {
+        window.location.href = '/secure_gateway_authgate_turnstile/code.html';
+      }, 1800);
+
+    } catch (err) {
+      alertText.textContent = err.message;
+      alert.classList.remove('hidden');
+      submitBtn.disabled = false;
+      document.getElementById('submit-icon').textContent = 'app_registration';
+      document.getElementById('submit-label').textContent = 'Register Node';
+    }
+  });
+})();
+</script>
+</body>
+</html>

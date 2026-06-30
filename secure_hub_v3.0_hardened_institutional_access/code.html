@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>V3.0 Institutional Hub | PRECISION SNIPER ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(17, 20, 21, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(142, 147, 121, 0.2);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02);
+        }
+        .obsidian-aegis {
+            background: linear-gradient(180deg, #111415 0%, #191c1d 100%);
+            border: 1px solid #323536;
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(171, 214, 0, 0.15);
+        }
+        .institutional-premium {
+            background: linear-gradient(135deg, #1d2021 0%, #323536 100%);
+            border: 1px solid rgba(171, 214, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .institutional-premium::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(171, 214, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .segment-active {
+            background-color: #abd600;
+            box-shadow: 0 0 10px #abd600;
+        }
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .pulse-red { animation: pulse-red 2s infinite; }
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .pulse-green { animation: pulse-green 2s infinite; }
+        .encryption-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #abd600, transparent);
+            opacity: 0.5;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-variant": "#323536",
+                        "on-secondary": "#690003",
+                        "secondary": "#ffb4aa",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-primary": "#283500",
+                        "outline": "#8e9379",
+                        "on-secondary-container": "#ffd2cc",
+                        "tertiary": "#ffffff",
+                        "inverse-surface": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "secondary-fixed": "#ffdad5",
+                        "surface-container-low": "#191c1d",
+                        "tertiary-container": "#ffe16d",
+                        "surface-dim": "#111415",
+                        "surface": "#111415",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-primary-fixed": "#161e00",
+                        "primary-container": "#c3f400",
+                        "tertiary-fixed": "#ffe16d",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary": "#3a3000",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-secondary-fixed-variant": "#930005",
+                        "on-primary-container": "#556d00",
+                        "primary-fixed-dim": "#abd600",
+                        "on-surface": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132",
+                        "background": "#111415",
+                        "primary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#410001",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-error": "#690005",
+                        "primary-fixed": "#c3f400",
+                        "surface-tint": "#abd600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "secondary-container": "#c5020b",
+                        "outline-variant": "#444933",
+                        "on-tertiary-container": "#776300",
+                        "on-surface-variant": "#c4c9ac",
+                        "inverse-primary": "#506600",
+                        "surface-container": "#1d2021",
+                        "on-background": "#e1e3e4",
+                        "surface-bright": "#373a3b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max-width": "1440px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-32 selection:bg-primary-container selection:text-on-primary-container">
+<!-- Hardened Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-surface-container-low/90 backdrop-blur-xl border-b border-outline-variant px-margin-mobile h-16 w-full">
+<div class="flex justify-between items-center h-full">
+<div class="flex items-center gap-3">
+<img alt="Morrynet Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQgO0qgh0MG68-2XRvHdRNJozKCj64u6nJrIziu01UZCH6wPhdv82AlkaEQ8Tko34K1REg2FD4l6xSysZfsijSpUBek3o4YsBxA_UVWmabrCo5tkCL7Ds0Bb5sMyWAj8eMtYN5TCR4dR7dHUbDs90fqDEuzfNiajB59dFbaH1-RxfIwwxSDeGPfLdpZXE5SPluOHN4Tfe6xLEqZx7IIaKL0NtMJC-seqhAMrMNMgDbnhOGDAnBefny3bNy2sEXvg5fZ_o7mPMpW39"/>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tighter leading-none">V3.0 HUB</h1>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[10px] text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+<span class="text-[9px] font-label-caps text-primary-fixed-dim uppercase tracking-widest">AES-256 Active</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<span class="text-[9px] font-label-caps text-on-surface-variant uppercase">Tunnel Status</span>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container pulse-green"></div>
+<span class="text-data-sm font-data-sm text-primary-container">SECURE</span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-highest border border-outline-variant active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+</button>
+</div>
+</div>
+<div class="encryption-line w-full"></div>
+</header>
+<main class="px-margin-mobile py-6 max-w-md mx-auto">
+<!-- User Profile & Account Sync Header -->
+<section class="mb-6 flex items-center justify-between glass-card obsidian-aegis rounded-xl p-4 border-l-4 border-l-primary-container">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">vpn_key</span>
+</div>
+<div>
+<h2 class="text-body-md font-semibold text-primary">Trader_8829</h2>
+<p class="text-data-sm text-on-surface-variant">Sync: <span class="text-primary-container font-bold">End-to-End Encrypted</span></p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-caps text-on-surface-variant block mb-1">NODE</span>
+<div class="flex items-center gap-1">
+<span class="text-data-sm font-bold text-primary">NY-04</span>
+<img alt="Morrynet" class="h-3 opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQgO0qgh0MG68-2XRvHdRNJozKCj64u6nJrIziu01UZCH6wPhdv82AlkaEQ8Tko34K1REg2FD4l6xSysZfsijSpUBek3o4YsBxA_UVWmabrCo5tkCL7Ds0Bb5sMyWAj8eMtYN5TCR4dR7dHUbDs90fqDEuzfNiajB59dFbaH1-RxfIwwxSDeGPfLdpZXE5SPluOHN4Tfe6xLEqZx7IIaKL0NtMJC-seqhAMrMNMgDbnhOGDAnBefny3bNy2sEXvg5fZ_o7mPMpW39"/>
+</div>
+</div>
+</section>
+<!-- V3.0 Institutional Hub Control -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-label-caps font-label-caps text-on-surface-variant">V3.0 CONTROL UNIT</h3>
+<div class="flex items-center gap-1.5 bg-primary-container/10 border border-primary-container/30 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] text-primary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-caps text-primary-container scale-90 uppercase font-bold">Hardened</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Trial Status (Integrated) -->
+<div class="glass-card obsidian-aegis rounded-xl p-5 relative overflow-hidden bg-surface-container-low/40">
+<div class="flex justify-between items-start mb-3">
+<div>
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase mb-0.5 block">Sandboxed Environment</span>
+<h4 class="text-body-md font-bold text-primary">Restricted Demo Mode</h4>
+</div>
+<div class="bg-error/10 border border-error/30 px-3 py-1 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error pulse-red"></div>
+<span class="text-data-sm font-data-sm text-error uppercase font-bold">Offline</span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex gap-1 mb-2">
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-primary-container rounded-full segment-active"></div>
+<div class="h-1 flex-1 bg-outline-variant rounded-full opacity-30"></div>
+<div class="h-1 flex-1 bg-outline-variant rounded-full opacity-30"></div>
+</div>
+<p class="text-[10px] font-data-sm text-on-surface-variant font-medium">HWID: 77a8-f92e-b1c0 (Unauthorized)</p>
+</div>
+<div class="text-right border-l border-outline-variant/30 pl-4">
+<div class="text-headline-md font-data-lg text-primary tracking-widest leading-none" id="countdown">14:22:01</div>
+<span class="text-[10px] font-label-caps text-on-surface-variant uppercase">Cooldown</span>
+</div>
+</div>
+</div>
+<!-- Security Audit Logs -->
+<div class="glass-card obsidian-aegis rounded-xl p-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary-container text-[18px]">history_edu</span>
+<h4 class="text-label-caps font-label-caps text-primary">SECURITY AUDIT</h4>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[11px] font-data-sm border-b border-outline-variant/10 pb-1.5">
+<span class="text-on-surface-variant">LOGIN_SUCCESS</span>
+<span class="text-primary-container">192.168.1.1</span>
+<span class="text-on-surface-variant/60">2m ago</span>
+</div>
+<div class="flex justify-between items-center text-[11px] font-data-sm border-b border-outline-variant/10 pb-1.5">
+<span class="text-on-surface-variant uppercase text-error">Hwid_change_req</span>
+<span class="text-on-surface-variant">REJECTED</span>
+<span class="text-on-surface-variant/60">1h ago</span>
+</div>
+<div class="flex justify-between items-center text-[11px] font-data-sm">
+<span class="text-on-surface-variant">AES_HANDSHAKE</span>
+<span class="text-primary-container">VERIFIED</span>
+<span class="text-on-surface-variant/60">6h ago</span>
+</div>
+</div>
+</div>
+<!-- Plan Selection -->
+<div class="space-y-3">
+<!-- Daily Access -->
+<button class="plan-card w-full text-left glass-card obsidian-aegis rounded-xl p-5 transition-all duration-200 border border-outline-variant hover:border-primary-container/50" id="plan-daily" onclick="selectPlan('daily')">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block">Standard</span>
+<span class="text-data-sm text-on-surface-variant">24h Temporary Access</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary">$1.00</span>
+</div>
+</div>
+</button>
+<!-- Weekly Access (Featured) -->
+<button class="plan-card w-full text-left glass-card obsidian-aegis rounded-xl p-5 transition-all duration-200 border-2 border-primary-container relative neon-glow" id="plan-weekly" onclick="selectPlan('weekly')">
+<div class="absolute -top-3 right-5 bg-primary-container text-on-primary-container px-3 py-0.5 rounded-full text-label-caps font-label-caps font-bold">V3.0 PRIORITY</div>
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center border border-primary-container/40">
+<span class="material-symbols-outlined text-primary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block">Institutional</span>
+<span class="text-data-sm text-primary-container">Hardened Node Access</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary-container font-bold">$3.00</span>
+</div>
+</div>
+<ul class="grid grid-cols-1 gap-2 pt-2 border-t border-outline-variant/30">
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-primary">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Military-Grade Signal Latency
+                            </li>
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-primary">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Multi-HWID Binding (Up to 2)
+                            </li>
+</ul>
+</button>
+<!-- Institutional (Elite) -->
+<button class="plan-card w-full text-left institutional-premium rounded-xl p-5 transition-all duration-200 border-2 border-transparent" id="plan-monthly" onclick="selectPlan('monthly')">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-container to-surface-container-highest flex items-center justify-center border border-primary-container/30">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary block uppercase tracking-tight">Enterprise</span>
+<span class="text-data-sm text-primary-container/80">Full Node Control + API</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-data-lg font-data-lg text-primary font-bold">$10.00</span>
+<span class="block text-[10px] text-on-surface-variant font-bold">MONTHLY</span>
+</div>
+</div>
+<ul class="space-y-2 pt-2 border-t border-primary-container/20">
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">hub</span>
+                                Unlimited Data Stream Access
+                            </li>
+<li class="flex items-center gap-2 text-data-sm font-data-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary-container" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Managed VPN Tunnel Injection
+                            </li>
+</ul>
+</button>
+</div>
+</div>
+</section>
+<!-- Payment Gateway Section -->
+<section class="mb-4">
+<div class="flex flex-col items-center mb-4 gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="text-label-caps font-label-caps text-primary font-bold tracking-widest">HARDENED CHECKOUT</h3>
+</div>
+<div class="flex gap-4 items-center opacity-80">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded border border-outline-variant/30 bg-surface-container-low">
+<span class="material-symbols-outlined text-[12px] text-primary-container" data-icon="lock">lock</span>
+<span class="text-[9px] font-label-caps text-on-surface font-bold uppercase tracking-tighter">256-BIT AES ENCRYPTED</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full bg-[#0070ba] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 active:scale-[0.98] transition-transform shadow-lg shadow-black/40 border border-white/10">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="tracking-tight">Pay with PayPal Secure</span>
+</button>
+<button class="w-full bg-[#3BB34A] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 active:scale-[0.98] transition-transform border border-white/10 shadow-lg shadow-black/40">
+<div class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden border border-[#2f8f3b]">
+<img alt="M-Pesa logo" class="w-6 h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_xSFc4J-ofnL_JythyQgquGn9WNQOgHHKGyqEgQUhQjC3oQoY2tipvoiChfgXUQGf7cEFHT34FQZfOG6RBKBDrYO8MDqDBMhJ2JpAkkpWadnEh4mH_jajy3bIi3XOm0N8CmAZiPW9pCeMy-p_upgYzh7qAq6rlF8UY6WQ0mGscT8bNp32uu5h0gJyJqFha0yZR4mI3OQkVsliN9Q0W-I8D7CKsvk15yw0MMOzW2ggf6b2_QEEAPavJvRH1AfFImv84QkKWjnB5mBM"/>
+</div>
+<span class="tracking-tight uppercase">Pay with M-Pesa API</span>
+</button>
+</div>
+<div class="mt-8 flex flex-col items-center gap-3">
+<div class="flex items-center gap-4 grayscale opacity-40">
+<img alt="PayPal" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV1k8obNkleqiDJwetIoAP6ZC6d1opP9L9yzEHey6UtCisP-PbA6C-TdWMm39EiFpfqVSM_u4Psj5OTvKB70lH-ryuLK4Ltl23W1yVJ9pXIlvNDdghqhe_J6QqwE8RK3vblilPJmdmwUOfJ0uQsMLmt_F1fVOe5RzjmpWmZvBOh_zXz9KmDB0U9I7pjBWg0s2PbNvC3qHz6XIjjBFVpGFbZ8id9nLmmnt-EB7WFpdzO8u3gRyHZIxc5QDS4IJtxY-nsINs13e9SdnR"/>
+<img alt="Visa" class="h-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfztU1b9BuxNFVwp4ybZ7HohbEUA_vyYArqmKxgsG5B2Grb0nwnF9ncmdb5sTtMdqmGGh8Cu6zifg3QWJqh9h6wJhtw3QzfV1zioYVTm4RE0lSnLvhowUoLXKf5vEzHN4_w8-EvGyT4hn_AQDZZx3yvVcgn5JL5sq9ZuKhs4j5EVL4zckEiyldGXwDiSeqk8NLoHjmmYW67R9-GuTtcxQDGUi9jom5b2kZ0h_hIfZRFNISPN-90P-L77ndZxyuXelIALJobFupzAn8"/>
+<img alt="Mastercard" class="h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCWMcumkVC8-l4hR65aUrM7BDjaM9bkvyYOOW7PpTZESMwUVcRxC4drYYEyEfAh1JvkBSNlHz2pkWOOzuTmY-fCPNjdJ4VzU5OSZKseVoZ1M454-W7wOkA_H2GurS-EHDLiF1uXovl2QwAVc60jKVmWA3GnSS28bT_ZwrHvnv5_VIY1uf67VWsO5BBYd2psnvXW9Ltv99hFVVV2fllpIBxc74EL_i_34dxBIfAMqBd1CL5w4a1UBfRNHSF7x3-VgDajKNxWLfsaaRj"/>
+</div>
+<p class="text-[10px] font-label-caps text-on-surface-variant uppercase tracking-widest">PCI-DSS Compliant Infrastructure</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-24 left-0 w-full flex justify-center px-margin-mobile z-40">
+<a class="glass-card obsidian-aegis px-6 py-2.5 rounded-full flex items-center gap-2 border-primary-container/30 hover:bg-surface-variant transition-colors active:scale-95 shadow-lg" href="{{DATA:SCREEN:SCREEN_5}}">
+<span class="material-symbols-outlined text-primary-container text-[18px]">share_reviews</span>
+<span class="text-label-caps font-label-caps text-primary tracking-wider">SECURE REFERRAL PROGRAM</span>
+</a>
+</div>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container border-t border-outline-variant backdrop-blur-2xl shadow-2xl rounded-t-2xl h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors group" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="text-label-caps font-label-caps">Hub</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors group" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">rss_feed</span>
+<span class="text-label-caps font-label-caps">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors group" href="{{DATA:SCREEN:SCREEN_7}}">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">analytics</span>
+<span class="text-label-caps font-label-caps">Matrix</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1.5 active:scale-90 transition-all duration-150 shadow-md shadow-primary-container/20" href="{{DATA:SCREEN:SCREEN_4}}">
+<span class="material-symbols-outlined font-bold">settings</span>
+<span class="text-label-caps font-bold">System</span>
+</a>
+</nav>
+<script>
+        function selectPlan(planId) {
+            const plans = document.querySelectorAll('.plan-card');
+            plans.forEach(plan => {
+                plan.classList.remove('border-primary-container', 'neon-glow', 'border-2');
+                plan.classList.add('border-outline-variant', 'border');
+            });
+
+            const activePlan = document.getElementById('plan-' + planId);
+            activePlan.classList.remove('border-outline-variant', 'border');
+            activePlan.classList.add('border-primary-container', 'neon-glow', 'border-2');
+            
+            activePlan.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                activePlan.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function updateCountdown() {
+            const timerEl = document.getElementById('countdown');
+            if (!timerEl) return;
+            let parts = timerEl.innerText.split(':');
+            let h = parseInt(parts[0]);
+            let m = parseInt(parts[1]);
+            let s = parseInt(parts[2]);
+
+            s--;
+            if (s < 0) { s = 59; m--; }
+            if (m < 0) { m = 59; h--; }
+            if (h < 0) { h = 23; }
+
+            timerEl.innerText = 
+                String(h).padStart(2, '0') + ':' + 
+                String(m).padStart(2, '0') + ':' + 
+                String(s).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body></html>

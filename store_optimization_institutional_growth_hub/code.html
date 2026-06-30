@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper ICT | Store Optimization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#111415",
+                    "on-primary-container": "#556d00",
+                    "inverse-on-surface": "#2e3132",
+                    "background": "#111415",
+                    "surface-variant": "#323536",
+                    "outline-variant": "#444933",
+                    "error-container": "#93000a",
+                    "surface": "#111415",
+                    "secondary-container": "#c5020b",
+                    "outline": "#8e9379",
+                    "primary-container": "#c3f400",
+                    "on-primary": "#283500",
+                    "on-tertiary": "#3a3000",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "on-surface": "#e1e3e4",
+                    "on-surface-variant": "#c4c9ac",
+                    "on-secondary-container": "#ffd2cc",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-secondary": "#690003",
+                    "secondary-fixed": "#ffdad5",
+                    "tertiary": "#ffffff",
+                    "on-background": "#e1e3e4",
+                    "surface-tint": "#abd600",
+                    "primary-fixed": "#c3f400",
+                    "surface-container": "#1d2021",
+                    "on-primary-fixed": "#161e00",
+                    "primary-fixed-dim": "#abd600",
+                    "surface-container-highest": "#323536",
+                    "inverse-primary": "#506600",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "surface-bright": "#373a3b",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#ffe16d",
+                    "surface-container-high": "#282a2b",
+                    "on-tertiary-container": "#776300",
+                    "on-error": "#690005",
+                    "primary": "#ffffff",
+                    "secondary": "#ffb4aa",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e1e3e4",
+                    "surface-container-low": "#191c1d",
+                    "surface-container-lowest": "#0c0f10",
+                    "on-secondary-fixed-variant": "#930005",
+                    "on-secondary-fixed": "#410001"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "margin-desktop": "32px",
+                    "gutter": "16px",
+                    "container-max-width": "1440px"
+            },
+            "fontFamily": {
+                    "data-sm": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "data-lg": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 0.5);
+            box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow-text {
+            text-shadow: 0 0 10px rgba(171, 214, 0, 0.4);
+        }
+        .funnel-step {
+            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%, 5% 50%);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-surface-tint selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 z-50 border-b border-outline-variant bg-background/80 backdrop-blur-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-70">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-surface-tint">PRECISION SNIPER ICT</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8 text-on-surface-variant font-label-caps tracking-widest">
+<span class="hover:text-surface-tint transition-colors cursor-pointer">METRICS</span>
+<span class="text-surface-tint">OPTIMIZATION</span>
+<span class="hover:text-surface-tint transition-colors cursor-pointer">ANALYSIS</span>
+</div>
+<span class="material-symbols-outlined text-surface-tint cursor-pointer active:opacity-70">monitoring</span>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-surface-tint animate-pulse"></span>
+<span class="font-label-caps text-surface-tint tracking-widest">LIVE STORE ENGINE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Store Optimization</h2>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-caps hover:brightness-110 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                    RUN A/B TEST
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Listing Performance Section -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- CTR Card -->
+<div class="glass-panel p-6 rounded-xl relative overflow-hidden group">
+
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-caps text-on-surface-variant opacity-60">CTR</span>
+<span class="text-surface-tint text-xs font-data-sm">+2.4%</span>
+</div>
+<div class="mt-4 relative z-10">
+<div class="font-data-lg text-data-lg text-surface-tint neon-glow-text">8.42%</div>
+<div class="h-1 w-full bg-surface-variant mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint w-[65%] shadow-[0_0_8px_rgba(171,214,0,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- CVR Card -->
+<div class="glass-panel p-6 rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-caps text-on-surface-variant opacity-60">CVR</span>
+<span class="text-secondary text-xs font-data-sm">-0.8%</span>
+</div>
+<div class="mt-4 relative z-10">
+<div class="font-data-lg text-data-lg text-surface-tint neon-glow-text">14.1%</div>
+<div class="h-1 w-full bg-surface-variant mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint w-[45%] shadow-[0_0_8px_rgba(171,214,0,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Active Installs -->
+<div class="glass-panel p-6 rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-start relative z-10">
+<span class="font-label-caps text-on-surface-variant opacity-60">ACTIVE INSTALLS</span>
+<span class="text-surface-tint text-xs font-data-sm">+124</span>
+</div>
+<div class="mt-4 relative z-10">
+<div class="font-data-lg text-data-lg text-surface-tint neon-glow-text">42,809</div>
+<div class="h-1 w-full bg-surface-variant mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint w-[82%] shadow-[0_0_8px_rgba(171,214,0,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Conversion Funnel Visualization -->
+<div class="glass-panel p-8 rounded-xl">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">filter_alt</span>
+                            Conversion Funnel
+                        </h3>
+<span class="font-label-caps text-on-surface-variant opacity-40">LTM PERFORMANCE</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Impression -->
+<div class="relative flex items-center h-16 group">
+<div class="funnel-step w-full h-full bg-surface-container-high transition-colors group-hover:bg-surface-variant flex items-center px-12">
+<span class="font-label-caps text-on-surface-variant">Impressions</span>
+<span class="ml-auto font-data-lg text-data-lg text-primary">1,240,500</span>
+</div>
+<div class="absolute left-4 w-1 h-8 bg-surface-tint rounded-full"></div>
+</div>
+<!-- Product View -->
+<div class="relative flex items-center h-16 group pl-[5%] pr-[5%]">
+<div class="funnel-step w-full h-full bg-surface-container-high transition-colors group-hover:bg-surface-variant flex items-center px-12">
+<span class="font-label-caps text-on-surface-variant">Product Views</span>
+<span class="ml-auto font-data-lg text-data-lg text-primary">104,450</span>
+</div>
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-data-sm text-surface-tint">8.42% DROP-OFF</div>
+</div>
+<!-- Install -->
+<div class="relative flex items-center h-16 group pl-[10%] pr-[10%]">
+<div class="funnel-step w-full h-full bg-surface-container-high transition-colors group-hover:bg-surface-variant flex items-center px-12">
+<span class="font-label-caps text-on-surface-variant">Installs</span>
+<span class="ml-auto font-data-lg text-data-lg text-primary">14,727</span>
+</div>
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-data-sm text-surface-tint">14.1% CONV.</div>
+</div>
+<!-- Subscription -->
+<div class="relative flex items-center h-16 group pl-[15%] pr-[15%]">
+<div class="funnel-step w-full h-full bg-surface-tint flex items-center px-12">
+<span class="font-label-caps text-on-primary">Paid Subscription</span>
+<span class="ml-auto font-data-lg text-data-lg text-on-primary">2,142</span>
+</div>
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-data-sm text-surface-tint">14.5% REVENUE</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Keyword Ranking & Side Assets -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<!-- Keyword Table -->
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary">ASO Keywords</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+</div>
+<div class="overflow-x-auto hide-scrollbar">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="p-4 font-label-caps text-on-surface-variant opacity-60 text-[10px]">KEYWORD</th>
+<th class="p-4 font-label-caps text-on-surface-variant opacity-60 text-[10px]">RANK</th>
+<th class="p-4 font-label-caps text-on-surface-variant opacity-60 text-[10px]">CHANGE</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-variant/30 transition-colors cursor-default">
+<td class="p-4 font-body-md text-primary">ICT Trading</td>
+<td class="p-4 font-data-sm">#1</td>
+<td class="p-4"><span class="text-surface-tint flex items-center text-[10px]"><span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>STABLE</span></td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors cursor-default">
+<td class="p-4 font-body-md text-primary">SMC EA</td>
+<td class="p-4 font-data-sm">#3</td>
+<td class="p-4"><span class="text-surface-tint flex items-center text-[10px]"><span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>+2</span></td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors cursor-default">
+<td class="p-4 font-body-md text-primary">Forex Automation</td>
+<td class="p-4 font-data-sm">#8</td>
+<td class="p-4"><span class="text-secondary flex items-center text-[10px]"><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>-1</span></td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors cursor-default">
+<td class="p-4 font-body-md text-primary">Institutional Node</td>
+<td class="p-4 font-data-sm">#2</td>
+<td class="p-4"><span class="text-surface-tint flex items-center text-[10px]"><span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>+4</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Asset Preview Glass Card -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group">
+<div class="aspect-[16/9] rounded-lg bg-cover bg-center" data-alt="A futuristic, high-tech trading terminal UI displayed on a sleek mobile phone screen, featuring neon lime green candle sticks and complex institutional trading data. The lighting is moody and cinematic, reflecting a professional dark mode aesthetic with obsidian black backgrounds and razor-sharp digital precision." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDckOFQqngAlLBQp3IjA1XHCshBXOHB1Q9kumxOZMSlGc3j6IwIkF_MJGptHtf2cYm5ferL-hlZiH8DSnIAa4NgfKE6TtNMmDdJvSh1kBqIt_ETs2F0y_TfWM2NvBBvjjwZnCLLHrqSDq8oEJ3bn0YXvzpFw7TqtE-oBbsAFs5SgScR_y_8XK3J4UX_3RwWQe7A18xzn0wp6YkoDisuSihPil-ZbQwtuQcA9RG9Phm1A72zsyCLxviiay4eB6JlV2Csca07AsLLLgqY')"></div>
+<div class="flex justify-between items-center">
+<div>
+<div class="font-body-md text-primary font-bold">Main Store Screenshot v2.4</div>
+<div class="text-[10px] font-label-caps text-on-surface-variant opacity-60">ACTIVE IN A/B TEST</div>
+</div>
+<span class="material-symbols-outlined text-surface-tint">visibility</span>
+</div>
+</div>
+<!-- Optimization Log -->
+<div class="glass-panel p-6 rounded-xl">
+<h4 class="font-label-caps text-on-surface-variant opacity-60 mb-4 tracking-widest">SYSTEM OPTIMIZATION LOG</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-[1px] h-auto bg-surface-tint/30 relative">
+<div class="absolute top-0 -left-1 w-2 h-2 rounded-full bg-surface-tint"></div>
+</div>
+<div>
+<p class="text-xs text-primary font-body-md">Keyword 'SMC' rank increased to Top 3</p>
+<span class="text-[10px] font-data-sm text-on-surface-variant opacity-40">14:02:11</span>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-[1px] h-auto bg-surface-tint/30 relative">
+<div class="absolute top-0 -left-1 w-2 h-2 rounded-full bg-surface-variant"></div>
+</div>
+<div>
+<p class="text-xs text-primary font-body-md">Meta-description update deployed</p>
+<span class="text-[10px] font-data-sm text-on-surface-variant opacity-40">09:15:45</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 border-t border-outline-variant backdrop-blur-lg shadow-[0_-4px_24px_rgba(171,214,0,0.1)] rounded-t-xl md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-surface-tint drop-shadow-[0_0_8px_rgba(171,214,0,0.5)] transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">speed</span>
+<span class="font-label-caps text-label-caps mt-1">Optimization</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-label-caps text-label-caps mt-1">Tracking</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps mt-1">Finance</span>
+</div>
+</nav>
+<!-- Decoration element -->
+<div class="fixed bottom-0 right-0 w-96 h-96 bg-surface-tint/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed top-0 left-0 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+<script>
+        // Micro-interactions and real-time feel
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple flicker effect for neon elements
+        const flicker = () => {
+            const elements = document.querySelectorAll('.neon-glow-text');
+            elements.forEach(el => {
+                if (Math.random() > 0.98) {
+                    el.style.opacity = '0.7';
+                    setTimeout(() => el.style.opacity = '1', 50);
+                }
+            });
+            requestAnimationFrame(flicker);
+        };
+        flicker();
+    </script>
+</body></html>

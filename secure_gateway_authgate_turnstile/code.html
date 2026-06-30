@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TERMINAL_SECURE_ALPHA - Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#e9c400",
+                      "secondary": "#ffb4aa",
+                      "surface-tint": "#abd600",
+                      "outline-variant": "#444933",
+                      "primary-container": "#c3f400",
+                      "inverse-surface": "#e1e3e4",
+                      "on-primary-fixed": "#161e00",
+                      "on-surface": "#e1e3e4",
+                      "on-primary": "#283500",
+                      "primary": "#ffffff",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary-fixed": "#c3f400",
+                      "tertiary-fixed": "#ffe16d",
+                      "outline": "#8e9379",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#373a3b",
+                      "surface-container-highest": "#323536",
+                      "on-secondary-fixed-variant": "#930005",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-background": "#e1e3e4",
+                      "secondary-fixed": "#ffdad5",
+                      "on-tertiary-container": "#776300",
+                      "background": "#111415",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-secondary-container": "#ffd2cc",
+                      "error-container": "#93000a",
+                      "on-surface-variant": "#c4c9ac",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-high": "#282a2b",
+                      "secondary-container": "#c5020b",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "on-primary-container": "#556d00",
+                      "on-secondary-fixed": "#410001",
+                      "inverse-on-surface": "#2e3132",
+                      "surface-container": "#1d2021",
+                      "tertiary": "#ffffff",
+                      "surface-container-low": "#191c1d",
+                      "on-secondary": "#690003",
+                      "surface-variant": "#323536",
+                      "inverse-primary": "#506600",
+                      "primary-fixed-dim": "#abd600",
+                      "surface": "#111415",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-tertiary": "#3a3000",
+                      "surface-dim": "#111415",
+                      "tertiary-container": "#ffe16d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "container-max-width": "1440px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "data-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Minimalist Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(45, 49, 57, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(45, 49, 57, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Turnstile Animation */
+        .turnstile-spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Neon Glow Effect for Primary Button */
+        .btn-neon-glow {
+            box-shadow: 0 0 15px -3px rgba(195, 244, 0, 0.4);
+            transition: box-shadow 0.2s ease-in-out;
+        }
+        .btn-neon-glow:hover {
+            box-shadow: 0 0 25px -2px rgba(195, 244, 0, 0.6);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex items-center justify-center bg-grid-pattern overflow-hidden relative">
+<!-- Top Left Accent Line -->
+<div class="absolute top-0 left-0 w-32 h-[2px] bg-primary-fixed blur-[1px]"></div>
+<div class="absolute top-0 left-0 w-[2px] h-32 bg-primary-fixed blur-[1px]"></div>
+<!-- TopAppBar - Suppressed for transactional intent but keeping brand anchor -->
+<div class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 pointer-events-none">
+<div class="font-data-lg text-data-lg font-bold text-primary-fixed tracking-tighter">
+            TERMINAL_SECURE_ALPHA
+        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="font-data-sm text-data-sm">SECURE_GATEWAY_V1.2</span>
+</div>
+</div>
+<!-- Main Container -->
+<main class="w-full max-w-[420px] px-margin-mobile relative z-10">
+<!-- Glass Panel Card -->
+<div class="bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/50 rounded-xl relative overflow-hidden">
+<!-- Subtle Top Glow -->
+<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-fixed/30 to-transparent"></div>
+<div class="p-8">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Initialize Session</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enter credentials to access secure terminal data.</p>
+</div>
+<!-- Alerts -->
+<div id="loginAlert" class="hidden mb-4 p-3 bg-error-container/30 border border-error/20 rounded-lg flex items-center gap-2 text-on-error-container text-xs">
+<span class="material-symbols-outlined text-sm shrink-0">error</span>
+<span id="loginAlertText">Authentication failed.</span>
+</div>
+<div id="loginSuccess" class="hidden mb-4 p-3 bg-green-950/20 border border-primary-fixed/20 rounded-lg flex items-center gap-2 text-primary-fixed text-xs">
+<span class="material-symbols-outlined text-sm shrink-0">check_circle</span>
+<span>Session initialized. Redirecting...</span>
+</div>
+<!-- Form -->
+<form class="space-y-6" id="authForm" novalidate>
+<!-- Input Group: Email -->
+<div class="space-y-2">
+<label class="block font-data-sm text-data-sm text-on-surface-variant" for="email">IDENTITY_KEY (Email)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">mail</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg pl-10 pr-4 py-3 font-data-sm text-data-sm text-on-surface focus:border-primary-fixed focus:ring-1 focus:ring-primary-fixed/50 transition-colors placeholder:text-on-surface-variant/50 outline-none" id="email" placeholder="sysadmin@institutional.node" type="email"/>
+</div>
+</div>
+<!-- Input Group: Password -->
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<label class="block font-data-sm text-data-sm text-on-surface-variant" for="password">ACCESS_TOKEN (Password)</label>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">key</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg pl-10 pr-10 py-3 font-data-sm text-data-sm text-on-surface focus:border-primary-fixed focus:ring-1 focus:ring-primary-fixed/50 transition-colors placeholder:text-on-surface-variant/50 outline-none" id="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button" id="toggle-pw">
+<span class="material-symbols-outlined text-sm" id="toggle-pw-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Simulated Cloudflare Turnstile -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-outline-variant transition-colors" id="turnstile-container">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container transition-colors" id="turnstile-status-icon">
+<!-- Checkbox content updated via JS -->
+</div>
+<span class="font-data-sm text-data-sm text-on-surface">Verify you are human</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-data-sm text-data-sm text-on-surface-variant/50 text-[10px]">Cloudflare</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant/50 text-[8px]">Privacy · Terms</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-4 flex flex-col gap-4">
+<button class="w-full bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps uppercase py-3 rounded-lg border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-not-allowed" disabled="" id="submitBtn" type="submit">
+<span class="material-symbols-outlined text-sm" id="submit-icon">login</span>
+                            <span id="submit-label">Authenticate</span>
+                        </button>
+<div class="flex justify-between items-center px-1">
+<a class="font-data-sm text-data-sm text-on-surface-variant hover:text-primary-fixed transition-colors" href="#">Recover Access</a>
+<a class="font-data-sm text-data-sm text-on-surface-variant hover:text-primary-fixed transition-colors" id="signup-link" href="#">Request Node</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Bottom Terminal Data Line -->
+<div class="mt-8 flex justify-between items-center text-on-surface-variant/40 font-data-sm text-data-sm text-[10px]">
+<span>NODE: NYC-EST-01</span>
+<span>LATENCY: 12ms</span>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const turnstileContainer = document.getElementById('turnstile-container');
+            const turnstileIcon = document.getElementById('turnstile-status-icon');
+            const submitBtn = document.getElementById('submitBtn');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const authForm = document.getElementById('authForm');
+            const loginAlert = document.getElementById('loginAlert');
+            const loginAlertText = document.getElementById('loginAlertText');
+            const loginSuccess = document.getElementById('loginSuccess');
+            const signupLink = document.getElementById('signup-link');
+            const togglePw = document.getElementById('toggle-pw');
+            const togglePwIcon = document.getElementById('toggle-pw-icon');
+            let isVerified = false;
+
+            // ─── Detect server context ───────────────────────────────────────────
+            const isServer = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+
+            if (isServer) {
+                signupLink.href = '/secure_gateway_signup/code.html';
+            } else {
+                signupLink.href = '../secure_gateway_signup/code.html';
+            }
+
+            // ─── Toggle password visibility ──────────────────────────────────────
+            togglePw.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    togglePwIcon.textContent = 'visibility_off';
+                } else {
+                    passwordInput.type = 'password';
+                    togglePwIcon.textContent = 'visibility';
+                }
+            });
+
+            // ─── Cloudflare Turnstile simulation ───────────────────────────────
+            turnstileContainer.addEventListener('click', () => {
+                if (isVerified) return;
+
+                // 1. Loading State
+                turnstileIcon.innerHTML = `<span class="material-symbols-outlined text-sm text-primary-fixed turnstile-spin">sync</span>`;
+                turnstileIcon.classList.remove('bg-surface-container', 'border-outline-variant');
+                turnstileIcon.classList.add('border-primary-fixed/50', 'bg-surface-container-highest');
+
+                // 2. Simulate network verification delay
+                setTimeout(() => {
+                    // 3. Success State
+                    isVerified = true;
+                    turnstileIcon.innerHTML = `<span class="material-symbols-outlined text-sm text-primary-fixed">check</span>`;
+                    turnstileIcon.classList.remove('border-primary-fixed/50', 'bg-surface-container-highest');
+                    turnstileIcon.classList.add('border-primary-fixed', 'bg-primary-container/10');
+                    
+                    turnstileContainer.classList.add('border-primary-fixed/30');
+
+                    // Enable Submit Button with Neon styling
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant', 'border-outline-variant/30', 'cursor-not-allowed');
+                    submitBtn.classList.add('bg-primary-fixed', 'text-on-primary-fixed', 'border-primary-fixed', 'btn-neon-glow', 'hover:bg-primary-fixed-dim');
+                }, 1500);
+            });
+
+            // ─── Form submit handler ──────────────────────────────────────────
+            authForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loginAlert.classList.add('hidden');
+                loginSuccess.classList.add('hidden');
+
+                if (!isVerified) {
+                    loginAlertText.textContent = 'Please verify operator identity signature first.';
+                    loginAlert.classList.remove('hidden');
+                    return;
+                }
+
+                const email = emailInput.value.trim().toLowerCase();
+                const password = passwordInput.value;
+
+                if (!email || !password) {
+                    loginAlertText.textContent = 'IDENTITY_KEY and ACCESS_TOKEN are required.';
+                    loginAlert.classList.remove('hidden');
+                    return;
+                }
+
+                // Loading visual states
+                submitBtn.disabled = true;
+                const submitIcon = document.getElementById('submit-icon');
+                const submitLabel = document.getElementById('submit-label');
+                submitIcon.textContent = 'hourglass_top';
+                submitLabel.textContent = 'Initializing secure handshake...';
+
+                // Server Context flow (fetch /api/auth/login)
+                if (isServer) {
+                    try {
+                        const res = await fetch('/api/auth/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, password })
+                        });
+                        const data = await res.json();
+
+                        if (!res.ok) {
+                            throw new Error(data.error || 'Authentication handshake rejected.');
+                        }
+
+                        // Save mock token & email
+                        localStorage.setItem('auth_token', data.token);
+                        localStorage.setItem('user_email', email);
+
+                        loginSuccess.classList.remove('hidden');
+                        setTimeout(() => {
+                            window.location.href = '/';
+                        }, 1200);
+
+                    } catch (err) {
+                        loginAlertText.textContent = err.message;
+                        loginAlert.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitIcon.textContent = 'login';
+                        submitLabel.textContent = 'Authenticate';
+                    }
+                } else {
+                    // Client-only context fallback (file:// protocol)
+                    // Check registered users in localStorage
+                    const registeredUsers = JSON.parse(localStorage.getItem('registered_users') || '[]');
+                    const found = registeredUsers.find(u => u.email === email && u.password === password);
+                    
+                    // Fallback to default developer credentials if empty or matching
+                    const isDefault = (email === 'sysadmin@institutional.node' || email === 'sysadmin@node') && password === 'password';
+
+                    if (found || isDefault) {
+                        localStorage.setItem('auth_token', 'mock-client-session-token');
+                        localStorage.setItem('user_email', email);
+
+                        loginSuccess.classList.remove('hidden');
+                        setTimeout(() => {
+                            window.location.href = '../index.html';
+                        }, 1200);
+                    } else {
+                        loginAlertText.textContent = 'Invalid credentials or unregistered node signature.';
+                        loginAlert.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitIcon.textContent = 'login';
+                        submitLabel.textContent = 'Authenticate';
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Success | MORRYNET</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#efc11c",
+                    "secondary": "#c5c7c8",
+                    "surface": "#0e141a",
+                    "secondary-container": "#444748",
+                    "on-tertiary-container": "#7b6100",
+                    "tertiary-fixed": "#ffe089",
+                    "on-primary": "#283500",
+                    "inverse-on-surface": "#2c3138",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#171c23",
+                    "primary-container": "#c3f400",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "outline-variant": "#444933",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-secondary-fixed-variant": "#444748",
+                    "primary-fixed": "#c3f400",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-surface-variant": "#c4c9ac",
+                    "tertiary-container": "#ffe089",
+                    "inverse-surface": "#dee3ec",
+                    "surface-container": "#1b2027",
+                    "secondary-fixed": "#e1e3e4",
+                    "error-container": "#93000a",
+                    "surface-bright": "#343a41",
+                    "surface-tint": "#abd600",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#090f15",
+                    "on-surface": "#dee3ec",
+                    "background": "#0e141a",
+                    "surface-container-high": "#252a32",
+                    "on-secondary-container": "#b3b5b6",
+                    "on-secondary": "#2e3132",
+                    "surface-variant": "#30353d",
+                    "outline": "#8e9379",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#556d00",
+                    "surface-container-highest": "#30353d",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "tertiary": "#ffffff",
+                    "on-background": "#dee3ec",
+                    "surface-dim": "#0e141a",
+                    "on-primary-fixed": "#161e00",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "primary": "#ffffff",
+                    "inverse-primary": "#506600",
+                    "on-tertiary": "#3d2f00",
+                    "primary-fixed-dim": "#abd600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-standard": "12px",
+                    "margin-mobile": "12px",
+                    "gutter-terminal": "2px",
+                    "unit": "4px",
+                    "stack-dense": "4px",
+                    "margin-desktop": "16px"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-sm": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "data-mono": ["13px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0C0D; /* Obsidian Abyss override */
+            color: #dee3ec;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .success-glow {
+            box-shadow: 0 0 40px rgba(204, 255, 0, 0.15);
+        }
+
+        .check-anim {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: dash 1s ease-in-out forwards 0.5s;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .pulse-soft {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
+        }
+        
+        .terminal-scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(204, 255, 0, 0.03) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 border-b border-outline-variant dark:border-outline-variant bg-surface dark:bg-surface flex justify-between items-center px-margin-mobile h-14">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h1 class="font-display-lg text-headline-sm tracking-tighter text-primary-fixed-dim dark:text-primary-fixed-dim">MORRYNET</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-variant/50 transition-colors p-2 active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-4 relative">
+<!-- Background Atmospheric Element -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/5 rounded-full blur-[120px]"></div>
+<div class="terminal-scanline absolute inset-0 opacity-20"></div>
+</div>
+<div class="w-full max-w-md flex flex-col items-center text-center z-10">
+<!-- Large Checkmark Icon -->
+<div class="mb-8 relative flex items-center justify-center">
+<div class="absolute w-24 h-24 bg-primary-fixed/20 rounded-full blur-xl pulse-soft"></div>
+<div class="w-20 h-20 border-2 border-primary-fixed/30 rounded-full flex items-center justify-center bg-[#111415] relative z-10 success-glow">
+<svg class="w-12 h-12 text-primary-fixed" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline class="check-anim" points="20 6 9 17 4 12"></polyline>
+</svg>
+</div>
+</div>
+<!-- Headlines -->
+<h2 class="font-display-lg text-headline-lg text-primary-fixed tracking-tight mb-2">ACCESS GRANTED</h2>
+<p class="text-on-surface-variant font-body-lg mb-10 px-4">Your Elite Institutional subscription is now active.</p>
+<!-- Order Summary Card -->
+<div class="w-full bg-[#111415] border border-outline-variant/30 rounded-lg p-6 mb-10 text-left relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-6xl">verified</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ORDER ID</span>
+<span class="font-data-mono text-data-mono text-primary-fixed-dim">PS-99284-X</span>
+</div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PLAN</span>
+<span class="font-body-md text-on-surface font-semibold">Elite Annual</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">STATUS</span>
+<div class="flex items-center gap-1.5 text-primary-fixed">
+<div class="w-2 h-2 bg-primary-fixed rounded-full"></div>
+<span class="font-label-caps text-label-caps">CONFIRMED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full space-y-3">
+<button class="w-full bg-[#CCFF00] hover:bg-[#d8ff33] text-black font-bold h-12 rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">terminal</span>
+                    ENTER TERMINAL
+                </button>
+<button class="w-full bg-transparent border border-outline-variant/50 hover:border-on-surface text-on-surface font-semibold h-12 rounded-lg transition-colors active:scale-95">
+                    VIEW RECEIPT
+                </button>
+</div>
+<!-- Security Badges -->
+<div class="mt-16 flex items-center justify-center gap-6 opacity-60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="font-label-caps text-label-caps">AES-256 SECURED</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="font-label-caps text-label-caps">PCI COMPLIANT</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-2 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed-dim transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-label-caps text-label-caps mt-1">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed-dim transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-caps text-label-caps mt-1">Automation</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed-dim transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="font-label-caps text-label-caps mt-1">Risk</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary-fixed-dim transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the primary button
+        document.querySelector('button.bg-\\[\\#CCFF00\\]').addEventListener('mouseenter', () => {
+            console.log('Terminal Ready');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Sniper - Terminal Integration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(45, 49, 57, 1);
+            box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(195, 244, 0, 0.15);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary-fixed-variant": "#930005",
+                        "surface-dim": "#111415",
+                        "outline-variant": "#444933",
+                        "on-secondary-container": "#ffd2cc",
+                        "on-tertiary-container": "#776300",
+                        "on-tertiary": "#3a3000",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#556d00",
+                        "surface-container": "#1d2021",
+                        "tertiary": "#ffffff",
+                        "surface-container-high": "#282a2b",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-secondary": "#690003",
+                        "surface-container-lowest": "#0c0f10",
+                        "secondary": "#ffb4aa",
+                        "background": "#111415",
+                        "primary": "#ffffff",
+                        "primary-container": "#c3f400",
+                        "inverse-surface": "#e1e3e4",
+                        "on-primary": "#283500",
+                        "on-background": "#e1e3e4",
+                        "inverse-on-surface": "#2e3132",
+                        "surface-tint": "#abd600",
+                        "on-surface": "#e1e3e4",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "secondary-fixed": "#ffdad5",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-secondary-fixed": "#410001",
+                        "surface-bright": "#373a3b",
+                        "primary-fixed-dim": "#abd600",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "outline": "#8e9379",
+                        "surface": "#111415",
+                        "surface-container-low": "#191c1d",
+                        "surface-container-highest": "#323536",
+                        "secondary-container": "#c5020b",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-variant": "#323536",
+                        "inverse-primary": "#506600",
+                        "tertiary-container": "#ffe16d",
+                        "on-primary-fixed": "#161e00",
+                        "primary-fixed": "#c3f400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1440px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Background Atmospheric Layer -->
+<div class="fixed inset-0 pointer-events-none z-0">
+
+</div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile h-16 w-full z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="shield">shield</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-fixed">PRECISION SNIPER</span>
+</div>
+<button class="transition-all duration-200 active:scale-95 hover:bg-white/5 p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+</button>
+</header>
+<main class="relative z-10 pt-20 pb-32 min-h-screen px-margin-mobile flex flex-col max-w-md mx-auto">
+<!-- Progress Bar -->
+<div class="flex items-center gap-2 mb-8 mt-4">
+<div class="flex-1 h-1 bg-primary-container rounded-full neon-glow"></div>
+<div class="flex-1 h-1 bg-primary-container rounded-full neon-glow"></div>
+<div class="flex-1 h-1 bg-primary-container rounded-full neon-glow"></div>
+<div class="flex-1 h-1 bg-primary-container rounded-full neon-glow relative">
+<div class="absolute inset-0 bg-primary-container rounded-full animate-pulse"></div>
+</div>
+<span class="font-data-sm text-data-sm text-primary-fixed ml-2">04 / 04</span>
+</div>
+<!-- Headline Section -->
+<section class="mb-10">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-3">Bridge Established</h1>
+<p class="text-on-surface-variant leading-relaxed">Connect your MT4/MT5 accounts to start executing smart money signals with institutional speed.</p>
+</section>
+<!-- Connection Buttons (Bento-style Grid) -->
+<section class="flex flex-col gap-4 mb-10">
+<!-- MT4 Connection -->
+<button class="glass-panel group relative w-full p-6 rounded-xl text-left transition-all duration-300 hover:border-primary-fixed/50 active:scale-[0.98]">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-8 h-8 opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A clean, minimalist 3D rendering of the MetaTrader 4 institutional logo, metallic finish, floating against a dark charcoal background with soft lime green rim lighting, professional trading software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPTGG3z90_UbxG3cWm7X1BECHVar0kCEf4iwogI4P69a353IegPNCddBALVSqylY7cdltmb3DcoXx-KTk1jr-O1wn7KQBLPNU0EiNq94CtK-RUmiOrUu39VBN5YOPSiUnYQVW7kwWu2qe-WnukR6x7-9ZTSv2EGGTz7DFsB5VhgraP3jCgXRBNU4QLsGwXz2GMe5g7hOQWI0nnuv0nQahAvN1v4zX2FteLvLZ4SRm8DoOOry8y0kAhrUR3BJWn_hXvfOuYry_YJnAG"/>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">LEGACY INTEGRATION</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">CONNECT METATRADER 4</h3>
+<p class="text-sm text-on-surface-variant font-data-sm">Institutional Node 1 • 12ms Latency</p>
+<div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<!-- MT5 Connection -->
+<button class="glass-panel group relative w-full p-6 rounded-xl text-left transition-all duration-300 border-primary-fixed/30 hover:border-primary-fixed/60 active:scale-[0.98]">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-8 h-8 opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A sophisticated 3D logo of MetaTrader 5, high-gloss finish, positioned at a 3/4 angle, illuminated by a sharp neon lime green light from below, set in a deep obsidian tech void, reflecting institutional precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAol6tnWxJ4CDyIQQFTY3jTM-xj1DBZxON_g-djEeMrX1kAPBof157umSDR4Se4xjc0i0IXNoE2GZPDOj6Xx3riAPmB_kgjIcSTgyrZ5cALnAShzCnSyBSHd2dIoeNhiXpeXgYmhG30fzOZKD42kXBgOGX3yTvX6MVIvq483xxXfV9je5SRR8PEfeZ7XilN5SSJG1NUEBDmUNlIjLEMp9kXxBsICwUBQWdSO9nmNFTvsJc6PN0MYpgMqYu_C6NDgWykhv7spBfTjJyN"/>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed bg-primary-fixed/10 px-2 py-1 rounded">RECOMMENDED</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">CONNECT METATRADER 5</h3>
+<p class="text-sm text-on-surface-variant font-data-sm">High-Speed Node 5 • 4ms Latency</p>
+<div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</section>
+<!-- Disclaimer / Security -->
+<section class="mt-auto">
+<div class="glass-panel p-4 rounded-lg flex gap-4 items-start border-l-4 border-l-primary-fixed">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">MILITARY-GRADE ENCRYPTION</h4>
+<p class="text-xs text-on-surface-variant leading-tight">Your credentials are never stored. We use 256-bit AES end-to-end encryption to bridge signals directly to your local terminal instance.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Area -->
+<footer class="fixed bottom-0 w-full bg-surface-container-lowest/60 backdrop-blur-2xl border-t border-outline-variant/20 p-6 pb-10 z-50">
+<button class="w-full bg-primary-container text-on-primary-container font-label-caps text-label-caps py-4 rounded-full flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all neon-glow shadow-primary-container/20" onclick="handleEnterHub()">
+            ENTER SECURE HUB
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+<script>
+        function handleEnterHub() {
+            // Add interaction feedback
+            const btn = event.currentTarget;
+            btn.innerHTML = `
+                <span class="animate-spin material-symbols-outlined" data-icon="progress_activity">progress_activity</span>
+                INITIALIZING TERMINAL...
+            `;
+            setTimeout(() => {
+                alert("Redirecting to Terminal Hub...");
+            }, 1000);
+        }
+
+        // Lightweight atmospheric effect for card hover
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

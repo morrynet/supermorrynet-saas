@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout | Precision Sniper ICT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#dee3ec",
+                        "secondary-fixed": "#e1e3e4",
+                        "outline": "#8e9379",
+                        "on-secondary-fixed-variant": "#444748",
+                        "tertiary": "#ffffff",
+                        "background": "#0e141a",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#161e00",
+                        "surface-variant": "#30353d",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "primary-fixed": "#c3f400",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "inverse-on-surface": "#2c3138",
+                        "surface-tint": "#abd600",
+                        "surface-container-low": "#171c23",
+                        "primary": "#ffffff",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#0e141a",
+                        "surface-bright": "#343a41",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "secondary": "#c5c7c8",
+                        "tertiary-fixed": "#ffe089",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#444933",
+                        "surface-container": "#1b2027",
+                        "on-tertiary-container": "#7b6100",
+                        "on-secondary-container": "#b3b5b6",
+                        "tertiary-fixed-dim": "#efc11c",
+                        "tertiary-container": "#ffe089",
+                        "on-tertiary": "#3d2f00",
+                        "on-primary-container": "#556d00",
+                        "surface-container-highest": "#30353d",
+                        "primary-fixed-dim": "#abd600",
+                        "inverse-surface": "#dee3ec",
+                        "surface-container-lowest": "#090f15",
+                        "on-primary": "#283500",
+                        "inverse-primary": "#506600",
+                        "error-container": "#93000a",
+                        "secondary-container": "#444748",
+                        "primary-container": "#c3f400",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-high": "#252a32",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-surface": "#dee3ec",
+                        "on-secondary": "#2e3132",
+                        "surface": "#0e141a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-standard": "12px",
+                        "margin-mobile": "12px",
+                        "unit": "4px",
+                        "stack-dense": "4px",
+                        "margin-desktop": "16px",
+                        "gutter-terminal": "2px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Space Grotesk"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow:focus-within {
+            box-shadow: 0 0 8px rgba(195, 244, 0, 0.4);
+            border-color: #c3f400 !important;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation (Simplified for Checkout) -->
+<header class="w-full top-0 sticky z-50 bg-background flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">shield_lock</span>
+<h1 class="font-display-lg text-headline-sm tracking-tighter text-primary-fixed">MORRYNET</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-on-surface-variant uppercase tracking-widest text-[10px]">Secure Gateway</span>
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+</div>
+</header>
+<main class="min-h-[calc(100vh-64px)] w-full max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Progress Bar -->
+<div class="flex items-center justify-between mb-12 max-w-md mx-auto relative">
+<div class="flex flex-col items-center z-10">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-sm">1</div>
+<span class="font-label-caps text-[10px] mt-2 text-primary-fixed">Cart</span>
+</div>
+<div class="flex flex-col items-center z-10">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-sm">2</div>
+<span class="font-label-caps text-[10px] mt-2 text-primary-fixed">Payment</span>
+</div>
+<div class="flex flex-col items-center z-10 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">3</div>
+<span class="font-label-caps text-[10px] mt-2">Access</span>
+</div>
+<div class="absolute top-4 left-0 w-full h-[1px] bg-outline-variant -z-0">
+<div class="h-full bg-primary-fixed w-1/2"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Payment Configuration Column -->
+<div class="lg:col-span-7 space-y-6">
+<div class="flex items-center gap-2 mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Secure Checkout</h2>
+</div>
+<!-- Payment Methods Accordion -->
+<div class="space-y-4">
+<!-- M-Pesa Option -->
+<div class="payment-card border border-outline-variant bg-surface-container rounded-lg overflow-hidden transition-all duration-300">
+<label class="flex items-center p-4 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="w-5 h-5 text-primary-fixed bg-background border-outline-variant focus:ring-primary-fixed focus:ring-offset-background" name="payment" type="radio" value="mpesa"/>
+<div class="ml-4 flex items-center justify-between w-full">
+<div class="flex flex-col">
+<span class="font-headline-sm text-sm text-on-surface font-semibold">M-Pesa</span>
+<span class="text-body-sm text-on-surface-variant">Mobile Money Transfer</span>
+</div>
+<img class="h-6 object-contain" data-alt="Official M-Pesa logo featuring the iconic green and red branding symbols against a clean transparent background, representing rapid mobile payment solutions in a professional fintech UI context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeKbJRocsIdB7olZrlTqzyauOXlOD3MzZu5iAaCQRCKcub8tdEnddK16d4ny5T0mECJK9ONUQjPMEktCibAUoTD4leju7Jh1YOgpyDkgfxmBoSMJ260b-tJigJBjqBh_YJ1GAdcs6TD50uMuPthyMhEmtXVWwj_O_039EskdAza6ATq0lxljER7kDX3aR8vX4iWafEcafzhCegtI4dUKOIksspQweVOm6ORD7cOUK09p3LHGz02IGL7o0R5m4EwRkcuO1ySISwnpsv"/>
+</div>
+</label>
+<div class="px-12 pb-6 pt-2 space-y-4" id="mpesa-details">
+<div class="space-y-2">
+<label class="font-label-caps text-[10px] text-on-surface-variant uppercase">Phone Number (Safaricom)</label>
+<div class="relative neon-glow border border-outline-variant bg-background rounded p-1 flex items-center">
+<span class="pl-3 pr-2 font-data-mono text-on-surface-variant">+254</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-data-mono w-full p-2 placeholder:text-surface-variant" placeholder="712345678" type="tel"/>
+</div>
+<p class="text-[10px] text-on-surface-variant italic">You will receive an STK push on your phone to complete payment.</p>
+</div>
+</div>
+</div>
+<!-- PayPal Option -->
+<div class="payment-card border border-outline-variant bg-surface-container rounded-lg overflow-hidden transition-all duration-300">
+<label class="flex items-center p-4 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-5 h-5 text-primary-fixed bg-background border-outline-variant focus:ring-primary-fixed focus:ring-offset-background" name="payment" type="radio" value="paypal"/>
+<div class="ml-4 flex items-center justify-between w-full">
+<div class="flex flex-col">
+<span class="font-headline-sm text-sm text-on-surface font-semibold">PayPal</span>
+<span class="text-body-sm text-on-surface-variant">Worldwide Secure Payment</span>
+</div>
+<img class="h-6 object-contain" data-alt="Official PayPal logo with its distinct double P emblem in blue shades, presented cleanly for high-conversion e-commerce checkout systems, conveying global trust and financial security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeYckKM9JibIfFsbPeD5oQ6lMDBnrInjKX5ENcaH2mMrASIveN6Db06H61VDF9HOOtLn0voTFix1MUOdeC0QGNOYUu3FK8DUYuGemFs10lo4IcQkMNKorhCEnmir2YO7wK2F13UQ1bqHTV6AKhAj_G6QV1-X-2p3LFzNZA5KLTSoeKIEfu_wl7MrjQNli8r-4pmw8IQ2EGoQRvZ1-8lVOHnhcTr0N1WmBJLBxv8qLo6NFTKM5XZ288LM4ZmpWkJvKYCUmWTwQgzOuv"/>
+</div>
+</label>
+<div class="px-12 pb-6 pt-2 hidden" id="paypal-details">
+<button class="w-full bg-[#0070ba] hover:bg-[#005ea6] text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-all font-bold">
+<span class="material-symbols-outlined">payments</span>
+                                Pay with PayPal
+                            </button>
+</div>
+</div>
+</div>
+<!-- Security Badges Section -->
+<div class="flex flex-wrap items-center gap-6 pt-6 border-t border-outline-variant/30">
+<div class="flex items-center gap-2 opacity-60 grayscale hover:grayscale-0 transition-all cursor-default">
+<span class="material-symbols-outlined text-primary-fixed">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none">AES-256</span>
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none font-bold">Encrypted</span>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-60 grayscale hover:grayscale-0 transition-all cursor-default">
+<span class="material-symbols-outlined text-primary-fixed">lock</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none">SSL</span>
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none font-bold">Secure Gateway</span>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-60 grayscale hover:grayscale-0 transition-all cursor-default">
+<span class="material-symbols-outlined text-primary-fixed">security</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none">PCI DSS</span>
+<span class="font-label-caps text-[9px] uppercase tracking-tighter leading-none font-bold">Compliant</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Column -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-high border border-outline-variant p-6 rounded-xl sticky top-24">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Order Summary</h3>
+<!-- Product Details -->
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col">
+<span class="font-body-lg font-bold text-on-surface">Elite Annual Plan</span>
+<span class="text-body-sm text-on-surface-variant">Full ICT Strategy Terminal Access</span>
+<div class="mt-1 inline-flex items-center px-2 py-0.5 rounded bg-primary-fixed/10 text-primary-fixed text-[10px] font-bold uppercase tracking-wider">
+                                    70% Discount Applied
+                                </div>
+</div>
+<span class="font-data-mono text-on-surface">$419.90</span>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-3 py-6 border-y border-outline-variant/30">
+<div class="flex justify-between text-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-data-mono">$1,399.66</span>
+</div>
+<div class="flex justify-between text-body-sm text-primary-fixed">
+<span>Limited Time Discount</span>
+<span class="font-data-mono">-$979.76</span>
+</div>
+<div class="flex justify-between text-body-sm text-on-surface-variant">
+<span>Processing Fee</span>
+<span class="font-data-mono">$0.00</span>
+</div>
+</div>
+<!-- Final Total -->
+<div class="py-6 flex justify-between items-center">
+<span class="font-headline-sm text-on-surface">Total</span>
+<div class="text-right">
+<span class="block font-display-lg text-headline-lg text-primary-fixed tracking-tight">$419.90</span>
+<span class="text-[10px] text-on-surface-variant font-label-caps uppercase">Billed Yearly</span>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-headline-sm py-4 rounded hover:bg-primary-fixed-dim transition-all active:scale-[0.98] flex items-center justify-center gap-3 group relative overflow-hidden">
+<span class="shimmer absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Complete Purchase</span>
+</button>
+<p class="mt-4 text-center text-[10px] text-on-surface-variant leading-relaxed">
+                        By clicking "Complete Purchase", you agree to our Terms of Service and Privacy Policy. All sales are final for the Precision Sniper ICT digital goods.
+                    </p>
+</div>
+<!-- High Security Visual Asset -->
+<div class="mt-6 bg-surface-container-lowest border border-outline-variant/20 rounded-lg p-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-primary-fixed border border-primary-fixed/20">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<div>
+<p class="font-label-caps text-[11px] text-on-surface font-bold">INSTANT DEPLOYMENT</p>
+<p class="text-body-sm text-on-surface-variant">Your license key and terminal login will be emailed instantly upon successful payment.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Support Footer -->
+<footer class="mt-20 py-10 px-margin-mobile border-t border-outline-variant bg-surface-container-lowest text-center">
+<div class="max-w-md mx-auto space-y-4">
+<div class="flex justify-center gap-6 mb-6">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">verified</span>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">credit_score</span>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">encrypted</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Need help with your purchase? Contact our 24/7 priority support team at <span class="text-primary-fixed underline cursor-pointer">support@morrynet.tech</span></p>
+<p class="text-[10px] text-surface-variant">© 2024 Precision Sniper ICT - A Morrynet Institutional Framework Product. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple Interaction Logic for Payment Toggle
+        const radios = document.querySelectorAll('input[name="payment"]');
+        const mpesaDetails = document.getElementById('mpesa-details');
+        const paypalDetails = document.getElementById('paypal-details');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'mpesa') {
+                    mpesaDetails.classList.remove('hidden');
+                    paypalDetails.classList.add('hidden');
+                } else {
+                    mpesaDetails.classList.add('hidden');
+                    paypalDetails.classList.remove('hidden');
+                }
+                
+                // Style parent cards
+                document.querySelectorAll('.payment-card').forEach(card => {
+                    card.classList.remove('border-primary-fixed');
+                    card.classList.add('border-outline-variant');
+                });
+                e.target.closest('.payment-card').classList.add('border-primary-fixed');
+                e.target.closest('.payment-card').classList.remove('border-outline-variant');
+            });
+        });
+
+        // Initialize first state
+        document.querySelector('.payment-card').classList.add('border-primary-fixed');
+    </script>
+</body></html>
